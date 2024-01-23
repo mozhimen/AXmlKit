@@ -32,7 +32,7 @@ android {
 dependencies {
 
     implementation project(':SwiftKit:basick')
-    implementation project(':drawablek')
+    implementation project(project.path.replace(project.name, '') +':drawablek')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

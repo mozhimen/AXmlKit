@@ -33,8 +33,8 @@ dependencies {
 
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:uicorek')
-    implementation project(':pagerk')
-    implementation project(':layoutk')
+    implementation project(project.path.replace(project.name, '') +':pagerk')
+    implementation project(project.path.replace(project.name, '') +':layoutk')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
