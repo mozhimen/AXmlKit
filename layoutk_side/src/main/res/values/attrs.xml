@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--layoutk_side-->
+    <declare-styleable name="LayoutKSideList">
+        <attr name="layoutKSideList_menuWidth" format="dimension|reference" />
+        <attr name="layoutKSideList_menuHeight" format="dimension|reference" />
+        <attr name="layoutKSideList_menuItemTextSize" format="dimension|reference" />
+        <attr name="layoutKSideList_menuItemTextSizeSelect" format="dimension|reference" />
+        <attr name="layoutKSideList_menuItemTextColor" format="reference|color" />
+        <attr name="layoutKSideList_menuItemTextColorSelect" format="reference|color" />
+        <attr name="layoutKSideList_menuItemBackgroundColor" format="reference|color" />
+        <attr name="layoutKSideList_menuItemBackgroundColorSelect" format="reference|color" />
+        <attr name="layoutKSideList_menuItemIndicator" format="reference" />
+        <attr name="layoutKSideList_subTextSize" format="dimension|reference" />
+        <attr name="layoutKSideList_subTextColor" format="color|reference" />
+        <attr name="layoutKSideList_subHeight" format="dimension|reference" />
+        <attr name="layoutKSideList_subMarginStart" format="dimension|reference" />
+        <attr name="layoutKSideList_contentTextSize" format="dimension|reference" />
+        <attr name="layoutKSideList_contentTextColor" format="color|reference" />
+        <attr name="layoutKSideList_contentImgRatio" format="enum">
+            <enum name="ratio11" value="0" />
+            <enum name="ratio34" value="1" />
+            <enum name="ratio169" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

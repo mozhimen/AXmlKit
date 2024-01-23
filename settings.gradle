@@ -1,0 +1,70 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/grails-core' }
+        maven { url 'https://raw.githubusercontent.com/saki4510t/libcommon/master/repository/' }
+        maven { url 'https://gitee.com/liuchaoya/libcommon/raw/master/repository/' }
+        maven { url "https://repo.eclipse.org/content/repositories/paho-snapshots/" }
+        maven { url 'https://developer.huawei.com/repo/' }
+        maven { url "https://jitpack.io" }
+        maven { url 'https://www.jitpack.io' }
+        mavenCentral()
+        google()
+    }
+}
+
+rootProject.name = "AUICoreKit"
+//SwiftKit
+include ':SwiftKit'
+project(':SwiftKit').projectDir = new File("C:\\Users\\${System.getenv().get("USERNAME")}\\Documents\\GitHub\\SwiftKit")
+include ':SwiftKit:basick'
+include ':SwiftKit:uicorek'
+//
+include ':app'
+include ':adapterk'
+include ':bark'
+include ':btnk'
+include ':dialogk'
+include ':drawablek'
+include ':imagek'
+include ':interpolatork'
+include ':layoutk'
+include ':layoutk_refresh'
+include ':pagerk'
+include ':popwink'
+include ':recyclerk'
+include ':textk'
+include ':toastk'
+include ':vhk'
+include ':viewk'
+include ':bark_rating'
+include ':layoutk_banner'
+include ':drawablek_progress'
+include ':btnk_icon'
+include ':layoutk_labels'
+include ':layoutk_search'
+include ':layoutk_side'
+include ':textk_edit'
+include ':fontk'
+include ':layoutk_blur'
+include ':layoutk_btn'
+include ':layoutk_chips'
+include ':layoutk_empty'
+include ':layoutk_roll'
+include ':layoutk_tab'
+include ':recyclerk_linear'
+include ':recyclerk_load'
+include ':textk_bubble'
+include ':textk_edit_bar'
+include ':btnk_pwd'
+include ':layoutk_loadrefresh'
+include ':layoutk_slider'
+include ':layoutk_spinner'
+include ':popwink_bubble'
+include ':textk_progress'
+include ':viewk_wheel'

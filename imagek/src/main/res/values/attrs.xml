@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!--imagek-->
+    <!--////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <declare-styleable name="ImageKSquare">
+        <attr name="imageKSquare_measureMode" format="enum">
+            <enum name="measureMin" value="0" />
+            <enum name="measureMax" value="1" />
+            <enum name="measureWidth" value="2" />
+            <enum name="measureHeight" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ImageKCircleText">
+        <attr name="imageKCircleText_borderWidth" format="dimension|reference" />
+        <attr name="imageKCircleText_borderColor" format="color|reference" />
+        <attr name="imageKCircleText_borderOverlay" format="boolean" />
+        <attr name="imageKCircleText_fillColor" format="color|reference" />
+        <attr name="imageKCircleText_textContent" format="string|reference" />
+        <attr name="imageKCircleText_textColor" format="color|reference" />
+        <attr name="imageKCircleText_textSize" format="dimension|reference" />
+        <attr name="imageKCircleText_textPadding" format="dimension|reference" />
+    </declare-styleable>
+</resources>

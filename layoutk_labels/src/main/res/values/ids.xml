@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--layoutk_label_group-->
+    <item name="tag_key_data" type="id" />
+    <item name="tag_key_position" type="id" />
+</resources>

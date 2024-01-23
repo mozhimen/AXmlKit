@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--layoutk_search-->
+    <attr name="LayoutKSearch_StyleK_LayoutKSearch" format="reference" />
+    <declare-styleable name="LayoutKSearch">
+        <attr name="layoutKSearch_search_icon" format="string|reference" />
+        <attr name="layoutKSearch_search_iconSize" format="dimension|reference" />
+        <attr name="layoutKSearch_search_iconPadding" format="dimension|reference" />
+        <attr name="layoutKSearch_search_background" format="reference" />
+        <attr name="layoutKSearch_search_textSize" format="dimension|reference" />
+        <attr name="layoutKSearch_search_textColor" format="color|reference" />
+
+        <attr name="layoutKSearch_clear_icon" format="string|reference" />
+        <attr name="layoutKSearch_clear_iconSize" format="dimension|reference" />
+
+        <attr name="layoutKSearch_hint_text" format="string|reference" />
+        <attr name="layoutKSearch_hint_textSize" format="dimension|reference" />
+        <attr name="layoutKSearch_hint_textColor" format="color|reference" />
+        <attr name="layoutKSearch_hint_gravity" format="enum">
+            <enum name="center" value="0" />
+            <enum name="left" value="1" />
+        </attr>
+
+        <attr name="layoutKSearch_keyword_icon" format="string|reference" />
+        <attr name="layoutKSearch_keyword_iconSize" format="dimension|reference" />
+        <attr name="layoutKSearch_keyword_iconColor" format="color|reference" />
+        <attr name="layoutKSearch_keyword_background" format="reference" />
+        <attr name="layoutKSearch_keyword_maxLength" format="integer|reference" />
+        <attr name="layoutKSearch_keyword_padding" format="dimension|reference" />
+    </declare-styleable>
+</resources>

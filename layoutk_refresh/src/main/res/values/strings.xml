@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--layoutk-->
+    <string name="layoutk_refresh_visible">下拉…</string>
+    <string name="layoutk_refresh_overflow">松开刷新</string>
+    <string name="layoutk_refresh_refreshing">正在刷新…</string>
+</resources>

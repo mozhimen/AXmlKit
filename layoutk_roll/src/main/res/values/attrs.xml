@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>    <!--layoutk_roll_text-->
+    <declare-styleable name="LayoutKRollText">
+        <attr name="layoutKRollText_animatorMode" format="enum">
+            <enum name="up" value="1" />
+            <enum name="down" value="2" />
+        </attr>
+        <attr name="layoutKRollText_animatorDuration" format="integer" />
+        <attr name="layoutKRollText_textSize" format="float" />
+        <attr name="layoutKRollText_textColor" format="color|reference" />
+    </declare-styleable>
+</resources>

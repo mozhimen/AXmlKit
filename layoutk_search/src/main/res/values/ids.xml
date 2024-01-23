@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--layoutk_search-->
+    <item name="layoutk_search_edit_search" type="id" />
+    <item name="layoutk_search_icon_clear" type="id" />
+    <item name="layoutk_search_txt_hint" type="id" />
+    <item name="layoutk_search_txt_icon_search" type="id" />
+    <item name="layoutk_search_txt_icon_keyword" type="id" />
+    <item name="layoutk_search_txt_keyword" type="id" />
+</resources>

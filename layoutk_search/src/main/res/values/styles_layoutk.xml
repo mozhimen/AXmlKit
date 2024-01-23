@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--layoutk_search-->
+    <style name="StyleK_LayoutKSearch">
+        <item name="layoutKSearch_search_icon">&#xe987;</item>
+        <item name="layoutKSearch_search_iconSize">16sp</item>
+        <item name="layoutKSearch_search_iconPadding">10dp</item>
+        <item name="layoutKSearch_search_background">@drawable/layoutk_search_background</item>
+        <item name="layoutKSearch_search_textSize">16sp</item>
+        <item name="layoutKSearch_search_textColor">#000000</item>
+
+        <item name="layoutKSearch_clear_icon">&#xe60b;</item>
+        <item name="layoutKSearch_clear_iconSize">16sp</item>
+
+        <item name="layoutKSearch_hint_textSize">16sp</item>
+        <item name="layoutKSearch_hint_textColor">#888888</item>
+        <item name="layoutKSearch_hint_gravity">left</item>
+
+        <item name="layoutKSearch_keyword_icon">&#xe611;</item>
+        <item name="layoutKSearch_keyword_iconSize">14sp</item>
+        <item name="layoutKSearch_keyword_iconColor">#ffffff</item>
+        <item name="layoutKSearch_keyword_background">@drawable/layoutk_search_keyword_background
+        </item>
+        <item name="layoutKSearch_keyword_maxLength">10</item>
+        <item name="layoutKSearch_keyword_padding">4dp</item>
+    </style>
+</resources>

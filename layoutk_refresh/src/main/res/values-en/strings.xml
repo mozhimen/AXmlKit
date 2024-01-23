@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--layoutk-->
+    <string name="layoutk_refresh_visible">Pull Down…</string>
+    <string name="layoutk_refresh_overflow">Release Refresh</string>
+    <string name="layoutk_refresh_refreshing">Refreshing…</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="StyleK_LayoutKEmpty_BtnCancel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/cok_gray_eeeeee</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:shadowColor">@color/cok_gray_eeeeee</item>
+        <item name="android:textSize">14sp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="strokeColor">@android:color/darker_gray</item>
+    </style>
+</resources>

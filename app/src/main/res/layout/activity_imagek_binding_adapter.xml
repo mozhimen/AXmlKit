@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.mozhimen.uicorek.test.R" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:loadImageBlurGlide="@{R.drawable.uicorek_img}"
+            app:placeholder="@{R.drawable.uicorek_img}" />
+
+        <com.mozhimen.uicorek.imagek.ImageKCircleText
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@color/cok_gray_000000"
+            app:imageKCircleText_borderColor="@color/cok_gray_ffffff"
+            app:imageKCircleText_borderOverlay="true"
+            app:imageKCircleText_borderWidth="2dp"
+            app:imageKCircleText_fillColor="@color/cok_gray_e0e0e0"
+            app:imageKCircleText_textColor="@color/cok_gray_ffffff"
+            app:imageKCircleText_textContent="123"
+            app:imageKCircleText_textSize="16sp" />
+    </LinearLayout>
+</layout>

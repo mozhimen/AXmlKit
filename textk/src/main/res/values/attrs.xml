@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!--textk-->
+    <!--////////////////////////////////////////////////////////////////////////////////////////////////-->
+
+
+    <declare-styleable name="TextKExpandable">
+        <attr name="textKExpandable_maxLines" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="TextKClock">
+        <attr name="textkClock_timeFormat" format="enum">
+            <enum name="yyyyMMddHHmmss" value="0" />
+            <enum name="yyyyMMddHHmm" value="1" />
+            <enum name="yyyyMMdd" value="2" />
+            <enum name="HHmmss" value="3" />
+            <enum name="HHmm" value="4" />
+            <enum name="mmss" value="5" />
+            <enum name="yyyy" value="6" />
+            <enum name="MM" value="7" />
+            <enum name="dd" value="8" />
+            <enum name="HH" value="9" />
+            <enum name="mm" value="10" />
+            <enum name="ss" value="11" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TextKIconFont">
+        <attr name="textKIconFont_fontPath" format="string" />
+    </declare-styleable>
+
+    <!--下划线控件-->
+    <declare-styleable name="TextKUnderLine">
+        <!--下划线是否出现-->
+        <attr name="textKUnderLine_underline" format="boolean" />
+    </declare-styleable>
+</resources>

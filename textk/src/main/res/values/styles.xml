@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="StyleK_TextKProgress_Rounded" parent="StyleK_Txt.Font_Sans_Serif.Gravity_Center.Style_Norm.Color_Gray_999.Size_013.Width_Wrap.Height_Wrap">
+        <item name="android:textColor">@color/cok_blue_0177fd</item>
+        <item name="android:background">@null</item>
+        <item name="textKProgress_backgroundColor">@color/cok_blue_0177fd</item>
+        <item name="textKProgress_backgroundColorEnd">@color/cok_white</item>
+        <item name="textKProgress_backgroundColorStart">@color/cok_blue_0177fd</item>
+        <item name="textKProgress_borderColor">@color/cok_blue_0177fd</item>
+        <item name="textKProgress_borderRadius">30dp</item>
+        <item name="textKProgress_borderWidth">0dp</item>
+        <item name="textKProgress_textColorCover">@color/cok_white</item>
+        <item name="textKProgress_textColorDefault">@color/cok_white</item>
+        <item name="textKProgress_textColorUnCover">@color/cok_blue_0177fd</item>
+    </style>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--毛玻璃布局-->
+    <declare-styleable name="LayoutKBlur">
+        <!--图片src-->
+        <attr name="layoutKBlur_imageSrc" format="reference" />
+        <!--是否图片移动-->
+        <attr name="layoutKBlur_isMoveEnable" format="boolean" />
+        <!--是否禁用模糊-->
+        <attr name="layoutKBlur_isBlurEnable" format="boolean" />
+    </declare-styleable>
+</resources>
