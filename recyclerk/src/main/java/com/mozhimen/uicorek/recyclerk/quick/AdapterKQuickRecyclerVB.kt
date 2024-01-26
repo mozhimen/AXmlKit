@@ -115,7 +115,7 @@ open class AdapterKQuickRecyclerVB<DATA, VB : ViewDataBinding>(
             parent,
             false
         )
-        return VHKRecyclerVB(binding.root, binding)
+        return VHKRecyclerVB(binding)
     }
 
     override fun getItemCount() = if (_datas.isEmpty()) 0 else _datas.size
