@@ -31,7 +31,11 @@ android {
 
 dependencies {
 
-    implementation project(':SwiftKit:basick')
+    if (rootProject.name == "SwiftKit") {
+        implementation project(':basick')
+    } else {
+        implementation project(':SwiftKit:basick')
+    }
     implementation project(project.path.replace(project.name, '') +':vhk')
 
     testImplementation 'junit:junit:4.13.2'

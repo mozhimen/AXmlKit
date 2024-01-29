@@ -31,8 +31,16 @@ android {
 
 dependencies {
 
-    implementation project(':SwiftKit:basick')
-    implementation project(':SwiftKit:uicorek')
+    if (rootProject.name == "SwiftKit") {
+        implementation project(':basick')
+    } else {
+        implementation project(':SwiftKit:basick')
+    }
+    if (rootProject.name == "SwiftKit") {
+        implementation project(':uicorek')
+    } else {
+        implementation project(':SwiftKit:uicorek')
+    }
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
