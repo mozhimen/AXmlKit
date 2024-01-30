@@ -13,6 +13,7 @@ import com.mozhimen.basick.manifestk.annors.AManifestKRequire
 import com.mozhimen.basick.utilk.android.app.isFinishingOrDestroyed
 import com.mozhimen.basick.utilk.android.os.UtilKLooper
 import com.mozhimen.basick.utilk.android.util.et
+import com.mozhimen.basick.utilk.java.lang.UtilKThread
 import com.mozhimen.uicorek.dialogk.R
 import com.mozhimen.uicorek.dialogk.bases.annors.ADialogMode
 import com.mozhimen.uicorek.dialogk.bases.commons.IBaseDialogK
@@ -102,7 +103,7 @@ abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(
 
     override fun dismiss() {
         if (!isShowing) return
-        if (UtilKLooper.isMainThread()) {
+        if (UtilKThread.isMainThread()) {
             super.dismiss()
         } else {
             lifecycleScope.launch(Dispatchers.Main) {

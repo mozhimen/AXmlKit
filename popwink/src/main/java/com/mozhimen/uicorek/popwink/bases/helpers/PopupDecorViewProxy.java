@@ -22,7 +22,7 @@ import com.mozhimen.uicorek.popwink.bases.BasePopwinK;
 import com.mozhimen.uicorek.popwink.bases.commons.IClearMemoryListener;
 
 import com.mozhimen.basick.utilk.android.view.UtilKGravity;
-import com.mozhimen.basick.utilk.android.view.UtilKInputManager;
+import com.mozhimen.basick.utilk.android.view.UtilKInputMethodManagerWrapper;
 import com.mozhimen.basick.utilk.android.view.UtilKScreen;
 import com.mozhimen.basick.utilk.android.view.UtilKStatusBar;
 import com.mozhimen.uicorek.popwink.bases.commons.IEventObserver;
@@ -179,7 +179,7 @@ final class PopupDecorViewProxy extends ViewGroup implements Function2<Rect, Boo
                 if (focusTarget == null) {
                     focusTarget = contentView.findFocus();
                 }
-                UtilKInputManager.showByDelay(focusTarget == null ? contentView : focusTarget, mHelper.showKeybaordDelay);
+                UtilKInputMethodManagerWrapper.showByDelay(focusTarget == null ? contentView : focusTarget, mHelper.showKeybaordDelay);
             }
         }
         return wp;
@@ -763,7 +763,7 @@ final class PopupDecorViewProxy extends ViewGroup implements Function2<Rect, Boo
     public Unit invoke(Rect rect, Boolean aBoolean/*keyboardBounds isVisible*/) {
         if (mHelper.isOutSideTouchable() && !mHelper.isOverlayStatusbar()) return null;
         boolean forceAdjust = (mHelper.flag & CFlag.KEYBOARD_FORCE_ADJUST) != 0;
-        boolean process = forceAdjust || (!UtilKScreen.isOrientationLandscape()
+        boolean process = forceAdjust || (!UtilKScreen.isOrientationLandscape_ofSysConfig()
                 && (mHelper.getSoftInputMode() == CWinMgr.Lpsi.ADJUST_PAN ||
                 mHelper.getSoftInputMode() == CWinMgr.Lpsi.ADJUST_RESIZE));
 

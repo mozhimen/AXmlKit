@@ -11,7 +11,7 @@ import android.widget.FrameLayout
 import android.widget.ScrollView
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.android.view.UtilKScreen.getWidthOfWindow
+import com.mozhimen.basick.utilk.android.view.UtilKScreen
 import com.mozhimen.basick.utilk.android.view.UtilKViewGroup.findTypeChildView
 import com.mozhimen.basick.utilk.kotlin.UtilKAnyFormat
 import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKFrame
@@ -98,7 +98,7 @@ class LayoutKTabBottom @JvmOverloads constructor(context: Context, attrs: Attrib
     @Throws(Exception::class)
     fun resizeTabBottomLayout() {
         requireNotNull(_itemList) { "$TAG _itemList must not be null!" }
-        val width: Int = getWidthOfWindow() / _itemList!!.size
+        val width: Int = UtilKScreen.getWidth() / _itemList!!.size
         val frameLayout = getChildAt(childCount - 1) as ViewGroup
         val childCount = frameLayout.childCount
         for (i in 0 until childCount) {
@@ -150,7 +150,7 @@ class LayoutKTabBottom @JvmOverloads constructor(context: Context, attrs: Attrib
                 iterator.remove()
             }
         }
-        val width = getWidthOfWindow() / itemList.size
+        val width = UtilKScreen.getWidth() / itemList.size
         val height = _tabBottomHeight
         //不用LinearLayout的原因: 当动态改变child大小后Gravity.Bottom会失效.
         _tabBottomContainer = FrameLayout(context)

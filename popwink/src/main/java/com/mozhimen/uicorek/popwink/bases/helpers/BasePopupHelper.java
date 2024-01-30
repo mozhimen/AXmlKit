@@ -38,14 +38,14 @@ import com.mozhimen.basick.imagek.blur.mos.ImageKBlurConfig;
 import com.mozhimen.basick.stackk.cb.StackKCb;
 import com.mozhimen.basick.utilk.android.animation.UtilKAnimator;
 import com.mozhimen.basick.utilk.android.app.UtilKActivity;
-import com.mozhimen.basick.utilk.android.content.UtilKResource;
+import com.mozhimen.basick.utilk.android.content.UtilKResources;
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion;
 import com.mozhimen.basick.utilk.android.util.UtilKLog;
-import com.mozhimen.basick.utilk.android.util.UtilKLogSupport;
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
 import com.mozhimen.basick.utilk.android.view.UtilKAnim;
 import com.mozhimen.basick.utilk.android.view.UtilKAnimation;
 import com.mozhimen.basick.utilk.android.view.UtilKContentView;
-import com.mozhimen.basick.utilk.android.view.UtilKInputManager;
+import com.mozhimen.basick.utilk.android.view.UtilKInputMethodManagerWrapper;
 import com.mozhimen.basick.utilk.android.view.UtilKNavigationBar;
 import com.mozhimen.basick.utilk.android.view.UtilKScreen;
 import com.mozhimen.basick.utilk.android.view.UtilKView;
@@ -205,12 +205,12 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         this.mMaskViewDismissAnimation = new AlphaAnimation(1f, 0f);
         this.mMaskViewShowAnimation.setFillAfter(true);
         this.mMaskViewShowAnimation.setInterpolator(new DecelerateInterpolator());
-        this.mMaskViewShowAnimation.setDuration(UtilKResource.getSystemResources()
+        this.mMaskViewShowAnimation.setDuration(UtilKResources.getSys()
                 .getInteger(android.R.integer.config_shortAnimTime));
         isDefaultMaskViewShowAnimation = true;
         this.mMaskViewDismissAnimation.setFillAfter(true);
         this.mMaskViewDismissAnimation.setInterpolator(new DecelerateInterpolator());
-        this.mMaskViewDismissAnimation.setDuration(UtilKResource.getSystemResources()
+        this.mMaskViewDismissAnimation.setDuration(UtilKResources.getSys()
                 .getInteger(android.R.integer.config_shortAnimTime));
         isDefaultMaskViewDismissAnimation = true;
     }
@@ -353,7 +353,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         if (mShowAnimation == null) {
             mShowAnimation = mPopupWindow.onCreateShowAnimation(width, height);
             if (mShowAnimation != null) {
-                showDuration = UtilKAnimation.getAnimationDuration(mShowAnimation);
+                showDuration = UtilKAnimation.getDuration(mShowAnimation);
                 setToBlur(mBlurOption);
             }
         }
@@ -364,7 +364,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         if (mShowAnimator == null) {
             mShowAnimator = mPopupWindow.onCreateShowAnimator(width, height);
             if (mShowAnimator != null) {
-                showDuration = UtilKAnimator.getAnimatorDuration(mShowAnimator);
+                showDuration = UtilKAnimator.getDuration(mShowAnimator);
                 setToBlur(mBlurOption);
             }
         }
@@ -375,7 +375,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         if (mDismissAnimation == null) {
             mDismissAnimation = mPopupWindow.onCreateDismissAnimation(width, height);
             if (mDismissAnimation != null) {
-                dismissDuration = UtilKAnimation.getAnimationDuration(mDismissAnimation);
+                dismissDuration = UtilKAnimation.getDuration(mDismissAnimation);
                 setToBlur(mBlurOption);
             }
         }
@@ -386,7 +386,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         if (mDismissAnimator == null) {
             mDismissAnimator = mPopupWindow.onCreateDismissAnimator(width, height);
             if (mDismissAnimator != null) {
-                dismissDuration = UtilKAnimator.getAnimatorDuration(mDismissAnimator);
+                dismissDuration = UtilKAnimator.getDuration(mDismissAnimator);
                 setToBlur(mBlurOption);
             }
         }
@@ -417,7 +417,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
             mShowAnimation.cancel();
         }
         mShowAnimation = showAnimation;
-        showDuration = UtilKAnimation.getAnimationDuration(mShowAnimation);
+        showDuration = UtilKAnimation.getDuration(mShowAnimation);
         setToBlur(mBlurOption);
     }
 
@@ -430,7 +430,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
             mShowAnimator.cancel();
         }
         mShowAnimator = showAnimator;
-        showDuration = UtilKAnimator.getAnimatorDuration(mShowAnimator);
+        showDuration = UtilKAnimator.getDuration(mShowAnimator);
         setToBlur(mBlurOption);
     }
 
@@ -440,7 +440,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
             mDismissAnimation.cancel();
         }
         mDismissAnimation = dismissAnimation;
-        dismissDuration = UtilKAnimation.getAnimationDuration(mDismissAnimation);
+        dismissDuration = UtilKAnimation.getDuration(mDismissAnimation);
         setToBlur(mBlurOption);
     }
 
@@ -450,7 +450,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
             mDismissAnimator.cancel();
         }
         mDismissAnimator = dismissAnimator;
-        dismissDuration = UtilKAnimator.getAnimatorDuration(mDismissAnimator);
+        dismissDuration = UtilKAnimator.getDuration(mDismissAnimator);
         setToBlur(mBlurOption);
     }
 
@@ -629,7 +629,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
                 r.set(cutout.getSafeInsetLeft(), cutout.getSafeInsetTop(),
                         cutout.getSafeInsetRight(), cutout.getSafeInsetBottom());
             } catch (Exception e) {
-                UtilKLogSupport.e(e);
+                UtilKLogWrapper.e(e);
             }
         } else {
             r.setEmpty();
@@ -637,7 +637,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
     }
 
     public BasePopupHelper overlayStatusbar(boolean overlay) {
-        if (!overlay && UtilKScreen.isFullScreen(mPopupWindow.getContext())) {
+        if (!overlay && UtilKScreen.isFullScreen_ofWindow(mPopupWindow.getContext())) {
             Log.e(TAG, "setOverlayStatusbar: 全屏Activity下没有StatusBar，此处不能设置为false");
             overlay = true;
         }
@@ -877,7 +877,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
 
     public void onDismiss() {
         if (isAutoShowInputMethod() && hideKeyboardOnDismiss) {
-            UtilKInputManager.hide(mPopupWindow.getContext());
+            UtilKInputMethodManagerWrapper.hide(mPopupWindow.getContext());
         }
 
         if (mLinkedViewLayoutChangeListenerWrapper != null) {
@@ -1027,7 +1027,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         if (mDismissAnimation != null) mDismissAnimation.cancel();
         if (mDismissAnimator != null) mDismissAnimator.cancel();
         if (mPopupWindow != null && hideKeyboardOnDismiss) {
-            UtilKInputManager.hide(mPopupWindow.getContext());
+            UtilKInputMethodManagerWrapper.hide(mPopupWindow.getContext());
         }
         if (dismissAnimationDelayRunnable != null) {
             dismissAnimationDelayRunnable.run();

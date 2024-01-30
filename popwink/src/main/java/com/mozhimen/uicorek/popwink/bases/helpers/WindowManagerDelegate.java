@@ -14,12 +14,12 @@ import android.view.WindowManager;
 import com.mozhimen.basick.elemk.android.os.cons.CVersCode;
 import com.mozhimen.basick.elemk.android.view.cons.CWinMgr;
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion;
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
 import com.mozhimen.uicorek.popwink.bases.commons.IClearMemoryListener;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
-import com.mozhimen.basick.utilk.android.util.UtilKLogSupport;
 import com.mozhimen.uicorek.popwink.bases.cons.CFlag;
 import com.mozhimen.uicorek.popwink.bases.cons.CUI;
 
@@ -59,7 +59,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
 
     @Override
     public void removeViewImmediate(View view) {
-        UtilKLogSupport.i(TAG,
+        UtilKLogWrapper.i(TAG,
                 "WindowManager.removeViewImmediate  >>>  " + (view == null ? null : view.getClass()
                         .getSimpleName()));
         PopupWindowQueueManager.getInstance().remove(this);
@@ -79,7 +79,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
 
     @Override
     public void removeView(View view) {
-        UtilKLogSupport.i(TAG,
+        UtilKLogWrapper.i(TAG,
                 "WindowManager.removeView  >>>  " + (view == null ? null : view.getClass()
                         .getSimpleName()));
         PopupWindowQueueManager.getInstance().remove(this);
@@ -95,7 +95,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
 
     @Override
     public void addView(View view, ViewGroup.LayoutParams params) {
-        UtilKLogSupport.i(TAG,
+        UtilKLogWrapper.i(TAG,
                 "WindowManager.addView  >>>  " + (view == null ? null : view.getClass()
                         .getName()));
         if (mWindowManager == null || view == null) return;
@@ -136,7 +136,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
 
     @Override
     public void updateViewLayout(View view, ViewGroup.LayoutParams params) {
-        UtilKLogSupport.i(TAG,
+        UtilKLogWrapper.i(TAG,
                 "WindowManager.updateViewLayout  >>>  " + (view == null ? null : view.getClass()
                         .getName()));
         if (mWindowManager == null || view == null) return;
@@ -266,7 +266,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
             queue.addLast(managerProxy);
             managerProxy.isAddedToQueue = true;
 
-            UtilKLogSupport.d(TAG, queue);
+            UtilKLogWrapper.d(TAG, queue);
         }
 
         public void remove(WindowManagerDelegate managerProxy) {
@@ -278,7 +278,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
                 queue.remove(managerProxy);
             }
             managerProxy.isAddedToQueue = false;
-            UtilKLogSupport.d(TAG, queue);
+            UtilKLogWrapper.d(TAG, queue);
         }
 
         void clear(String key) {
@@ -287,7 +287,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
                 queue.clear();
             }
             sQueueMap.remove(key);
-            UtilKLogSupport.d(TAG, queue, sQueueMap);
+            UtilKLogWrapper.d(TAG, queue, sQueueMap);
         }
 
         @Nullable
@@ -325,7 +325,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
                         }
                     }
                     if (helper.isOverlayStatusbar()) {
-                        UtilKLogSupport.i(TAG, "applyHelper  >>>  覆盖状态栏");
+                        UtilKLogWrapper.i(TAG, "applyHelper  >>>  覆盖状态栏");
                         if (UtilKBuildVersion.isAfterV_28_9_P()) {
                             int cutoutGravity = helper.getCutoutGravity();
                             if (cutoutGravity == Gravity.TOP || cutoutGravity == Gravity.BOTTOM) {
@@ -361,7 +361,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
                     }
                     int insetsType = p.getFitInsetsTypes();
                     if (helper.isOverlayStatusbar()) {
-                        UtilKLogSupport.i(TAG, "applyHelper  >>>  覆盖状态栏");
+                        UtilKLogWrapper.i(TAG, "applyHelper  >>>  覆盖状态栏");
                         if (UtilKBuildVersion.isAfterV_28_9_P()) {
                             int cutoutGravity = helper.getCutoutGravity();
                             if (cutoutGravity == Gravity.TOP || cutoutGravity == Gravity.BOTTOM) {

@@ -21,6 +21,7 @@ import com.mozhimen.basick.utilk.android.os.UtilKLooper
 import com.mozhimen.basick.utilk.android.util.et
 import com.mozhimen.basick.utilk.android.view.UtilKView
 import com.mozhimen.basick.utilk.android.view.applyBackgroundNull
+import com.mozhimen.basick.utilk.java.lang.UtilKThread
 import com.mozhimen.uicorek.commons.IUicoreK
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -207,7 +208,7 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
      * @param blurBitmap
      */
     private fun setImageBitmapOnUiThread(blurBitmap: Bitmap?, isOnUpdate: Boolean) {
-        if (UtilKLooper.isMainThread()) {
+        if (UtilKThread.isMainThread()) {
             handleSetImageBitmap(blurBitmap, isOnUpdate)
         } else {
             if (!_isAttachedToWindow) {

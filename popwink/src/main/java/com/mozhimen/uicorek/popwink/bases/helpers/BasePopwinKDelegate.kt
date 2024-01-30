@@ -17,6 +17,7 @@ import com.mozhimen.basick.utilk.android.util.et
 import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.basick.utilk.android.view.UtilKView.removeViewFromParent
 import com.mozhimen.basick.utilk.android.view.UtilKWindow
+import com.mozhimen.basick.utilk.android.view.UtilKWindowParams
 import com.mozhimen.uicorek.popwink.R
 import com.mozhimen.uicorek.popwink.bases.commons.IClearMemoryListener
 
@@ -92,7 +93,7 @@ class BasePopwinKDelegate(context: BasePopwinKContextWrapper) : PopupWindow(cont
     }
 
     fun onBeforeShowExec(activity: Activity) {
-        if (UtilKWindow.isFullScreen(activity)) {
+        if (UtilKWindowParams.isFullScreen(activity)) {
             handleFullScreenFocusable()
         }
     }

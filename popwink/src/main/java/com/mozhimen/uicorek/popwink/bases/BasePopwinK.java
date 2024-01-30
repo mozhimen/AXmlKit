@@ -245,7 +245,7 @@ import com.mozhimen.basick.utilk.bases.BaseUtilK;
 import com.mozhimen.basick.utilk.android.view.UtilKGravity;
 import com.mozhimen.basick.utilk.android.content.UtilKRes;
 import com.mozhimen.basick.imagek.blur.mos.ImageKBlurConfig;
-import com.mozhimen.basick.utilk.android.util.UtilKLogSupport;
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
 import com.mozhimen.basick.utilk.android.view.UtilKDecorView;
 import com.mozhimen.basick.utilk.kotlin.UtilKStrColor;
 import com.mozhimen.uicorek.popwink.R;
@@ -905,7 +905,7 @@ public abstract class BasePopwinK extends BaseUtilK implements PopupWindow.OnDis
     }
 
     protected void onShowError(Exception e) {
-        UtilKLogSupport.e(TAG, "onShowError: ", e);
+        UtilKLogWrapper.e(TAG, "onShowError: ", e);
         onLogInternal(e.getMessage());
     }
 
@@ -2180,14 +2180,14 @@ public abstract class BasePopwinK extends BaseUtilK implements PopupWindow.OnDis
     }
 
     public static void setDebugMode(boolean debugMode) {
-        UtilKLogSupport.applyOpenLog(debugMode);
+        UtilKLogWrapper.applyOpenLog(debugMode);
     }
 
     /**
      * 日志输出口
      */
     protected void onLogInternal(String msg) {
-        UtilKLogSupport.d(TAG, msg);
+        UtilKLogWrapper.d(TAG, msg);
     }
 
     private String ownerParentLog() {
