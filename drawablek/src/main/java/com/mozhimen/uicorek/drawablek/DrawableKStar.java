@@ -40,9 +40,9 @@ public class DrawableKStar extends LayerDrawable {
     }
 
     @SuppressLint("RtlHardcoded")
-    private static Drawable createClippedLayerDrawableWithTintColor(int tileResId, int tintColor,
+    private static Drawable createClippedLayerDrawableWithTintColor(int intResTile, int tintColor,
                                                                     Context context) {
-        return new ClipDrawable(createLayerDrawableWithTintColor(tileResId, tintColor,
+        return new ClipDrawable(createLayerDrawableWithTintColor(intResTile, tintColor,
                 context), Gravity.LEFT, ClipDrawable.HORIZONTAL);
     }
 
@@ -58,10 +58,10 @@ public class DrawableKStar extends LayerDrawable {
     }
 
     @SuppressLint("RtlHardcoded")
-    private static Drawable createClippedLayerDrawableWithTintAttrRes(int tileResId,
+    private static Drawable createClippedLayerDrawableWithTintAttrRes(int intResTile,
                                                                       int tintAttrRes,
                                                                       Context context, boolean mKeepOriginColor) {
-        return new ClipDrawable(createLayerDrawableWithTintAttrRes(tileResId, tintAttrRes,
+        return new ClipDrawable(createLayerDrawableWithTintAttrRes(intResTile, tintAttrRes,
                 context, mKeepOriginColor), Gravity.LEFT, ClipDrawable.HORIZONTAL);
     }
 

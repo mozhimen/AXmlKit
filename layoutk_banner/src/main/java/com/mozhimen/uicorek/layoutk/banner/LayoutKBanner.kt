@@ -40,8 +40,8 @@ class LayoutKBanner @JvmOverloads constructor(context: Context, attrs: Attribute
         _layoutKBannerDelegate.setBannerData(mos)
     }
 
-    override fun setBannerData(layoutResId: Int, mos: List<BaseBannerItem>) {
-        _layoutKBannerDelegate.setBannerData(layoutResId, mos)
+    override fun setBannerData(intResLayout: Int, mos: List<BaseBannerItem>) {
+        _layoutKBannerDelegate.setBannerData(intResLayout, mos)
     }
 
     override fun setBannerIndicator(indicator: IBannerIndicator<*>) {

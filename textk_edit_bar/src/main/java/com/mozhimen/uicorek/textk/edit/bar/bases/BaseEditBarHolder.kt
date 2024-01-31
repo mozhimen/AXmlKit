@@ -16,5 +16,6 @@ open class BaseEditBarHolder(
     @LayoutRes val layoutId: Int,
     @IdRes val viewIdSubmit: Int,
     @IdRes val viewIdCancel: Int?,
-    @IdRes val editId: Int
+    @IdRes val editId: Int,
+    val placeholder: String = ""
 ) : Serializable

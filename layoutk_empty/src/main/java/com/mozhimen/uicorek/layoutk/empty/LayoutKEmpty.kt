@@ -25,7 +25,7 @@ import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKLinear
 class LayoutKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKLinear(context, attrs, defStyleAttr) {
 
     private lateinit var _bgView: View
-    private var _imageResId: Int? = null
+    private var _intResImage: Int? = null
     private var _iconFont: String? = null
     private var _btnStr: String? = null
     private var _titleStr: String? = null
@@ -47,7 +47,7 @@ class LayoutKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeS
     override fun initAttrs(attrs: AttributeSet?, defStyleAttr: Int) {
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LayoutKEmpty)
-            _imageResId = typedArray.getResourceId(R.styleable.LayoutKEmpty_layoutKEmpty_image, -1)
+            _intResImage = typedArray.getResourceId(R.styleable.LayoutKEmpty_layoutKEmpty_image, -1)
             _iconFont = typedArray.getString(R.styleable.LayoutKEmpty_layoutKEmpty_iconFont)
             _titleStr = typedArray.getString(R.styleable.LayoutKEmpty_layoutKEmpty_title)
             _contentStr = typedArray.getString(R.styleable.LayoutKEmpty_layoutKEmpty_content)
@@ -70,7 +70,7 @@ class LayoutKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeS
         _btn = _bgView.findViewById(R.id.layoutk_empty_btn)
 
         _iconFont?.let { setIcon(it) }
-        if (_imageResId != -1 && _imageResId != null) setImage(_imageResId!!)
+        if (_intResImage != -1 && _intResImage != null) setImage(_intResImage!!)
         _titleStr?.let { setTitle(it) }
         _contentStr?.let { setContent(it) }
         _helpIconFont?.let { setHelpAction(it) }
@@ -95,11 +95,11 @@ class LayoutKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeS
 
     /**
      * 设置图片
-     * @param resId Int
+     * @param intResDrawable Int
      */
-    fun setImage(resId: Int? = R.drawable.layoutk_empty) {
-        if (resId != null) {
-            _imageView.setImageResource(resId)
+    fun setImage(@Drawable intResDrawable: Int? = R.drawable.layoutk_empty) {
+        if (intResDrawable != null) {
+            _imageView.setImageResource(intResDrawable)
             _imageView.applyVisible()
         } else _imageView.applyGone()
     }

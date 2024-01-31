@@ -53,8 +53,8 @@ class PopwinKBuilder(obj: Any) : IClearMemoryListener {
         }
     }
 
-    fun setContentViewLayoutId(resId: Int): PopwinKBuilder {
-        _config.setContentViewLayoutId(resId)
+    fun setContentViewIntResLayout(intResLayout: Int): PopwinKBuilder {
+        _config.setContentViewLayoutId(intResLayout)
         return this
     }
 
@@ -86,7 +86,7 @@ class PopwinKBuilder(obj: Any) : IClearMemoryListener {
         if (_popupHost is Dialog) {
             return PopwinKBuilderDelegate(_popupHost as Dialog, this)
         }
-        throw NullPointerException(UtilKRes.getString(R.string.base_popwink_host_destroyed))
+        throw NullPointerException(UtilKRes.getStringOfContext(R.string.base_popwink_host_destroyed))
     }
 
     fun show(): PopwinKBuilderDelegate {

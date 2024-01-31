@@ -11,10 +11,8 @@ import com.mozhimen.basick.elemk.android.view.cons.CWinMgr
 import com.mozhimen.basick.manifestk.cons.CPermission
 import com.mozhimen.basick.manifestk.annors.AManifestKRequire
 import com.mozhimen.basick.utilk.android.app.isFinishingOrDestroyed
-import com.mozhimen.basick.utilk.android.os.UtilKLooper
 import com.mozhimen.basick.utilk.android.util.et
 import com.mozhimen.basick.utilk.java.lang.UtilKThread
-import com.mozhimen.uicorek.dialogk.R
 import com.mozhimen.uicorek.dialogk.bases.annors.ADialogMode
 import com.mozhimen.uicorek.dialogk.bases.commons.IBaseDialogK
 import com.mozhimen.uicorek.dialogk.bases.commons.IDialogKClickListener
@@ -30,7 +28,7 @@ import kotlinx.coroutines.launch
  * @Version 1.0
  */
 @AManifestKRequire(CPermission.SYSTEM_ALERT_WINDOW)
-abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(context: Context, @StyleRes themeResId: Int = com.mozhimen.uicorek.R.style.ThemeK_Dialog_Blur) : ComponentDialog(context, themeResId),
+abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(context: Context, @StyleRes intResTheme: Int = com.mozhimen.uicorek.R.style.ThemeK_Dialog_Blur) : ComponentDialog(context, intResTheme),
     IBaseDialogK<I> {
 
     private var _isHasSetWindowAttr = false

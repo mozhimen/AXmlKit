@@ -23,7 +23,7 @@ class LayoutKBtnIcon @JvmOverloads constructor(
 ) : BaseLayoutKLinear(context, attrs, defStyleAttr) {
 
     private var _background = R.drawable.layoutk_btn_icon_background
-    private var _iconResId: Int = 0
+    private var _iconIntRes: Int = 0
     private var _iconSize = 50f.dp2px().toInt()
     private var _iconMarginRight = 12f.dp2px().toInt()
     private var _text: String? = null
@@ -43,7 +43,7 @@ class LayoutKBtnIcon @JvmOverloads constructor(
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LayoutKBtnIcon)
         _background =
             typedArray.getResourceId(R.styleable.LayoutKBtnIcon_layoutKBtnIcon_background, _background)
-        _iconResId =
+        _iconIntRes =
             typedArray.getResourceId(R.styleable.LayoutKBtnIcon_layoutKBtnIcon_iconSrc, 0)
         _iconSize =
             typedArray.getDimensionPixelOffset(R.styleable.LayoutKBtnIcon_layoutKBtnIcon_iconSize, _iconSize)
@@ -65,9 +65,9 @@ class LayoutKBtnIcon @JvmOverloads constructor(
         _btnBox = findViewById(R.id.btnk_icon_box)
 
         _btnBox.setBackgroundResource(_background)
-        if (_iconResId != 0) {
+        if (_iconIntRes != 0) {
             _btnIcon.visibility = View.VISIBLE
-            _btnIcon.setImageResource(_iconResId)
+            _btnIcon.setImageResource(_iconIntRes)
         } else {
             _btnIcon.visibility = View.GONE
         }

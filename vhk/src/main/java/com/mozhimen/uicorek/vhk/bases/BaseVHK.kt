@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.DrawableRes
+import androidx.annotation.IdRes
 
 /**
  * @ClassName BaseVHK
@@ -53,11 +54,11 @@ class BaseVHK private constructor(context: Context, parent: ViewGroup, layoutId:
 
     ////////////////////////////////////////////////////////////////////////
 
-    fun <T : View?> getView(id: Int): T? {
-        var view = _views[id] as? T?
+    fun <T : View?> getView(@IdRes intResId: Int): T? {
+        var view = _views[intResId] as? T?
         if (view == null) {
-            view = itemView.findViewById<View>(id) as T
-            _views.put(id, view)
+            view = itemView.findViewById<View>(intResId) as T
+            _views.put(intResId, view)
         }
         return view
     }
@@ -65,8 +66,8 @@ class BaseVHK private constructor(context: Context, parent: ViewGroup, layoutId:
     /**
      * 设置文字
      */
-    fun setText(id: Int, text: CharSequence?): BaseVHK {
-        val view = getView<View>(id)!!
+    fun setText(@IdRes intResId: Int, text: CharSequence?): BaseVHK {
+        val view = getView<View>(intResId)!!
         if (view is TextView) {
             view.text = text
         }
@@ -76,36 +77,36 @@ class BaseVHK private constructor(context: Context, parent: ViewGroup, layoutId:
     /**
      * 设置图片
      */
-    fun setImageResource(id: Int, @DrawableRes drawableId: Int): BaseVHK {
-        val imageView = getView<View>(id)!!
+    fun setImageResource(@IdRes intResId: Int, @DrawableRes intResDrawable: Int): BaseVHK {
+        val imageView = getView<View>(intResId)!!
         if (imageView is ImageView)
-            imageView.setImageResource(drawableId)
+            imageView.setImageResource(intResDrawable)
         else
-            imageView.setBackgroundResource(drawableId)
+            imageView.setBackgroundResource(intResDrawable)
         return this
     }
 
     /**
      * 设置点击监听
      */
-    fun setOnClickListener(id: Int, listener: View.OnClickListener): BaseVHK {
-        getView<View>(id)!!.setOnClickListener(listener)
+    fun setOnClickListener(@IdRes intResId: Int, listener: View.OnClickListener): BaseVHK {
+        getView<View>(intResId)!!.setOnClickListener(listener)
         return this
     }
 
     /**
      * 设置可见
      */
-    fun setVisibility(id: Int, visible: Int): BaseVHK {
-        getView<View>(id)!!.visibility = visible
+    fun setVisibility(@IdRes intResId: Int, visible: Int): BaseVHK {
+        getView<View>(intResId)!!.visibility = visible
         return this
     }
 
     /**
      * 设置标签
      */
-    fun setTag(id: Int, obj: Any): BaseVHK {
-        getView<View>(id)!!.tag = obj
+    fun setTag(@IdRes intResId: Int, obj: Any): BaseVHK {
+        getView<View>(intResId)!!.tag = obj
         return this
     } //其他方法可自行扩展
 }

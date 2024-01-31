@@ -46,9 +46,9 @@ class LayoutKBannerDelegate(
         setBannerData(R.layout.layoutk_banner, mos)
     }
 
-    override fun setBannerData(layoutResId: Int, mos: List<BaseBannerItem>) {
+    override fun setBannerData(intResLayout: Int, mos: List<BaseBannerItem>) {
         _bannerItems = mos
-        init(layoutResId)
+        init(intResLayout)
     }
 
     override fun setBannerIndicator(indicator: IBannerIndicator<*>) {
@@ -138,7 +138,7 @@ class LayoutKBannerDelegate(
     }
 
     @Throws(Exception::class)
-    private fun init(layoutResId: Int) {
+    private fun init(intResLayout: Int) {
         requireNotNull(_bannerItems) { "$TAG _bannerItems must not be null!" }
         if (_adapter == null) {
             _adapter = BannerAdapter(_context)
@@ -148,7 +148,7 @@ class LayoutKBannerDelegate(
         }
         _indicator!!.inflate(_bannerItems!!.size)
         _adapter!!.apply {
-            setLayoutResId(layoutResId)
+            setIntResLayout(intResLayout)
             setBannerData(_bannerItems!!)
             setAutoPlay(_autoPlay)
             setLoop(_loop)

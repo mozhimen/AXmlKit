@@ -3,6 +3,7 @@ package com.mozhimen.uicorek.layoutk.banner.helpers
 import android.util.SparseArray
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.IdRes
 import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
 
 /**
@@ -16,17 +17,17 @@ class BannerViewHolder(var rootView: View) {
     private var _viewSparseArray: SparseArray<View>? = null
 
     @Suppress(CSuppress.UNCHECKED_CAST)
-    fun <V : View> findViewById(id: Int): V {
+    fun <V : View> findViewById(@IdRes intResId: Int): V {
         if (rootView !is ViewGroup) {
             return rootView as V
         }
         if (_viewSparseArray == null) {
             _viewSparseArray = SparseArray(1)
         }
-        var childView = _viewSparseArray!![id] as V?
+        var childView = _viewSparseArray!![intResId] as V?
         if (childView == null) {
-            childView = rootView.findViewById(id)
-            _viewSparseArray!!.put(id, childView)
+            childView = rootView.findViewById(intResId)
+            _viewSparseArray!!.put(intResId, childView)
         }
         return childView!!
     }

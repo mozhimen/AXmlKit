@@ -29,9 +29,9 @@ open class VHKRecycler(containerView: View) : RecyclerView.ViewHolder(containerV
 
     //////////////////////////////////////////////////////////////////////
 
-    fun <T : View> findViewById(@IdRes viewId: Int): T {
-        val view = findViewByIdOrNull<T>(viewId)
-        checkNotNull(view) { "No view found with id $viewId" }
+    fun <T : View> findViewById(@IdRes intResId: Int): T {
+        val view = findViewByIdOrNull<T>(intResId)
+        checkNotNull(view) { "No view found with id $intResId" }
         return view
     }
 
@@ -70,8 +70,8 @@ open class VHKRecycler(containerView: View) : RecyclerView.ViewHolder(containerV
         return this
     }
 
-    fun setImageResource(@IdRes viewId: Int, @DrawableRes drawableId: Int): VHKRecycler {
-        findViewById<ImageView>(viewId).setImageResource(drawableId)
+    fun setImageResource(@IdRes viewId: Int, @DrawableRes intResDrawable: Int): VHKRecycler {
+        findViewById<ImageView>(viewId).setImageResource(intResDrawable)
         return this
     }
 

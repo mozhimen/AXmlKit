@@ -306,7 +306,7 @@ public class ViewKWheel extends View {
 
     public final void setTextSize(float size) {
         if (size > 0.0F) {
-            textSize = (int) (UtilKDisplayMetrics.getDensity() * size);
+            textSize = (int) (UtilKDisplayMetrics.getSysDensity() * size);
             paintOuterText.setTextSize(textSize);
             paintCenterText.setTextSize(textSize);
         }

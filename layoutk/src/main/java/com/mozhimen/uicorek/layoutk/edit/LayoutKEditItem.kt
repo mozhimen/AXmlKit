@@ -49,26 +49,26 @@ class LayoutKEditItem @JvmOverloads constructor(context: Context, attrs: Attribu
     override fun initAttrs(attrs: AttributeSet?) {
         attrs ?: return
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LayoutKEditItem)
-        val titleResId =
+        val intResTitle =
             typedArray.getResourceId(R.styleable.LayoutKEditItem_layoutKEditItem_titleAppearance, 0)
         val title =
             typedArray.getString(R.styleable.LayoutKEditItem_layoutKEditItem_title)
-        parseTitleStyle(titleResId, title)
-        val editResId =
+        parseTitleStyle(intResTitle, title)
+        val intResEdit =
             typedArray.getResourceId(R.styleable.LayoutKEditItem_layoutKEditItem_inputAppearance, 0)
         val hint =
             typedArray.getString(R.styleable.LayoutKEditItem_layoutKEditItem_hint)
         val inputType =
             typedArray.getInteger(R.styleable.LayoutKEditItem_layoutKEditItem_inputType, 0)
-        parseInputStyle(editResId, hint, inputType)
+        parseInputStyle(intResEdit, hint, inputType)
 
-        val topResId =
+        val intResTop =
             typedArray.getResourceId(R.styleable.LayoutKEditItem_layoutKEditItem_topLineAppearance, 0)
-        val bottomResId =
+        val intResBottom =
             typedArray.getResourceId(R.styleable.LayoutKEditItem_layoutKEditItem_bottomLineAppearance, 0)
 
-        _topCrossLine = parseLineStyle(topResId)
-        _bottomCrossLine = parseLineStyle(bottomResId)
+        _topCrossLine = parseLineStyle(intResTop)
+        _bottomCrossLine = parseLineStyle(intResBottom)
         typedArray.recycle()
     }
 
@@ -99,10 +99,10 @@ class LayoutKEditItem @JvmOverloads constructor(context: Context, attrs: Attribu
     }
 
     @SuppressLint("CustomViewStyleable")
-    private fun parseTitleStyle(resId: Int, title: String?) {
-        val typedArray = context.obtainStyledAttributes(resId, R.styleable.LayoutKEditItem_TitleAppearance)
+    private fun parseTitleStyle(intResStyle: Int, title: String?) {
+        val typedArray = context.obtainStyledAttributes(intResStyle, R.styleable.LayoutKEditItem_TitleAppearance)
         val titleColor: Int =
-            typedArray.getColor(R.styleable.LayoutKEditItem_TitleAppearance_titleAppearance_titleColor, UtilKRes.getColor(com.mozhimen.uicorek.R.color.cok_blue_287ff1))
+            typedArray.getColor(R.styleable.LayoutKEditItem_TitleAppearance_titleAppearance_titleColor, UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_287ff1))
         val titleSize: Float =
             typedArray.getDimensionPixelSize(R.styleable.LayoutKEditItem_TitleAppearance_titleAppearance_titleSize, 15f.sp2px().toInt()).toFloat()
         val leftMargin =
@@ -124,13 +124,13 @@ class LayoutKEditItem @JvmOverloads constructor(context: Context, attrs: Attribu
     }
 
     @SuppressLint("CustomViewStyleable")
-    private fun parseInputStyle(resId: Int, hint: String?, inputType: Int) {
+    private fun parseInputStyle(intResStyle: Int, hint: String?, inputType: Int) {
 
-        val typedArray = context.obtainStyledAttributes(resId, R.styleable.LayoutKEditItem_EditAppearance)
+        val typedArray = context.obtainStyledAttributes(intResStyle, R.styleable.LayoutKEditItem_EditAppearance)
         val hintColor: Int =
-            typedArray.getColor(R.styleable.LayoutKEditItem_EditAppearance_inputAppearance_hintColor, UtilKRes.getColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff))
+            typedArray.getColor(R.styleable.LayoutKEditItem_EditAppearance_inputAppearance_hintColor, UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff))
         val inputColor: Int =
-            typedArray.getColor(R.styleable.LayoutKEditItem_EditAppearance_inputAppearance_inputColor, UtilKRes.getColor(com.mozhimen.uicorek.R.color.cok_blue_287ff1))
+            typedArray.getColor(R.styleable.LayoutKEditItem_EditAppearance_inputAppearance_inputColor, UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_287ff1))
         val inputSize: Int =
             typedArray.getDimensionPixelSize(R.styleable.LayoutKEditItem_EditAppearance_inputAppearance_textSize, 15f.sp2px().toInt())
         val inputMaxLength: Int =
@@ -161,12 +161,12 @@ class LayoutKEditItem @JvmOverloads constructor(context: Context, attrs: Attribu
     }
 
     @SuppressLint("CustomViewStyleable")
-    private fun parseLineStyle(resId: Int): CrossLine? {
-        if (resId == 0) return null
+    private fun parseLineStyle(intResStyle: Int): CrossLine? {
+        if (intResStyle == 0) return null
         val line = CrossLine()
-        val typedArray = context.obtainStyledAttributes(resId, R.styleable.LayoutKEditItem_LineAppearance)
+        val typedArray = context.obtainStyledAttributes(intResStyle, R.styleable.LayoutKEditItem_LineAppearance)
         line.color =
-            typedArray.getColor(R.styleable.LayoutKEditItem_LineAppearance_lineAppearance_color, UtilKRes.getColor(com.mozhimen.uicorek.R.color.cok_blue_287ff1))
+            typedArray.getColor(R.styleable.LayoutKEditItem_LineAppearance_lineAppearance_color, UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_287ff1))
         line.height =
             typedArray.getDimensionPixelOffset(R.styleable.LayoutKEditItem_LineAppearance_lineAppearance_height, 0).toFloat()
         line.leftMargin =

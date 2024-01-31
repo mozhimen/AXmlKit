@@ -21,10 +21,10 @@ interface IBanner : IUtilK {
 
     /**
      * 设置banner数据
-     * @param layoutResId Int
+     * @param intResLayout Int
      * @param mos List<MBannerItem>
      */
-    fun setBannerData(@LayoutRes layoutResId: Int, mos: List<BaseBannerItem>)
+    fun setBannerData(@LayoutRes intResLayout: Int, mos: List<BaseBannerItem>)
 
     /**
      * 设置banner指示器

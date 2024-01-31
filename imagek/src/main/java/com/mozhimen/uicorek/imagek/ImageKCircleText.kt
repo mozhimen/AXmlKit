@@ -159,8 +159,8 @@ class ImageKCircleText @JvmOverloads constructor(context: Context, attrs: Attrib
     }
 
 
-    fun setText(@StringRes textResId: Int) {
-        setText(resources.getString(textResId))
+    fun setText(@StringRes intResText: Int) {
+        setText(resources.getString(intResText))
     }
 
     fun setText(textStr: String?) {
@@ -271,8 +271,8 @@ class ImageKCircleText @JvmOverloads constructor(context: Context, attrs: Attrib
         setup()
     }
 
-    override fun setImageResource(@DrawableRes resId: Int) {
-        super.setImageResource(resId)
+    override fun setImageResource(@DrawableRes intResDrawable: Int) {
+        super.setImageResource(intResDrawable)
         mBitmap = getBitmapFromDrawable(drawable)
         setup()
     }

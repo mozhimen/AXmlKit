@@ -141,8 +141,8 @@ open class TextKBubblePopWinCallback(contentView: View, bubbleView: ITextKBubble
      */
     open fun showArrowTo(anchorView: View, relativePos: MRelativePos, marginH: Int, marginV: Int) {
         dismiss()
-        val screenWidth = UtilKScreen.getWidthOfWindow()
-        val screenHeight = UtilKScreen.getHeightOfWindow()
+        val screenWidth = UtilKScreen.getWidth()
+        val screenHeight = UtilKScreen.getHeight()
 
         val navigationBarHeight = getNavigationBarHeightOffset(anchorView)
         val anchorRect = getRectInWindow(anchorView)

@@ -23,10 +23,10 @@ class ViewKScanOverlay @JvmOverloads constructor(context: Context, attrs: Attrib
     private var _isShowLabel = true
     private var _labelTextSize = 16f.sp2px().toInt()
     private var _labelTextColor = Color.WHITE
-    private var _labelBackgroundColor = UtilKRes.getColor(android.R.color.holo_blue_dark)
+    private var _labelBackgroundColor = UtilKRes.gainColor(android.R.color.holo_blue_dark)
     private var _boxType = 0
     private var _boxLineWidth = 2f.dp2px().toInt()
-    private var _boxLineColor = UtilKRes.getColor(android.R.color.holo_blue_dark)
+    private var _boxLineColor = UtilKRes.gainColor(android.R.color.holo_blue_dark)
 
     private var _scaleFactorWidth: Float = 1f
     private var _scaleFactorHeight: Float = 1f

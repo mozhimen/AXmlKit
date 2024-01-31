@@ -19,7 +19,7 @@ import com.mozhimen.uicorek.dialogk.bases.commons.IDialogKVBClickListener
  * @Version 1.0
  */
 @AManifestKRequire(CPermission.SYSTEM_ALERT_WINDOW)
-abstract class BaseDialogKVB<VB : ViewDataBinding, T : IDialogKVBClickListener<VB>>(context: Context, @StyleRes themeResId: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogK<T>(context, themeResId) {
+abstract class BaseDialogKVB<VB : ViewDataBinding, T : IDialogKVBClickListener<VB>>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogK<T>(context, intResTheme) {
 
     private var _vb: VB? = null
     protected val vb get() = _vb!!

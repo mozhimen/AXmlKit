@@ -161,9 +161,9 @@ public class LayoutKLabelGroup extends ViewGroup implements View.OnClickListener
             mLineMargin = mTypedArray.getDimensionPixelOffset(R.styleable.LayoutKLabelGroup_layoutKLabelGroup_lineMargin, (int) UtilKDisplayMetricsWrapper.dp2px(5));
             mWordMargin = mTypedArray.getDimensionPixelOffset(R.styleable.LayoutKLabelGroup_layoutKLabelGroup_wordMargin, (int) UtilKDisplayMetricsWrapper.dp2px(5));
             if (mTypedArray.hasValue(R.styleable.LayoutKLabelGroup_layoutKLabelGroup_labelBackground)) {
-                int labelBgResId = mTypedArray.getResourceId(R.styleable.LayoutKLabelGroup_layoutKLabelGroup_labelBackground, 0);
-                if (labelBgResId != 0) {
-                    mLabelBg = getResources().getDrawable(labelBgResId);
+                int intResLabelBg = mTypedArray.getResourceId(R.styleable.LayoutKLabelGroup_layoutKLabelGroup_labelBackground, 0);
+                if (intResLabelBg != 0) {
+                    mLabelBg = getResources().getDrawable(intResLabelBg);
                 } else {
                     int labelBgColor = mTypedArray.getColor(R.styleable.LayoutKLabelGroup_layoutKLabelGroup_labelBackground, Color.TRANSPARENT);
                     mLabelBg = new ColorDrawable(labelBgColor);
@@ -375,7 +375,7 @@ public class LayoutKLabelGroup extends ViewGroup implements View.OnClickListener
         //保存标签文字大小
         bundle.putFloat(KEY_TEXT_SIZE_STATE, mTextSize);
         //保存标签背景 (由于背景改用Drawable,所以不能自动保存和恢复)
-//        bundle.putInt(KEY_BG_RES_ID_STATE, mLabelBgResId);
+//        bundle.putInt(KEY_BG_RES_ID_STATE, mIntResLabelBg);
         //保存标签宽高
         bundle.putInt(KEY_LABEL_WIDTH_STATE, mLabelWidth);
         bundle.putInt(KEY_LABEL_HEIGHT_STATE, mLabelHeight);
@@ -434,9 +434,9 @@ public class LayoutKLabelGroup extends ViewGroup implements View.OnClickListener
             //恢复标签文字大小
             setLabelTextSize(bundle.getFloat(KEY_TEXT_SIZE_STATE, mTextSize));
 //            //恢复标签背景  (由于背景改用Drawable,所以不能自动保存和恢复)
-//            int resId = bundle.getInt(KEY_BG_RES_ID_STATE, mLabelBgResId);
-//            if (resId != 0) {
-//                setLabelBackgroundResource(resId);
+//            int intResDrawable = bundle.getInt(KEY_BG_RES_ID_STATE, mIntResLabelBg);
+//            if (intResDrawable != 0) {
+//                setLabelBackgroundResource(intResDrawable);
 //            }
             //恢复标签宽高
             mLabelWidth = bundle.getInt(KEY_LABEL_WIDTH_STATE, mLabelWidth);
@@ -805,10 +805,10 @@ public class LayoutKLabelGroup extends ViewGroup implements View.OnClickListener
     /**
      * 设置标签背景
      *
-     * @param resId
+     * @param intResDrawable
      */
-    public void setLabelBackgroundResource(int resId) {
-        setLabelBackgroundDrawable(getResources().getDrawable(resId));
+    public void setLabelBackgroundResource(int intResDrawable) {
+        setLabelBackgroundDrawable(getResources().getDrawable(intResDrawable));
     }
 
     /**

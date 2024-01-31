@@ -31,9 +31,9 @@ interface IBannerAdapter {
 
     /**
      * 设置资源id
-     * @param layoutId Int
+     * @param intResLayout Int
      */
-    fun setLayoutResId(@LayoutRes layoutId: Int)
+    fun setIntResLayout(@LayoutRes intResLayout: Int)
 
     /**
      * 设置自动播放

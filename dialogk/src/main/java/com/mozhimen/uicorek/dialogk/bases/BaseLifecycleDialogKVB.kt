@@ -20,8 +20,8 @@ import com.mozhimen.uicorek.dialogk.bases.commons.IDialogKVBClickListener
  */
 @OptInApiCall_BindLifecycle
 @OptInApiInit_ByLazy
-abstract class BaseLifecycleDialogKVB<VB : ViewDataBinding, T : IDialogKVBClickListener<VB>>(context: Context, @StyleRes themeResId: Int = R.style.ThemeK_Dialog_Blur) :
-    BaseDialogKVB<VB, T>(context, themeResId), IDefaultLifecycleObserver {
+abstract class BaseLifecycleDialogKVB<VB : ViewDataBinding, T : IDialogKVBClickListener<VB>>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) :
+    BaseDialogKVB<VB, T>(context, intResTheme), IDefaultLifecycleObserver {
 
     override fun bindLifecycle(owner: LifecycleOwner) {
         owner.runOnMainThread {
