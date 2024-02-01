@@ -31,12 +31,12 @@ internal object SearchAttrsParser : IAttrsParser2<MSearchAttrs> {
         )
         val searchBackground = typedArray.getDrawable(
             R.styleable.LayoutKSearch_layoutKSearch_search_background
-        ) ?: UtilKRes.getDrawable(R.drawable.layoutk_search_background)
+        ) ?: UtilKRes.gainDrawable(R.drawable.layoutk_search_background)
         val searchTextSize = typedArray.getDimensionPixelSize(
             R.styleable.LayoutKSearch_layoutKSearch_search_textSize, 15f.sp2px().toInt()
         )
         val searchTextColor = typedArray.getColor(
-            R.styleable.LayoutKSearch_layoutKSearch_search_textColor, UtilKRes.getColor(android.R.color.black)
+            R.styleable.LayoutKSearch_layoutKSearch_search_textColor, UtilKRes.gainColor(android.R.color.black)
         )
 
         //clear icon
@@ -55,7 +55,7 @@ internal object SearchAttrsParser : IAttrsParser2<MSearchAttrs> {
             R.styleable.LayoutKSearch_layoutKSearch_hint_textSize, 15f.sp2px().toInt()
         )
         val hintTextColor = typedArray.getColor(
-            R.styleable.LayoutKSearch_layoutKSearch_hint_textColor, UtilKRes.getColor(android.R.color.black)
+            R.styleable.LayoutKSearch_layoutKSearch_hint_textColor, UtilKRes.gainColor(android.R.color.black)
         )
         val hintGravity = typedArray.getInteger(
             R.styleable.LayoutKSearch_layoutKSearch_hint_gravity, 1

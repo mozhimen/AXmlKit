@@ -13,13 +13,13 @@ import com.mozhimen.uicorek.test.databinding.ActivityLayoutkNavbarBinding
 class LayoutKNavBarActivity : BaseActivityVB<ActivityLayoutkNavbarBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
-        vb.layoutkNavbar3.addLeftImage(UtilKRes.getDrawable(R.drawable.layoutk_navbar_back)!!, 40f.dp2px().toInt(), 2f.dp2px().toInt()) {
+        vb.layoutkNavbar3.addLeftImage(UtilKRes.gainDrawable(R.drawable.layoutk_navbar_back)!!, 40f.dp2px().toInt(), 2f.dp2px().toInt()) {
             setOnClickListener {
                 finish()
             }
         }
         vb.layoutkNavbar3.addLeftBtnKIconFont(
-            UtilKRes.getString(R.string.icon_mine),
+            UtilKRes.gainString(R.string.icon_mine),
             40f.dp2px().toInt(),
             30f.sp2px().toInt(),
             Color.BLACK,

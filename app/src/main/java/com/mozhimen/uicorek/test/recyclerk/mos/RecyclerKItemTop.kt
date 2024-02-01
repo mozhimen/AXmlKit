@@ -25,14 +25,14 @@ class RecyclerKItemTop : RecyclerKItem<RecyclerView.ViewHolder>() {
         val imageView = holder.itemView as ImageView
         /*data?.let {
             if (data!!.title != null && !TextUtils.isEmpty(data!!.title!!)) {*/
-        imageView.applyFitDrawable(UtilKRes.getDrawable(R.drawable.datak_item_top)!!)
+        imageView.applyFitDrawable(UtilKRes.gainDrawable(R.drawable.datak_item_top)!!)
         imageView.setImageResource(R.drawable.datak_item_top)
     }
 
     override fun getItemView(parent: ViewGroup): View {
         val imageView = ImageView(parent.context)
         imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-        imageView.setBackgroundColor(UtilKRes.getColor(android.R.color.white))
+        imageView.setBackgroundColor(UtilKRes.gainColor(android.R.color.white))
         return imageView
     }
 

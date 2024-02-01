@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import com.mozhimen.basick.elemk.commons.IExtension_Listener
 import com.mozhimen.basick.utilk.android.view.applyGone
 import com.mozhimen.basick.utilk.android.view.applyVisible
@@ -97,7 +98,7 @@ class LayoutKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeS
      * 设置图片
      * @param intResDrawable Int
      */
-    fun setImage(@Drawable intResDrawable: Int? = R.drawable.layoutk_empty) {
+    fun setImage(@DrawableRes intResDrawable: Int? = R.drawable.layoutk_empty) {
         if (intResDrawable != null) {
             _imageView.setImageResource(intResDrawable)
             _imageView.applyVisible()

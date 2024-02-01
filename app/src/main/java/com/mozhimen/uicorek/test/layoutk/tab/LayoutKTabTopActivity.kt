@@ -20,8 +20,8 @@ class LayoutKTabTopActivity : BaseActivityVB<ActivityLayoutkTabTopBinding>() {
     private val _tabInfo1 by lazy {
         MTabTop(
             "home",
-            UtilKRes.getColor(R.color.white),
-            UtilKRes.getColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff)
+            UtilKRes.gainColor(R.color.white),
+            UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff)
         )
     }
 
@@ -30,7 +30,7 @@ class LayoutKTabTopActivity : BaseActivityVB<ActivityLayoutkTabTopBinding>() {
             "more",
             R.drawable.layoutk_tab_bottom_layout_fire,
             R.drawable.layoutk_tab_bottom_layout_fire,
-            UtilKRes.getColor(com.mozhimen.uicorek.R.color.cok_blue_4785ef)
+            UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_4785ef)
         )
     }
 
@@ -39,8 +39,8 @@ class LayoutKTabTopActivity : BaseActivityVB<ActivityLayoutkTabTopBinding>() {
             "mine",
             R.drawable.layoutk_tab_bottom_layout_fire,
             R.drawable.layoutk_tab_bottom_layout_fire,
-            UtilKRes.getColor(R.color.white),
-            UtilKRes.getColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff)
+            UtilKRes.gainColor(R.color.white),
+            UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff)
         )
     }
 

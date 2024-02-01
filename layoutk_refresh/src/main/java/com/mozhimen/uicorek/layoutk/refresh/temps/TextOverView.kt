@@ -34,15 +34,15 @@ class TextOverView @JvmOverloads constructor(context: Context, attrs: AttributeS
     override fun onScroll(scrollY: Int, pullRefreshHeight: Int) {}
 
     override fun onVisible() {
-        _titleView.text = UtilKRes.getString(R.string.layoutk_refresh_visible)
+        _titleView.text = UtilKRes.gainString(R.string.layoutk_refresh_visible)
     }
 
     override fun onOverflow() {
-        _titleView.text = UtilKRes.getString(R.string.layoutk_refresh_overflow)
+        _titleView.text = UtilKRes.gainString(R.string.layoutk_refresh_overflow)
     }
 
     override fun onStartRefresh() {
-        _titleView.text = UtilKRes.getString(R.string.layoutk_refresh_refreshing)
+        _titleView.text = UtilKRes.gainString(R.string.layoutk_refresh_refreshing)
         _animView.startAnimation(_rotateAnimation)
     }
 

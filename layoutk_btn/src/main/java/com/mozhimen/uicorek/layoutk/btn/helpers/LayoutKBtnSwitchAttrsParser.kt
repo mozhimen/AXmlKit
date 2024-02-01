@@ -16,11 +16,11 @@ import com.mozhimen.uicorek.layoutk.btn.mos.LayoutKBtnSwitchAttrs
  * @Version 1.0
  */
 object LayoutKBtnSwitchAttrsParser : IAttrsParser<LayoutKBtnSwitchAttrs> {
-    val BG_COLOR_ON = UtilKRes.getColor(com.mozhimen.uicorek.R.color.cok_blue_287ff1)
-    val BG_COLOR_OFF = UtilKRes.getColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff)
-    val BTN_COLOR = UtilKRes.getColor(android.R.color.white)
+    val BG_COLOR_ON = UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_287ff1)
+    val BG_COLOR_OFF = UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff)
+    val BTN_COLOR = UtilKRes.gainColor(android.R.color.white)
     val BTN_MARGIN = 3f.dp2px()
-    val BORDER_COLOR = UtilKRes.getColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff)
+    val BORDER_COLOR = UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff)
     val BORDER_WIDTH = 1f.dp2px().toInt()
 
     override fun parseAttrs(context: Context, attrs: AttributeSet?): LayoutKBtnSwitchAttrs {

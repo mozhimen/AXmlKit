@@ -27,8 +27,8 @@ class LayoutKTabBottomActivity : BaseActivityVB<ActivityLayoutkTabBottomBinding>
             "fonts/iconfont.ttf",
             getString(R.string.icon_home),
             getString(R.string.icon_more),
-            "#ff000000",//UtilKRes.getColor(android.R.color.black),
-            "#ff287FF1"//UtilKRes.getColor(R.color.cok_blue_650)
+            "#ff000000",//UtilKRes.gainColor(android.R.color.black),
+            "#ff287FF1"//UtilKRes.gainColor(R.color.cok_blue_650)
         )
     }
 
@@ -45,8 +45,8 @@ class LayoutKTabBottomActivity : BaseActivityVB<ActivityLayoutkTabBottomBinding>
             "我的",
             R.drawable.layoutk_tab_bottom_layout_fire,
             R.drawable.layoutk_tab_bottom_layout_fire,
-            UtilKRes.getColor(android.R.color.black),
-            UtilKRes.getColor(com.mozhimen.uicorek.R.color.cok_blue_287ff1)
+            UtilKRes.gainColor(android.R.color.black),
+            UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_287ff1)
         )
     }
 }

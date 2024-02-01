@@ -64,7 +64,7 @@ class DialogKLoadingAnimDrawable internal constructor(context: Context, private 
         _imgProgress = view.findViewById(R.id.dialogk_loading_img_progress)
         _txtDesc = view.findViewById(R.id.dialogk_loading_txt_desc)
         _txtAction = view.findViewById(R.id.dialogk_loading_txt_action)
-        _imgProgress!!.setImageDrawable((UtilKRes.getDrawable(R.drawable.anim_dialogk_loading) as AnimationDrawable).also { _animationDrawable = it })
+        _imgProgress!!.setImageDrawable((UtilKRes.gainDrawable(R.drawable.anim_dialogk_loading) as AnimationDrawable).also { _animationDrawable = it })
         setDesc(_descStr)
         setAction(_actionStr, _listener)
     }
