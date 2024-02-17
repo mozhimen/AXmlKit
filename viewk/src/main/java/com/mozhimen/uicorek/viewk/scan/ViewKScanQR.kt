@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import com.mozhimen.basick.utilk.android.graphics.drawable2bitmap
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.uicorek.viewk.R
-import com.mozhimen.uicorek.viewk.bases.BaseViewK
+import com.mozhimen.uicorek.bases.BaseViewK
 
 /**
  * @ClassName QRScanView
@@ -17,7 +17,7 @@ import com.mozhimen.uicorek.viewk.bases.BaseViewK
  * @Date 2021/6/21 14:18
  * @Version 1.0
  */
-class ViewKScanQR @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0) : BaseViewK(context, attrs, defStyleAttr, defStyleRes) {
+class ViewKScanQR @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseViewK(context, attrs, defStyleAttr) {
 
     //region # variate
     private var _lineDrawable: Drawable? = null

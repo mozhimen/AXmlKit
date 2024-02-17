@@ -6,8 +6,8 @@ import android.util.AttributeSet
 import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.util.sp2px
+import com.mozhimen.uicorek.bases.BaseViewK
 import com.mozhimen.uicorek.viewk.R
-import com.mozhimen.uicorek.viewk.bases.BaseViewK
 import java.util.*
 import kotlin.math.min
 
@@ -18,6 +18,18 @@ import kotlin.math.min
  * @Date 2022/6/25 13:32
  * @Version 1.0
  */
+data class BoundingBox(
+    val boundingBox: RectF,
+    val category: Category?
+) {
+    data class Category(
+        val label: String,
+        val score: Float
+    )
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
 class ViewKScanOverlay @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseViewK(context, attrs, defStyleAttr) {
 
     private var _isShowLabel = true
@@ -30,16 +42,57 @@ class ViewKScanOverlay @JvmOverloads constructor(context: Context, attrs: Attrib
 
     private var _scaleFactorWidth: Float = 1f
     private var _scaleFactorHeight: Float = 1f
-    private var _results: LinkedList<Detection> = LinkedList<Detection>()
+    private var _results: LinkedList<BoundingBox> = LinkedList<BoundingBox>()
     private var _boxPaint = Paint()
     private var _textBackgroundPaint = Paint()
     private var _textPaint = Paint()
     private var _bounds = Rect()
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     init {
         initAttrs(attrs, defStyleAttr)
         initPaint()
     }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    fun setObjectRects(
+        imageWidth: Int,
+        imageHeight: Int,
+        detectionResults: List<BoundingBox>,
+    ) {
+        _results.clear()
+        _results.addAll(detectionResults)
+
+        // PreviewView is in FILL_START mode. So we need to scale up the bounding box to match with
+        // the size that the captured images will be displayed.
+        _scaleFactorWidth = width * 1f / imageWidth
+        _scaleFactorHeight = height * 1f / imageHeight
+        invalidate()
+    }
+
+    fun setObjectRect(
+        imageWidth: Int,
+        imageHeight: Int,
+        detectionResults: BoundingBox,
+    ) {
+        _results.clear()
+        _results.add(detectionResults)
+
+        // PreviewView is in FILL_START mode. So we need to scale up the bounding box to match with
+        // the size that the captured images will be displayed.
+        _scaleFactorWidth = width * 1f / imageWidth
+        _scaleFactorHeight = height * 1f / imageHeight
+        invalidate()
+    }
+
+    fun clearObjectRect() {
+        _results.clear()
+        invalidate()
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     override fun initAttrs(attrs: AttributeSet?, defStyleAttr: Int) {
         attrs ?: return
@@ -55,26 +108,6 @@ class ViewKScanOverlay @JvmOverloads constructor(context: Context, attrs: Attrib
             typedArray.getDimensionPixelOffset(R.styleable.ViewKScanOverlay_viewKScanOverlay_boxLineWidth, _boxLineWidth)
         _boxLineColor = typedArray.getColor(R.styleable.ViewKScanOverlay_viewKScanOverlay_boxLineColor, _boxLineColor)
         typedArray.recycle()
-    }
-
-    fun setObjectRect(
-        imageWidth: Int,
-        imageHeight: Int,
-        detectionResults: List<Detection>,
-    ) {
-        _results.clear()
-        _results.addAll(detectionResults)
-
-        // PreviewView is in FILL_START mode. So we need to scale up the bounding box to match with
-        // the size that the captured images will be displayed.
-        _scaleFactorWidth = width * 1f / imageWidth
-        _scaleFactorHeight = height * 1f / imageHeight
-        invalidate()
-    }
-
-    fun clearObjectRect() {
-        _results.clear()
-        invalidate()
     }
 
     override fun initPaint() {
@@ -117,6 +150,8 @@ class ViewKScanOverlay @JvmOverloads constructor(context: Context, attrs: Attrib
         }
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     /**
      * draw text
      * @param canvas Canvas
@@ -124,7 +159,7 @@ class ViewKScanOverlay @JvmOverloads constructor(context: Context, attrs: Attrib
      * @param left Float
      * @param top Float
      */
-    private fun drawText(canvas: Canvas, result: Detection, left: Float, top: Float) {
+    private fun drawText(canvas: Canvas, result: BoundingBox, left: Float, top: Float) {
         // Create text to display alongside detected objects
         result.category ?: return
         val drawableText =
@@ -172,15 +207,5 @@ class ViewKScanOverlay @JvmOverloads constructor(context: Context, attrs: Attrib
         val cy: Float = (top + bottom) / 2f
         val radius: Float = min(right - left, bottom - top) / 2f
         canvas.drawCircle(cx, cy, radius, _boxPaint)
-    }
-
-    data class Detection(
-        val boundingBox: RectF,
-        val category: Category?
-    ) {
-        data class Category(
-            val label: String,
-            val score: Float
-        )
     }
 }

@@ -6,7 +6,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewConfiguration
 import androidx.viewpager2.widget.ViewPager2
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKFrame
+import com.mozhimen.uicorek.bases.BaseLayoutKFrame
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 

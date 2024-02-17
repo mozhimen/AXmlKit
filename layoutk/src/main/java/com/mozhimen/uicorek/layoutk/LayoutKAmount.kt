@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.core.view.setPadding
 import com.mozhimen.basick.elemk.commons.IA_Listener
 import com.mozhimen.basick.utilk.kotlin.normalize
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKLinear
+import com.mozhimen.uicorek.bases.BaseLayoutKLinear
 import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.util.sp2px

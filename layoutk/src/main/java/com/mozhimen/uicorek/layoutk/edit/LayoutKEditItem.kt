@@ -17,7 +17,7 @@ import com.mozhimen.basick.utilk.android.view.applyPadding
 import com.mozhimen.basick.utilk.android.util.sp2px
 import com.mozhimen.basick.utilk.android.widget.applyInputMaxLength
 import com.mozhimen.uicorek.layoutk.R
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKLinear
+import com.mozhimen.uicorek.bases.BaseLayoutKLinear
 
 /**
  * @ClassName LayoutKInputItem

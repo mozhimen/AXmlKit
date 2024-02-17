@@ -7,7 +7,7 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.MotionEvent
 import com.mozhimen.basick.elemk.commons.I_Listener
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKFrame
+import com.mozhimen.uicorek.bases.BaseLayoutKFrame
 
 /**
  * @ClassName ViewKTouch

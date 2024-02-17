@@ -33,7 +33,6 @@ dependencies {
 
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:uicorek')
-    implementation project(':layoutk')
     implementation project(':recyclerk_load')
     api "com.airbnb.android:lottie:3.6.1"
 

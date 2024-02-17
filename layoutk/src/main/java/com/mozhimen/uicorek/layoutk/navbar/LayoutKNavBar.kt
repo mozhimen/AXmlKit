@@ -17,7 +17,7 @@ import com.mozhimen.basick.elemk.commons.IExtension_Listener
 import com.mozhimen.basick.utilk.android.graphics.drawable2bitmap
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.view.applyPaddingHorizontal
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKRelative
+import com.mozhimen.uicorek.bases.BaseLayoutKRelative
 import com.mozhimen.basick.utilk.android.util.sp2px
 import com.mozhimen.basick.utilk.android.widget.applyIconFont
 import com.mozhimen.basick.utilk.android.widget.applyTextStyle

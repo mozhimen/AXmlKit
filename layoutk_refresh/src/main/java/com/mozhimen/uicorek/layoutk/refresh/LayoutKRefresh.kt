@@ -11,7 +11,7 @@ import android.widget.Scroller
 import com.mozhimen.basick.elemk.android.view.commons.GestureDetectorOnGestureCallback
 import com.mozhimen.basick.utilk.android.view.UtilKViewGroup.isChildScrolled
 import com.mozhimen.basick.utilk.android.view.UtilKViewGroup.getChildScrollable
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKFrame
+import com.mozhimen.uicorek.bases.BaseLayoutKFrame
 import com.mozhimen.uicorek.layoutk.refresh.commons.IRefresh
 import com.mozhimen.uicorek.layoutk.refresh.commons.IRefreshListener
 import com.mozhimen.uicorek.layoutk.refresh.commons.RefreshOverView

@@ -10,7 +10,7 @@ import androidx.annotation.FloatRange
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.utilk.android.view.UtilKView
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKFrame
+import com.mozhimen.uicorek.bases.BaseLayoutKFrame
 import com.mozhimen.uicorek.layoutk.slider.commons.ILayoutKSlider
 import com.mozhimen.uicorek.layoutk.slider.commons.ISliderScrollListener
 import com.mozhimen.uicorek.layoutk.slider.helpers.LayoutKSliderDelegate

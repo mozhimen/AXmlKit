@@ -2,7 +2,7 @@ package com.mozhimen.uicorek.layoutk
 
 import android.content.Context
 import android.util.AttributeSet
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKFrame
+import com.mozhimen.uicorek.bases.BaseLayoutKFrame
 
 /**
  * @ClassName LayoutKSquare

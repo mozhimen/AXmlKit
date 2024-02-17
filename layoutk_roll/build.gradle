@@ -33,7 +33,6 @@ dependencies {
 
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:uicorek')
-    implementation project(':layoutk')
     implementation project(':interpolatork')
 
     testImplementation 'junit:junit:4.13.2'

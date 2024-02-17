@@ -14,7 +14,7 @@ import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.view.UtilKScreen
 import com.mozhimen.basick.utilk.android.view.UtilKViewGroup.findTypeChildView
 import com.mozhimen.basick.utilk.kotlin.UtilKAnyFormat
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKFrame
+import com.mozhimen.uicorek.bases.BaseLayoutKFrame
 import com.mozhimen.uicorek.layoutk.tab.R
 import com.mozhimen.uicorek.layoutk.tab.bottom.mos.MTabBottom
 import com.mozhimen.uicorek.layoutk.tab.commons.ILayoutKTab

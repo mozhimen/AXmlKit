@@ -33,7 +33,6 @@ dependencies {
 
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:uicorek')
-    implementation project(':layoutk')
     implementation project(':layoutk_empty')
     implementation project(':layoutk_refresh')
     implementation project(':vhk')

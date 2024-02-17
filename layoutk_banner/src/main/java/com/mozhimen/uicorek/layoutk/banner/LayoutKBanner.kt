@@ -8,7 +8,7 @@ import com.mozhimen.uicorek.layoutk.banner.commons.IBannerIndicator
 import com.mozhimen.uicorek.layoutk.banner.commons.IBannerItemClickListener
 import com.mozhimen.uicorek.layoutk.banner.helpers.LayoutKBannerDelegate
 import com.mozhimen.uicorek.layoutk.banner.bases.BaseBannerItem
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKFrame
+import com.mozhimen.uicorek.bases.BaseLayoutKFrame
 
 /**
  * @ClassName LayoutKBanner

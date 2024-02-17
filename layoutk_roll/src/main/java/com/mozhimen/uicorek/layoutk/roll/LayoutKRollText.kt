@@ -14,7 +14,7 @@ import com.mozhimen.basick.animk.builder.commons.IAnimatorUpdateListener
 import com.mozhimen.basick.animk.builder.temps.AnimatorFloatType
 import com.mozhimen.basick.utilk.android.widget.applyTextStyle
 import com.mozhimen.uicorek.interpolatork.InterpolatorKSpring
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKFrame
+import com.mozhimen.uicorek.bases.BaseLayoutKFrame
 import com.mozhimen.uicorek.layoutk.roll.annors.AAnimatorMode
 
 /**

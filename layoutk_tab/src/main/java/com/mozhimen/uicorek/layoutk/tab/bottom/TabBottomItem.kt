@@ -11,7 +11,7 @@ import com.mozhimen.basick.imagek.glide.loadImageGlide
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.view.applyLayoutParams
 import com.mozhimen.basick.utilk.android.widget.applyIconFont
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKRelative
+import com.mozhimen.uicorek.bases.BaseLayoutKRelative
 import com.mozhimen.uicorek.layoutk.tab.R
 import com.mozhimen.uicorek.layoutk.tab.bottom.cons.ETabBottomType
 import com.mozhimen.uicorek.layoutk.tab.bottom.mos.MTabBottom

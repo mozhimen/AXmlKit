@@ -3,7 +3,7 @@ package com.mozhimen.uicorek.layoutk.tab.bottom
 import android.content.Context
 import android.util.AttributeSet
 import androidx.fragment.app.Fragment
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKFrame
+import com.mozhimen.uicorek.bases.BaseLayoutKFrame
 import com.mozhimen.uicorek.layoutk.tab.bottom.helpers.TabBottomFragmentAdapter
 
 /**

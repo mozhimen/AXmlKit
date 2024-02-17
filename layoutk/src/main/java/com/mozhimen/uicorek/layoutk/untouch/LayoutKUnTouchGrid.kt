@@ -3,7 +3,7 @@ package com.mozhimen.uicorek.layoutk.untouch
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKGrid
+import com.mozhimen.uicorek.bases.BaseLayoutKGrid
 
 /**
  * @ClassName LayoutKGridUnTouch

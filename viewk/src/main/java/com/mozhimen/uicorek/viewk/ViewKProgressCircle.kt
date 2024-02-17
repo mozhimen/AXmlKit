@@ -9,7 +9,7 @@ import android.util.AttributeSet
 import androidx.annotation.IntRange
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.kotlin.normalize
-import com.mozhimen.uicorek.viewk.bases.BaseViewK
+import com.mozhimen.uicorek.bases.BaseViewK
 
 /**
  * @ClassName ViewKProgressCircle

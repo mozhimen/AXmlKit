@@ -21,7 +21,7 @@ import com.mozhimen.basick.imagek.glide.loadImageComplexGlide
 import com.mozhimen.basick.manifestk.cons.CPermission
 import com.mozhimen.basick.manifestk.annors.AManifestKRequire
 import com.mozhimen.basick.utilk.android.widget.applyTextStyle
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKLinear
+import com.mozhimen.uicorek.bases.BaseLayoutKLinear
 import com.mozhimen.uicorek.layoutk.side.R
 import com.mozhimen.uicorek.vhk.VHKRecycler
 import com.mozhimen.uicorek.layoutk.side.list.helpers.SideAttrsParser

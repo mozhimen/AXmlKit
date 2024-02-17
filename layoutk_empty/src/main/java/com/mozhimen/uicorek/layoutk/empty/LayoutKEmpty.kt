@@ -14,7 +14,7 @@ import com.mozhimen.basick.elemk.commons.IExtension_Listener
 import com.mozhimen.basick.utilk.android.view.applyGone
 import com.mozhimen.basick.utilk.android.view.applyVisible
 import com.mozhimen.basick.utilk.android.widget.applyIconFont
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKLinear
+import com.mozhimen.uicorek.bases.BaseLayoutKLinear
 
 /**
  * @ClassName LayoutKEmpty

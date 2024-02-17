@@ -3,17 +3,12 @@ package com.mozhimen.uicorek.layoutk
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.BlendMode
-import android.graphics.Color
-import android.os.Build
 import android.util.AttributeSet
-import android.util.Log
 import android.view.Gravity
-import android.view.ViewGroup
 import android.widget.ProgressBar
-import androidx.appcompat.widget.AppCompatRatingBar
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
 import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.uicorek.layoutk.bases.BaseLayoutKFrame
+import com.mozhimen.uicorek.bases.BaseLayoutKFrame
 
 /**
  * @ClassName LayoutKLoading
