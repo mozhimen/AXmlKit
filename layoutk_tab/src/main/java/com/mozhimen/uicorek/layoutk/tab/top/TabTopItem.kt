@@ -9,8 +9,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.mozhimen.basick.imagek.glide.loadImageGlide
-import com.mozhimen.basick.manifestk.cons.CPermission
-import com.mozhimen.basick.manifestk.annors.AManifestKRequire
+import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.uicorek.bases.BaseLayoutKRelative
 import com.mozhimen.basick.utilk.android.view.applyLayoutParams
@@ -27,7 +26,7 @@ import com.mozhimen.uicorek.layoutk.tab.top.mos.MTabTop
  * @Date 2022/4/15 22:23
  * @Version 1.0
  */
-@AManifestKRequire(CPermission.INTERNET)
+@OPermission_INTERNET
 class TabTopItem @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : BaseLayoutKRelative(context, attrs, defStyleAttr), ITabItem<MTabTop> {
