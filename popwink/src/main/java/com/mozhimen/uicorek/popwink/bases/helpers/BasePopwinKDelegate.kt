@@ -15,7 +15,7 @@ import com.mozhimen.basick.utilk.bases.IUtilK
 import com.mozhimen.basick.utilk.android.app.UtilKActivity.getByContext
 import com.mozhimen.basick.utilk.android.util.et
 import com.mozhimen.basick.utilk.android.content.UtilKRes
-import com.mozhimen.basick.utilk.android.view.UtilKView.removeViewFromParent
+import com.mozhimen.basick.utilk.android.view.UtilKView.removeViewForParent
 import com.mozhimen.basick.utilk.android.view.UtilKWindowParams
 import com.mozhimen.uicorek.popwink.R
 import com.mozhimen.uicorek.popwink.bases.commons.IClearMemoryListener
@@ -28,6 +28,7 @@ import com.mozhimen.uicorek.popwink.bases.commons.IClearMemoryListener
  * @Date 2022/12/27 12:05
  * @Version 1.0
  */
+@OApiUse_BaseApplication
 class BasePopwinKDelegate(context: BasePopwinKContextWrapper) : PopupWindow(context), IClearMemoryListener, IUtilK {
 
     private var _basePopwinKContextWrapper: BasePopwinKContextWrapper? = null
@@ -146,7 +147,7 @@ class BasePopwinKDelegate(context: BasePopwinKContextWrapper) : PopupWindow(cont
             _basePopwinKContextWrapper!!.clear(destroy)
         }
         try {
-            removeViewFromParent(contentView)
+            removeViewForParent(contentView)
         } catch (e: Exception) {
             e.message?.et(TAG)
         }

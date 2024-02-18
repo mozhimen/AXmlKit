@@ -1,6 +1,5 @@
 package com.mozhimen.uicorek.toastk.builder
 
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
@@ -9,11 +8,11 @@ import com.mozhimen.basick.elemk.android.view.annors.AGravity
 import com.mozhimen.basick.elemk.android.view.cons.CGravity
 import com.mozhimen.basick.elemk.android.widget.annors.AToastDuration
 import com.mozhimen.basick.elemk.android.widget.cons.CToast
-import com.mozhimen.basick.lintk.optin.OptInApiDeprecated_Official_AfterV_30_11_R
+import com.mozhimen.basick.lintk.optins.OApiDeprecated_Official_AfterV_30_11_R
 import com.mozhimen.basick.utilk.bases.BaseUtilK
 import com.mozhimen.uicorek.toastk.R
 
-@OptInApiDeprecated_Official_AfterV_30_11_R
+@OApiDeprecated_Official_AfterV_30_11_R
 class ToastKViewBuilder : BaseUtilK() {
     private val _toast: Toast by lazy { Toast(_context) }
     private var _toastTextView: TextView
