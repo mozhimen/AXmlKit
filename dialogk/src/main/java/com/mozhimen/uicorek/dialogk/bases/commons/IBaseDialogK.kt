@@ -3,8 +3,10 @@ package com.mozhimen.uicorek.dialogk.bases.commons
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import androidx.annotation.AnimRes
+import androidx.annotation.RequiresPermission
 import androidx.annotation.StyleRes
+import com.mozhimen.basick.lintk.optins.permission.OPermission_SYSTEM_ALERT_WINDOW
+import com.mozhimen.basick.manifestk.cons.CPermission
 import com.mozhimen.basick.utilk.bases.IUtilK
 import com.mozhimen.uicorek.dialogk.bases.annors.ADialogMode
 
@@ -62,6 +64,8 @@ interface IBaseDialogK<I : IDialogKClickListener> : IUtilK {
      * 需要权限
      * <h3>uses-permission Android:name="android.permission.SYSTEM_ALERT_WINDOW"
     </h3> */
+    @RequiresPermission(CPermission.SYSTEM_ALERT_WINDOW)
+    @OPermission_SYSTEM_ALERT_WINDOW
     fun showInSystemWindow()
 
     //////////////////////////////////////////////////////////////////////////////

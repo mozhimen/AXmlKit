@@ -13,6 +13,4 @@ import com.mozhimen.uicorek.test.databinding.ActivityLayoutkSquareBinding
  * @Date 2022/12/17 12:24
  * @Version 1.0
  */
-@AManifestKRequire(CPermission.SYSTEM_ALERT_WINDOW)
-@APermissionCheck(CPermission.SYSTEM_ALERT_WINDOW)
 class LayoutKSquareActivity : BaseActivityVB<ActivityLayoutkSquareBinding>()

@@ -22,7 +22,6 @@ import com.mozhimen.uicorek.test.R
  * @Date 2022/11/24 23:39
  * @Version 1.0
  */
-@AManifestKRequire(CPermission.SYSTEM_ALERT_WINDOW)
 class DialogKLoadingAnimDrawable internal constructor(context: Context, private val _descStr: String?, private val _actionStr: String?, private val _listener: View.OnClickListener?) :
     BaseDialogK<IDialogKClickListener>(context, com.mozhimen.uicorek.R.style.ThemeK_Dialog_Translucent) {
 

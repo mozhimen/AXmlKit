@@ -22,8 +22,6 @@ import com.mozhimen.uicorek.test.dialogk.temps.IDialogKTipListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@AManifestKRequire(CPermission.SYSTEM_ALERT_WINDOW)
-@APermissionCheck(CPermission.SYSTEM_ALERT_WINDOW)
 class DialogKActivity : BaseActivityVB<ActivityDialogkBinding>() {
 
     fun goDialogKQues(view: View) {

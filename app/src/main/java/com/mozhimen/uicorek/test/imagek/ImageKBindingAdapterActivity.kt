@@ -14,6 +14,4 @@ import com.mozhimen.uicorek.test.databinding.ActivityImagekBindingAdapterBinding
  * @Date 2022/11/11 14:12
  * @Version 1.0
  */
-@AManifestKRequire(CPermission.SYSTEM_ALERT_WINDOW)
-@APermissionCheck(CPermission.SYSTEM_ALERT_WINDOW)
 class ImageKBindingAdapterActivity: BaseActivityVB<ActivityImagekBindingAdapterBinding>()

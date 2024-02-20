@@ -5,11 +5,12 @@ import android.content.Context
 import android.os.Bundle
 import android.view.*
 import androidx.activity.ComponentDialog
+import androidx.annotation.RequiresPermission
 import androidx.annotation.StyleRes
 import androidx.lifecycle.lifecycleScope
 import com.mozhimen.basick.elemk.android.view.cons.CWinMgr
+import com.mozhimen.basick.lintk.optins.permission.OPermission_SYSTEM_ALERT_WINDOW
 import com.mozhimen.basick.manifestk.cons.CPermission
-import com.mozhimen.basick.manifestk.annors.AManifestKRequire
 import com.mozhimen.basick.utilk.android.app.isFinishingOrDestroyed
 import com.mozhimen.basick.utilk.android.util.et
 import com.mozhimen.basick.utilk.java.lang.UtilKThread
@@ -27,7 +28,6 @@ import kotlinx.coroutines.launch
  * @Date 2022/11/24 22:31
  * @Version 1.0
  */
-@AManifestKRequire(CPermission.SYSTEM_ALERT_WINDOW)
 abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(context: Context, @StyleRes intResTheme: Int = com.mozhimen.uicorek.R.style.ThemeK_Dialog_Blur) : ComponentDialog(context, intResTheme),
     IBaseDialogK<I> {
 
@@ -88,6 +88,8 @@ abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(
         }
     }
 
+    @RequiresPermission(CPermission.SYSTEM_ALERT_WINDOW)
+    @OPermission_SYSTEM_ALERT_WINDOW
     override fun showInSystemWindow() {
         try {
             val window = window ?: return

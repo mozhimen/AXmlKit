@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.StyleRes
 import androidx.databinding.ViewDataBinding
-import com.mozhimen.basick.manifestk.annors.AManifestKRequire
-import com.mozhimen.basick.manifestk.cons.CPermission
 import com.mozhimen.basick.utilk.androidx.databinding.UtilKViewDataBinding
 import com.mozhimen.uicorek.R
 import com.mozhimen.uicorek.dialogk.bases.commons.IDialogKVBClickListener
@@ -18,7 +16,6 @@ import com.mozhimen.uicorek.dialogk.bases.commons.IDialogKVBClickListener
  * @Date 2023/6/2 17:12
  * @Version 1.0
  */
-@AManifestKRequire(CPermission.SYSTEM_ALERT_WINDOW)
 abstract class BaseDialogKVB<VB : ViewDataBinding, T : IDialogKVBClickListener<VB>>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogK<T>(context, intResTheme) {
 
     private var _vb: VB? = null
