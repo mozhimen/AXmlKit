@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.uicorek.imagek'
+    namespace 'com.mozhimen.uicorek.imagek.blur'
     compileSdk 33
 
     defaultConfig {
@@ -29,16 +29,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
+    buildFeatures{
         dataBinding true
     }
 }
 
 dependencies {
 
+    implementation project(':AImageKit:imagek_glide_blur')
+    implementation project(':AImageKit:imagek_blur')
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:uicorek')
-    implementation project(':AImageKit:imagek_glide')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

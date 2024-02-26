@@ -244,7 +244,7 @@ import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion;
 import com.mozhimen.basick.utilk.bases.BaseUtilK;
 import com.mozhimen.basick.utilk.android.view.UtilKGravity;
 import com.mozhimen.basick.utilk.android.content.UtilKRes;
-import com.mozhimen.basick.imagek.blur.mos.ImageKBlurConfig;
+import com.mozhimen.imagek.blur.mos.ImageKBlurConfig;
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
 import com.mozhimen.basick.utilk.android.view.UtilKDecorView;
 import com.mozhimen.basick.utilk.kotlin.UtilKStrColor;

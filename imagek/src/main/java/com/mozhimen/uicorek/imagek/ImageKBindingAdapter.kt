@@ -2,7 +2,7 @@ package com.mozhimen.uicorek.imagek
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.mozhimen.basick.imagek.glide.ImageKGlide
+import com.mozhimen.imagek.glide.ImageKGlide
 import com.mozhimen.basick.utilk.android.util.dp2px
 
 /**
@@ -21,11 +21,6 @@ object ImageKBindingAdapter {
         } else {
             ImageKGlide.loadImageGlide(imageView, loadImageWhenGlide_statusFalse)
         }
-    }
-    @JvmStatic
-    @BindingAdapter(value = ["loadImageBlurGlide", "placeholder"], requireAll = true)
-    fun loadImageBlurGlide(imageView: ImageView, loadImageBlurGlide: Any, placeholder: Int) {
-        ImageKGlide.loadImageBlurGlide(imageView, loadImageBlurGlide, placeholder)
     }
 
     @JvmStatic

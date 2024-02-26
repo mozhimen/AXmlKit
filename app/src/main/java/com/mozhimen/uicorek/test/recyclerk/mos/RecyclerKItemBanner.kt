@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.mozhimen.basick.cachek.sharedpreferences.CacheKSP
-import com.mozhimen.basick.imagek.glide.loadImageGlide
+import com.mozhimen.imagek.glide.loadImageGlide
 import com.mozhimen.uicorek.layoutk.banner.IBannerItemChangeListener
 import com.mozhimen.uicorek.layoutk.banner.bases.BaseBannerItem
 import com.mozhimen.uicorek.layoutk.banner.commons.IBannerBindListener

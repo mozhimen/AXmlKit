@@ -11,7 +11,7 @@ import com.mozhimen.basick.animk.builder.AnimKBuilder.asAnimation
 import com.mozhimen.basick.animk.builder.temps.AnimKScaleType.Companion.CENTER_HIDE
 import com.mozhimen.basick.animk.builder.temps.AnimKScaleType.Companion.CENTER_SHOW
 import com.mozhimen.basick.elemk.android.os.cons.CVersCode
-import com.mozhimen.basick.imagek.blur.mos.ImageKBlurConfig
+import com.mozhimen.imagek.blur.mos.ImageKBlurConfig
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.basick.utilk.kotlin.obj2clazz

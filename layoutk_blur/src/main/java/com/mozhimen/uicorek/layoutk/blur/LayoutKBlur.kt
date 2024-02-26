@@ -10,7 +10,7 @@ import android.widget.ImageView
 import androidx.annotation.IntRange
 import com.mozhimen.uicorek.bases.BaseLayoutKRelative
 import com.mozhimen.basick.utilk.android.view.UtilKScreen
-import com.mozhimen.basick.imagek.blur.ImageKBlurRenderScript
+import com.mozhimen.imagek.blur.ImageKBlurRenderScript
 import com.mozhimen.basick.utilk.android.graphics.drawable2bitmap
 import com.mozhimen.uicorek.layoutk.blur.commons.ILayoutKBlur
 

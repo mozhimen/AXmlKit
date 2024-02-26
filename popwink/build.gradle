@@ -31,10 +31,10 @@ android {
 }
 
 dependencies {
-
+    implementation project(':AImageKit:imagek_blur')
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:uicorek')
-    implementation project(project.path.replace(project.name, '') +':imagek')
+    implementation project(project.path.replace(project.name, '') +':imagek_blur')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

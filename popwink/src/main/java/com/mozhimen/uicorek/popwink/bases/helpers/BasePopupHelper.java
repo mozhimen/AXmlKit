@@ -34,7 +34,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.mozhimen.basick.elemk.android.view.cons.CWinMgr;
-import com.mozhimen.basick.imagek.blur.mos.ImageKBlurConfig;
+import com.mozhimen.imagek.blur.mos.ImageKBlurConfig;
 import com.mozhimen.basick.stackk.cb.StackKCb;
 import com.mozhimen.basick.utilk.android.animation.UtilKAnimator;
 import com.mozhimen.basick.utilk.android.app.UtilKActivity;

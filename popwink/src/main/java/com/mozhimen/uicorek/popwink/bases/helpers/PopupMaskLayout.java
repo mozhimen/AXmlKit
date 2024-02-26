@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.mozhimen.basick.utilk.android.graphics.UtilKColorDrawable;
-import com.mozhimen.uicorek.imagek.ImageKBlur;
+import com.mozhimen.uicorek.imagek.blur.ImageKBlur;
 import com.mozhimen.uicorek.popwink.bases.commons.IClearMemoryListener;
 
 import com.mozhimen.basick.utilk.android.view.UtilKStatusBar;

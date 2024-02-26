@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.mozhimen.basick.imagek.glide.loadImageGlide
+import com.mozhimen.imagek.glide.loadImageGlide
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.view.applyLayoutParams
 import com.mozhimen.basick.utilk.android.widget.applyIconFont

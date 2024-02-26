@@ -8,7 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.mozhimen.basick.imagek.glide.loadImageGlide
+import com.mozhimen.imagek.glide.loadImageGlide
 import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.uicorek.bases.BaseLayoutKRelative
