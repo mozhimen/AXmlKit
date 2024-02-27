@@ -40,7 +40,6 @@ open class BasePopwinKLifecycle(context: Context) : BasePopwinK(context), Lifecy
     }
 
     override fun onDestroy() {
-//        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_DESTROY)
         Log.d(TAG, "onDestroy: ")
         super.onDestroy()
     }
