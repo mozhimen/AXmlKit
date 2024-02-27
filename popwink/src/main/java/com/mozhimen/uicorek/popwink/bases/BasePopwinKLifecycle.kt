@@ -6,6 +6,10 @@ import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
+import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnCreate
+import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnPause
+import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStart
+import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStop
 import com.mozhimen.uicorek.popwink.bases.BasePopwinK
 
 /**
@@ -26,16 +30,16 @@ open class BasePopwinKLifecycle(context: Context) : BasePopwinK(context), Lifecy
 
     override fun onViewCreated(contentView: View) {
         super.onViewCreated(contentView)
-        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
+        lifecycleRegistry.handleLifecycleEventOnCreate()
     }
 
     override fun onShowing() {
         super.onShowing()
-        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START)
+        lifecycleRegistry.handleLifecycleEventOnStart()
     }
 
     override fun onDismiss() {
-        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_STOP)
+        lifecycleRegistry.handleLifecycleEventOnStop()
         super.onDismiss()
     }
 

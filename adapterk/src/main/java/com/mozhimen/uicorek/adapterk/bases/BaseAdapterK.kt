@@ -8,7 +8,8 @@ import androidx.annotation.LayoutRes
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
-import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventDestroyed
+import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnDestroy
+import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStart
 import com.mozhimen.uicorek.vhk.bases.BaseVHK
 
 
@@ -33,7 +34,7 @@ abstract class BaseAdapterK<T>(
     //////////////////////////////////////////////////////////////////////////
 
     init {
-        lifecycleRegistry.handleLifecycleEvent(Lifecycle.Event.ON_START)
+        lifecycleRegistry.handleLifecycleEventOnStart()
     }
 
     //////////////////////////////////////////////////////////////////////////
@@ -67,7 +68,7 @@ abstract class BaseAdapterK<T>(
 
     @CallSuper
     open fun onDetachedFromRecycler() {
-        lifecycleRegistry.handleLifecycleEventDestroyed()
+        lifecycleRegistry.handleLifecycleEventOnDestroy()
     }
 
     //////////////////////////////////////////////////////////////////////////
