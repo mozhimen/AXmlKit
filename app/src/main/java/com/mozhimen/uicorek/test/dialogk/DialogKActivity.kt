@@ -1,15 +1,10 @@
 package com.mozhimen.uicorek.test.dialogk
 
-import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
 import com.mozhimen.basick.elemk.commons.I_Listener
-import com.mozhimen.basick.manifestk.permission.annors.APermissionCheck
-import com.mozhimen.basick.manifestk.cons.CPermission
-import com.mozhimen.basick.manifestk.annors.AManifestKRequire
-import com.mozhimen.basick.utilk.android.app.isFinishingOrDestroyed
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.uicorek.test.dialogk.temps.DialogKLoadingAnim
 import com.mozhimen.uicorek.test.dialogk.temps.DialogKLoadingAnimDrawable

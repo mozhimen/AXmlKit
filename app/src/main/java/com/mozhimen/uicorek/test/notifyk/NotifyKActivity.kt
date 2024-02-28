@@ -1,12 +1,13 @@
 package com.mozhimen.uicorek.test.notifyk
 
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.content.Context
 import android.view.View
 import androidx.core.app.NotificationCompat
 import com.mozhimen.basick.elemk.android.app.cons.CNotificationManager
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
-import com.mozhimen.basick.manifestk.annors.AManifestKRequire
+import com.mozhimen.basick.lintk.optins.permission.OPermission_POST_NOTIFICATIONS
 import com.mozhimen.basick.manifestk.cons.CPermission
 import com.mozhimen.basick.utilk.android.app.UtilKNotificationManager
 import com.mozhimen.basick.utilk.android.content.UtilKApplicationInfo
@@ -20,12 +21,14 @@ import com.mozhimen.uicorek.test.databinding.ActivityNotifykBinding
  * @Date 2024/1/2 23:36
  * @Version 1.0
  */
-@AManifestKRequire(CPermission.POST_NOTIFICATIONS)
 class NotifyKActivity : BaseActivityVB<ActivityNotifykBinding>() {
+    @SuppressLint("NewApi")
+    @OptIn(OPermission_POST_NOTIFICATIONS::class)
     fun showNotification(view: View) {
         showNotification(this, NAME.hashCode(), "1", "2", "3", "4")
     }
 
+    @OPermission_POST_NOTIFICATIONS
     fun showNotification(
         context: Context,
         id: Int,

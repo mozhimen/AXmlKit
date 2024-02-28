@@ -40,6 +40,8 @@ dependencies {
 
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:uicorek')
+    implementation project(':AImageKit:imagek_glide_blur')
+    implementation project(':AImageKit:imagek_glide')
     implementation project(':adapterk')
     implementation project(':bark')
     implementation project(':bark_rating')

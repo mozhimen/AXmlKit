@@ -2,9 +2,7 @@ package com.mozhimen.uicorek.test.layoutk.tab
 
 import android.os.Bundle
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
-import com.mozhimen.basick.manifestk.permission.annors.APermissionCheck
-import com.mozhimen.basick.manifestk.cons.CPermission
-import com.mozhimen.basick.manifestk.annors.AManifestKRequire
+import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.uicorek.layoutk.tab.commons.ITabSelectedListener
@@ -19,8 +17,7 @@ import com.mozhimen.uicorek.test.databinding.ActivityLayoutkTabTopLayoutBinding
  * @Date 2021/8/4 17:17
  * @Version 1.0
  */
-@AManifestKRequire(CPermission.INTERNET)
-@APermissionCheck(CPermission.INTERNET)
+@OptIn(OPermission_INTERNET::class)
 class LayoutKTabTopLayoutActivity : BaseActivityVB<ActivityLayoutkTabTopLayoutBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {

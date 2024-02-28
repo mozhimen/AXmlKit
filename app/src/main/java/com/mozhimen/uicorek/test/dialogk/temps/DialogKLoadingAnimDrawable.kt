@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.mozhimen.basick.manifestk.cons.CPermission
-import com.mozhimen.basick.manifestk.annors.AManifestKRequire
 import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.basick.utilk.android.view.applyVisibleIfElseGone
 import com.mozhimen.basick.utilk.android.widget.applyValueIfNotEmpty

@@ -3,17 +3,14 @@ package com.mozhimen.uicorek.test.layoutk.side
 import android.os.Bundle
 import android.widget.Toast
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
-import com.mozhimen.basick.manifestk.permission.annors.APermissionCheck
-import com.mozhimen.basick.manifestk.cons.CPermission
-import com.mozhimen.basick.manifestk.annors.AManifestKRequire
+import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.uicorek.vhk.VHKRecycler
 import com.mozhimen.uicorek.layoutk.side.list.ILayoutKSideListListener
 import com.mozhimen.uicorek.layoutk.side.list.mos.*
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkSideListBinding
 
-@AManifestKRequire(CPermission.INTERNET)
-@APermissionCheck(CPermission.INTERNET)
+@OptIn(OPermission_INTERNET::class)
 class LayoutKSideActivity : BaseActivityVB<ActivityLayoutkSideListBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
