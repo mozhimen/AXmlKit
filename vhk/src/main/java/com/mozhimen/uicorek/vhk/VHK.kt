@@ -1,4 +1,4 @@
-package com.mozhimen.uicorek.vhk.bases
+package com.mozhimen.uicorek.vhk
 
 import android.content.Context
 import android.util.SparseArray
@@ -17,7 +17,7 @@ import androidx.annotation.IdRes
  * @Date 2023/11/22 15:10
  * @Version 1.0
  */
-class BaseVHK private constructor(context: Context, parent: ViewGroup, layoutId: Int) {
+class VHK private constructor(context: Context, parent: ViewGroup, layoutId: Int) {
 
     private val _views: SparseArray<View?> = SparseArray()//存储ListView 的 item中的View
 
@@ -25,7 +25,7 @@ class BaseVHK private constructor(context: Context, parent: ViewGroup, layoutId:
      * 获取当前条目//存放convertView
      */
     var itemView: View = LayoutInflater.from(context).inflate(layoutId, parent, false).apply {
-        tag = this@BaseVHK
+        tag = this@VHK
     }
         private set
 
@@ -39,12 +39,12 @@ class BaseVHK private constructor(context: Context, parent: ViewGroup, layoutId:
 
     companion object {
         @JvmStatic
-        fun bindView(context: Context, convertView: View?, parent: ViewGroup, layoutId: Int, position: Int): BaseVHK {//绑定ViewHolder与item
-            val holder: BaseVHK
+        fun bindView(context: Context, convertView: View?, parent: ViewGroup, layoutId: Int, position: Int): VHK {//绑定ViewHolder与item
+            val holder: VHK
             if (convertView == null) {
-                holder = BaseVHK(context, parent, layoutId)
+                holder = VHK(context, parent, layoutId)
             } else {
-                holder = convertView.tag as BaseVHK
+                holder = convertView.tag as VHK
                 holder.itemView = convertView
             }
             holder.itemPosition = position
@@ -63,10 +63,12 @@ class BaseVHK private constructor(context: Context, parent: ViewGroup, layoutId:
         return view
     }
 
+    ////////////////////////////////////////////////////////////////////////
+
     /**
      * 设置文字
      */
-    fun setText(@IdRes intResId: Int, text: CharSequence?): BaseVHK {
+    fun setText(@IdRes intResId: Int, text: CharSequence?): VHK {
         val view = getView<View>(intResId)!!
         if (view is TextView) {
             view.text = text
@@ -77,7 +79,7 @@ class BaseVHK private constructor(context: Context, parent: ViewGroup, layoutId:
     /**
      * 设置图片
      */
-    fun setImageResource(@IdRes intResId: Int, @DrawableRes intResDrawable: Int): BaseVHK {
+    fun setImageResource(@IdRes intResId: Int, @DrawableRes intResDrawable: Int): VHK {
         val imageView = getView<View>(intResId)!!
         if (imageView is ImageView)
             imageView.setImageResource(intResDrawable)
@@ -89,7 +91,7 @@ class BaseVHK private constructor(context: Context, parent: ViewGroup, layoutId:
     /**
      * 设置点击监听
      */
-    fun setOnClickListener(@IdRes intResId: Int, listener: View.OnClickListener): BaseVHK {
+    fun setOnClickListener(@IdRes intResId: Int, listener: View.OnClickListener): VHK {
         getView<View>(intResId)!!.setOnClickListener(listener)
         return this
     }
@@ -97,7 +99,7 @@ class BaseVHK private constructor(context: Context, parent: ViewGroup, layoutId:
     /**
      * 设置可见
      */
-    fun setVisibility(@IdRes intResId: Int, visible: Int): BaseVHK {
+    fun setVisibility(@IdRes intResId: Int, visible: Int): VHK {
         getView<View>(intResId)!!.visibility = visible
         return this
     }
@@ -105,7 +107,7 @@ class BaseVHK private constructor(context: Context, parent: ViewGroup, layoutId:
     /**
      * 设置标签
      */
-    fun setTag(@IdRes intResId: Int, obj: Any): BaseVHK {
+    fun setTag(@IdRes intResId: Int, obj: Any): VHK {
         getView<View>(intResId)!!.tag = obj
         return this
     } //其他方法可自行扩展

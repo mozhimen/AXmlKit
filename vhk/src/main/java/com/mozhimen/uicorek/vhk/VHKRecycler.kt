@@ -11,7 +11,6 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
-import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
 import com.mozhimen.basick.utilk.android.view.applyVisibleIfElseGone
 import com.mozhimen.basick.utilk.android.view.applyVisibleIfElseInVisible
@@ -23,7 +22,7 @@ import com.mozhimen.basick.utilk.android.view.applyVisibleIfElseInVisible
  * @Date 2021/12/25 15:35
  * @Version 1.0
  */
-open class VHKRecycler(containerView: View) : RecyclerView.ViewHolder(containerView) {
+open class VHKRecycler(containerView: View) : VHKLifecycle(containerView) {
 
     private var _viewCaches = SparseArray<View>()
 

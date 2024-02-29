@@ -10,7 +10,7 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnDestroy
 import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStart
-import com.mozhimen.uicorek.vhk.bases.BaseVHK
+import com.mozhimen.uicorek.vhk.VHK
 
 
 /**
@@ -49,7 +49,7 @@ abstract class BaseAdapterK<T>(
         position.toLong()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val viewHolder = BaseVHK.bindView(parent.context, convertView, parent, _layoutId, position)
+        val viewHolder = VHK.bindView(parent.context, convertView, parent, _layoutId, position)
         onBindView(viewHolder, getItem(position), position)
         return viewHolder.itemView
     }
@@ -59,7 +59,7 @@ abstract class BaseAdapterK<T>(
 
     //////////////////////////////////////////////////////////////////////////
 
-    abstract fun onBindView(holder: BaseVHK, data: T, position: Int)
+    abstract fun onBindView(holder: VHK, data: T, position: Int)
 
 //    @CallSuper
 //    open fun onDetachedFromWindow() {
