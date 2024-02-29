@@ -31,6 +31,9 @@ abstract class BaseAdapterK<T>(
             _lifecycleRegistry = it
         }
 
+    override val lifecycle: Lifecycle
+        get() = lifecycleRegistry
+
     //////////////////////////////////////////////////////////////////////////
 
     init {
@@ -54,8 +57,7 @@ abstract class BaseAdapterK<T>(
         return viewHolder.itemView
     }
 
-    override val lifecycle: Lifecycle
-        get() = lifecycleRegistry
+
 
     //////////////////////////////////////////////////////////////////////////
 
@@ -67,7 +69,7 @@ abstract class BaseAdapterK<T>(
 //    }
 
     @CallSuper
-    open fun onDetachedFromRecycler() {
+    open fun onViewRecycled() {
         lifecycleRegistry.handleLifecycleEventOnDestroy()
     }
 

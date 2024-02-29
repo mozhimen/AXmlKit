@@ -34,8 +34,10 @@ dependencies {
 
     if (rootProject.name == "SwiftKit") {
         implementation project(':basick')
+        implementation project(':uicorek')
     } else {
         implementation project(':SwiftKit:basick')
+        implementation project(':SwiftKit:uicorek')
     }
 
     testImplementation 'junit:junit:4.13.2'

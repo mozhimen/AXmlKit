@@ -11,7 +11,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
 
 /**
- * @ClassName BaseVHK
+ * @ClassName VHK
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
  * @Date 2023/11/22 15:10

@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
 import com.mozhimen.basick.utilk.android.util.et
 import com.mozhimen.uicorek.recyclerk.commons.IAdapterKRecycler
-import com.mozhimen.uicorek.vhk.bases.BaseVHKRecycler
+import com.mozhimen.uicorek.vhk.VHKRecycler
 import java.lang.ref.WeakReference
 import java.lang.reflect.ParameterizedType
 import java.util.ArrayList
@@ -232,6 +232,6 @@ open class AdapterKItemRecycler : RecyclerView.Adapter<RecyclerView.ViewHolder>(
                 }
             }
         }
-        return object : BaseVHKRecycler(view) {}
+        return object : VHKRecycler(view) {}
     }
 }

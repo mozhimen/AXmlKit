@@ -49,21 +49,26 @@ open class VHKLifecycle(containerView: View) : RecyclerView.ViewHolder(container
 
     private fun onCreate() {
         lifecycleRegistry.handleLifecycleEventOnCreate()
+        //view xx
     }
 
     fun onBind() {
         lifecycleRegistry.handleLifecycleEventOnStart()
+        //view
+        viewLifecycleOwner.onCreate()
     }
 
     fun onViewAttachedToWindow() {
-        viewLifecycleOwner.onCreate()
         lifecycleRegistry.handleLifecycleEventOnResume()
+        //viw
+        viewLifecycleOwner.onResume()
     }
 
     fun onViewDetachedFromWindow() {
+        lifecycleRegistry.handleLifecycleEventOnStop()
+        //view
         viewLifecycleOwner.onDestroy()
         _viewLifecycleOwner = null
-        lifecycleRegistry.handleLifecycleEventOnStop()
     }
 
     fun onViewRecycled() {

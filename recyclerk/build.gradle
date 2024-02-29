@@ -33,8 +33,10 @@ android {
 dependencies {
     if (rootProject.name == "SwiftKit") {
         implementation project(':basick')
+        implementation project(':uicorek')
     } else {
         implementation project(':SwiftKit:basick')
+        implementation project(':SwiftKit:uicorek')
     }
     implementation project(project.path.replace(project.name, '') +':vhk')
 
