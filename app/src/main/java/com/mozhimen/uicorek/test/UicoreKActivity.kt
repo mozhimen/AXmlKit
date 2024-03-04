@@ -1,7 +1,7 @@
 package com.mozhimen.uicorek.test
 
 import android.view.View
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.content.startContext
 import com.mozhimen.uicorek.test.databinding.ActivityUicorekBinding
 import com.mozhimen.uicorek.test.adapterk.AdapterKActivity
@@ -18,7 +18,7 @@ import com.mozhimen.uicorek.test.viewk.ViewKActivity
 import com.mozhimen.uicorek.test.bark.BarKActivity
 import com.mozhimen.uicorek.test.notifyk.NotifyKActivity
 
-class UicoreKActivity : BaseActivityVB<ActivityUicorekBinding>() {
+class UicoreKActivity : BaseActivityVDB<ActivityUicorekBinding>() {
 
     fun goAdapterK(view: View) {
         startContext<AdapterKActivity>()

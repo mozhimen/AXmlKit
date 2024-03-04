@@ -16,17 +16,17 @@ import com.mozhimen.uicorek.dialogk.bases.commons.IDialogKVBClickListener
  * @Date 2023/6/2 17:12
  * @Version 1.0
  */
-abstract class BaseDialogKVB<VB : ViewDataBinding, T : IDialogKVBClickListener<VB>>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogK<T>(context, intResTheme) {
+abstract class BaseDialogKVB<VDB : ViewDataBinding, T : IDialogKVBClickListener<VDB>>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogK<T>(context, intResTheme) {
 
-    private var _vb: VB? = null
-    protected val vb get() = _vb!!
+    private var _vdb: VDB? = null
+    protected val vdb get() = _vdb!!
 
     //////////////////////////////////////////////////////////////////////////////
 
     override fun onCreateView(inflater: LayoutInflater): View? {
-        _vb = UtilKViewDataBinding.get<VB>(this::class.java, inflater/*, 0*/).apply {
+        _vdb = UtilKViewDataBinding.get<VDB>(this::class.java, inflater/*, 0*/).apply {
             lifecycleOwner = this@BaseDialogKVB
         }
-        return vb.root
+        return vdb.root
     }
 }

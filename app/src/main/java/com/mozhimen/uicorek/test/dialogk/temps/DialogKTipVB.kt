@@ -42,7 +42,7 @@ class DialogKTipVB(context: Context, private val _txt: String, private var _onSu
     }
 
     fun setTxt(txt: String) {
-        vb.dialogkTipTxt.applyValueIfNotEmpty(txt)
+        vdb.dialogkTipTxt.applyValueIfNotEmpty(txt)
     }
 
     fun setOnSureListener(onSure: IDialogKTipListener) {
@@ -50,8 +50,8 @@ class DialogKTipVB(context: Context, private val _txt: String, private var _onSu
     }
 
     override fun onViewCreated(view: View) {
-        vb.dialogkTipBtnSure.setOnClickListener { getDialogClickListener()?.onClickPositive(view, this) }
-        vb.dialogkTipBtnCancel.setOnClickListener { getDialogClickListener()?.onClickNegative(view, this) }
+        vdb.dialogkTipBtnSure.setOnClickListener { getDialogClickListener()?.onClickPositive(view, this) }
+        vdb.dialogkTipBtnCancel.setOnClickListener { getDialogClickListener()?.onClickNegative(view, this) }
         setTxt(_txt)
     }
 

@@ -1,7 +1,7 @@
 package com.mozhimen.uicorek.test.layoutk.tab
 
 import android.os.Bundle
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.basick.utilk.android.content.UtilKRes
@@ -18,7 +18,7 @@ import com.mozhimen.uicorek.test.databinding.ActivityLayoutkTabTopLayoutBinding
  * @Version 1.0
  */
 @OptIn(OPermission_INTERNET::class)
-class LayoutKTabTopLayoutActivity : BaseActivityVB<ActivityLayoutkTabTopLayoutBinding>() {
+class LayoutKTabTopLayoutActivity : BaseActivityVDB<ActivityLayoutkTabTopLayoutBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         initTabTopLayout()
@@ -56,13 +56,13 @@ class LayoutKTabTopLayoutActivity : BaseActivityVB<ActivityLayoutkTabTopLayoutBi
             add(_tabTop2)
         }
         for (str in _tabStr) infoList.add(MTabTop(str, colorDefault, colorSelected))
-        vb.layoutkTabTopLayout.inflateTabItem(infoList)
-        vb.layoutkTabTopLayout.addTabItemSelectedListener(object : ITabSelectedListener<MTabTop> {
+        vdb.layoutkTabTopLayout.inflateTabItem(infoList)
+        vdb.layoutkTabTopLayout.addTabItemSelectedListener(object : ITabSelectedListener<MTabTop> {
             override fun onTabItemSelected(index: Int, prevItem: MTabTop?, currentItem: MTabTop) {
                 currentItem.name!!.showToast()
             }
         })
-        vb.layoutkTabTopLayout.defaultSelected(infoList[0])
-        vb.layoutkTabTopLayout.setTabTopBackground(UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff))
+        vdb.layoutkTabTopLayout.defaultSelected(infoList[0])
+        vdb.layoutkTabTopLayout.setTabTopBackground(UtilKRes.gainColor(com.mozhimen.uicorek.R.color.cok_blue_e8f3ff))
     }
 }

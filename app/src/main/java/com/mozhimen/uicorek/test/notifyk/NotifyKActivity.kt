@@ -6,7 +6,7 @@ import android.content.Context
 import android.view.View
 import androidx.core.app.NotificationCompat
 import com.mozhimen.basick.elemk.android.app.cons.CNotificationManager
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.lintk.optins.permission.OPermission_POST_NOTIFICATIONS
 import com.mozhimen.basick.manifestk.cons.CPermission
 import com.mozhimen.basick.utilk.android.app.UtilKNotificationManager
@@ -21,7 +21,7 @@ import com.mozhimen.uicorek.test.databinding.ActivityNotifykBinding
  * @Date 2024/1/2 23:36
  * @Version 1.0
  */
-class NotifyKActivity : BaseActivityVB<ActivityNotifykBinding>() {
+class NotifyKActivity : BaseActivityVDB<ActivityNotifykBinding>() {
     @SuppressLint("NewApi")
     @OptIn(OPermission_POST_NOTIFICATIONS::class)
     fun showNotification(view: View) {

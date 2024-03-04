@@ -1,7 +1,7 @@
 package com.mozhimen.uicorek.test.layoutk.refresh
 
 import android.view.View
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.content.startContext
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkRefreshBinding
 
@@ -12,7 +12,7 @@ import com.mozhimen.uicorek.test.databinding.ActivityLayoutkRefreshBinding
  * @Date 2022/11/7 1:36
  * @Version 1.0
  */
-class LayoutKRefreshActivity : BaseActivityVB<ActivityLayoutkRefreshBinding>() {
+class LayoutKRefreshActivity : BaseActivityVDB<ActivityLayoutkRefreshBinding>() {
     fun goLayoutKRefreshLottie(view: View) {
         startContext<LayoutKRefreshLottieActivity>()
     }

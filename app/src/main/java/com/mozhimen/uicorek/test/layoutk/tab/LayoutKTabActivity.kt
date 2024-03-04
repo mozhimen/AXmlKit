@@ -1,7 +1,7 @@
 package com.mozhimen.uicorek.test.layoutk.tab
 
 import android.view.View
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.content.startContext
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkTabBinding
 
@@ -12,7 +12,7 @@ import com.mozhimen.uicorek.test.databinding.ActivityLayoutkTabBinding
  * @Date 2022/11/7 1:29
  * @Version 1.0
  */
-class LayoutKTabActivity : BaseActivityVB<ActivityLayoutkTabBinding>() {
+class LayoutKTabActivity : BaseActivityVDB<ActivityLayoutkTabBinding>() {
 
     fun goLayoutKTabBottom(view: View) {
         startContext<LayoutKTabBottomActivity>()

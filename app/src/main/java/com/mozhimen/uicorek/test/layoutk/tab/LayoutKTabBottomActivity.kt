@@ -1,7 +1,7 @@
 package com.mozhimen.uicorek.test.layoutk.tab
 
 import android.os.Bundle
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.uicorek.layoutk.tab.bottom.mos.MTabBottom
 import com.mozhimen.uicorek.test.R
@@ -14,11 +14,11 @@ import com.mozhimen.uicorek.test.databinding.ActivityLayoutkTabBottomBinding
  * @Date 2021/8/2 14:39
  * @Version 1.0
  */
-class LayoutKTabBottomActivity : BaseActivityVB<ActivityLayoutkTabBottomBinding>() {
+class LayoutKTabBottomActivity : BaseActivityVDB<ActivityLayoutkTabBottomBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
-        vb.layoutkTabBottomHome.setTabItem(_homeInfo)
-        vb.layoutkTabBottomMore.setTabItem(_moreInfo)
-        vb.layoutkTabBottomMine.setTabItem(_mineInfo)
+        vdb.layoutkTabBottomHome.setTabItem(_homeInfo)
+        vdb.layoutkTabBottomMore.setTabItem(_moreInfo)
+        vdb.layoutkTabBottomMine.setTabItem(_mineInfo)
     }
 
     private val _homeInfo by lazy {

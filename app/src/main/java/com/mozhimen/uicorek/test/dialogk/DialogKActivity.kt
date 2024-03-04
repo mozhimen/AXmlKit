@@ -3,7 +3,7 @@ package com.mozhimen.uicorek.test.dialogk
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.elemk.commons.I_Listener
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.uicorek.test.dialogk.temps.DialogKLoadingAnim
@@ -17,7 +17,7 @@ import com.mozhimen.uicorek.test.dialogk.temps.IDialogKTipListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class DialogKActivity : BaseActivityVB<ActivityDialogkBinding>() {
+class DialogKActivity : BaseActivityVDB<ActivityDialogkBinding>() {
 
     fun goDialogKQues(view: View) {
         genDialogKQues("你get到此用法了吗?", onSureClick = {})

@@ -2,7 +2,7 @@ package com.mozhimen.uicorek.test.layoutk.side
 
 import android.os.Bundle
 import android.widget.Toast
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.uicorek.vhk.VHKRecycler
@@ -11,7 +11,7 @@ import com.mozhimen.uicorek.layoutk.side.list.mos.*
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkSideListBinding
 
 @OptIn(OPermission_INTERNET::class)
-class LayoutKSideActivity : BaseActivityVB<ActivityLayoutkSideListBinding>() {
+class LayoutKSideActivity : BaseActivityVDB<ActivityLayoutkSideListBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         val mo = MSide(
@@ -210,7 +210,7 @@ class LayoutKSideActivity : BaseActivityVB<ActivityLayoutkSideListBinding>() {
                 )
             )
         )
-        vb.layoutkSideList.bindData(mo, spanCount = 3, listener = object : ILayoutKSideListListener {
+        vdb.layoutkSideList.bindData(mo, spanCount = 3, listener = object : ILayoutKSideListListener {
             override fun invoke(holder: VHKRecycler, contentMo: MSideSubContent?) {
                 "$contentMo".showToast(Toast.LENGTH_LONG)
             }

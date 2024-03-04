@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.content.startContext
 import com.mozhimen.uicorek.popwink.bubble.PopwinKBubbleBuilder
 import com.mozhimen.uicorek.textk.progress.TextKProgress
@@ -12,41 +12,41 @@ import com.mozhimen.uicorek.test.databinding.ActivityTextkBinding
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class TextKActivity : BaseActivityVB<ActivityTextkBinding>() {
+class TextKActivity : BaseActivityVDB<ActivityTextkBinding>() {
     @SuppressLint("SetTextI18n")
     override fun initView(savedInstanceState: Bundle?) {
-        vb.textkBubbleBtn.setOnClickListener {
+        vdb.textkBubbleBtn.setOnClickListener {
             genPopwinKBubbleText(it, "弹出了一个气泡提示")
         }
         lifecycleScope.launch {
-            vb.textkProgress.setProgress(0f)
-            vb.textkProgress.setCurrentText("0%")
-            vb.textkProgress.setProgressState(TextKProgress.PROGRESS_STATE_LOADING)
+            vdb.textkProgress.setProgress(0f)
+            vdb.textkProgress.setCurrentText("0%")
+            vdb.textkProgress.setProgressState(TextKProgress.PROGRESS_STATE_LOADING)
             delay(1000)
-            vb.textkProgress.setProgress(50f)
-            vb.textkProgress.setCurrentText("10%")
+            vdb.textkProgress.setProgress(50f)
+            vdb.textkProgress.setCurrentText("10%")
             delay(1000)
-            vb.textkProgress.setProgress(100f)
-            vb.textkProgress.setCurrentText("100%")
-            vb.textkProgress.setProgressState(TextKProgress.PROGRESS_STATE_FINISH)
+            vdb.textkProgress.setProgress(100f)
+            vdb.textkProgress.setCurrentText("100%")
+            vdb.textkProgress.setProgressState(TextKProgress.PROGRESS_STATE_FINISH)
         }
 
         lifecycleScope.launch {
-            vb.textkProgress1.setProgressState(TextKProgress.PROGRESS_STATE_LOADING)
-            vb.textkProgress1.setProgressText("0%", 0)
+            vdb.textkProgress1.setProgressState(TextKProgress.PROGRESS_STATE_LOADING)
+            vdb.textkProgress1.setProgressText("0%", 0)
             delay(1000)
-            vb.textkProgress1.setProgressText("20%", 20)
+            vdb.textkProgress1.setProgressText("20%", 20)
             delay(1000)
-            vb.textkProgress1.setProgressText("40%", 40)
+            vdb.textkProgress1.setProgressText("40%", 40)
             delay(1000)
-            vb.textkProgress1.setProgressText("60%", 60)
+            vdb.textkProgress1.setProgressText("60%", 60)
             delay(1000)
-            vb.textkProgress1.setProgressText("80%", 80)
+            vdb.textkProgress1.setProgressText("80%", 80)
             delay(1000)
-            vb.textkProgress1.setProgressText("100%", 100)
-            vb.textkProgress1.setProgressState(TextKProgress.PROGRESS_STATE_FINISH)
+            vdb.textkProgress1.setProgressText("100%", 100)
+            vdb.textkProgress1.setProgressState(TextKProgress.PROGRESS_STATE_FINISH)
         }
-        vb.textkExpandable.setExpandableText(
+        vdb.textkExpandable.setExpandableText(
             "@Override\n" +
                     "protected void onCreate(Bundle savedInstanceState) {\n" +
                     "super.onCreate(savedInstanceState);\n" +

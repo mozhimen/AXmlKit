@@ -1,6 +1,6 @@
 package com.mozhimen.uicorek.recyclerk.commons
 
-import com.mozhimen.uicorek.vhk.VHKRecyclerVB
+import com.mozhimen.uicorek.vhk.VHKRecyclerVDB
 
 /**
  * @ClassName IAdapterKRecyclerVBListener
@@ -9,5 +9,5 @@ import com.mozhimen.uicorek.vhk.VHKRecyclerVB
  * @Date 2023/8/31 13:29
  * @Version 1.0
  */
-typealias IAdapterKRecyclerVBListener<DATA, VB> = (holder: VHKRecyclerVB<VB>, data: DATA, position: Int, currentSelectPosition: Int) -> Unit
-typealias IAdapterKRecyclerStuffedVBListener<DATA, VB> = (holder: VHKRecyclerVB<VB>, data: DATA, position: Int, currentSelectPosition: Int) -> Unit
+typealias IAdapterKRecyclerVBListener<DATA, VB> = (holder: VHKRecyclerVDB<VB>, data: DATA, position: Int, currentSelectPosition: Int) -> Unit
+typealias IAdapterKRecyclerStuffedVBListener<DATA, VB> = (holder: VHKRecyclerVDB<VB>, data: DATA, position: Int, currentSelectPosition: Int) -> Unit

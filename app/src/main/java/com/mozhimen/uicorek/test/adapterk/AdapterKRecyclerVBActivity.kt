@@ -3,7 +3,7 @@ package com.mozhimen.uicorek.test.adapterk
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.elemk.mos.MKey
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.uicorek.recyclerk.item.AdapterKItemRecyclerVB
@@ -22,7 +22,7 @@ import kotlinx.coroutines.withContext
  * @Date 2023/8/30 23:29
  * @Version 1.0
  */
-class AdapterKRecyclerVBActivity : BaseActivityVB<ActivityAdapterkRecyclerVbBinding>() {
+class AdapterKRecyclerVBActivity : BaseActivityVDB<ActivityAdapterkRecyclerVbBinding>() {
 
     private lateinit var _adapterRecyclerVb: AdapterKItemRecyclerVB<MKey, ItemAdapterkRecyclerVbBinding>
 
@@ -32,11 +32,11 @@ class AdapterKRecyclerVBActivity : BaseActivityVB<ActivityAdapterkRecyclerVbBind
             R.layout.item_adapterk_recycler_vb,
             BR.item_adapterk_recycler_vb
         ) { holder, itemData, position, currentSelectPos ->
-            holder.vb.itemAdapterkRecyclerVb2Name.setOnClickListener {
+            holder.vdb.itemAdapterkRecyclerVb2Name.setOnClickListener {
                 "${position}: data:${itemData}".showToast()
             }
         }
-        vb.adapterkRecyclerVbRv.apply {
+        vdb.adapterkRecyclerVbRv.apply {
             layoutManager = LinearLayoutManager(this@AdapterKRecyclerVBActivity)
             adapter = _adapterRecyclerVb
         }

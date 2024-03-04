@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.utilk.bases.IUtilK
 import com.mozhimen.uicorek.recyclerk.commons.IAdapterKRecyclerVB
 import com.mozhimen.uicorek.recyclerk.commons.IAdapterKRecyclerVBListener
-import com.mozhimen.uicorek.vhk.VHKRecyclerVB
+import com.mozhimen.uicorek.vhk.VHKRecyclerVDB
 
 /**
  * @ClassName AdapterKQuickRecyclerVB
@@ -27,7 +27,7 @@ open class AdapterKQuickRecyclerVB<DATA, VB : ViewDataBinding>(
     private val _defaultLayout: Int,
     private val _brId: Int,
     private val _listener: IAdapterKRecyclerVBListener<DATA, VB>? = null /* = (BindKViewHolder<ViewDataBinding>, T, Int) -> Unit */
-) : RecyclerView.Adapter<VHKRecyclerVB<VB>>(), IAdapterKRecyclerVB<DATA, VB>, IUtilK {
+) : RecyclerView.Adapter<VHKRecyclerVDB<VB>>(), IAdapterKRecyclerVB<DATA, VB>, IUtilK {
 
     private var _selectItemPosition = -1
 
@@ -108,22 +108,22 @@ open class AdapterKQuickRecyclerVB<DATA, VB : ViewDataBinding>(
 
     ////////////////////////////////////////////////////////////////////////////
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHKRecyclerVB<VB> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHKRecyclerVDB<VB> {
         val binding = DataBindingUtil.inflate<VB>(
             LayoutInflater.from(parent.context),
             viewType,
             parent,
             false
         )
-        return VHKRecyclerVB(binding)
+        return VHKRecyclerVDB(binding)
     }
 
     override fun getItemCount() = if (_datas.isEmpty()) 0 else _datas.size
 
-    override fun onBindViewHolder(holder: VHKRecyclerVB<VB>, position: Int) {
-        holder.vb.setVariable(_brId, _datas[position])
+    override fun onBindViewHolder(holder: VHKRecyclerVDB<VB>, position: Int) {
+        holder.vdb.setVariable(_brId, _datas[position])
         _listener?.invoke(holder, _datas[position], position, _selectItemPosition)
-        holder.vb.executePendingBindings()
+        holder.vdb.executePendingBindings()
     }
 
     override fun getItemViewType(position: Int) = _defaultLayout

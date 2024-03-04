@@ -3,7 +3,7 @@ package com.mozhimen.uicorek.test.adapterk
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.uicorek.recyclerk.item.AdapterKItemRecyclerStuffed
 import com.mozhimen.uicorek.recyclerk.item.RecyclerKItem
 import com.mozhimen.uicorek.test.databinding.ActivityAdapterkRecyclerStuffedBinding
@@ -16,7 +16,7 @@ import com.mozhimen.uicorek.test.recyclerk.mos.*
  * @Date 2021/9/1 16:16
  * @Version 1.0
  */
-class AdapterKRecyclerStuffedActivity : BaseActivityVB<ActivityAdapterkRecyclerStuffedBinding>() {
+class AdapterKRecyclerStuffedActivity : BaseActivityVDB<ActivityAdapterkRecyclerStuffedBinding>() {
 
     private val _adapterKRecyclerStuffed by lazy { AdapterKItemRecyclerStuffed() }
     override fun initView(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class AdapterKRecyclerStuffedActivity : BaseActivityVB<ActivityAdapterkRecyclerS
     }
 
     private fun initAdapter() {
-        vb.adapterkRecyclerStuffed.apply {
+        vdb.adapterkRecyclerStuffed.apply {
             layoutManager = GridLayoutManager(this@AdapterKRecyclerStuffedActivity, 2)
             adapter = _adapterKRecyclerStuffed
         }

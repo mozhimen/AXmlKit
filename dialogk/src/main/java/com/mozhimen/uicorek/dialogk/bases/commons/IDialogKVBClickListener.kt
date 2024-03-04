@@ -11,20 +11,20 @@ import com.mozhimen.uicorek.dialogk.bases.BaseDialogKVB
  * @Date 2022/11/24 22:28
  * @Version 1.0
  */
-interface IDialogKVBClickListener<VB : ViewDataBinding> : IDialogKClickListener {
+interface IDialogKVBClickListener<VDB : ViewDataBinding> : IDialogKClickListener {
     /**
      * 点击确定
      * @param view View?
      */
-    fun onVBClickPositive(vb: VB, dialogK: BaseDialogKVB<VB, IDialogKVBClickListener<VB>>) {
-        onClickPositive(vb.root, dialogK)
+    fun onVBClickPositive(vdb: VDB, dialogK: BaseDialogKVB<VDB, IDialogKVBClickListener<VDB>>) {
+        onClickPositive(vdb.root, dialogK)
     }
 
     /**
      * 点击取消
      * @param view View?
      */
-    fun onVBClickNegative(vb: VB, dialogK: BaseDialogKVB<VB, IDialogKVBClickListener<VB>>) {
-        onClickNegative(vb.root, dialogK)
+    fun onVBClickNegative(vdb: VDB, dialogK: BaseDialogKVB<VDB, IDialogKVBClickListener<VDB>>) {
+        onClickNegative(vdb.root, dialogK)
     }
 }

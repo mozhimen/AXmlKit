@@ -1,7 +1,7 @@
 package com.mozhimen.uicorek.test.layoutk.tab
 
 import android.os.Bundle
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.uicorek.layoutk.tab.bottom.mos.MTabBottom
@@ -9,14 +9,14 @@ import com.mozhimen.uicorek.layoutk.tab.commons.ITabSelectedListener
 import com.mozhimen.uicorek.test.R
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkTabBottomLayoutBinding
 
-class LayoutKTabBottomLayoutActivity : BaseActivityVB<ActivityLayoutkTabBottomLayoutBinding>() {
+class LayoutKTabBottomLayoutActivity : BaseActivityVDB<ActivityLayoutkTabBottomLayoutBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         initTabBottom()
     }
 
     private fun initTabBottom() {
-        vb.layoutkTabBottomLayout.setTabBottomAlpha(0.85f)
+        vdb.layoutkTabBottomLayout.setTabBottomAlpha(0.85f)
         val bottomMoList: MutableList<MTabBottom> = ArrayList()
         val homeInfo = MTabBottom(
             "首页",
@@ -44,13 +44,13 @@ class LayoutKTabBottomLayoutActivity : BaseActivityVB<ActivityLayoutkTabBottomLa
             add(moreInfo)
             add(mineInfo)
         }
-        vb.layoutkTabBottomLayout.inflateTabItem(bottomMoList)
-        vb.layoutkTabBottomLayout.addTabItemSelectedListener(object : ITabSelectedListener<MTabBottom> {
+        vdb.layoutkTabBottomLayout.inflateTabItem(bottomMoList)
+        vdb.layoutkTabBottomLayout.addTabItemSelectedListener(object : ITabSelectedListener<MTabBottom> {
             override fun onTabItemSelected(index: Int, prevItem: MTabBottom?, currentItem: MTabBottom) {
                 currentItem.name!!.showToast()
             }
         })
-        vb.layoutkTabBottomLayout.defaultSelected(homeInfo)
-        vb.layoutkTabBottomLayout.findTabItem(bottomMoList[1])?.resetTabHeight(66f.dp2px().toInt()) //改变某个Tab的高度
+        vdb.layoutkTabBottomLayout.defaultSelected(homeInfo)
+        vdb.layoutkTabBottomLayout.findTabItem(bottomMoList[1])?.resetTabHeight(66f.dp2px().toInt()) //改变某个Tab的高度
     }
 }

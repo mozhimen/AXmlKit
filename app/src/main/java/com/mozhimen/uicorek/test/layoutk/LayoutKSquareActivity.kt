@@ -1,6 +1,6 @@
 package com.mozhimen.uicorek.test.layoutk
 
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkSquareBinding
 
 /**
@@ -10,4 +10,4 @@ import com.mozhimen.uicorek.test.databinding.ActivityLayoutkSquareBinding
  * @Date 2022/12/17 12:24
  * @Version 1.0
  */
-class LayoutKSquareActivity : BaseActivityVB<ActivityLayoutkSquareBinding>()
+class LayoutKSquareActivity : BaseActivityVDB<ActivityLayoutkSquareBinding>()

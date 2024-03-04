@@ -19,7 +19,7 @@ class RecyclerKItemTab : RecyclerKItem<VHKRecyclerVB<ItemRecyclerkTabBinding>>()
     override fun onBindItem(holder: VHKRecyclerVB<ItemRecyclerkTabBinding>, position: Int) {
         super.onBindItem(holder, position)
         //holder.binding.setVariable(BR.XXX, XXX)
-        holder.vb.datakItemTabImg.setImageResource(R.drawable.datak_item_tab)
+        holder.vdb.datakItemTabImg.setImageResource(R.drawable.datak_item_tab)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): VHKRecyclerVB<ItemRecyclerkTabBinding> {

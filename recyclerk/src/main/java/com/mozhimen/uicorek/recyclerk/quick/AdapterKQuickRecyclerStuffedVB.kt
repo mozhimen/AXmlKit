@@ -8,7 +8,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.uicorek.recyclerk.commons.IAdapterKRecyclerStuffedVBListener
 import com.mozhimen.uicorek.recyclerk.commons.IAdapterKRecyclerVB
-import com.mozhimen.uicorek.vhk.VHKRecyclerVB
+import com.mozhimen.uicorek.vhk.VHKRecyclerVDB
 
 /**
  * @ClassName AdapterKRecyclerStuffedVB
@@ -27,7 +27,7 @@ open class AdapterKQuickRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
     private var _footerLayout: Int?,
     private var _brId: Int,
     private var _listener: IAdapterKRecyclerStuffedVBListener<DATA, VB>? = null
-) : RecyclerView.Adapter<VHKRecyclerVB<VB>>(), IAdapterKRecyclerVB<DATA, VB> {
+) : RecyclerView.Adapter<VHKRecyclerVDB<VB>>(), IAdapterKRecyclerVB<DATA, VB> {
 
     private var _selectItemPosition = 0
 
@@ -108,11 +108,11 @@ open class AdapterKQuickRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
 
     ////////////////////////////////////////////////////////////////////////////
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHKRecyclerVB<VB> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHKRecyclerVDB<VB> {
         return when (viewType) {
-            _headerLayout -> VHKRecyclerVB(LayoutInflater.from(parent.context).inflate(_headerLayout!!, parent, false))
+            _headerLayout -> VHKRecyclerVDB(LayoutInflater.from(parent.context).inflate(_headerLayout!!, parent, false))
 
-            _footerLayout -> VHKRecyclerVB(LayoutInflater.from(parent.context).inflate(_footerLayout!!, parent, false))
+            _footerLayout -> VHKRecyclerVDB(LayoutInflater.from(parent.context).inflate(_footerLayout!!, parent, false))
 
             else -> {
                 val binding = DataBindingUtil.inflate<VB>(
@@ -120,7 +120,7 @@ open class AdapterKQuickRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
                     viewType,
                     parent, false
                 )
-                VHKRecyclerVB(binding)
+                VHKRecyclerVDB(binding)
             }
         }
     }
@@ -137,10 +137,10 @@ open class AdapterKQuickRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
         }
     }
 
-    override fun onBindViewHolder(holder: VHKRecyclerVB<VB>, position: Int) {
+    override fun onBindViewHolder(holder: VHKRecyclerVDB<VB>, position: Int) {
         if (_headerLayout != null) {
             if (position != 0 && position <= _datas.size) {
-                holder.vb.apply {
+                holder.vdb.apply {
                     setVariable(_brId, _datas[position - 1])
                     _listener?.invoke(holder, _datas[position - 1], position - 1, _selectItemPosition)
                     executePendingBindings()
@@ -148,7 +148,7 @@ open class AdapterKQuickRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
             }
         } else {
             if (position < _datas.size) {
-                holder.vb.apply {
+                holder.vdb.apply {
                     setVariable(_brId, _datas[position])
                     _listener?.invoke(holder, _datas[position], position, _selectItemPosition)
                     executePendingBindings()

@@ -2,7 +2,7 @@ package com.mozhimen.uicorek.test.layoutk.loadrefresh
 
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.basick.elemk.android.os.WakeBefPauseLifecycleHandler
 import com.mozhimen.basick.utilk.android.os.applyPostDelayed
@@ -13,7 +13,7 @@ import com.mozhimen.uicorek.recyclerk.item.RecyclerKItem
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkLoadrefreshBinding
 import com.mozhimen.uicorek.test.recyclerk.mos.RecyclerKItemLoadMore
 
-class LayoutKLoadRefreshActivity : BaseActivityVB<ActivityLayoutkLoadrefreshBinding>() {
+class LayoutKLoadRefreshActivity : BaseActivityVDB<ActivityLayoutkLoadrefreshBinding>() {
     private val _dataSets = ArrayList<RecyclerKItem<out RecyclerView.ViewHolder>>()
     private var _pageIndex = 0
 
@@ -27,18 +27,18 @@ class LayoutKLoadRefreshActivity : BaseActivityVB<ActivityLayoutkLoadrefreshBind
             add(RecyclerKItemLoadMore(5))
         }
         val lottieOverView = LottieOverView(this)
-        vb.loadkContainer.apply {
+        vdb.loadkContainer.apply {
             initLoadParams(
                 5,
                 _dataSets,
-                object : LoadRefreshLoadCallback(lottieOverView, vb.loadkContainer) {
+                object : LoadRefreshLoadCallback(lottieOverView, vdb.loadkContainer) {
                     override fun onLoading() {
                         super.onLoading()
                         _pageIndex++
                         WakeBefPauseLifecycleHandler(this@LayoutKLoadRefreshActivity).applyPostDelayed(1000) {
                             val items: List<RecyclerKItem<out RecyclerView.ViewHolder>> = arrayListOf(RecyclerKItemLoadMore(_dataSets.size + 1))
                             _dataSets.addAll(items)
-                            vb.loadkContainer.startLoad(items, null)
+                            vdb.loadkContainer.startLoad(items, null)
                         }
                     }
                 })
@@ -47,7 +47,7 @@ class LayoutKLoadRefreshActivity : BaseActivityVB<ActivityLayoutkLoadrefreshBind
                 null,
                 null,
                 null,
-                object : LoadRefreshRefreshCallback(vb.loadkContainer, vb.loadkContainer.getRecyclerKLoad()) {
+                object : LoadRefreshRefreshCallback(vdb.loadkContainer, vdb.loadkContainer.getRecyclerKLoad()) {
                     override fun onRefreshing() {
                         super.onRefreshing()
                         _pageIndex = 1

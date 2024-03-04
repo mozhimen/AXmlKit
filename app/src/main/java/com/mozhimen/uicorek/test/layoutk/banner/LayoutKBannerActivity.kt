@@ -3,7 +3,7 @@ package com.mozhimen.uicorek.test.layoutk.banner
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.imagek.glide.loadImageGlide
 import com.mozhimen.uicorek.layoutk.banner.bases.BaseBannerItem
 import com.mozhimen.uicorek.layoutk.banner.commons.IBannerBindListener
@@ -14,7 +14,7 @@ import com.mozhimen.uicorek.layoutk.banner.helpers.BannerViewHolder
 import com.mozhimen.uicorek.test.R
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkBannerBinding
 
-class LayoutKBannerActivity : BaseActivityVB<ActivityLayoutkBannerBinding>() {
+class LayoutKBannerActivity : BaseActivityVDB<ActivityLayoutkBannerBinding>() {
 
     private var _autoPlay = false
     private lateinit var _indicator: IBannerIndicator<*>
@@ -38,36 +38,36 @@ class LayoutKBannerActivity : BaseActivityVB<ActivityLayoutkBannerBinding>() {
         }
         _indicator = PointIndicator(this)
         initBanner(_indicator, moList, _autoPlay)
-        vb.layoutkBannerSwitch.isChecked = _autoPlay
-        vb.layoutkBannerSwitch.setOnCheckedChangeListener { _, isChecked ->
+        vdb.layoutkBannerSwitch.isChecked = _autoPlay
+        vdb.layoutkBannerSwitch.setOnCheckedChangeListener { _, isChecked ->
             _autoPlay = isChecked
             initBanner(_indicator, moList, _autoPlay)
         }
-        vb.layoutkBannerIndicator.setOnClickListener {
+        vdb.layoutkBannerIndicator.setOnClickListener {
             if (_indicator is PointIndicator) {
                 initBanner(NumberIndicator(this), moList, _autoPlay)
             } else {
                 initBanner(_indicator, moList, _autoPlay)
             }
         }
-        vb.layoutkBannerPre.setOnClickListener {
-            vb.layoutkBannerContainer.scrollToPreviousItem()
+        vdb.layoutkBannerPre.setOnClickListener {
+            vdb.layoutkBannerContainer.scrollToPreviousItem()
         }
-        vb.layoutkBannerNext.setOnClickListener {
-            vb.layoutkBannerContainer.scrollToNextItem()
+        vdb.layoutkBannerNext.setOnClickListener {
+            vdb.layoutkBannerContainer.scrollToNextItem()
         }
-        vb.layoutkBannerAdd.setOnClickListener {
+        vdb.layoutkBannerAdd.setOnClickListener {
             moList.removeAt(moList.size - 1)
             initBanner(_indicator, moList, _autoPlay)
         }
-        vb.layoutkBannerDelete.setOnClickListener {
+        vdb.layoutkBannerDelete.setOnClickListener {
             moList.add(MyBannerMo().apply { name = "...";url = "https://images.pexels.com/photos/6679876/pexels-photo-6679876.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" })
             initBanner(_indicator, moList, _autoPlay)
         }
     }
 
     private fun initBanner(indicator: IBannerIndicator<*>, moList: List<BaseBannerItem>, autoPlay: Boolean, currentPos: Int = 0) {
-        vb.layoutkBannerContainer.apply {
+        vdb.layoutkBannerContainer.apply {
             setBannerIndicator(indicator)
             setAutoPlay(autoPlay)
             setIntervalTime(5000)

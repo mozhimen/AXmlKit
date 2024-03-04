@@ -1,7 +1,7 @@
 package com.mozhimen.uicorek.test.popwink
 
 import android.view.View
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.uicorek.test.databinding.ActivityPopwinkBinding
 import com.mozhimen.uicorek.test.popwink.temps.PopwinKAnim
 import com.mozhimen.uicorek.test.popwink.temps.PopwinKSelector
@@ -15,7 +15,7 @@ import com.mozhimen.uicorek.test.popwink.temps.PopwinKTest
  * @Date 2022/11/17 16:45
  * @Version 1.0
  */
-class PopwinKActivity : BaseActivityVB<ActivityPopwinkBinding>() {
+class PopwinKActivity : BaseActivityVDB<ActivityPopwinkBinding>() {
 
     private val _popwinK by lazy { PopwinKAnim(this) }
     fun showPopwinK(view: View) {

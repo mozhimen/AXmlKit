@@ -46,7 +46,7 @@ class RecyclerKItemBanner : RecyclerKItem<VHKRecyclerVB<ItemRecyclerkBannerBindi
             item.url = _urls[i % _urls.size]
             moList.add(item)
         }
-        holder.vb.itemRecyclerkBanner.apply {
+        holder.vdb.itemRecyclerkBanner.apply {
             setBannerIndicator(PointIndicator(context))
             setAutoPlay(true)
             setIntervalTime(5000)
@@ -81,7 +81,7 @@ class RecyclerKItemBanner : RecyclerKItem<VHKRecyclerVB<ItemRecyclerkBannerBindi
     override fun onViewAttachedToWindow(holder: VHKRecyclerVB<ItemRecyclerkBannerBinding>) {
         val index = CacheKSP.instance.with(RECYCLERK_ITEM_BANNER_SP_NAME).getInt("bannerIndex")
         Log.d(TAG, "onViewAttachedToWindow currentIndex $index")
-        holder.vb.itemRecyclerkBanner.setCurrentPosition(index, false)
+        holder.vdb.itemRecyclerkBanner.setCurrentPosition(index, false)
     }
 
     override fun getItemSpanSize(): Int {

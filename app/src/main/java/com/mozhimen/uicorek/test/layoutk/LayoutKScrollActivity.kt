@@ -2,7 +2,7 @@ package com.mozhimen.uicorek.test.layoutk
 
 import android.os.Bundle
 import android.util.Log
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkScrollBinding
 
 /**
@@ -12,9 +12,9 @@ import com.mozhimen.uicorek.test.databinding.ActivityLayoutkScrollBinding
  * @Date 2024/1/5
  * @Version 1.0
  */
-class LayoutKScrollActivity : BaseActivityVB<ActivityLayoutkScrollBinding>() {
+class LayoutKScrollActivity : BaseActivityVDB<ActivityLayoutkScrollBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
-        vb.scrollCollapsing.setOnCollapsedListener {
+        vdb.scrollCollapsing.setOnCollapsedListener {
             Log.d(TAG, "initView: setOnCollapsedListener $it")
         }
     }

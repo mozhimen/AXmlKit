@@ -1,7 +1,7 @@
 package com.mozhimen.uicorek.test.layoutk.tab
 
 import android.os.Bundle
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.basick.manifestk.permission.annors.APermissionCheck
 import com.mozhimen.basick.manifestk.cons.CPermission
@@ -11,7 +11,7 @@ import com.mozhimen.uicorek.test.R
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkTabTopBinding
 
 @OptIn(OPermission_INTERNET::class)
-class LayoutKTabTopActivity : BaseActivityVB<ActivityLayoutkTabTopBinding>() {
+class LayoutKTabTopActivity : BaseActivityVDB<ActivityLayoutkTabTopBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
         initTabTop()
     }
@@ -44,8 +44,8 @@ class LayoutKTabTopActivity : BaseActivityVB<ActivityLayoutkTabTopBinding>() {
     }
 
     private fun initTabTop() {
-        vb.layoutkTabTop.setTabItem(_tabInfo1)
-        vb.layoutkTabTop2.setTabItem(_tabInfo2)
-        vb.layoutkTabTop3.setTabItem(_tabInfo3)
+        vdb.layoutkTabTop.setTabItem(_tabInfo1)
+        vdb.layoutkTabTop2.setTabItem(_tabInfo2)
+        vdb.layoutkTabTop3.setTabItem(_tabInfo3)
     }
 }

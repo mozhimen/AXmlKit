@@ -2,13 +2,13 @@ package com.mozhimen.uicorek.test.textk
 
 import android.view.View
 import android.view.ViewGroup
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.uicorek.textk.edit.bar.TextKEditBarActivity
 import com.mozhimen.uicorek.textk.edit.bar.commons.ITextKEditBarListener
 import com.mozhimen.uicorek.test.databinding.ActivityTextkEditBinding
 
-class TextKEditActivity : BaseActivityVB<ActivityTextkEditBinding>() {
+class TextKEditActivity : BaseActivityVDB<ActivityTextkEditBinding>() {
     fun goTextKEditBar(view: View) {
         TextKEditBarActivity.openEditBarDefault(this, object : ITextKEditBarListener {
             override fun onCancel() {

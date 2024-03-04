@@ -1,7 +1,7 @@
 package com.mozhimen.uicorek.test.layoutk.tab
 
 import android.os.Bundle
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.uicorek.layoutk.tab.bottom.helpers.TabBottomFragmentAdapter
@@ -20,7 +20,7 @@ import com.mozhimen.uicorek.test.layoutk.tab.fragments.MoreFragment
  * @Date 2021/8/2 14:38
  * @Version 1.0
  */
-class LayoutKTabBottomFragmentActivity : BaseActivityVB<ActivityLayoutkTabBottomFragmentBinding>() {
+class LayoutKTabBottomFragmentActivity : BaseActivityVDB<ActivityLayoutkTabBottomFragmentBinding>() {
 
     private var _infoList = ArrayList<MTabBottom>()
     private var _currentItemIndex = 0
@@ -30,7 +30,7 @@ class LayoutKTabBottomFragmentActivity : BaseActivityVB<ActivityLayoutkTabBottom
     }
 
     private fun initTabBottom() {
-        vb.layoutkTabBottomFragmentContainer.setTabBottomAlpha(0.85f)
+        vdb.layoutkTabBottomFragmentContainer.setTabBottomAlpha(0.85f)
         val homeInfo = MTabBottom(
             "首页",
             "fonts/iconfont.ttf",
@@ -60,16 +60,16 @@ class LayoutKTabBottomFragmentActivity : BaseActivityVB<ActivityLayoutkTabBottom
             add(moreInfo)
             add(mineInfo)
         }
-        vb.layoutkTabBottomFragmentContainer.inflateTabItem(_infoList)
+        vdb.layoutkTabBottomFragmentContainer.inflateTabItem(_infoList)
         val tabBottomFragmentAdapter = TabBottomFragmentAdapter(supportFragmentManager, _infoList)
-        vb.layoutkTabBottomFragmentView.setAdapter(tabBottomFragmentAdapter)
-        vb.layoutkTabBottomFragmentContainer.addTabItemSelectedListener(object : ITabSelectedListener<MTabBottom> {
+        vdb.layoutkTabBottomFragmentView.setAdapter(tabBottomFragmentAdapter)
+        vdb.layoutkTabBottomFragmentContainer.addTabItemSelectedListener(object : ITabSelectedListener<MTabBottom> {
             override fun onTabItemSelected(index: Int, prevItem: MTabBottom?, currentItem: MTabBottom) {
-                vb.layoutkTabBottomFragmentView.setCurrentItem(index)
+                vdb.layoutkTabBottomFragmentView.setCurrentItem(index)
                 _currentItemIndex = index
             }
         })
-        vb.layoutkTabBottomFragmentContainer.defaultSelected(_infoList[_currentItemIndex])
-        vb.layoutkTabBottomFragmentContainer.findTabItem(_infoList[1])?.resetTabHeight(66f.dp2px().toInt()) //改变某个Tab的高度
+        vdb.layoutkTabBottomFragmentContainer.defaultSelected(_infoList[_currentItemIndex])
+        vdb.layoutkTabBottomFragmentContainer.findTabItem(_infoList[1])?.resetTabHeight(66f.dp2px().toInt()) //改变某个Tab的高度
     }
 }

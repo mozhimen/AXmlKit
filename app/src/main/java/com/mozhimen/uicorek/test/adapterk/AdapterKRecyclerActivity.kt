@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.uicorek.recyclerk.item.AdapterKItemRecycler
 import com.mozhimen.uicorek.recyclerk.item.RecyclerKItem
 import com.mozhimen.uicorek.test.databinding.ActivityAdapterkRecyclerBinding
@@ -17,7 +17,7 @@ import com.mozhimen.uicorek.test.recyclerk.mos.*
  * @Date 2021/9/1 16:16
  * @Version 1.0
  */
-class AdapterKRecyclerActivity : BaseActivityVB<ActivityAdapterkRecyclerBinding>() {
+class AdapterKRecyclerActivity : BaseActivityVDB<ActivityAdapterkRecyclerBinding>() {
 
     private lateinit var _adapterKRecycler: AdapterKItemRecycler
     override fun initView(savedInstanceState: Bundle?) {
@@ -26,7 +26,7 @@ class AdapterKRecyclerActivity : BaseActivityVB<ActivityAdapterkRecyclerBinding>
 
     private fun initAdapter() {
         _adapterKRecycler = AdapterKItemRecycler()
-        vb.adapterkRecycler.apply {
+        vdb.adapterkRecycler.apply {
             layoutManager = GridLayoutManager(this@AdapterKRecyclerActivity, 2)
             adapter = _adapterKRecycler
         }

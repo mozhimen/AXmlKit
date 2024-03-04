@@ -55,7 +55,7 @@ class RecyclerKEmpty @JvmOverloads constructor(context: Context, attrs: Attribut
     /**
      * 作用: 设置空布局
      * 用法:  emptyView=findViewById(R.id.item_empty)
-     * vb.recycler.setEmptyView(emptyView)
+     * vdb.recycler.setEmptyView(emptyView)
      */
     fun setEmptyView(emptyView: View?) {
         this._emptyView = emptyView

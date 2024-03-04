@@ -1,7 +1,7 @@
 package com.mozhimen.uicorek.test.recyclerk
 
 import android.view.View
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVB
+import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.content.startContext
 import com.mozhimen.uicorek.test.databinding.ActivityRecyclerkBinding
 
@@ -12,7 +12,7 @@ import com.mozhimen.uicorek.test.databinding.ActivityRecyclerkBinding
  * @Date 2022/11/7 1:17
  * @Version 1.0
  */
-class RecyclerKActivity : BaseActivityVB<ActivityRecyclerkBinding>() {
+class RecyclerKActivity : BaseActivityVDB<ActivityRecyclerkBinding>() {
 
     fun goRecyclerKLifecycle(view: View) {
         startContext<RecyclerKLifecycleActivity>()
