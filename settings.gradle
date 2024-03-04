@@ -80,3 +80,7 @@ include ':AImageKit:imagek_glide_blur'
 include ':AAdaptKit'
 project(':AAdaptKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AAdaptKit")
 include ':AAdaptKit:adaptk_systembar'
+//AAnimKit_Lottie
+include ':AAnimKit_Lottie'
+project(':AAnimKit_Lottie').projectDir = new File("D:\\WorkSpace\\GitHub\\AAnimKit_Lottie")
+include ':AAnimKit_Lottie:animk_lottie'

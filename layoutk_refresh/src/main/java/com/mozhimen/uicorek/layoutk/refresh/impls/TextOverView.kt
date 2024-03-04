@@ -1,4 +1,4 @@
-package com.mozhimen.uicorek.layoutk.refresh.temps
+package com.mozhimen.uicorek.layoutk.refresh.impls
 
 import android.content.Context
 import android.util.AttributeSet

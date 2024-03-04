@@ -8,7 +8,7 @@ import com.mozhimen.basick.elemk.android.os.WakeBefPauseLifecycleHandler
 import com.mozhimen.basick.utilk.android.os.applyPostDelayed
 import com.mozhimen.uicorek.layoutk.loadrefresh.commons.LoadRefreshLoadCallback
 import com.mozhimen.uicorek.layoutk.loadrefresh.commons.LoadRefreshRefreshCallback
-import com.mozhimen.uicorek.layoutk.refresh.temps.LottieOverView
+import com.mozhimen.uicorek.layoutk.refresh.impls.LottieOverView
 import com.mozhimen.uicorek.recyclerk.item.RecyclerKItem
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkLoadrefreshBinding
 import com.mozhimen.uicorek.test.recyclerk.mos.RecyclerKItemLoadMore

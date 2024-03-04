@@ -35,7 +35,7 @@ dependencies {
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:uicorek')
     implementation project(':recyclerk_load')
-    api "com.airbnb.android:lottie:3.6.1"
+    implementation project(':AAnimKit_Lottie:animk_lottie')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

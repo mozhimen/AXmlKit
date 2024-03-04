@@ -6,7 +6,7 @@ import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.elemk.android.os.WakeBefPauseLifecycleHandler
 import com.mozhimen.basick.utilk.android.os.applyPostDelayed
 import com.mozhimen.uicorek.layoutk.refresh.commons.IRefreshListener
-import com.mozhimen.uicorek.layoutk.refresh.temps.LottieOverView
+import com.mozhimen.uicorek.layoutk.refresh.impls.LottieOverView
 import com.mozhimen.uicorek.test.databinding.ActivityLayoutkRefreshLottieBinding
 
 class LayoutKRefreshLottieActivity : BaseActivityVDB<ActivityLayoutkRefreshLottieBinding>() {

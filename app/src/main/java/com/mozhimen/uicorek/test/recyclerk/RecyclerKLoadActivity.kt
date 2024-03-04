@@ -9,7 +9,7 @@ import com.mozhimen.basick.elemk.android.os.WakeBefPauseLifecycleHandler
 import com.mozhimen.basick.utilk.android.os.applyPostDelayed
 import com.mozhimen.uicorek.recyclerk.item.AdapterKItemRecyclerStuffed
 import com.mozhimen.uicorek.layoutk.refresh.commons.IRefreshListener
-import com.mozhimen.uicorek.layoutk.refresh.temps.TextOverView
+import com.mozhimen.uicorek.layoutk.refresh.impls.TextOverView
 import com.mozhimen.uicorek.layoutk.refresh.cons.ERefreshStatus
 import com.mozhimen.uicorek.recyclerk.item.RecyclerKItem
 import com.mozhimen.uicorek.recyclerk.load.commons.IRecyclerKLoadListener
