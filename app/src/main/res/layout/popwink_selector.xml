@@ -11,7 +11,7 @@
         android:layout_margin="10dp"
         app:cardCornerRadius="10dp">
 
-        <com.mozhimen.uicorek.viewk.wheel.ViewKWheel
+        <com.mozhimen.xmlk.viewk.wheel.ViewKWheel
             android:id="@+id/popwink_selector_wheel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

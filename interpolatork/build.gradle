@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.uicorek.interpolatork'
+    namespace 'com.mozhimen.xmlk.interpolatork'
     compileSdk 33
 
     defaultConfig {

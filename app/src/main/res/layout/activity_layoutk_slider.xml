@@ -16,7 +16,7 @@
             android:layout_marginVertical="10dp"
             android:textColor="@color/cok_blue_287ff1" />
 
-        <com.mozhimen.uicorek.layoutk.slider.LayoutKSlider
+        <com.mozhimen.xmlk.layoutk.slider.LayoutKSlider
             android:id="@+id/layoutk_slider"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:layout_marginVertical="10dp"
             android:textColor="@color/cok_blue_287ff1" />
 
-        <com.mozhimen.uicorek.layoutk.slider.LayoutKSlider
+        <com.mozhimen.xmlk.layoutk.slider.LayoutKSlider
             android:id="@+id/layoutk_slider_inside"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

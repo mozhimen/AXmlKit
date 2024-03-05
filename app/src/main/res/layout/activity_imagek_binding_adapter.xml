@@ -4,7 +4,7 @@
 
     <data>
 
-        <import type="com.mozhimen.uicorek.test.R" />
+        <import type="com.mozhimen.xmlk.test.R" />
     </data>
 
     <LinearLayout
@@ -15,10 +15,10 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:loadImageGlideBlur="@{R.drawable.uicorek_img}"
-            app:placeholder="@{R.drawable.uicorek_img}" />
+            app:loadImageGlideBlur="@{R.drawable.xmlk_img}"
+            app:placeholder="@{R.drawable.xmlk_img}" />
 
-        <com.mozhimen.uicorek.imagek.ImageKCircleText
+        <com.mozhimen.xmlk.imagek.ImageKCircleText
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:background="@color/cok_gray_000000"

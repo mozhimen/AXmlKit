@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.mozhimen.uicorek.test.layoutk.LayoutKActivity">
+        tools:context="com.mozhimen.xmlk.test.layoutk.LayoutKActivity">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.mozhimen.uicorek.layoutk.scrollable.LayoutKScrollableCollapsingToolbar
+                <com.mozhimen.xmlk.layoutk.scrollable.LayoutKScrollableCollapsingToolbar
                     android:id="@+id/scroll_collapsing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.appcompat.widget.Toolbar>
 
-                </com.mozhimen.uicorek.layoutk.scrollable.LayoutKScrollableCollapsingToolbar>
+                </com.mozhimen.xmlk.layoutk.scrollable.LayoutKScrollableCollapsingToolbar>
             </com.google.android.material.appbar.AppBarLayout>
 
             <androidx.core.widget.NestedScrollView

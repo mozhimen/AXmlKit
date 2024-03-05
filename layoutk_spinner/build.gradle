@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.uicorek.layoutk.spinner'
+    namespace 'com.mozhimen.xmlk.layoutk.spinner'
     compileSdk 33
 
     defaultConfig {

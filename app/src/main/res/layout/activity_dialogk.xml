@@ -13,46 +13,46 @@
             android:layout_height="match_parent"
             android:background="@color/black"
             android:orientation="vertical"
-            tools:context="com.mozhimen.uicorek.test.dialogk.DialogKActivity">
+            tools:context="com.mozhimen.xmlk.test.dialogk.DialogKActivity">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/dialogk_ques"
-                style="@style/UicoreKStyle_Btn"
+                style="@style/XmlKStyle_Btn"
                 android:onClick="goDialogKQues"
                 android:text="问题弹框(渐变动画,最简单用法)"
                 tools:ignore="HardcodedText,UsingOnClickInXml" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/dialogk_ques_anim"
-                style="@style/UicoreKStyle_Btn"
+                style="@style/XmlKStyle_Btn"
                 android:onClick="goDialogKQuesAnim"
                 android:text="问题弹框(弹出动画,透明底色)"
                 tools:ignore="HardcodedText,UsingOnClickInXml" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/dialogk_custom_anim_drawable"
-                style="@style/UicoreKStyle_Btn"
+                style="@style/XmlKStyle_Btn"
                 android:onClick="goDialogKCustomAnimDrawable"
                 android:text="自定义弹框AnimDrawable(基于BaseDialogK)"
                 tools:ignore="HardcodedText,UsingOnClickInXml" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/dialogk_custom_anim"
-                style="@style/UicoreKStyle_Btn"
+                style="@style/XmlKStyle_Btn"
                 android:onClick="goDialogLoadingAnim"
                 android:text="自定义弹框Anim(基于BaseDialogK)"
                 tools:ignore="HardcodedText,UsingOnClickInXml" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/dialogk_custom_update"
-                style="@style/UicoreKStyle_Btn"
+                style="@style/XmlKStyle_Btn"
                 android:onClick="goDialogKCustomUpdate"
                 android:text="自定义弹框更新进度(基于BaseDialogK)"
                 tools:ignore="HardcodedText,UsingOnClickInXml" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/dialogk_custom_vb"
-                style="@style/UicoreKStyle_Btn"
+                style="@style/XmlKStyle_Btn"
                 android:onClick="goDialogTipVb"
                 android:text="自定义弹框提示/提问(基于BaseDialogKVB)"
                 tools:ignore="HardcodedText,UsingOnClickInXml" />

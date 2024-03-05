@@ -13,21 +13,21 @@
             android:layout_gravity="bottom"
             android:orientation="horizontal">
 
-            <com.mozhimen.uicorek.layoutk.tab.bottom.TabBottomItem
+            <com.mozhimen.xmlk.layoutk.tab.bottom.TabBottomItem
                 android:id="@+id/layoutk_tab_bottom_home"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/cok_blue_287ff1" />
 
-            <com.mozhimen.uicorek.layoutk.tab.bottom.TabBottomItem
+            <com.mozhimen.xmlk.layoutk.tab.bottom.TabBottomItem
                 android:id="@+id/layoutk_tab_bottom_more"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/cok_blue_0876e4"  />
 
-            <com.mozhimen.uicorek.layoutk.tab.bottom.TabBottomItem
+            <com.mozhimen.xmlk.layoutk.tab.bottom.TabBottomItem
                 android:id="@+id/layoutk_tab_bottom_mine"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

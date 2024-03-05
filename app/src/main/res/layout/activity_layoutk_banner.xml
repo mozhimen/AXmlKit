@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.mozhimen.uicorek.layoutk.banner.LayoutKBanner
+        <com.mozhimen.xmlk.layoutk.banner.LayoutKBanner
             android:id="@+id/layoutk_banner_container"
             android:layout_width="match_parent"
             android:layout_height="200dp"

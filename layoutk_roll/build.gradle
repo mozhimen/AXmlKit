@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.uicorek.layoutk.roll'
+    namespace 'com.mozhimen.xmlk.layoutk.roll'
     compileSdk 33
 
     defaultConfig {
@@ -33,8 +33,9 @@ android {
 dependencies {
 
     implementation project(':SwiftKit:basick')
-    implementation project(':SwiftKit:uicorek')
+	implementation project(':SwiftKit:xmlk')
     implementation project(project.path.replace(project.name, '') +':interpolatork')
+    
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

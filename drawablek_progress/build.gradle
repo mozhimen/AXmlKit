@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.uicorek.drawablek.progress'
+    namespace 'com.mozhimen.xmlk.drawablek.progress'
     compileSdk 33
 
     defaultConfig {

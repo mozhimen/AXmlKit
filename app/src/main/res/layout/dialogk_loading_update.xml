@@ -14,7 +14,7 @@
         android:orientation="vertical"
         android:padding="10dp">
 
-        <com.mozhimen.uicorek.layoutk.LayoutKSquare
+        <com.mozhimen.xmlk.layoutk.LayoutKSquare
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginBottom="10dp"
@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/layoutk_refresh_loading" />
-        </com.mozhimen.uicorek.layoutk.LayoutKSquare>
+        </com.mozhimen.xmlk.layoutk.LayoutKSquare>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -34,14 +34,14 @@
 
             <TextView
                 android:id="@+id/dialogk_loading_update_txt"
-                style="@style/UicoreKStyle_Txt"
+                style="@style/XmlKStyle_Txt"
                 android:layout_marginEnd="10dp"
                 android:text="正在加载..."
                 tools:ignore="HardcodedText" />
 
             <TextView
                 android:id="@+id/dialogk_loading_update_txt1"
-                style="@style/UicoreKStyle_Txt"
+                style="@style/XmlKStyle_Txt"
                 android:maxLength="10"
                 android:text="0% 0MB"
                 tools:ignore="HardcodedText"

@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.mozhimen.uicorek.layoutk.spinner.LayoutKSpinner
+        <com.mozhimen.xmlk.layoutk.spinner.LayoutKSpinner
             android:id="@+id/layoutk_spinner"
             android:layout_width="match_parent"
             android:layout_height="50dp"

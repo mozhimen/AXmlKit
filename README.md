@@ -1,13 +1,13 @@
-# AUICoreKit
+# AXmlKit
 AndroidUI库 -> 各种控件
 
 - 本地引入
 ```groovy
-//AUICoreKit
-include ":AUICoreKit"
-project(':AUICoreKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AUICoreKit")
-include ':AUICoreKit:recyclerk'
-include ':AUICoreKit:vhk'
-include ':AUICoreKit:layoutk_blur'
-include ':AUICoreKit:layoutk'
+//AXmlKit
+include ":AXmlKit"
+project(':AXmlKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AXmlKit")
+include ':AXmlKit:recyclerk'
+include ':AXmlKit:vhk'
+include ':AXmlKit:layoutk_blur'
+include ':AXmlKit:layoutk'
 ```

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.uicorek.popwink.bubble'
+    namespace 'com.mozhimen.xmlk.popwink.bubble'
     compileSdk 33
 
     defaultConfig {
@@ -33,7 +33,7 @@ android {
 dependencies {
 
     implementation project(':SwiftKit:basick')
-    implementation project(':SwiftKit:uicorek')
+    implementation project(':SwiftKit:xmlk')
     implementation project(':drawablek')
     implementation project(':textk_bubble')
 

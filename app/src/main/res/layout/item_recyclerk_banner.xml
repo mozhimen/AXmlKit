@@ -15,7 +15,7 @@
         app:cardPreventCornerOverlap="false"
         app:cardUseCompatPadding="false">
 
-        <com.mozhimen.uicorek.layoutk.banner.LayoutKBanner
+        <com.mozhimen.xmlk.layoutk.banner.LayoutKBanner
             android:id="@+id/item_recyclerk_banner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
