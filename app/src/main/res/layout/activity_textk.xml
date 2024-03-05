@@ -11,23 +11,23 @@
         android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButton
-            style="@style/UicoreKStyle_Btn"
+            style="@style/XmlKStyle_Btn"
             android:onClick="goTextKEdit"
             android:text="goTextKEdit"
             tools:ignore="HardcodedText,UsingOnClickInXml" />
 
-        <com.mozhimen.uicorek.textk.bubble.TextKBubble
+        <com.mozhimen.xmlk.textk.bubble.TextKBubble
             style="@style/StyleK_TextKBubble"
             android:text="这是一个气泡文本"
             tools:ignore="HardcodedText" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/textk_bubble_btn"
-            style="@style/UicoreKStyle_Btn"
+            style="@style/XmlKStyle_Btn"
             android:text="点击出现提示信息(TextKBubble)"
             tools:ignore="HardcodedText" />
 
-        <com.mozhimen.uicorek.textk.TextKClock
+        <com.mozhimen.xmlk.textk.TextKClock
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -39,19 +39,19 @@
             android:layout_marginBottom="20dp"
             android:format24Hour="HH:mm:ss:SS" />
 
-        <com.mozhimen.uicorek.textk.edit.TextKEditClear
+        <com.mozhimen.xmlk.textk.edit.TextKEditClear
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-        <com.mozhimen.uicorek.textk.edit.TextKEditFocus
+        <com.mozhimen.xmlk.textk.edit.TextKEditFocus
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@drawable/textk_edit_focus"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-        <com.mozhimen.uicorek.textk.progress.TextKProgress
+        <com.mozhimen.xmlk.textk.progress.TextKProgress
             android:id="@+id/textk_progress"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_040"
@@ -66,7 +66,7 @@
             app:textKProgress_textColorDefault="@color/cok_blue_e8f3ff"
             app:textKProgress_textColorUnCover="@color/cok_blue_bbdefb" />
 
-        <com.mozhimen.uicorek.textk.progress.TextKProgress
+        <com.mozhimen.xmlk.textk.progress.TextKProgress
             android:id="@+id/textk_progress1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_040"
@@ -83,7 +83,7 @@
             app:textKProgress_textColorDefault="@color/cok_blue_e8f3ff"
             app:textKProgress_textColorUnCover="@color/cok_blue_bbdefb" />
 
-        <com.mozhimen.uicorek.textk.TextKExpandable
+        <com.mozhimen.xmlk.textk.TextKExpandable
             android:id="@+id/textk_expandable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

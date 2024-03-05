@@ -7,17 +7,17 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.mozhimen.uicorek.test.recyclerk.RecyclerKLoadActivity">
+        tools:context="com.mozhimen.xmlk.test.recyclerk.RecyclerKLoadActivity">
 
-        <com.mozhimen.uicorek.layoutk.refresh.LayoutKRefresh
+        <com.mozhimen.xmlk.layoutk.refresh.LayoutKRefresh
             android:id="@+id/layoutk_refresh"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.mozhimen.uicorek.recyclerk.load.RecyclerKLoad
+            <com.mozhimen.xmlk.recyclerk.load.RecyclerKLoad
                 android:id="@+id/recyclerk_load"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-        </com.mozhimen.uicorek.layoutk.refresh.LayoutKRefresh>
+        </com.mozhimen.xmlk.layoutk.refresh.LayoutKRefresh>
     </FrameLayout>
 </layout>

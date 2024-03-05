@@ -10,7 +10,7 @@
         android:background="@color/cok_gray_ffffff"
         android:orientation="vertical">
 
-        <com.mozhimen.uicorek.layoutk.btn.LayoutKBtnSwitch
+        <com.mozhimen.xmlk.layoutk.btn.LayoutKBtnSwitch
             android:id="@+id/layoutk_btn_switch"
             android:layout_width="70dp"
             android:layout_height="40dp"

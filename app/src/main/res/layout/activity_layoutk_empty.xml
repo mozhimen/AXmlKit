@@ -4,7 +4,7 @@
 
     <data />
 
-    <com.mozhimen.uicorek.layoutk.empty.LayoutKEmpty
+    <com.mozhimen.xmlk.layoutk.empty.LayoutKEmpty
         android:id="@+id/layoutk_empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

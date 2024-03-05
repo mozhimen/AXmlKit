@@ -11,7 +11,7 @@
         android:orientation="vertical"
         tools:context=".layoutk.navbar.LayoutKNavBarActivity">
 
-        <com.mozhimen.uicorek.layoutk.navbar.LayoutKNavBar
+        <com.mozhimen.xmlk.layoutk.navbar.LayoutKNavBar
             android:id="@+id/layoutk_navbar1"
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -19,7 +19,7 @@
             app:layoutKNavBar_title="这是主标题"
             app:layoutKNavBar_title_textColor="@color/cok_blue_287ff1" />
 
-        <com.mozhimen.uicorek.layoutk.navbar.LayoutKNavBar
+        <com.mozhimen.xmlk.layoutk.navbar.LayoutKNavBar
             android:id="@+id/layoutk_navbar2"
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -27,7 +27,7 @@
             app:layoutKNavBar_subTitle="这是副标题"
             app:layoutKNavBar_title="这是标题" />
 
-        <com.mozhimen.uicorek.layoutk.navbar.LayoutKNavBar
+        <com.mozhimen.xmlk.layoutk.navbar.LayoutKNavBar
             android:id="@+id/layoutk_navbar3"
             android:layout_width="match_parent"
             android:layout_height="56dp"

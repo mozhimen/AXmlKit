@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         tools:context=".layoutk.loadrefresh.LayoutKLoadRefreshActivity">
 
-        <com.mozhimen.uicorek.layoutk.loadrefresh.LayoutKLoadRefresh
+        <com.mozhimen.xmlk.layoutk.loadrefresh.LayoutKLoadRefresh
             android:id="@+id/loadk_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

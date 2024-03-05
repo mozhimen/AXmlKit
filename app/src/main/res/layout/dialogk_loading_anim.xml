@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center">
 
-    <com.mozhimen.uicorek.layoutk.LayoutKSquare
+    <com.mozhimen.xmlk.layoutk.LayoutKSquare
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -37,5 +37,5 @@
                 tools:ignore="HardcodedText" />
 
         </LinearLayout>
-    </com.mozhimen.uicorek.layoutk.LayoutKSquare>
+    </com.mozhimen.xmlk.layoutk.LayoutKSquare>
 </FrameLayout>

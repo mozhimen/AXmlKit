@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.mozhimen.uicorek.layoutk.LayoutKLoading
+        <com.mozhimen.xmlk.layoutk.LayoutKLoading
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutKLoading_loadColor="@color/cok_blue_287ff1"

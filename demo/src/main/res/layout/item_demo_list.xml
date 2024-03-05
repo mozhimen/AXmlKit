@@ -6,7 +6,7 @@
 
         <variable
             name="itemAstro"
-            type="com.mozhimen.uicorek.demo.Astro" />
+            type="com.mozhimen.xmlk.demo.Astro" />
     </data>
 
     <FrameLayout

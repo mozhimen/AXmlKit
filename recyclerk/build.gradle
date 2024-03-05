@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.uicorek.recyclerk'
+    namespace 'com.mozhimen.xmlk.recyclerk'
     compileSdk 33
 
     defaultConfig {
@@ -33,10 +33,10 @@ android {
 dependencies {
     if (rootProject.name == "SwiftKit") {
         implementation project(':basick')
-        implementation project(':uicorek')
+        implementation project(':xmlk')
     } else {
         implementation project(':SwiftKit:basick')
-        implementation project(':SwiftKit:uicorek')
+        implementation project(':SwiftKit:xmlk')
     }
     implementation project(project.path.replace(project.name, '') +':vhk')
 

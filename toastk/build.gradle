@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.uicorek.toastk'
+    namespace 'com.mozhimen.xmlk.toastk'
     compileSdk 33
 
     defaultConfig {

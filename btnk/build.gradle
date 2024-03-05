@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.uicorek.btnk'
+    namespace 'com.mozhimen.xmlk.btnk'
     compileSdk 33
 
     defaultConfig {

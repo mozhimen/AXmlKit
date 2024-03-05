@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.uicorek.layoutk.side'
+    namespace 'com.mozhimen.xmlk.layoutk.side'
     compileSdk 33
 
     defaultConfig {
@@ -33,7 +33,7 @@ android {
 dependencies {
 
     implementation project(':SwiftKit:basick')
-    implementation project(':SwiftKit:uicorek')
+    implementation project(':SwiftKit:xmlk')
     implementation project(':AImageKit:imagek_glide')
     implementation project(':layoutk_empty')
     implementation project(':layoutk_refresh')

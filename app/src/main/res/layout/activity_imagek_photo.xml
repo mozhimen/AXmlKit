@@ -7,9 +7,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.mozhimen.uicorek.imagek.photo.ImageKPhoto
+        <com.mozhimen.xmlk.imagek.photo.ImageKPhoto
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/uicorek_img" />
+            android:src="@drawable/xmlk_img" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

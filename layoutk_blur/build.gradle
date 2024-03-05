@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.uicorek.layoutk.blur'
+    namespace 'com.mozhimen.xmlk.layoutk.blur'
     compileSdk 33
 
     defaultConfig {
@@ -38,9 +38,9 @@ dependencies {
         implementation project(':SwiftKit:basick')
     }
     if (rootProject.name == "SwiftKit") {
-        implementation project(':uicorek')
+        implementation project(':xmlk')
     } else {
-        implementation project(':SwiftKit:uicorek')
+        implementation project(':SwiftKit:xmlk')
     }
 
     implementation project(':AImageKit:imagek_blur')

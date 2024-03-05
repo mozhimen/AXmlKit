@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.mozhimen.uicorek.viewk.scan.ViewKScanQR
+            <com.mozhimen.xmlk.viewk.scan.ViewKScanQR
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 app:viewKScanQR_animTime="1000"
@@ -23,7 +23,7 @@
                 app:viewKScanQR_lineDrawable="@drawable/viewk_qr_scan_line"
                 app:viewKScanQR_lineWidth="2dp" />
 
-            <!--<com.mozhimen.uicorek.viewk.ViewKScanQR
+            <!--<com.mozhimen.xmlk.viewk.ViewKScanQR
                 android:id="@+id/viewk_squareQrScan"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
