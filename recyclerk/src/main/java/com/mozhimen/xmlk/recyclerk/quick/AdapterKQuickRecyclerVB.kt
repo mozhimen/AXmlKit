@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.utilk.bases.IUtilK
+import com.mozhimen.basick.utilk.commons.IUtilK
 import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecyclerVB
 import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecyclerVBListener
 import com.mozhimen.xmlk.vhk.VHKRecyclerVDB

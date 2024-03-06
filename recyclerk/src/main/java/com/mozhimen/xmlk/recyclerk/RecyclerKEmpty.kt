@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.utilk.bases.IUtilK
+import com.mozhimen.basick.utilk.commons.IUtilK
 
 /**
  * @ClassName RecyclerKEmpty

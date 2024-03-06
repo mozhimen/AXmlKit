@@ -7,7 +7,7 @@ import androidx.annotation.RequiresPermission
 import androidx.annotation.StyleRes
 import com.mozhimen.basick.lintk.optins.permission.OPermission_SYSTEM_ALERT_WINDOW
 import com.mozhimen.basick.manifestk.cons.CPermission
-import com.mozhimen.basick.utilk.bases.IUtilK
+import com.mozhimen.basick.utilk.commons.IUtilK
 import com.mozhimen.xmlk.dialogk.bases.annors.ADialogMode
 
 /**

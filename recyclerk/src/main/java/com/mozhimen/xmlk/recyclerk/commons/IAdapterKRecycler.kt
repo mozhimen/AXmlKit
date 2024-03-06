@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.recyclerk.commons
 
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.utilk.bases.IUtilK
+import com.mozhimen.basick.utilk.commons.IUtilK
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
 
 /**

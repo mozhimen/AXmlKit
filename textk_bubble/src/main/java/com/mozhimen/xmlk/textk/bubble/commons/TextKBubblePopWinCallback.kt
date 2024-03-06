@@ -14,7 +14,7 @@ import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.view.UtilKScreen
 import com.mozhimen.basick.utilk.android.view.UtilKNavigationBar
-import com.mozhimen.basick.utilk.bases.IUtilK
+import com.mozhimen.basick.utilk.commons.IUtilK
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowDirection
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowPosPolicy
 import com.mozhimen.xmlk.textk.bubble.annors.ARelativeHorizontal

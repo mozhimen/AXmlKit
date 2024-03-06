@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.mozhimen.xmlk.test'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.mozhimen.xmlk.test"
         minSdk 21
-        targetSdk 34
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
