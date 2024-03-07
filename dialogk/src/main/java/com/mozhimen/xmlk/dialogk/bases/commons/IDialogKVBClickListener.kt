@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.dialogk.bases.commons
 
 import androidx.databinding.ViewDataBinding
-import com.mozhimen.xmlk.dialogk.bases.BaseDialogKVB
+import com.mozhimen.xmlk.dialogk.bases.BaseDialogKVDB
 
 /**
  * @ClassName IDialogKClickListener
@@ -15,7 +15,7 @@ interface IDialogKVBClickListener<VDB : ViewDataBinding> : IDialogKClickListener
      * 点击确定
      * @param view View?
      */
-    fun onVBClickPositive(vdb: VDB, dialogK: BaseDialogKVB<VDB, IDialogKVBClickListener<VDB>>) {
+    fun onVBClickPositive(vdb: VDB, dialogK: BaseDialogKVDB<VDB, IDialogKVBClickListener<VDB>>) {
         onClickPositive(vdb.root, dialogK)
     }
 
@@ -23,7 +23,7 @@ interface IDialogKVBClickListener<VDB : ViewDataBinding> : IDialogKClickListener
      * 点击取消
      * @param view View?
      */
-    fun onVBClickNegative(vdb: VDB, dialogK: BaseDialogKVB<VDB, IDialogKVBClickListener<VDB>>) {
+    fun onVBClickNegative(vdb: VDB, dialogK: BaseDialogKVDB<VDB, IDialogKVBClickListener<VDB>>) {
         onClickNegative(vdb.root, dialogK)
     }
 }
