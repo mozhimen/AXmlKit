@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.layoutk.tab.fragments
 
 import android.os.Bundle
-import com.mozhimen.basick.elemk.androidx.fragment.bases.BaseFragmentVB
+import com.mozhimen.basick.elemk.androidx.fragment.bases.databinding.BaseFragmentVDB
 import com.mozhimen.xmlk.test.databinding.FragmentTabBottomMineBinding
 
 /**
@@ -12,7 +12,7 @@ import com.mozhimen.xmlk.test.databinding.FragmentTabBottomMineBinding
  * @Version 1.0
  */
 class MineFragment :
-    BaseFragmentVB<FragmentTabBottomMineBinding>() {
+    BaseFragmentVDB<FragmentTabBottomMineBinding>() {
     override fun initData(savedInstanceState: Bundle?) {
 
     }

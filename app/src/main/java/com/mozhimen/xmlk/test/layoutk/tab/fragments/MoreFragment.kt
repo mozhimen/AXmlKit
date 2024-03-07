@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.layoutk.tab.fragments
 
 import android.os.Bundle
-import com.mozhimen.basick.elemk.androidx.fragment.bases.BaseFragmentVB
+import com.mozhimen.basick.elemk.androidx.fragment.bases.databinding.BaseFragmentVDB
 import com.mozhimen.xmlk.test.databinding.FragmentTabBottomMoreBinding
 
 /**
@@ -12,7 +12,7 @@ import com.mozhimen.xmlk.test.databinding.FragmentTabBottomMoreBinding
  * @Version 1.0
  */
 class MoreFragment :
-    BaseFragmentVB<FragmentTabBottomMoreBinding>() {
+    BaseFragmentVDB<FragmentTabBottomMoreBinding>() {
     override fun initData(savedInstanceState: Bundle?) {
 
     }
