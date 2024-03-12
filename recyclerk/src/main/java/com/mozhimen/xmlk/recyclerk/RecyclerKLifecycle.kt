@@ -21,7 +21,7 @@ import com.mozhimen.basick.utilk.androidx.lifecycle.runOnMainThread
 @OptIn(OApiInit_ByLazy::class)
 @OApiCall_BindLifecycle
 @OApiCall_BindViewLifecycle
-class RecyclerKLifecycle @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerView(context, attrs, defStyleAttr), IDefaultLifecycleObserver {
+open class RecyclerKLifecycle @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerView(context, attrs, defStyleAttr), IDefaultLifecycleObserver {
 
     override fun bindLifecycle(owner: LifecycleOwner) {
         owner.runOnMainThread {

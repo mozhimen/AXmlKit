@@ -341,7 +341,7 @@ public class ViewKWheel extends View {
         isAlphaGradient = alphaGradient;
     }
 
-    public final IWheelAdapter getAdapter() {
+    public final IWheelAdapter getWheelAdapter() {
         return adapter;
     }
 

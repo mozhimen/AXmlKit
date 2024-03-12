@@ -23,7 +23,7 @@ class TabBottomFragmentView @JvmOverloads constructor(context: Context, attrs: A
      * 获取adapter
      * @return TabBottomFragmentAdapter?
      */
-    fun getAdapter(): TabBottomFragmentAdapter? {
+    fun getTabBottomFragmentAdapter(): TabBottomFragmentAdapter? {
         return _adapter
     }
 

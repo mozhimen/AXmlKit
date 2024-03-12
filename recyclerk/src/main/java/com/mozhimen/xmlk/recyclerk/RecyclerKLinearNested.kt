@@ -5,6 +5,8 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.elemk.android.view.cons.CMotionEvent
+import com.mozhimen.basick.lintk.optins.OApiCall_BindLifecycle
+import com.mozhimen.basick.lintk.optins.OApiCall_BindViewLifecycle
 import com.mozhimen.basick.utilk.android.view.requestAllowInterceptTouchEvent
 import kotlin.math.abs
 
@@ -16,10 +18,13 @@ import kotlin.math.abs
  * @Version 1.0
  */
 
-class RecyclerKLinearNested @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerView(context, attrs, defStyleAttr) {
+@OApiCall_BindViewLifecycle
+@OApiCall_BindLifecycle
+class RecyclerKLinearNested @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerKLifecycle(context, attrs, defStyleAttr) {
     private var _startX = 0
     private var _startY = 0
 
+    @OApiCall_BindViewLifecycle
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
         when (ev.action) {
             CMotionEvent.ACTION_DOWN -> {
