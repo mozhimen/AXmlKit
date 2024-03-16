@@ -12,6 +12,7 @@ import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnDestro
 import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnResume
 import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStart
 import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStop
+import com.mozhimen.basick.utilk.commons.IUtilK
 
 /**
  * @ClassName VHKLifecycle
@@ -21,7 +22,7 @@ import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStop
  * @Version 1.0
  */
 @OptIn(OApiInit_ByLazy::class)
-open class VHKLifecycle(containerView: View) : RecyclerView.ViewHolder(containerView), LifecycleOwner {
+open class VHKLifecycle(containerView: View) : RecyclerView.ViewHolder(containerView), LifecycleOwner, IUtilK {
 
     private var _viewLifecycleOwner: LifecycleOwnerProxy? = null
     val viewLifecycleOwner: LifecycleOwnerProxy
@@ -54,19 +55,19 @@ open class VHKLifecycle(containerView: View) : RecyclerView.ViewHolder(container
     fun onBind() {
         lifecycleRegistry.handleLifecycleEventOnStart()
         //view
-        viewLifecycleOwner.onCreate()
+        viewLifecycleOwner.onCreate(this.toString())
     }
 
     fun onViewAttachedToWindow() {
         lifecycleRegistry.handleLifecycleEventOnResume()
         //viw
-        viewLifecycleOwner.onResume()
+        viewLifecycleOwner.onResume(this.toString())
     }
 
     fun onViewDetachedFromWindow() {
         lifecycleRegistry.handleLifecycleEventOnStop()
         //view
-        viewLifecycleOwner.onDestroy()
+        viewLifecycleOwner.onDestroy(this.toString())
         _viewLifecycleOwner = null
     }
 
