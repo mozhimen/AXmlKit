@@ -215,7 +215,8 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.os.Message;
 import android.util.AndroidRuntimeException;
-import android.util.Log;
+import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLog;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -1168,7 +1169,7 @@ public abstract class BasePopwinK extends BaseUtilK implements PopupWindow.OnDis
         if (mContentView != null && id != 0) {
             return (T) mContentView.findViewById(id);
         }
-        Log.e(TAG, "contentView is null,please call setContentView() before findViewById()");
+        UtilKLog.et(TAG, "contentView is null,please call setContentView() before findViewById()");
         return null;
     }
 

@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.recyclerk.quick
 
 import android.annotation.SuppressLint
-import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -67,8 +67,8 @@ open class AdapterKQuickRecyclerVB<DATA, VB : ViewDataBinding>(
     }
 
     override fun addDatas(datas: List<DATA>, notify: Boolean) {
-        val start = _datas.size.also { Log.d(TAG, "addDatas: start $it") }
-        _datas.addAll(datas).also { Log.d(TAG, "addDatas: size ${_datas.size}") }
+        val start = _datas.size.also { UtilKLogWrapper.dt(TAG, "addDatas: start $it") }
+        _datas.addAll(datas).also { UtilKLogWrapper.dt(TAG, "addDatas: size ${_datas.size}") }
         if (notify) notifyItemRangeInserted(start, _datas.size)
     }
 

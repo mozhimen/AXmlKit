@@ -3,6 +3,7 @@ package com.mozhimen.xmlk.test.popwink.temps
 import android.content.Context
 import android.graphics.Color
 import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLog
 import android.view.View
 import android.view.animation.Animation
 import com.mozhimen.basick.animk.builder.AnimKBuilder
@@ -36,7 +37,7 @@ class PopwinKSelector(
         _viewKWheel = contentView.findViewById(R.id.popwink_selector_wheel)
         _viewKWheel!!.apply {
             setCyclic(false)
-            setItemSelectedListener { Log.d(TAG, "onViewCreated: $it") }
+            setItemSelectedListener { UtilKLog.dt(TAG, "onViewCreated: $it") }
             setItems(_items)
         }
     }

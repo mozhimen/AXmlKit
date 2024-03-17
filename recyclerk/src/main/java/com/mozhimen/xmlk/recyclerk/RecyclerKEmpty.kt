@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.recyclerk
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.utilk.commons.IUtilK
@@ -24,12 +24,12 @@ class RecyclerKEmpty @JvmOverloads constructor(context: Context, attrs: Attribut
         }
 
         override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-            Log.d(TAG, "onItemRangeInserted $itemCount")
+            UtilKLogWrapper.dt(TAG, "onItemRangeInserted $itemCount")
             checkIfEmpty()
         }
 
         override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
-            Log.d(TAG, "onItemRangeRemoved clear")
+            UtilKLogWrapper.dt(TAG, "onItemRangeRemoved clear")
             checkIfEmpty()
         }
     }

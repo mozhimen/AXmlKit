@@ -10,7 +10,8 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
+import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLog;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -378,14 +379,14 @@ public class ViewKWheel extends View {
         //滚动的Y值高度除去每行Item的高度，得到滚动了多少个item，即change数
         //滚动偏移值,用于记录滚动了多少个item
         int change = (int) (totalScrollY / itemHeight);
-        // Log.d("change", "" + change);
+        // UtilKLog.dt("change", "" + change);
 
         try {
             //滚动中实际的预选中的item(即经过了中间位置的item) ＝ 滑动前的位置 ＋ 滑动相对位置
             preCurrentIndex = initPosition + change % adapter.getItemsCount();
 
         } catch (ArithmeticException e) {
-            Log.e("WheelView", "出错了！adapter.getItemsCount() == 0，联动数据不匹配");
+            UtilKLog.et("WheelView", "出错了！adapter.getItemsCount() == 0，联动数据不匹配");
         }
         if (!isLoop) {//不循环的情况
             if (preCurrentIndex < 0) {
@@ -566,7 +567,7 @@ public class ViewKWheel extends View {
 
         // 控制透明度
         int alpha = isAlphaGradient ? (int) ((90F - Math.abs(angle)) / 90f * 255) : 255;
-        // Log.d("WheelView", "alpha:" + alpha);
+        // UtilKLog.dt("WheelView", "alpha:" + alpha);
         paintOuterText.setAlpha(alpha);
     }
 

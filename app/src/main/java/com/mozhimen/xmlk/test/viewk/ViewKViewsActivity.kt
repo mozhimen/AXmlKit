@@ -10,7 +10,7 @@ class ViewKViewsActivity : BaseActivityVDB<ActivityViewkViewsBinding>() {
         /*val squareQRScan = findViewById<SquareQRScan>(R.id.viewk_squareQrScan)
        squareQRScan.setSquareQrScanCallback(object : SquareQRScan.SquareQrScanCallback {
            override fun onAnimEnd() {
-               Log.i(TAG, "onAnimEnd : OK")
+               UtilKLog.it(TAG, "onAnimEnd : OK")
            }
        })
        GlobalScope.launch(Dispatchers.Main) {

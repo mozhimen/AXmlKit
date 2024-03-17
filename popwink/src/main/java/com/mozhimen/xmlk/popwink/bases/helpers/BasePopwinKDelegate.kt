@@ -6,6 +6,7 @@ import android.content.ContextWrapper
 import android.graphics.drawable.ColorDrawable
 import android.text.TextUtils
 import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLog
 import android.view.View
 import android.view.WindowManager
 import android.widget.PopupWindow
@@ -84,7 +85,7 @@ class BasePopwinKDelegate(context: BasePopwinKContextWrapper) : PopupWindow(cont
         if (isShowing) return
         val activity = getByContext(parent.context, false)
         if (activity == null) {
-            Log.e(TAG, UtilKRes.getString_ofContext(R.string.base_popwink_error_non_act_context))
+            UtilKLog.et(TAG, UtilKRes.getString_ofContext(R.string.base_popwink_error_non_act_context))
             return
         }
         onBeforeShowExec(activity)

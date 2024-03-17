@@ -2,6 +2,7 @@ package com.mozhimen.xmlk.popwink.bases
 
 import android.content.Context
 import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLog
 import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
@@ -42,7 +43,7 @@ open class BasePopwinKLifecycle(context: Context) : BasePopwinK(context), Lifecy
     }
 
     override fun onDestroy() {
-        Log.d(TAG, "onDestroy: ")
+        UtilKLog.dt(TAG, "onDestroy: ")
         super.onDestroy()
     }
 

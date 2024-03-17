@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.recyclerk.item
 
 import android.annotation.SuppressLint
-import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.util.SparseIntArray
 import android.view.LayoutInflater
 import android.view.View
@@ -70,7 +70,7 @@ open class AdapterKItemRecycler : RecyclerView.Adapter<RecyclerView.ViewHolder>(
         val start = _items.size
         for (item in items)
             _items.add(item.apply { bindAdapter(this@AdapterKItemRecycler) })
-        Log.d(TAG, "addItems: start $start items size ${items.size} _items size ${_items.size}")
+        UtilKLogWrapper.dt(TAG, "addItems: start $start items size ${items.size} _items size ${_items.size}")
         if (notify) notifyItemRangeInserted(start, items.size)
     }
 
@@ -224,7 +224,7 @@ open class AdapterKItemRecycler : RecyclerView.Adapter<RecyclerView.ViewHolder>(
                     try {
                         //如果是则使用反射 实例化类上标记的实际的泛型对象
                         //这里需要 try-catch, 如果直接在RecyclerKItem子类上标记 RecyclerView.ViewHolder. 抽象类是不允许反射的
-                        return (argument.getConstructor(View::class.java).newInstance(view) as RecyclerView.ViewHolder).also { Log.d(TAG, "onCreateViewHolderInternal: getViewHolder success") }
+                        return (argument.getConstructor(View::class.java).newInstance(view) as RecyclerView.ViewHolder).also { UtilKLogWrapper.dt(TAG, "onCreateViewHolderInternal: getViewHolder success") }
                     } catch (e: Throwable) {
                         e.printStackTrace()
                         e.message?.et(TAG)

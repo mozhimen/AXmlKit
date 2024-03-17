@@ -2,6 +2,7 @@ package com.mozhimen.xmlk.demo
 
 import android.os.Bundle
 import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.adaptk.systembar.annors.AAdaptKSystemBarProperty
@@ -37,7 +38,7 @@ class MainActivity : BaseActivityVDB<ActivityMainBinding>() {
             AdapterKQuickRecyclerStuffedVB<Astro, ItemDemoListBinding>(list, R.layout.item_demo_list, R.layout.item_demo_header, null, BR.itemAstro) { holder, itemData, position, _ ->
                 if (position in 1 until list.size) {
                     holder.vdb.demoItemListBtn.setOnClickListener {
-                        Log.i(TAG, itemData.name)
+                        UtilKLog.it(TAG, itemData.name)
                     }
                 }
             }

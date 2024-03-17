@@ -2,6 +2,7 @@ package com.mozhimen.xmlk.test.layoutk
 
 import android.os.Bundle
 import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLog
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.layoutk.btn.LayoutKBtnSwitch
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkBtnBinding
@@ -20,7 +21,7 @@ class LayoutKBtnActivity : BaseActivityVDB<ActivityLayoutkBtnBinding>() {
         _layoutKBtnSwitch = vdb.layoutkBtnSwitch
         _layoutKBtnSwitch.setDefaultStatus(false)
         _layoutKBtnSwitch.setOnSwitchListener { status ->
-            Log.i(TAG, "btnk_switch status $status")
+            UtilKLog.it(TAG, "btnk_switch status $status")
         }
     }
 }

@@ -11,7 +11,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Message;
 import android.util.LayoutDirection;
-import android.util.Log;
+import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLog;
 import android.view.DisplayCutout;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -638,7 +639,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
 
     public BasePopupHelper overlayStatusbar(boolean overlay) {
         if (!overlay && UtilKScreen.isFullScreen_ofWindow(mPopupWindow.getContext())) {
-            Log.e(TAG, "setOverlayStatusbar: 全屏Activity下没有StatusBar，此处不能设置为false");
+            UtilKLog.et(TAG, "setOverlayStatusbar: 全屏Activity下没有StatusBar，此处不能设置为false");
             overlay = true;
         }
         setFlag(CFlag.OVERLAY_STATUS_BAR, overlay);
