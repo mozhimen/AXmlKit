@@ -8,6 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
+import com.mozhimen.basick.lintk.optins.OApiCall_Recycle
 import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnDestroy
 import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStart
 import com.mozhimen.xmlk.vhk.VHK
@@ -20,6 +21,7 @@ import com.mozhimen.xmlk.vhk.VHK
  * @Date 2023/11/22 15:02
  * @Version 1.0
  */
+@OApiCall_Recycle
 abstract class BaseAdapterK<T>(
     private val _datas: MutableList<T>,
     @LayoutRes private val _layoutId: Int
