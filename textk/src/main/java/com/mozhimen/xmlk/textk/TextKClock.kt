@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.TextClock
 import com.mozhimen.basick.elemk.java.util.cons.CDateFormat
-import com.mozhimen.basick.utilk.android.util.dt
+import com.mozhimen.basick.utilk.android.util.d
 import com.mozhimen.xmlk.commons.ILayoutK
 
 
@@ -32,7 +32,7 @@ class TextKClock @JvmOverloads constructor(context: Context, attrs: AttributeSet
     }
 
     override fun initView() {
-        format24Hour = _timeFormat.also { it.dt(TAG) }
+        format24Hour = _timeFormat.also { it.d(TAG) }
     }
 
     private fun getTimeFormat(index: Int = 0): String {

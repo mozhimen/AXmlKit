@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLog
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -154,7 +154,7 @@ open class TextKBubblePopWinCallback(contentView: View, bubbleView: ITextKBubble
         val contentWidth = contentView.measuredWidth
         val contentHeight = contentView.measuredHeight
 
-        UtilKLog.dt(TAG, "showArrowTo w:$contentWidth, h:$contentHeight")
+        UtilKLogWrapper.d(TAG, "showArrowTo w:$contentWidth, h:$contentHeight")
         val outProp = PopupProp()
         getPopupProp(
             screenWidth,

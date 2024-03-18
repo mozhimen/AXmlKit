@@ -24,12 +24,12 @@ class RecyclerKEmpty @JvmOverloads constructor(context: Context, attrs: Attribut
         }
 
         override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
-            UtilKLogWrapper.dt(TAG, "onItemRangeInserted $itemCount")
+            UtilKLogWrapper.d(TAG, "onItemRangeInserted $itemCount")
             checkIfEmpty()
         }
 
         override fun onItemRangeRemoved(positionStart: Int, itemCount: Int) {
-            UtilKLogWrapper.dt(TAG, "onItemRangeRemoved clear")
+            UtilKLogWrapper.d(TAG, "onItemRangeRemoved clear")
             checkIfEmpty()
         }
     }

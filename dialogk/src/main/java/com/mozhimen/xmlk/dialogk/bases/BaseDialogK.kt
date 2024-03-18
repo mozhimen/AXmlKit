@@ -12,7 +12,7 @@ import com.mozhimen.basick.elemk.android.view.cons.CWinMgr
 import com.mozhimen.basick.lintk.optins.permission.OPermission_SYSTEM_ALERT_WINDOW
 import com.mozhimen.basick.manifestk.cons.CPermission
 import com.mozhimen.basick.utilk.android.app.isFinishingOrDestroyed
-import com.mozhimen.basick.utilk.android.util.et
+import com.mozhimen.basick.utilk.android.util.e
 import com.mozhimen.basick.utilk.java.lang.UtilKThread
 import com.mozhimen.xmlk.dialogk.bases.annors.ADialogMode
 import com.mozhimen.xmlk.dialogk.bases.commons.IBaseDialogK
@@ -97,7 +97,7 @@ abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(
             show()
         } catch (e: Exception) {
             e.printStackTrace()
-            e.message?.et(TAG)
+            e.message?.e(TAG)
         }
     }
 

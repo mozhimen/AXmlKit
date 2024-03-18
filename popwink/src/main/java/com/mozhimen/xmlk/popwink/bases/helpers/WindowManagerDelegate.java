@@ -266,7 +266,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
             queue.addLast(managerProxy);
             managerProxy.isAddedToQueue = true;
 
-            UtilKLogWrapper.d(TAG, queue);
+            UtilKLogWrapper.d(TAG, String.valueOf(queue));
         }
 
         public void remove(WindowManagerDelegate managerProxy) {
@@ -278,7 +278,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
                 queue.remove(managerProxy);
             }
             managerProxy.isAddedToQueue = false;
-            UtilKLogWrapper.d(TAG, queue);
+            UtilKLogWrapper.d(TAG, String.valueOf(queue));
         }
 
         void clear(String key) {
@@ -287,7 +287,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
                 queue.clear();
             }
             sQueueMap.remove(key);
-            UtilKLogWrapper.d(TAG, queue, sQueueMap);
+            UtilKLogWrapper.d(TAG, queue + " " + sQueueMap);
         }
 
         @Nullable

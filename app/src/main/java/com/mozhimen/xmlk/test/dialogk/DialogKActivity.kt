@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.dialogk
 
 import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLog
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
@@ -101,7 +101,7 @@ class DialogKActivity : BaseActivityVDB<ActivityDialogkBinding>() {
             _dialogKLoadingUpdate = DialogKLoadingUpdate.create(this@DialogKActivity, desc, descUpdate).apply {
                 setOnDismissListener {
                     // _isProcessingUpdate = false
-                    UtilKLog.dt(TAG, "showLoadingUpdateDialog: dismiss")
+                    UtilKLogWrapper.d(TAG, "showLoadingUpdateDialog: dismiss")
                 }
             }
         } else {

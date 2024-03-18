@@ -8,7 +8,7 @@ import android.os.Looper
 import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.viewpager.widget.ViewPager
-import com.mozhimen.basick.utilk.android.util.et
+import com.mozhimen.basick.utilk.android.util.e
 import com.mozhimen.xmlk.pagerk.PagerKDisScroll
 import java.lang.Exception
 
@@ -53,7 +53,7 @@ class BannerViewPager @JvmOverloads constructor(context: Context, attrs: Attribu
             scrollerField[this] = BannerScroller(context, duration)
         } catch (e: Exception) {
             e.printStackTrace()
-            e.message?.et(TAG)
+            e.message?.e(TAG)
         }
     }
 
@@ -145,7 +145,7 @@ class BannerViewPager @JvmOverloads constructor(context: Context, attrs: Attribu
                 mScroller[this] = false
             } catch (e: Exception) {
                 e.printStackTrace()
-                e.message?.et(TAG)
+                e.message?.e(TAG)
             }
         }
         start()

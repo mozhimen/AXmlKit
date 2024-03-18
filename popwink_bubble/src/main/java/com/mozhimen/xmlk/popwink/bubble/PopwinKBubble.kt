@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.popwink.bubble
 
 import android.graphics.Rect
 import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLog
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -80,7 +80,7 @@ open class PopwinKBubble(
 
         isClippingEnabled = false
 
-        UtilKLog.dt(TAG, "showArrowTo: location equals: x: ${outProp.x} y: ${outProp.y}")
+        UtilKLogWrapper.d(TAG, "showArrowTo: location equals: x: ${outProp.x} y: ${outProp.y}")
         showAtLocation(
             anchorView,
             Gravity.CENTER_HORIZONTAL or Gravity.TOP,

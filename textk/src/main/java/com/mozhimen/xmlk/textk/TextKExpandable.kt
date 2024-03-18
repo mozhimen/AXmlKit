@@ -4,8 +4,7 @@ import android.content.Context
 import android.text.Layout
 import android.text.StaticLayout
 import android.util.AttributeSet
-import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLog
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import com.mozhimen.basick.elemk.commons.IA_Listener
@@ -77,7 +76,7 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
     }
 
     fun setExpandableText(text: CharSequence, maxLines: Int) {
-        UtilKLog.dt(TAG, "setExpandableText: maxLine $maxLines")
+        UtilKLogWrapper.d(TAG, "setExpandableText: maxLine $maxLines")
 //        setLastIndexForLimit(text, maxLine)
         _maxLines = maxLines
         _strOrigin = text
@@ -134,13 +133,13 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
         val paint = paint//获取TextView的画笔对象
 //        val width = resources.displayMetrics.widthPixels - 40f.dp2px.toInt()//每行文本的布局宽度
         val staticLayout = StaticLayout(content, paint, width /*width*/, Layout.Alignment.ALIGN_NORMAL, 1f, 0f, false)//实例化StaticLayout 传入相应参数
-        UtilKLog.dt(TAG, "setLastIndexForLimit: width $width")
+        UtilKLogWrapper.d(TAG, "setLastIndexForLimit: width $width")
         if (staticLayout.lineCount > maxLine) {//判断content是行数是否超过最大限制行数3行
             _strExpand = content
             val position = staticLayout.getLineStart(maxLine) - 4//获取到第三行最后一个文字的下标-4是为了加...
             val strFold = content.substring(0, position) + "..."//定义收起后的文本内容
             _strFold = strFold
-            UtilKLog.dt(TAG, "setLastIndexForLimit: _strFold $_strFold")
+            UtilKLogWrapper.d(TAG, "setLastIndexForLimit: _strFold $_strFold")
 
             ///////////////////////////////////////////////////////////////////////////
 

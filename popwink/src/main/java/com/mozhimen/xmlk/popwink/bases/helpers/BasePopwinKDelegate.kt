@@ -5,16 +5,15 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.graphics.drawable.ColorDrawable
 import android.text.TextUtils
-import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLog
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import android.view.WindowManager
 import android.widget.PopupWindow
 import com.mozhimen.basick.elemk.android.view.cons.CView
 import com.mozhimen.basick.lintk.optins.OApiUse_BaseApplication
+import com.mozhimen.basick.utilk.android.app.UtilKActivityWrapper
 import com.mozhimen.basick.utilk.commons.IUtilK
-import com.mozhimen.basick.utilk.android.app.UtilKActivity.getByContext
-import com.mozhimen.basick.utilk.android.util.et
+import com.mozhimen.basick.utilk.android.util.e
 import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.basick.utilk.android.view.UtilKView.removeViewForParent
 import com.mozhimen.basick.utilk.android.view.UtilKWindowParams
@@ -52,7 +51,7 @@ class BasePopwinKDelegate(context: BasePopwinKContextWrapper) : PopupWindow(cont
             _basePopwinKContextWrapper!!.getWindowManagerDelegate()!!.update()
         } catch (e: Exception) {
             e.printStackTrace()
-            e.message?.et(TAG)
+            e.message?.e(TAG)
         }
     }
 
@@ -83,9 +82,9 @@ class BasePopwinKDelegate(context: BasePopwinKContextWrapper) : PopupWindow(cont
     @OptIn(OApiUse_BaseApplication::class)
     override fun showAtLocation(parent: View, gravity: Int, x: Int, y: Int) {
         if (isShowing) return
-        val activity = getByContext(parent.context, false)
+        val activity = UtilKActivityWrapper.get_ofContext(parent.context, false)
         if (activity == null) {
-            UtilKLog.et(TAG, UtilKRes.getString_ofContext(R.string.base_popwink_error_non_act_context))
+            UtilKLogWrapper.e(TAG, UtilKRes.getString_ofContext(R.string.base_popwink_error_non_act_context))
             return
         }
         onBeforeShowExec(activity)
@@ -131,7 +130,7 @@ class BasePopwinKDelegate(context: BasePopwinKContextWrapper) : PopupWindow(cont
             super.dismiss()
         } catch (e: Exception) {
             e.printStackTrace()
-            e.message?.et(TAG)
+            e.message?.e(TAG)
         } finally {
             clear(false)
         }
@@ -150,7 +149,7 @@ class BasePopwinKDelegate(context: BasePopwinKContextWrapper) : PopupWindow(cont
         try {
             removeViewForParent(contentView)
         } catch (e: Exception) {
-            e.message?.et(TAG)
+            e.message?.e(TAG)
         }
         if (destroy) {
             _basePopwinKContextWrapper = null

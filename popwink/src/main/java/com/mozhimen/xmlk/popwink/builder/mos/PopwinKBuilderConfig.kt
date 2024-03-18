@@ -37,9 +37,9 @@ class PopwinKBuilderConfig : IClearMemoryListener {
         @JvmStatic
         fun generateDefault(): PopwinKBuilderConfig {
             return PopwinKBuilderConfig()
-                    .setShowAnimation(asAnimation().add(CENTER_SHOW).build())
-                    .setDismissAnimation(asAnimation().add(CENTER_HIDE).build())
-                    .setFadeInAndOut(UtilKBuildVersion.getSDKInt() != CVersCode.V_23_6_M)
+                .setShowAnimation(asAnimation().add(CENTER_SHOW).build())
+                .setDismissAnimation(asAnimation().add(CENTER_HIDE).build())
+                .setFadeInAndOut(UtilKBuildVersion.getSDKInt() != CVersCode.V_23_6_M)
         }
     }
 
@@ -302,7 +302,7 @@ class PopwinKBuilderConfig : IClearMemoryListener {
         return try {
             PopwinKBuilderDelegate::class.java.getMethod(methodName, parameterTypes)
         } catch (e: Exception) {
-            UtilKLogWrapper.e("not found", methodName, parameterTypes!!.name)
+            UtilKLogWrapper.e("not found", methodName + " " + parameterTypes!!.name)
             null
         }
     }

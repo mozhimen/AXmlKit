@@ -67,8 +67,8 @@ open class AdapterKQuickRecyclerVB<DATA, VB : ViewDataBinding>(
     }
 
     override fun addDatas(datas: List<DATA>, notify: Boolean) {
-        val start = _datas.size.also { UtilKLogWrapper.dt(TAG, "addDatas: start $it") }
-        _datas.addAll(datas).also { UtilKLogWrapper.dt(TAG, "addDatas: size ${_datas.size}") }
+        val start = _datas.size.also { UtilKLogWrapper.d(TAG, "addDatas: start $it") }
+        _datas.addAll(datas).also { UtilKLogWrapper.d(TAG, "addDatas: size ${_datas.size}") }
         if (notify) notifyItemRangeInserted(start, _datas.size)
     }
 

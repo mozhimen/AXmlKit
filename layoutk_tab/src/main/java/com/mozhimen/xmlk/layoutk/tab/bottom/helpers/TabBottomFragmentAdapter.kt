@@ -1,7 +1,6 @@
 package com.mozhimen.xmlk.layoutk.tab.bottom.helpers
 
-import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLog
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -71,7 +70,7 @@ class TabBottomFragmentAdapter(
             return _moList[position].fragment!!.newInstance()
         } catch (e: Exception) {
             e.printStackTrace()
-            UtilKLog.et(TAG, "getItem Exception ${e.message}")
+            UtilKLogWrapper.e(TAG, "getItem Exception ${e.message}")
         }
         return null
     }

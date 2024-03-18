@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.test.adapterk
 
 import android.os.Bundle
 import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLog
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
@@ -50,7 +50,7 @@ class AdapterKRecyclerActivity : BaseActivityVDB<ActivityAdapterkRecyclerBinding
                 dataSets.add(RecyclerKItemImage(1))
             }
         }
-        UtilKLog.dt(TAG, "initAdapter: dataSets = $dataSets")
+        UtilKLogWrapper.d(TAG, "initAdapter: dataSets = $dataSets")
         _adapterKRecycler.addItems(dataSets, true)
     }
 }

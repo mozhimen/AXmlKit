@@ -4,7 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.mozhimen.basick.utilk.android.util.et
+import com.mozhimen.basick.utilk.android.util.e
 import com.mozhimen.xmlk.popwink.bases.BasePopwinK
 import com.mozhimen.xmlk.popwink.bases.cons.CFlag
 import com.mozhimen.xmlk.popwink.builder.commons.PopwinKBuilderOnClickCallback
@@ -62,10 +62,10 @@ class PopwinKBuilderDelegate : BasePopwinK {
                     method.invoke(this, value)
                 } catch (e: IllegalAccessException) {
                     e.printStackTrace()
-                    e.message?.et(TAG)
+                    e.message?.e(TAG)
                 } catch (e: InvocationTargetException) {
                     e.printStackTrace()
-                    e.message?.et(TAG)
+                    e.message?.e(TAG)
                 }
             }
         }

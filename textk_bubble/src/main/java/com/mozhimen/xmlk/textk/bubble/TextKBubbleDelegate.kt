@@ -6,7 +6,7 @@ import android.graphics.Point
 import android.graphics.Rect
 import android.util.AttributeSet
 import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLog
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import com.mozhimen.basick.elemk.android.os.cons.CVersCode
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
@@ -315,13 +315,13 @@ class TextKBubbleDelegate(private val _context: Context) : ITextKBubble, ILayout
     }
 
     override fun setPadding(left: Float, top: Float, right: Float, bottom: Float) {
-        UtilKLog.dt(TAG, "setPadding: _bubbleListener is not null")
+        UtilKLogWrapper.d(TAG, "setPadding: _bubbleListener is not null")
         if (UtilKBuildVersion.getSDKInt() <= CVersCode.V_16_41_J) {
             val stack = Throwable().stackTrace
             for (i in 0..6) {
                 if (stack[i].className == View::class.java.name && (stack[i].methodName == "recomputePadding")
                 ) {
-                    UtilKLog.wt(TAG, "Called setPadding by View on old Android platform")
+                    UtilKLogWrapper.w(TAG, "Called setPadding by View on old Android platform")
                     _textKBubbleListener.setSuperPadding(left.toInt(), top.toInt(), right.toInt(), bottom.toInt())
                     return
                 }

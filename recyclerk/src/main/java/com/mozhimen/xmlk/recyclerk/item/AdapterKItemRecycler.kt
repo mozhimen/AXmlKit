@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
-import com.mozhimen.basick.utilk.android.util.et
+import com.mozhimen.basick.utilk.android.util.e
 import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecycler
 import com.mozhimen.xmlk.vhk.VHKRecycler
 import java.lang.ref.WeakReference
@@ -70,7 +70,7 @@ open class AdapterKItemRecycler : RecyclerView.Adapter<RecyclerView.ViewHolder>(
         val start = _items.size
         for (item in items)
             _items.add(item.apply { bindAdapter(this@AdapterKItemRecycler) })
-        UtilKLogWrapper.dt(TAG, "addItems: start $start items size ${items.size} _items size ${_items.size}")
+        UtilKLogWrapper.d(TAG, "addItems: start $start items size ${items.size} _items size ${_items.size}")
         if (notify) notifyItemRangeInserted(start, items.size)
     }
 
@@ -224,10 +224,10 @@ open class AdapterKItemRecycler : RecyclerView.Adapter<RecyclerView.ViewHolder>(
                     try {
                         //如果是则使用反射 实例化类上标记的实际的泛型对象
                         //这里需要 try-catch, 如果直接在RecyclerKItem子类上标记 RecyclerView.ViewHolder. 抽象类是不允许反射的
-                        return (argument.getConstructor(View::class.java).newInstance(view) as RecyclerView.ViewHolder).also { UtilKLogWrapper.dt(TAG, "onCreateViewHolderInternal: getViewHolder success") }
+                        return (argument.getConstructor(View::class.java).newInstance(view) as RecyclerView.ViewHolder).also { UtilKLogWrapper.d(TAG, "onCreateViewHolderInternal: getViewHolder success") }
                     } catch (e: Throwable) {
                         e.printStackTrace()
-                        e.message?.et(TAG)
+                        e.message?.e(TAG)
                     }
                 }
             }

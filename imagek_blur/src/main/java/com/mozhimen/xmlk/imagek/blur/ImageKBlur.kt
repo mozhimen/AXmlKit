@@ -6,8 +6,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Rect
 import android.util.AttributeSet
-import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLog
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AccelerateInterpolator
@@ -17,7 +16,7 @@ import com.mozhimen.basick.animk.builder.commons.IAnimatorUpdateListener
 import com.mozhimen.basick.animk.builder.temps.AnimatorAlphaType
 import com.mozhimen.basick.taskk.executor.TaskKExecutor
 import com.mozhimen.imagek.blur.mos.ImageKBlurConfig
-import com.mozhimen.basick.utilk.android.util.et
+import com.mozhimen.basick.utilk.android.util.e
 import com.mozhimen.basick.utilk.android.view.UtilKView
 import com.mozhimen.basick.utilk.android.view.applyBackgroundNull
 import com.mozhimen.basick.utilk.java.lang.UtilKThread
@@ -101,7 +100,7 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
         if (!_blurFinish.get()) {
             if (_cacheAction == null) {
                 _cacheAction = CacheAction({ start(_startDuration) }, 0)
-                UtilKLog.et(TAG, "start 缓存模糊动画，等待模糊完成")
+                UtilKLogWrapper.e(TAG, "start 缓存模糊动画，等待模糊完成")
             }
             return
         }
@@ -110,7 +109,7 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
             _cacheAction = null
         }
         if (_isAnimating) return
-        UtilKLog.it(TAG, "start 开始模糊alpha动画")
+        UtilKLogWrapper.i(TAG, "start 开始模糊alpha动画")
         _isAnimating = true
         if (duration > 0) {
             startAlphaInAnimation(duration)
@@ -126,7 +125,7 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
      */
     fun dismiss(duration: Long) {
         _isAnimating = false
-        UtilKLog.it(TAG, "dismiss 模糊imageview alpha动画")
+        UtilKLogWrapper.i(TAG, "dismiss 模糊imageview alpha动画")
         if (duration > 0) {
             startAlphaOutAnimation(duration)
         } else if (duration == -2L) {
@@ -225,7 +224,7 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
      */
     private fun handleSetImageBitmap(bitmap: Bitmap?, isOnUpdate: Boolean) {
         if (bitmap != null) {
-            UtilKLog.it(TAG, "bitmap: 【" + bitmap.width + "," + bitmap.height + "】")
+            UtilKLogWrapper.i(TAG, "bitmap: 【" + bitmap.width + "," + bitmap.height + "】")
         }
         imageAlpha = if (isOnUpdate) 255 else 0
         setImageBitmap(bitmap)
@@ -239,9 +238,9 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
             imageMatrix = matrix
         }
         _blurFinish.compareAndSet(false, true)
-        UtilKLog.it(TAG, "设置成功：" + _blurFinish.get())
+        UtilKLogWrapper.i(TAG, "设置成功：" + _blurFinish.get())
         if (_cacheAction != null) {
-            UtilKLog.it(TAG, "恢复缓存动画")
+            UtilKLogWrapper.i(TAG, "恢复缓存动画")
             _cacheAction!!.restore()
         }
         if (_attachedCache != null) {
@@ -254,26 +253,26 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
         _blurOption = option
         val anchorView = option.getBlurView()
         if (anchorView == null) {
-            UtilKLog.et(TAG, "applyBlurOption 模糊锚点View为空，放弃模糊操作...")
+            UtilKLogWrapper.e(TAG, "applyBlurOption 模糊锚点View为空，放弃模糊操作...")
             destroy()
             return
         }
         if (option.isBlurAsync() && !isOnUpdate) {        //因为考虑到实时更新位置（包括模糊也要实时）的原因，因此强制更新时模糊操作在主线程完成。
-            UtilKLog.it(TAG, "applyBlurOption 子线程blur")
+            UtilKLogWrapper.i(TAG, "applyBlurOption 子线程blur")
             startBlurTask(anchorView)
         } else {
             try {
-                UtilKLog.it(TAG, "applyBlurOption 主线程blur")
+                UtilKLogWrapper.i(TAG, "applyBlurOption 主线程blur")
                 if (!RenderScriptUtil.isRenderScriptSupported()) {
-                    UtilKLog.et(TAG, "applyBlurOption 不支持脚本模糊。。。最低支持api 17(Android 4.2.2)，将采用fastBlur")
+                    UtilKLogWrapper.e(TAG, "applyBlurOption 不支持脚本模糊。。。最低支持api 17(Android 4.2.2)，将采用fastBlur")
                 }
                 setImageBitmapOnUiThread(
                     RenderScriptUtil.blur(anchorView, option.getBlurPreScaleRatio(), option.getBlurRadius(), option.isFullScreen(), _cutoutX, _cutoutY), isOnUpdate
                 )
             } catch (e: Exception) {
                 e.printStackTrace()
-                e.message?.et(TAG)
-                UtilKLog.et(TAG, "applyBlurOption 模糊异常", e)
+                e.message?.e(TAG)
+                UtilKLogWrapper.e(TAG, "applyBlurOption 模糊异常 $e")
                 destroy()
             }
         }
@@ -292,10 +291,10 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
 
         override fun run() {
             if (_abortBlur || _blurOption == null) {
-                UtilKLog.et(TAG, "run 放弃模糊，可能是已经移除了布局")
+                UtilKLogWrapper.e(TAG, "run 放弃模糊，可能是已经移除了布局")
                 return
             }
-            UtilKLog.it(TAG, "run 子线程模糊执行")
+            UtilKLogWrapper.i(TAG, "run 子线程模糊执行")
             setImageBitmapOnUiThread(
                 RenderScriptUtil.blur(_bitmap, _outWidth, _outHeight, _blurOption!!.getBlurRadius()), false
             )
@@ -311,7 +310,7 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
 
         fun restore() {
             if (_isOverTime) {
-                UtilKLog.et(TAG, "restore 模糊超时")
+                UtilKLogWrapper.e(TAG, "restore 模糊超时")
                 destroy()
                 return
             }

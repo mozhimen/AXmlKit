@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.recyclerk.mos
 
 import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLog
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -63,7 +63,7 @@ class RecyclerKItemBanner : RecyclerKItem<VHKRecyclerVB<ItemRecyclerkBannerBindi
             setPagerChangeListener(object : IBannerItemChangeListener {
                 override fun onPageSelected(position: Int) {
                     _index = position
-                    UtilKLog.dt(TAG, "onPageSelected $position")
+                    UtilKLogWrapper.d(TAG, "onPageSelected $position")
                 }
             })
         }
@@ -81,7 +81,7 @@ class RecyclerKItemBanner : RecyclerKItem<VHKRecyclerVB<ItemRecyclerkBannerBindi
 
     override fun onViewAttachedToWindow(holder: VHKRecyclerVB<ItemRecyclerkBannerBinding>) {
         val index = CacheKSP.instance.with(RECYCLERK_ITEM_BANNER_SP_NAME).getInt("bannerIndex")
-        UtilKLog.dt(TAG, "onViewAttachedToWindow currentIndex $index")
+        UtilKLogWrapper.d(TAG, "onViewAttachedToWindow currentIndex $index")
         holder.vdb.itemRecyclerkBanner.setCurrentPosition(index, false)
     }
 

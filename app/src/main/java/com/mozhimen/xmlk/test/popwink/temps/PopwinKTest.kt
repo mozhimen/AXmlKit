@@ -3,7 +3,7 @@ package com.mozhimen.xmlk.test.popwink.temps
 import android.content.Context
 import android.graphics.Color
 import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLog
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import android.view.animation.Animation
 import com.mozhimen.basick.animk.builder.AnimKBuilder
@@ -31,7 +31,7 @@ class PopwinKTest(
     private var _variate1: String = "idel"
     private val _onClickListener = object : IClickListener {
         override fun onInvoke(log: String) {
-            UtilKLog.dt(TAG, "onInvoke: $log")
+            UtilKLogWrapper.d(TAG, "onInvoke: $log")
         }
     }
 
@@ -46,35 +46,35 @@ class PopwinKTest(
 
     override fun onViewCreated(contentView: View) {
         super.onViewCreated(contentView)
-        UtilKLog.dt(TAG, "onViewCreated: _constructor1 $_constructor1")
-        UtilKLog.dt(TAG, "onViewCreated: _variate1 $_variate1")
+        UtilKLogWrapper.d(TAG, "onViewCreated: _constructor1 $_constructor1")
+        UtilKLogWrapper.d(TAG, "onViewCreated: _variate1 $_variate1")
         _onClickListener.onInvoke("onViewCreated")
     }
 
     override fun onBeforeShow(): Boolean {
-        UtilKLog.dt(TAG, "onBeforeShow: _constructor1 $_constructor1")
-        UtilKLog.dt(TAG, "onBeforeShow: _variate1 $_variate1")
+        UtilKLogWrapper.d(TAG, "onBeforeShow: _constructor1 $_constructor1")
+        UtilKLogWrapper.d(TAG, "onBeforeShow: _variate1 $_variate1")
         _onClickListener.onInvoke("onBeforeShow")
         return super.onBeforeShow()
     }
 
     override fun onShowing() {
         super.onShowing()
-        UtilKLog.dt(TAG, "onShowing: _constructor1 $_constructor1")
-        UtilKLog.dt(TAG, "onShowing: _variate1 $_variate1")
+        UtilKLogWrapper.d(TAG, "onShowing: _constructor1 $_constructor1")
+        UtilKLogWrapper.d(TAG, "onShowing: _variate1 $_variate1")
         _onClickListener.onInvoke("onShowing")
     }
 
     override fun onBeforeDismiss(): Boolean {
-        UtilKLog.dt(TAG, "onBeforeDismiss: _constructor1 $_constructor1")
-        UtilKLog.dt(TAG, "onBeforeDismiss: _variate1 $_variate1")
+        UtilKLogWrapper.d(TAG, "onBeforeDismiss: _constructor1 $_constructor1")
+        UtilKLogWrapper.d(TAG, "onBeforeDismiss: _variate1 $_variate1")
         _onClickListener.onInvoke("onBeforeDismiss")
         return super.onBeforeDismiss()
     }
 
     override fun onDismiss() {
-        UtilKLog.dt(TAG, "onDismiss: _constructor1 $_constructor1")
-        UtilKLog.dt(TAG, "onDismiss: _variate1 $_variate1")
+        UtilKLogWrapper.d(TAG, "onDismiss: _constructor1 $_constructor1")
+        UtilKLogWrapper.d(TAG, "onDismiss: _variate1 $_variate1")
         _onClickListener.onInvoke("onDismiss")
         super.onDismiss()
     }
