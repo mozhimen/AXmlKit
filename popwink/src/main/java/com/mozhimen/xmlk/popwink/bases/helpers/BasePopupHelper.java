@@ -11,8 +11,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Message;
 import android.util.LayoutDirection;
-
-import com.mozhimen.basick.utilk.android.app.UtilKActivityWrapper;
+import android.util.Log
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
 import android.view.DisplayCutout;
 import android.view.Gravity;
@@ -41,6 +40,8 @@ import com.mozhimen.basick.stackk.cb.StackKCb;
 import com.mozhimen.basick.utilk.android.animation.UtilKAnimator;
 import com.mozhimen.basick.utilk.android.content.UtilKResources;
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion;
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
 import com.mozhimen.basick.utilk.android.view.UtilKAnim;
 import com.mozhimen.basick.utilk.android.view.UtilKAnimation;
 import com.mozhimen.basick.utilk.android.view.UtilKContentView;
@@ -1187,11 +1188,11 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
     static Activity findActivity(Object parent, boolean returnTopIfNull) {
         Activity act = null;
         if (parent instanceof Context) {
-            act = UtilKActivityWrapper.get_ofContext((Context) parent, true);
+            act = UtilKActivity.getByContext((Context) parent, true);
         } else if (parent instanceof Fragment) {
             act = ((Fragment) parent).getActivity();
         } else if (parent instanceof Dialog) {
-            act = UtilKActivityWrapper.get_ofContext(((Dialog) parent).getContext(), true);
+            act = UtilKActivity.getByContext(((Dialog) parent).getContext(), true);
         }
         if (act == null && returnTopIfNull) {
             act = StackKCb.getInstance().getStackTopActivity(true);
@@ -1214,8 +1215,8 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         } else if (parent instanceof Fragment) {
             decorView = ((Fragment) parent).getView();
         } else if (parent instanceof Context) {
-            Activity act = UtilKActivityWrapper.get_ofContext((Context) parent, true);
-            decorView = act == null ? null : UtilKContentView.getPac(act);
+            Activity act = UtilKActivity.getByContext((Context) parent, true);
+            decorView = act == null ? null : UtilKContentView.get(act);
         }
 
         if (decorView != null) {
