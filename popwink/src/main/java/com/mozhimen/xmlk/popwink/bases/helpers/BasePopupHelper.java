@@ -39,7 +39,6 @@ import com.mozhimen.basick.elemk.android.view.cons.CWinMgr;
 import com.mozhimen.imagek.blur.mos.ImageKBlurConfig;
 import com.mozhimen.basick.stackk.cb.StackKCb;
 import com.mozhimen.basick.utilk.android.animation.UtilKAnimator;
-import com.mozhimen.basick.utilk.android.app.UtilKActivity;
 import com.mozhimen.basick.utilk.android.content.UtilKResources;
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion;
 import com.mozhimen.basick.utilk.android.view.UtilKAnim;
@@ -205,12 +204,12 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         this.mMaskViewDismissAnimation = new AlphaAnimation(1f, 0f);
         this.mMaskViewShowAnimation.setFillAfter(true);
         this.mMaskViewShowAnimation.setInterpolator(new DecelerateInterpolator());
-        this.mMaskViewShowAnimation.setDuration(UtilKResources.getSys()
+        this.mMaskViewShowAnimation.setDuration(UtilKResources.get_ofSys()
                 .getInteger(android.R.integer.config_shortAnimTime));
         isDefaultMaskViewShowAnimation = true;
         this.mMaskViewDismissAnimation.setFillAfter(true);
         this.mMaskViewDismissAnimation.setInterpolator(new DecelerateInterpolator());
-        this.mMaskViewDismissAnimation.setDuration(UtilKResources.getSys()
+        this.mMaskViewDismissAnimation.setDuration(UtilKResources.get_ofSys()
                 .getInteger(android.R.integer.config_shortAnimTime));
         isDefaultMaskViewDismissAnimation = true;
     }
