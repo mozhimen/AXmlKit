@@ -13,7 +13,7 @@ import com.mozhimen.basick.elemk.commons.IAB_Listener
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.view.UtilKInputMethodManager
 import com.mozhimen.basick.utilk.android.widget.applyLengthFilter
-import com.mozhimen.basick.utilk.kotlin.normalize
+import com.mozhimen.basick.utilk.kotlin.constraint
 import com.mozhimen.xmlk.commons.IXmlK
 import kotlin.math.max
 
@@ -199,7 +199,7 @@ class TextKEditRect @JvmOverloads constructor(context: Context, attrs: Attribute
     }
 
     fun setCursorFlashIntervalMillis(cursorFlashIntervalMillis:Int){
-        _cursorFlashIntervalMillis = cursorFlashIntervalMillis.normalize(100,10000)
+        _cursorFlashIntervalMillis = cursorFlashIntervalMillis.constraint(100,10000)
     }
 
     fun setCursorWidth(cursorWidth: Int) {

@@ -3,7 +3,7 @@ package com.mozhimen.xmlk.drawablek.arrow.helpers
 import android.graphics.Path
 import android.graphics.PointF
 import android.graphics.RectF
-import com.mozhimen.basick.utilk.kotlin.normalize
+import com.mozhimen.basick.utilk.kotlin.constraint
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowDirection
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowPosPolicy
 import com.mozhimen.xmlk.drawablek.arrow.mos.MShape
@@ -56,13 +56,13 @@ internal class ShapeDrawer {
             EArrowDirection.Left -> {
                 outShape.arrowPeakX = outShape.rect.left - outShape.arrowHeight
                 // 确保弧角的显示
-                outShape.arrowPeakY =  getLeftRightArrowPeakY(policy, arrowTo, outShape).normalize(
+                outShape.arrowPeakY =  getLeftRightArrowPeakY(policy, arrowTo, outShape).constraint(
                     outShape.rect.top + outShape.cornerTopLeftRadius + outShape.arrowWidth / 2 + outShape.borderWidth / 2,
                     outShape.rect.bottom - outShape.cornerBottomLeftRadius - outShape.arrowWidth / 2 - outShape.borderWidth / 2
                 )
             }
             EArrowDirection.Up -> {
-                outShape.arrowPeakX = getUpDownArrowPeakX(policy, arrowTo, outShape).normalize(
+                outShape.arrowPeakX = getUpDownArrowPeakX(policy, arrowTo, outShape).constraint(
                     outShape.rect.left + outShape.cornerTopLeftRadius + outShape.arrowWidth / 2 + outShape.borderWidth / 2,
                     outShape.rect.right - outShape.cornerTopRightRadius - outShape.arrowWidth / 2 - outShape.borderWidth / 2
                 )
@@ -70,13 +70,13 @@ internal class ShapeDrawer {
             }
             EArrowDirection.Right -> {
                 outShape.arrowPeakX = outShape.rect.right + outShape.arrowHeight
-                outShape.arrowPeakY = getLeftRightArrowPeakY(policy, arrowTo, outShape).normalize(
+                outShape.arrowPeakY = getLeftRightArrowPeakY(policy, arrowTo, outShape).constraint(
                     outShape.rect.top + outShape.cornerTopRightRadius + outShape.arrowWidth / 2 + outShape.borderWidth / 2,
                     outShape.rect.bottom - outShape.cornerBottomRightRadius - outShape.arrowWidth / 2 - outShape.borderWidth / 2
                 )
             }
             EArrowDirection.Down -> {
-                outShape.arrowPeakX = getUpDownArrowPeakX(policy, arrowTo, outShape).normalize(
+                outShape.arrowPeakX = getUpDownArrowPeakX(policy, arrowTo, outShape).constraint(
                     outShape.rect.left + outShape.cornerBottomLeftRadius + outShape.arrowWidth / 2 + outShape.borderWidth / 2,
                     outShape.rect.right - outShape.cornerBottomRightRadius - outShape.arrowWidth / 2 - outShape.borderWidth / 2
                 )

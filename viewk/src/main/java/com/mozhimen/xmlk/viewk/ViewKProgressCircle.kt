@@ -8,7 +8,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import androidx.annotation.IntRange
 import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.kotlin.normalize
+import com.mozhimen.basick.utilk.kotlin.constraint
 import com.mozhimen.xmlk.bases.BaseViewK
 
 /**
@@ -32,7 +32,7 @@ class ViewKProgressCircle @JvmOverloads constructor(context: Context, attrs: Att
      * 设置进度。符合条件则更新进度条
      */
     fun setProgress(@IntRange(from = 0, to = 100) progress: Int) {
-        _progress = progress.normalize(0, 100) * 0.01f
+        _progress = progress.constraint(0, 100) * 0.01f
         invalidate()
     }
 

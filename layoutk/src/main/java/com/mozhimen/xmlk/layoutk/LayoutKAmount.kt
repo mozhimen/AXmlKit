@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.setPadding
 import com.mozhimen.basick.elemk.commons.IA_Listener
-import com.mozhimen.basick.utilk.kotlin.normalize
+import com.mozhimen.basick.utilk.kotlin.constraint
 import com.mozhimen.xmlk.bases.BaseLayoutKLinear
 import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.basick.utilk.android.util.dp2px
@@ -72,7 +72,7 @@ class LayoutKAmount @JvmOverloads constructor(context: Context, attrs: Attribute
     private var minVal: Int = _attrs.minVal
     private var currentAmount: Int = _attrs.defaultAmount
         set(value) {
-            field = value.normalize(minVal..maxVal)
+            field = value.constraint(minVal..maxVal)
         }
 
     init {
