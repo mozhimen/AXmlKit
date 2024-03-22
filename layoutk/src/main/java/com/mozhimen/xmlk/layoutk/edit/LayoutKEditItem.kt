@@ -12,7 +12,7 @@ import android.util.TypedValue
 import android.view.Gravity
 import android.widget.EditText
 import android.widget.TextView
-import com.mozhimen.basick.utilk.android.content.UtilKRes
+import com.mozhimen.basick.utilk.wrapper.UtilKRes
 import com.mozhimen.basick.utilk.android.view.applyPadding
 import com.mozhimen.basick.utilk.android.util.sp2px
 import com.mozhimen.basick.utilk.android.widget.applyInputMaxLength

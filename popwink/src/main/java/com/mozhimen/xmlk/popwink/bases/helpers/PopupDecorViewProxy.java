@@ -21,14 +21,14 @@ import com.mozhimen.basick.utilk.android.view.UtilKView;
 import com.mozhimen.xmlk.popwink.bases.BasePopwinK;
 import com.mozhimen.xmlk.popwink.bases.commons.IClearMemoryListener;
 
-import com.mozhimen.basick.utilk.android.view.UtilKGravity;
 import com.mozhimen.basick.utilk.android.view.UtilKInputMethodManagerWrapper;
-import com.mozhimen.basick.utilk.android.view.UtilKScreen;
+import com.mozhimen.basick.utilk.wrapper.UtilKScreen;
 import com.mozhimen.basick.utilk.android.view.UtilKStatusBar;
 import com.mozhimen.xmlk.popwink.bases.commons.IEventObserver;
 import com.mozhimen.xmlk.popwink.bases.cons.CEvent;
 import com.mozhimen.xmlk.popwink.bases.cons.CFlag;
 import com.mozhimen.xmlk.popwink.bases.cons.CUI;
+import com.mozhimen.xmlk.popwink.bases.utils.PopwinKUtil;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
@@ -836,7 +836,7 @@ final class PopupDecorViewProxy extends ViewGroup implements Function2<Rect, Boo
             } else {
                 if (mHelper.isWithAnchor()) {
                     //如果是有anchor，则考虑anchor的情况
-                    int gravity = UtilKGravity.compute(popupRect, anchorRect);
+                    int gravity = PopwinKUtil.computeGravity(popupRect, anchorRect);
                     if ((gravity & Gravity.VERTICAL_GRAVITY_MASK) == Gravity.TOP) {
                         //显示在anchor顶部，则需要考虑anchor的高度
                         offsetY -= mHelper.getAnchorViewBound().height();

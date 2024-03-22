@@ -152,9 +152,9 @@ public enum BasePopupUnsafe {
 
         private static StackTraceElement getCurrentStackTrace() {
             StackTraceElement[] trace = UtilKThread.getCurStackTrace();
-            int stackOffset = UtilKStackTraceElement.getStackTracesOffset(trace, BasePopupUnsafe.class);
+            int stackOffset = UtilKStackTraceElement.getOffset(trace, BasePopupUnsafe.class);
             if (stackOffset == -1) {
-                stackOffset = UtilKStackTraceElement.getStackTracesOffset(trace, StackFetcher.class);
+                stackOffset = UtilKStackTraceElement.getOffset(trace, StackFetcher.class);
                 if (stackOffset == -1) {
                     return null;
                 }

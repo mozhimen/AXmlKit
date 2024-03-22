@@ -11,7 +11,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Message;
 import android.util.LayoutDirection;
-import android.util.Log
+
+import com.mozhimen.basick.utilk.android.app.UtilKActivityWrapper;
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
 import android.view.DisplayCutout;
 import android.view.Gravity;
@@ -40,14 +41,11 @@ import com.mozhimen.basick.stackk.cb.StackKCb;
 import com.mozhimen.basick.utilk.android.animation.UtilKAnimator;
 import com.mozhimen.basick.utilk.android.content.UtilKResources;
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion;
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
-import com.mozhimen.basick.utilk.android.view.UtilKAnim;
+import com.mozhimen.basick.utilk.wrapper.UtilKAnim;
 import com.mozhimen.basick.utilk.android.view.UtilKAnimation;
 import com.mozhimen.basick.utilk.android.view.UtilKContentView;
 import com.mozhimen.basick.utilk.android.view.UtilKInputMethodManagerWrapper;
-import com.mozhimen.basick.utilk.android.view.UtilKNavigationBar;
-import com.mozhimen.basick.utilk.android.view.UtilKScreen;
+import com.mozhimen.basick.utilk.wrapper.UtilKScreen;
 import com.mozhimen.basick.utilk.android.view.UtilKView;
 import com.mozhimen.basick.utilk.android.view.UtilKViewTreeObserver;
 import com.mozhimen.xmlk.popwink.R;
@@ -56,6 +54,7 @@ import com.mozhimen.xmlk.popwink.bases.commons.IClearMemoryListener;
 import com.mozhimen.xmlk.popwink.bases.commons.IEventObserver;
 import com.mozhimen.xmlk.popwink.bases.cons.CEvent;
 import com.mozhimen.xmlk.popwink.bases.cons.CFlag;
+import com.mozhimen.xmlk.popwink.bases.utils.PopwinKUtil;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -585,7 +584,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
     }
 
     void refreshNavigationBarBounds() {
-        UtilKNavigationBar.getBounds(navigationBarBounds, mPopupWindow.getContext());
+        PopwinKUtil.getNavigationBarBounds(navigationBarBounds, mPopupWindow.getContext());
     }
 
     int getNavigationBarSize() {
@@ -593,7 +592,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
     }
 
     int getNavigationBarGravity() {
-        return UtilKNavigationBar.getGravity(navigationBarBounds);
+        return PopwinKUtil.getNavigationBarGravity(navigationBarBounds);
     }
 
     public int getCutoutGravity() {
@@ -1188,11 +1187,11 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
     static Activity findActivity(Object parent, boolean returnTopIfNull) {
         Activity act = null;
         if (parent instanceof Context) {
-            act = UtilKActivity.getByContext((Context) parent, true);
+            act = UtilKActivityWrapper.get_ofContext((Context) parent, true);
         } else if (parent instanceof Fragment) {
             act = ((Fragment) parent).getActivity();
         } else if (parent instanceof Dialog) {
-            act = UtilKActivity.getByContext(((Dialog) parent).getContext(), true);
+            act = UtilKActivityWrapper.get_ofContext(((Dialog) parent).getContext(), true);
         }
         if (act == null && returnTopIfNull) {
             act = StackKCb.getInstance().getStackTopActivity(true);
@@ -1215,8 +1214,8 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         } else if (parent instanceof Fragment) {
             decorView = ((Fragment) parent).getView();
         } else if (parent instanceof Context) {
-            Activity act = UtilKActivity.getByContext((Context) parent, true);
-            decorView = act == null ? null : UtilKContentView.get(act);
+            Activity act = UtilKActivityWrapper.get_ofContext((Context) parent, true);
+            decorView = act == null ? null : UtilKContentView.get_ofPac(act);
         }
 
         if (decorView != null) {

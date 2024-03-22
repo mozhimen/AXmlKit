@@ -11,7 +11,7 @@ import android.widget.FrameLayout
 import android.widget.ScrollView
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.android.view.UtilKScreen
+import com.mozhimen.basick.utilk.wrapper.UtilKScreen
 import com.mozhimen.basick.utilk.android.view.UtilKViewGroup
 import com.mozhimen.basick.utilk.kotlin.UtilKAnyFormat
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame

@@ -215,7 +215,7 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.os.Message;
 import android.util.AndroidRuntimeException;
-import android.util.Log
+
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -243,10 +243,8 @@ import com.mozhimen.basick.stackk.cb.StackKCb;
 import com.mozhimen.basick.stackk.cons.CStackKCons;
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion;
 import com.mozhimen.basick.utilk.bases.BaseUtilK;
-import com.mozhimen.basick.utilk.android.view.UtilKGravity;
-import com.mozhimen.basick.utilk.android.content.UtilKRes;
+import com.mozhimen.basick.utilk.wrapper.UtilKRes;
 import com.mozhimen.imagek.blur.mos.ImageKBlurConfig;
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
 import com.mozhimen.basick.utilk.android.view.UtilKDecorView;
 import com.mozhimen.basick.utilk.kotlin.UtilKStrColor;
 import com.mozhimen.xmlk.popwink.R;
@@ -255,6 +253,7 @@ import com.mozhimen.xmlk.popwink.bases.helpers.WindowManagerDelegate;
 import com.mozhimen.xmlk.popwink.bases.helpers.BasePopwinKDelegate;
 import com.mozhimen.xmlk.popwink.bases.cons.CEvent;
 import com.mozhimen.xmlk.popwink.bases.cons.CFlag;
+import com.mozhimen.xmlk.popwink.bases.utils.PopwinKUtil;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
@@ -2162,7 +2161,7 @@ public abstract class BasePopwinK extends BaseUtilK implements PopupWindow.OnDis
     }
 
     public int computeGravity(@NonNull Rect popupRect, @NonNull Rect anchorRect) {
-        return UtilKGravity.compute(popupRect, anchorRect);
+        return PopwinKUtil.computeGravity(popupRect, anchorRect);
     }
 
     /**
@@ -2181,7 +2180,7 @@ public abstract class BasePopwinK extends BaseUtilK implements PopupWindow.OnDis
     }
 
     public static void setDebugMode(boolean debugMode) {
-        UtilKLogWrapper.applyOpenLog(debugMode);
+        UtilKLogWrapper.isLogEnable(debugMode);
     }
 
     /**
