@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.wrapper.UtilKScreen
 import com.mozhimen.basick.utilk.android.view.UtilKViewGroup
+import com.mozhimen.basick.utilk.android.view.UtilKViewGroupWrapper
 import com.mozhimen.basick.utilk.kotlin.UtilKAnyFormat
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
 import com.mozhimen.xmlk.layoutk.tab.R
@@ -208,12 +209,12 @@ class LayoutKTabBottom @JvmOverloads constructor(context: Context, attrs: Attrib
             return
         }
         val rootView = getChildAt(0) as ViewGroup
-        var targetView: ViewGroup? = UtilKViewGroup.getChildView_ofType(rootView, RecyclerView::class.java)
+        var targetView: ViewGroup? = UtilKViewGroupWrapper.getChildView_ofType(rootView, RecyclerView::class.java)
         if (targetView == null) {
-            targetView = UtilKViewGroup.getChildView_ofType(rootView, ScrollView::class.java)
+            targetView = UtilKViewGroupWrapper.getChildView_ofType(rootView, ScrollView::class.java)
         }
         if (targetView == null) {
-            targetView = UtilKViewGroup.getChildView_ofType(rootView, AbsListView::class.java)
+            targetView = UtilKViewGroupWrapper.getChildView_ofType(rootView, AbsListView::class.java)
         }
         if (targetView != null) {
             targetView.setPadding(0, 0, 0, _tabBottomHeight)

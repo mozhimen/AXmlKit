@@ -36,6 +36,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.mozhimen.basick.elemk.android.view.cons.CWinMgr;
+import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper;
 import com.mozhimen.imagek.blur.mos.ImageKBlurConfig;
 import com.mozhimen.basick.stackk.cb.StackKCb;
 import com.mozhimen.basick.utilk.android.animation.UtilKAnimator;
@@ -961,19 +962,19 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         showFlag |= BasePopupHelper.STATUS_START_SHOWING;
 
         if (mGlobalLayoutListener == null && mPopupWindow.getContext() != null) {
-            mGlobalLayoutListener = UtilKViewTreeObserver.observerInputChange(mPopupWindow.getContext(), new Function2<Rect, Boolean, Unit>() {
+            mGlobalLayoutListener = PopwinKUtil.observerInputChange(mPopupWindow.getContext(), new Function2<Rect, Boolean, Unit>() {
                 @Override
                 public Unit invoke(Rect keyboardBounds, Boolean isVisible) {
                     BasePopupHelper.this.invoke(keyboardBounds, isVisible);
                     if (!mPopupWindow.isShowing()) {
-                        UtilKView.applySafeRemoveOnGlobalLayoutObserver(mPopupWindow.getContext().getWindow().getDecorView(), mGlobalLayoutListener);
+                        UtilKViewTreeObserver.safeRemoveOnGlobalLayoutListener(mPopupWindow.getContext().getWindow().getDecorView(), mGlobalLayoutListener);
                         return null;
                     }
                     return null;
                 }
             });
         }
-        UtilKView.applySafeAddOnGlobalLayoutObserver(mPopupWindow.getContext().getWindow().getDecorView(), mGlobalLayoutListener);
+        UtilKViewTreeObserver.safeAddOnGlobalLayoutListener(mPopupWindow.getContext().getWindow().getDecorView(), mGlobalLayoutListener);
         if (mLinkedTarget != null) {
             if (mLinkedViewLayoutChangeListenerWrapper == null) {
                 mLinkedViewLayoutChangeListenerWrapper = new LinkedViewLayoutChangeListenerWrapper(
@@ -1264,7 +1265,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
             mShowInfo.mAnchorView = null;
         }
         if (mGlobalLayoutListener != null) {
-            UtilKView.applySafeRemoveOnGlobalLayoutObserver(mPopupWindow.getContext()
+            UtilKViewTreeObserver.safeRemoveOnGlobalLayoutListener(mPopupWindow.getContext()
                             .getWindow()
                             .getDecorView(),
                     mGlobalLayoutListener);

@@ -12,7 +12,7 @@ import com.mozhimen.basick.elemk.android.view.cons.CInputMethodManager
 import com.mozhimen.basick.elemk.commons.IAB_Listener
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.view.UtilKInputMethodManager
-import com.mozhimen.basick.utilk.android.widget.applyLengthFilter
+import com.mozhimen.basick.utilk.android.widget.applyFilter_ofLength
 import com.mozhimen.basick.utilk.kotlin.constraint
 import com.mozhimen.xmlk.commons.IXmlK
 import kotlin.math.max
@@ -172,7 +172,7 @@ class TextKEditRect @JvmOverloads constructor(context: Context, attrs: Attribute
      */
     fun setRectNum(max: Int) {
         _rectNum = max
-        applyLengthFilter(max)
+        applyFilter_ofLength(max)
     }
 
     fun getRectNum():Int =

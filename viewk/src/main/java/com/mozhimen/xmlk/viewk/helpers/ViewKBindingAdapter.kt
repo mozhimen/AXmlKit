@@ -6,7 +6,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import com.mozhimen.basick.utilk.android.view.UtilKView
-import com.mozhimen.basick.utilk.android.view.UtilKViewFormat
+import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper
 
 /**
  * @ClassName ViewKBindingAdapter
@@ -19,13 +19,13 @@ object ViewKBindingAdapter {
     @JvmStatic
     @BindingAdapter("applyVisibilityShowHide")
     fun applyVisibilityShowHide(view: View, visibility: Boolean) {
-        UtilKViewFormat.applyVisibleIfElseInVisible(view, visibility)
+        UtilKViewWrapper.applyVisibleIfElseInVisible(view, visibility)
     }
 
     @JvmStatic
     @BindingAdapter("applyVisibilityShowGone")
     fun applyVisibleIfElseGone(view: View, visibility: Boolean) {
-        UtilKViewFormat.applyVisibleIfElseGone(view, visibility)
+        UtilKViewWrapper.applyVisibleIfElseGone(view, visibility)
     }
 
     /**
@@ -36,7 +36,7 @@ object ViewKBindingAdapter {
     @JvmStatic
     @BindingAdapter("viewRatio")
     fun applyViewRatio(view: View, viewRatio: Float) {
-        UtilKView.applyViewRatio(view, viewRatio)
+        UtilKViewWrapper.applyViewRatio(view, viewRatio)
     }
 
     @JvmStatic

@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.imagek.helpers
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.mozhimen.basick.utilk.android.widget.applyImageResourceWhen
+import com.mozhimen.basick.utilk.android.widget.applyImageResource_of
 
 /**
  * @ClassName ImageKBindingAdapter
@@ -16,7 +16,7 @@ object ImageKBindingAdapter {
     @JvmStatic
     @BindingAdapter(value = ["applyImageResourceWhen", "applyImageResourceWhen_statusTrue", "applyImageResourceWhen_statusFalse"], requireAll = true)
     fun applyImageResourceWhen(imageView: ImageView, applyImageResourceWhen: Boolean, applyImageResourceWhen_statusTrue: Int, applyImageResourceWhen_statusFalse: Int) {
-        imageView.applyImageResourceWhen(applyImageResourceWhen, applyImageResourceWhen_statusTrue, applyImageResourceWhen_statusFalse)
+        imageView.applyImageResource_of(applyImageResourceWhen, applyImageResourceWhen_statusTrue, applyImageResourceWhen_statusFalse)
     }
 
     //    /**

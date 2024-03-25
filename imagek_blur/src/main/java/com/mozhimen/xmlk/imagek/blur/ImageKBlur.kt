@@ -286,7 +286,7 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
         init {
             _outWidth = target.width
             _outHeight = target.height
-            _bitmap = UtilKView.getBitmapForViewBackground(target, _blurOption!!.getBlurPreScaleRatio(), _blurOption!!.isFullScreen(), _cutoutX, _cutoutY)
+            _bitmap = UtilKView.getBitmap_ofViewBackground(target, _blurOption!!.getBlurPreScaleRatio(), _blurOption!!.isFullScreen(), _cutoutX, _cutoutY)
         }
 
         override fun run() {
