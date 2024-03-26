@@ -18,6 +18,7 @@ import com.mozhimen.basick.taskk.executor.TaskKExecutor
 import com.mozhimen.imagek.blur.mos.ImageKBlurConfig
 import com.mozhimen.basick.utilk.android.util.e
 import com.mozhimen.basick.utilk.android.view.UtilKView
+import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper
 import com.mozhimen.basick.utilk.android.view.applyBackgroundNull
 import com.mozhimen.basick.utilk.java.lang.UtilKThread
 import com.mozhimen.imagek.blur.utils.RenderScriptUtil
@@ -286,7 +287,7 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
         init {
             _outWidth = target.width
             _outHeight = target.height
-            _bitmap = UtilKView.getBitmap_ofViewBackground(target, _blurOption!!.getBlurPreScaleRatio(), _blurOption!!.isFullScreen(), _cutoutX, _cutoutY)
+            _bitmap = UtilKViewWrapper.getBitmap_ofViewBackground(target, _blurOption!!.getBlurPreScaleRatio(), _blurOption!!.isFullScreen(), _cutoutX, _cutoutY)
         }
 
         override fun run() {
