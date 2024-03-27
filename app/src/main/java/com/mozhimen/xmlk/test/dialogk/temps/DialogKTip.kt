@@ -8,6 +8,7 @@ import android.widget.TextView
 import com.mozhimen.basick.elemk.commons.I_Listener
 import com.mozhimen.basick.utilk.android.view.UtilKScreen
 import com.mozhimen.basick.utilk.android.widget.applyValueIfNotEmpty
+import com.mozhimen.basick.utilk.wrapper.UtilKScreen
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogK
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKClickListener
 import com.mozhimen.xmlk.test.R
@@ -65,6 +66,6 @@ class DialogKTip(context: Context, private val _txt: String, private var _onSure
     }
 
     override fun onInitWindowWidth(): Int {
-        return (UtilKScreen.getWidth_ofSysMetrics() * 0.25f).roundToInt()
+        return (UtilKScreen.getWidth_ofDisplayMetrics_ofSys() * 0.25f).roundToInt()
     }
 }

@@ -18,7 +18,7 @@ class ViewKWheelActivity : BaseActivityVDB<ActivityViewkWheelBinding>() {
     private val _items = listOf("item0", "item1", "item2", "item3", "item4")
     override fun initView(savedInstanceState: Bundle?) {
         vdb.viewkWheel.setCyclic(false)
-        vdb.viewkWheel.adapter = ArrayWheelAdapter(_items)
+        vdb.viewkWheel.setAdapter(ArrayWheelAdapter(_items))
         vdb.viewkWheel.setItemSelectedListener {
             UtilKLogWrapper.v(TAG, "initView: selected $it")
         }

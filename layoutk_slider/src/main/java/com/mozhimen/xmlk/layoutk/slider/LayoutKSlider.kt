@@ -10,6 +10,7 @@ import androidx.annotation.FloatRange
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.utilk.android.view.UtilKView
+import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
 import com.mozhimen.xmlk.layoutk.slider.commons.ILayoutKSlider
 import com.mozhimen.xmlk.layoutk.slider.commons.ISliderScrollListener
@@ -115,7 +116,7 @@ class LayoutKSlider @JvmOverloads constructor(context: Context, attrs: Attribute
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (!isInEditMode) {
-            _layoutKSliderDelegate.attachScrollableParentView(UtilKView.getParentViewMatch(this, ScrollView::class.java, NestedScrollView::class.java, RecyclerView::class.java) as ViewGroup?)
+            _layoutKSliderDelegate.attachScrollableParentView(UtilKViewWrapper.getParent_ofClazz(this, ScrollView::class.java, NestedScrollView::class.java, RecyclerView::class.java) as ViewGroup?)
         }
     }
 }

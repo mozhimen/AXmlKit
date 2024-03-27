@@ -7,6 +7,10 @@ import com.mozhimen.xmlk.test.databinding.ActivityViewkBinding
 
 class ViewKActivity : BaseActivityVDB<ActivityViewkBinding>() {
 
+    fun goViewKRegion(view: View) {
+        startContext<ViewKRegionActivity>()
+    }
+
     fun goViewKViews(view: View) {
         startContext<ViewKViewsActivity>()
     }

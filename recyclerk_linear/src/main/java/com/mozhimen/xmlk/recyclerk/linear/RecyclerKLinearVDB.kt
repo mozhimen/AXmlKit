@@ -12,7 +12,7 @@ import com.mozhimen.xmlk.recyclerk.item.AdapterKItemRecycler
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
 import com.mozhimen.xmlk.recyclerk.linear.commons.IRecyclerKLinear
 import com.mozhimen.xmlk.recyclerk.linear.databinding.RecyclerkLinearItemBinding
-import com.mozhimen.xmlk.vhk.VHKRecyclerVB
+import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
 
 /**
  * @ClassName ViewKRecyclerLinear
@@ -23,7 +23,7 @@ import com.mozhimen.xmlk.vhk.VHKRecyclerVB
  */
 typealias IRecyclerKLinearListener = IAB_Listener<Int, MKey>//(position: Int, item: MKey) -> Unit
 
-class RecyclerKLinear @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerView(context, attrs, defStyleAttr), IRecyclerKLinear {
+class RecyclerKLinearVDB @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerView(context, attrs, defStyleAttr), IRecyclerKLinear {
 
     private var _recyclerLinearListener: IRecyclerKLinearListener? = null
     private val _adapterKItemRecycler by lazy { AdapterKItemRecycler() }
@@ -73,9 +73,9 @@ class RecyclerKLinear @JvmOverloads constructor(context: Context, attrs: Attribu
     private inner class RecyclerKLinearItem(
         private val _data: MKey,
         private val _listener: IRecyclerKLinearListener?
-    ) : RecyclerKItem<VHKRecyclerVB<RecyclerkLinearItemBinding>>() {
+    ) : RecyclerKItem<VHKRecyclerVDB<RecyclerkLinearItemBinding>>() {
 
-        override fun onBindItem(holder: VHKRecyclerVB<RecyclerkLinearItemBinding>, position: Int) {
+        override fun onBindItem(holder: VHKRecyclerVDB<RecyclerkLinearItemBinding>, position: Int) {
             super.onBindItem(holder, position)
             holder.vdb.layoutkRecyclerLinearItemTxt.text = _data.name
             holder.itemView.setOnClickListener {
@@ -87,8 +87,8 @@ class RecyclerKLinear @JvmOverloads constructor(context: Context, attrs: Attribu
             return R.layout.recyclerk_linear_item
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup): VHKRecyclerVB<RecyclerkLinearItemBinding> {
-            return VHKRecyclerVB(LayoutInflater.from(parent.context).inflate(getItemLayoutId(), parent, false))
+        override fun onCreateViewHolder(parent: ViewGroup): VHKRecyclerVDB<RecyclerkLinearItemBinding> {
+            return VHKRecyclerVDB(LayoutInflater.from(parent.context).inflate(getItemLayoutId(), parent, false))
         }
     }
 }

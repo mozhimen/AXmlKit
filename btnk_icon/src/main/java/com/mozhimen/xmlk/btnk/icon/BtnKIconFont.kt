@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
 import com.mozhimen.basick.utilk.android.widget.UtilKTextView
+import com.mozhimen.basick.utilk.android.widget.UtilKTextViewWrapper
 import com.mozhimen.xmlk.commons.IXmlK
 
 /**
@@ -39,7 +40,7 @@ class BtnKIconFont @JvmOverloads constructor(context: Context, attrs: AttributeS
     }
 
     override fun setIconFontPath(iconFontPath: String) {
-        UtilKTextView.applyIconFont(this, iconFontPath.also { _iconFontPath = it })
+        UtilKTextViewWrapper.applyTypeface_ofAsset(this, iconFontPath.also { _iconFontPath = it })
     }
 
     override fun getIconFontPath(): String =

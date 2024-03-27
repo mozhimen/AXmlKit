@@ -5,8 +5,8 @@ import android.os.Bundle
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.widget.showToast
-import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.basick.utilk.android.util.sp2px
+import com.mozhimen.basick.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.test.R
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkNavbarBinding
 

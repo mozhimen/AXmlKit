@@ -2,9 +2,9 @@ package com.mozhimen.xmlk.layoutk.side.list.helpers
 
 import android.content.Context
 import android.util.AttributeSet
-import com.mozhimen.basick.utilk.android.content.UtilKRes
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.util.sp2px
+import com.mozhimen.basick.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.commons.IAttrsParser
 import com.mozhimen.xmlk.layoutk.side.R
 import com.mozhimen.xmlk.layoutk.side.list.mos.MSideAttrs

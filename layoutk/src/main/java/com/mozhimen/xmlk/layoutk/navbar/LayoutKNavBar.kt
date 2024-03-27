@@ -19,8 +19,8 @@ import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.view.applyPaddingHorizontal
 import com.mozhimen.xmlk.bases.BaseLayoutKRelative
 import com.mozhimen.basick.utilk.android.util.sp2px
-import com.mozhimen.basick.utilk.android.widget.applyIconFont
-import com.mozhimen.basick.utilk.android.widget.applyTextStyle
+import com.mozhimen.basick.utilk.android.widget.applyTypeface_ofAsset
+import com.mozhimen.basick.utilk.android.widget.applyTypeface
 import com.mozhimen.xmlk.layoutk.navbar.helpers.AttrsParser
 import com.mozhimen.xmlk.layoutk.navbar.mos.MNavBarAttrs
 import java.util.*
@@ -225,7 +225,7 @@ class LayoutKNavBar @JvmOverloads constructor(context: Context, attrs: Attribute
             isSingleLine = true
             ellipsize = TextUtils.TruncateAt.END
             setTextColor(titleColor)
-            applyTextStyle(Typeface.BOLD)
+            applyTypeface(Typeface.BOLD)
             setTextSize(TypedValue.COMPLEX_UNIT_PX, titleSize.toFloat())
             text = title
         }
@@ -317,7 +317,7 @@ class LayoutKNavBar @JvmOverloads constructor(context: Context, attrs: Attribute
             setTextSize(TypedValue.COMPLEX_UNIT_PX, iconTextSize.toFloat())
             setTextColor(iconColor)
             text = iconStr
-            applyIconFont(iconFontPath)
+            applyTypeface_ofAsset(iconFontPath)
         }
         return btnKIconFont
     }

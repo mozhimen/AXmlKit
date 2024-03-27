@@ -13,7 +13,7 @@ import androidx.annotation.DrawableRes
 import com.mozhimen.basick.elemk.commons.IExtension_Listener
 import com.mozhimen.basick.utilk.android.view.applyGone
 import com.mozhimen.basick.utilk.android.view.applyVisible
-import com.mozhimen.basick.utilk.android.widget.applyIconFont
+import com.mozhimen.basick.utilk.android.widget.applyTypeface_ofAsset
 import com.mozhimen.xmlk.bases.BaseLayoutKLinear
 
 /**
@@ -89,7 +89,7 @@ class LayoutKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeS
     fun setIcon(iconStr: String) {
         if (!TextUtils.isEmpty(iconStr)) {
             _iconView.text = iconStr
-            _iconView.applyIconFont()
+            _iconView.applyTypeface_ofAsset("fonts/iconfont.ttf")
             _iconView.applyVisible()
         } else _iconView.applyGone()
     }

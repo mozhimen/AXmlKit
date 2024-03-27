@@ -86,7 +86,7 @@ class RecyclerKLoad @JvmOverloads constructor(context: Context, attrs: Attribute
         //咱们这里的强转, 因为前面会有前置检查
         private val _adapterKRecyclerStuffed by lazy { adapter as AdapterKItemRecyclerStuffed }
 
-        override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
+        override fun onScroll(e1: MotionEvent?, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
             if (distanceY < 0 && this@RecyclerKLoad.isScroll2top()) {
                 return true
             } else {

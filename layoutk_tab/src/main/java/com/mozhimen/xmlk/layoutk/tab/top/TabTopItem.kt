@@ -13,7 +13,7 @@ import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.xmlk.bases.BaseLayoutKRelative
 import com.mozhimen.basick.utilk.android.view.applyLayoutParams
-import com.mozhimen.basick.utilk.android.widget.applyTextStyle
+import com.mozhimen.basick.utilk.android.widget.applyTypeface
 import com.mozhimen.xmlk.layoutk.tab.R
 import com.mozhimen.xmlk.layoutk.tab.commons.ITabItem
 import com.mozhimen.xmlk.layoutk.tab.top.cons.ETabTopType
@@ -124,12 +124,12 @@ class TabTopItem @JvmOverloads constructor(
                 _tabIndicator.setBackgroundColor(_tabTopItem!!.colorSelected!!)
                 _tabNameView.setTextColor(_tabTopItem!!.colorSelected!!)
                 _tabNameView.textSize = 17f
-                _tabNameView.applyTextStyle(Typeface.BOLD)
+                _tabNameView.applyTypeface(Typeface.BOLD)
             } else {
                 _tabIndicator.visibility = GONE
                 _tabNameView.setTextColor(_tabTopItem!!.colorDefault!!)
                 _tabNameView.textSize = 16f
-                _tabNameView.applyTextStyle(Typeface.NORMAL)
+                _tabNameView.applyTypeface(Typeface.NORMAL)
             }
         } else if (_tabTopItem!!.tabType == ETabTopType.IMAGE) {
             if (init) {
@@ -162,14 +162,14 @@ class TabTopItem @JvmOverloads constructor(
                 _tabImageView.applyLayoutParams(25f.dp2px().toInt())
                 _tabNameView.setTextColor(_tabTopItem!!.colorSelected ?: _tabTopItem!!.colorDefault!!)
                 _tabNameView.textSize = 17f
-                _tabNameView.applyTextStyle(Typeface.BOLD)
+                _tabNameView.applyTypeface(Typeface.BOLD)
             } else {
                 _tabIndicator.visibility = GONE
                 _tabImageView.loadImageGlide(_tabTopItem!!.bitmapDefault!!)
                 _tabImageView.applyLayoutParams(24f.dp2px().toInt())
                 _tabNameView.setTextColor(_tabTopItem!!.colorDefault!!)
                 _tabNameView.textSize = 16f
-                _tabNameView.applyTextStyle(Typeface.NORMAL)
+                _tabNameView.applyTypeface(Typeface.NORMAL)
             }
         }
     }

@@ -1,6 +1,5 @@
 package com.mozhimen.xmlk.test.dialogk
 
-import android.util.Log
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.lifecycle.lifecycleScope
@@ -13,7 +12,7 @@ import com.mozhimen.xmlk.test.dialogk.temps.DialogKQues
 import com.mozhimen.xmlk.test.R
 import com.mozhimen.xmlk.test.databinding.ActivityDialogkBinding
 import com.mozhimen.xmlk.test.dialogk.temps.DialogKLoadingUpdate
-import com.mozhimen.xmlk.test.dialogk.temps.DialogKTipVB
+import com.mozhimen.xmlk.test.dialogk.temps.DialogKTipVDB
 import com.mozhimen.xmlk.test.dialogk.temps.IDialogKTipListener
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -131,20 +130,20 @@ class DialogKActivity : BaseActivityVDB<ActivityDialogkBinding>() {
 
     ////////////////////////////////////////////////////////////////////////////////////////
 
-    private var _dialogKTipVB: DialogKTipVB? = null
+    private var _dialogKTipVDB: DialogKTipVDB? = null
 
     fun showDialogTip(txt: String, onSure: IDialogKTipListener) {
-        if (_dialogKTipVB == null)
-            _dialogKTipVB = DialogKTipVB.create(this, txt, onSure)
-        else _dialogKTipVB!!.apply {
+        if (_dialogKTipVDB == null)
+            _dialogKTipVDB = DialogKTipVDB.create(this, txt, onSure)
+        else _dialogKTipVDB!!.apply {
             setTxt(txt)
             setOnSureListener(onSure)
         }
-            _dialogKTipVB!!.show()
+            _dialogKTipVDB!!.show()
     }
 
     private fun dismissTipsVertical() {
-            _dialogKTipVB?.dismiss()
+            _dialogKTipVDB?.dismiss()
     }
 
 }

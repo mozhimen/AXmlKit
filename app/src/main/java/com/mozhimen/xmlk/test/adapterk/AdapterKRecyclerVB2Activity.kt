@@ -7,7 +7,7 @@ import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivi
 import com.mozhimen.basick.elemk.mos.MKey
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.xmlk.recyclerk.quick.AdapterKQuickRecyclerVB
-import com.mozhimen.xmlk.vhk.VHKRecyclerVB
+import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
 import com.mozhimen.xmlk.test.R
 import com.mozhimen.xmlk.test.BR
 import com.mozhimen.xmlk.test.databinding.ActivityAdapterkRecyclerVb2Binding
@@ -33,7 +33,7 @@ class AdapterKRecyclerVB2Activity : BaseActivityVDB<ActivityAdapterkRecyclerVb2B
             _datas,
             R.layout.item_adapterk_recycler_vb2,
             BR.item_adapterk_recycler_vb2
-        ) { holder: VHKRecyclerVB<ItemAdapterkRecyclerVb2Binding>, data: MKey, position: Int, _: Int ->
+        ) { holder: VHKRecyclerVDB<ItemAdapterkRecyclerVb2Binding>, data: MKey, position: Int, _: Int ->
             holder.vdb.itemAdapterkRecyclerVb2Name.setOnClickListener {
                 "${position}: data:${data}".showToast()
             }

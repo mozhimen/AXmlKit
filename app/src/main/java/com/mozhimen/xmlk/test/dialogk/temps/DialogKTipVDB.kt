@@ -4,7 +4,9 @@ import android.content.Context
 import android.view.View
 import com.mozhimen.basick.utilk.android.view.UtilKScreen
 import com.mozhimen.basick.utilk.android.widget.applyValueIfNotEmpty
+import com.mozhimen.basick.utilk.wrapper.UtilKScreen
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogKVB
+import com.mozhimen.xmlk.dialogk.bases.BaseDialogKVDB
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVBClickListener
 import com.mozhimen.xmlk.test.databinding.DialogkTipBinding
 import kotlin.math.roundToInt
@@ -16,13 +18,13 @@ import kotlin.math.roundToInt
  * @Date 2023/6/2 18:54
  * @Version 1.0
  */
-class DialogKTipVB(context: Context, private val _txt: String, private var _onSure: IDialogKTipListener) :
-        BaseDialogKVB<DialogkTipBinding, IDialogKVBClickListener<DialogkTipBinding>>(context) {
+class DialogKTipVDB(context: Context, private val _txt: String, private var _onSure: IDialogKTipListener) :
+        BaseDialogKVDB<DialogkTipBinding, IDialogKVBClickListener<DialogkTipBinding>>(context) {
 
     companion object {
         @JvmStatic
-        fun create(context: Context, txt: String, onSure: IDialogKTipListener): DialogKTipVB {
-            return DialogKTipVB(context, txt, onSure)
+        fun create(context: Context, txt: String, onSure: IDialogKTipListener): DialogKTipVDB {
+            return DialogKTipVDB(context, txt, onSure)
         }
     }
 
@@ -30,13 +32,13 @@ class DialogKTipVB(context: Context, private val _txt: String, private var _onSu
         setDialogCancelable(true)
         setDialogClickListener(object : IDialogKVBClickListener<DialogkTipBinding> {
 
-            override fun onVBClickPositive(vb: DialogkTipBinding, dialogK: BaseDialogKVB<DialogkTipBinding, IDialogKVBClickListener<DialogkTipBinding>>) {
+            override fun onVBClickPositive(vb: DialogkTipBinding, dialogK: BaseDialogKVDB<DialogkTipBinding, IDialogKVBClickListener<DialogkTipBinding>>) {
                 _onSure.invoke()
-                this@DialogKTipVB.dismiss()
+                this@DialogKTipVDB.dismiss()
             }
 
-            override fun onVBClickNegative(vb: DialogkTipBinding, dialogK: BaseDialogKVB<DialogkTipBinding, IDialogKVBClickListener<DialogkTipBinding>>) {
-                this@DialogKTipVB.dismiss()
+            override fun onVBClickNegative(vb: DialogkTipBinding, dialogK: BaseDialogKVDB<DialogkTipBinding, IDialogKVBClickListener<DialogkTipBinding>>) {
+                this@DialogKTipVDB.dismiss()
             }
         })
     }
@@ -56,6 +58,6 @@ class DialogKTipVB(context: Context, private val _txt: String, private var _onSu
     }
 
     override fun onInitWindowWidth(): Int {
-        return (UtilKScreen.getWidth_ofSysMetrics() * 0.25f).roundToInt()
+        return (UtilKScreen.getWidth_ofDisplayMetrics_ofSys() * 0.25f).roundToInt()
     }
 }

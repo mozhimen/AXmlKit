@@ -9,8 +9,7 @@ import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import android.widget.Scroller
 import com.mozhimen.basick.elemk.android.view.commons.GestureDetectorOnGestureCallback
-import com.mozhimen.basick.utilk.android.view.UtilKViewGroup.isChildScrolled
-import com.mozhimen.basick.utilk.android.view.UtilKViewGroup.getChildScrollable
+import com.mozhimen.basick.utilk.android.view.UtilKViewGroupWrapper
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
 import com.mozhimen.xmlk.layoutk.refresh.commons.IRefresh
 import com.mozhimen.xmlk.layoutk.refresh.commons.IRefreshListener
@@ -43,7 +42,7 @@ open class LayoutKRefresh @JvmOverloads constructor(context: Context, attrs: Att
 
     final override fun initView() {
         _gestureDetector = GestureDetector(context, object : GestureDetectorOnGestureCallback() {
-            override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
+            override fun onScroll(e1: MotionEvent?, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
                 if (abs(distanceX) > abs(distanceY) || _refreshListener != null && !_refreshListener!!.onEnableRefresh()) {
                     //横向滑动，或刷新被禁止则不处理
                     return false
@@ -55,8 +54,8 @@ open class LayoutKRefresh @JvmOverloads constructor(context: Context, attrs: Att
                 }
 
                 val head = getChildAt(0)
-                val child: View = getChildScrollable(this@LayoutKRefresh)
-                if (isChildScrolled(child) || (child is RecyclerKLoad && child.isLoading())) {
+                val child: View = UtilKViewGroupWrapper.getChildView_ofScrollable(this@LayoutKRefresh)
+                if (child is ViewGroup && UtilKViewGroupWrapper.isChildViewScrolled(child) || (child is RecyclerKLoad && child.isLoading())) {
                     //如果列表发生了滚动或正在加载则不处理
                     return false
                 }

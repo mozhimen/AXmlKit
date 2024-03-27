@@ -179,6 +179,9 @@
             android:name=".viewk.ViewKActivity"
             android:exported="false" />
         <activity
+            android:name=".viewk.ViewKRegionActivity"
+            android:exported="false" />
+        <activity
             android:name=".viewk.ViewKViewsActivity"
             android:exported="false" />
         <activity

@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.basick.utilk.android.widget.showToast
-import com.mozhimen.basick.utilk.android.content.UtilKRes
+import com.mozhimen.basick.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.layoutk.tab.commons.ITabSelectedListener
 import com.mozhimen.xmlk.layoutk.tab.top.mos.MTabTop
 import com.mozhimen.xmlk.test.R

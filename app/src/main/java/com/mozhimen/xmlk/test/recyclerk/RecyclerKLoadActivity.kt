@@ -1,12 +1,12 @@
 package com.mozhimen.xmlk.test.recyclerk
 
 import android.os.Bundle
+import androidx.core.os.postDelayed
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.elemk.android.os.WakeBefPauseLifecycleHandler
-import com.mozhimen.basick.utilk.android.os.applyPostDelayed
 import com.mozhimen.xmlk.recyclerk.item.AdapterKItemRecyclerStuffed
 import com.mozhimen.xmlk.layoutk.refresh.commons.IRefreshListener
 import com.mozhimen.xmlk.layoutk.refresh.impls.TextOverView
@@ -47,7 +47,7 @@ class RecyclerKLoadActivity : BaseActivityVDB<ActivityRecyclerkLoadBinding>() {
                 }
                 _pageIndex = 1
                 //模拟刷新
-                WakeBefPauseLifecycleHandler(this@RecyclerKLoadActivity).applyPostDelayed(1000) {
+                WakeBefPauseLifecycleHandler(this@RecyclerKLoadActivity).postDelayed(1000) {
                     //模拟获取到了
                     val dataItems: ArrayList<RecyclerKItem<out RecyclerView.ViewHolder>> = arrayListOf(
                         RecyclerKItemLoadMore(1),
@@ -115,7 +115,7 @@ class RecyclerKLoadActivity : BaseActivityVDB<ActivityRecyclerkLoadBinding>() {
                 }
                 _pageIndex++
                 //模拟加载
-                WakeBefPauseLifecycleHandler(this@RecyclerKLoadActivity).applyPostDelayed(1000) {
+                WakeBefPauseLifecycleHandler(this@RecyclerKLoadActivity).postDelayed(1000) {
                     val dataItems: List<RecyclerKItem<out RecyclerView.ViewHolder>> = arrayListOf(
                         RecyclerKItemLoadMore(_dataSets.size + 1)
                     )

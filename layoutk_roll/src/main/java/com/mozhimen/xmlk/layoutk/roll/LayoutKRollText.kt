@@ -12,7 +12,7 @@ import android.widget.TextView
 import com.mozhimen.basick.animk.builder.AnimKBuilder
 import com.mozhimen.basick.animk.builder.commons.IAnimatorUpdateListener
 import com.mozhimen.basick.animk.builder.temps.AnimatorFloatType
-import com.mozhimen.basick.utilk.android.widget.applyTextStyle
+import com.mozhimen.basick.utilk.android.widget.applyTypeface
 import com.mozhimen.xmlk.interpolatork.InterpolatorKSpring
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
 import com.mozhimen.xmlk.layoutk.roll.annors.AAnimatorMode
@@ -119,10 +119,10 @@ open class LayoutKRollText @JvmOverloads constructor(context: Context, attrs: At
         _tvHeight = tvHeight
         _textView1.layoutParams = LayoutParams(_tvWidth, _tvHeight)
         _textView1.gravity = Gravity.CENTER
-        _textView1.applyTextStyle(Typeface.BOLD)
+        _textView1.applyTypeface(Typeface.BOLD)
         _textView2.layoutParams = LayoutParams(_tvWidth, _tvHeight).apply { topMargin = _tvHeight }
         _textView2.gravity = Gravity.CENTER
-        _textView2.applyTextStyle(Typeface.BOLD)
+        _textView2.applyTypeface(Typeface.BOLD)
     }
 
     fun setTextViewStyle(textSizeSp: Float, textColor: Int) {

@@ -18,8 +18,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mozhimen.basick.elemk.commons.IAB_Listener
 import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
+import com.mozhimen.basick.utilk.android.widget.applyTypeface
 import com.mozhimen.imagek.glide.loadImageComplexGlide
-import com.mozhimen.basick.utilk.android.widget.applyTextStyle
 import com.mozhimen.xmlk.bases.BaseLayoutKLinear
 import com.mozhimen.xmlk.layoutk.side.R
 import com.mozhimen.xmlk.vhk.VHKRecycler
@@ -213,7 +213,7 @@ class LayoutKSideList @JvmOverloads constructor(context: Context, attrs: Attribu
             indicatorView?.visibility = if (selected) View.VISIBLE else View.GONE
             titleView?.apply {
                 setTextSize(TypedValue.COMPLEX_UNIT_PX, (if (selected) _attr.menuItemTextSizeSelect else _attr.menuItemTextSize).toFloat())
-                if (selected) applyTextStyle(Typeface.BOLD) else applyTextStyle()
+                if (selected) applyTypeface(Typeface.BOLD) else applyTypeface()
             }
             holder.itemView.setBackgroundColor(if (selected) _attr.menuItemBgColorSelect else _attr.menuItemBgColor)
             titleView?.isSelected = selected

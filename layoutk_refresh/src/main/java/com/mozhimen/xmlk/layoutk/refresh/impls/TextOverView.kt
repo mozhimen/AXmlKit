@@ -7,8 +7,8 @@ import android.view.View
 import android.widget.TextView
 import com.mozhimen.basick.animk.builder.AnimKBuilder
 import com.mozhimen.basick.animk.builder.temps.AnimKRotationRecyclerType
-import com.mozhimen.basick.utilk.android.content.UtilKRes
-import com.mozhimen.basick.utilk.android.view.stopAnim
+import com.mozhimen.basick.utilk.wrapper.UtilKRes
+import com.mozhimen.basick.utilk.wrapper.stopAnim
 import com.mozhimen.xmlk.layoutk.refresh.R
 import com.mozhimen.xmlk.layoutk.refresh.commons.RefreshOverView
 

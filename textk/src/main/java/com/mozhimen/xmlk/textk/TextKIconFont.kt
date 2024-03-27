@@ -3,8 +3,8 @@ package com.mozhimen.xmlk.textk
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
-import com.mozhimen.basick.utilk.android.widget.UtilKTextView
-import com.mozhimen.basick.utilk.android.widget.applyIconFont
+import com.mozhimen.basick.utilk.android.widget.UtilKTextViewWrapper
+import com.mozhimen.basick.utilk.android.widget.applyTypeface_ofAsset
 
 /**
  * @ClassName TextKIconFont
@@ -20,7 +20,7 @@ class TextKIconFont @JvmOverloads constructor(context: Context, attrs: Attribute
 
     init {
         initAttrs(attrs)
-        applyIconFont(_iconfontPath)
+        applyTypeface_ofAsset(_iconfontPath)
     }
 
     fun initAttrs(attrs: AttributeSet?) {
@@ -31,7 +31,7 @@ class TextKIconFont @JvmOverloads constructor(context: Context, attrs: Attribute
     }
 
     fun setIconFontPath(iconFontPath: String) {
-        UtilKTextView.applyIconFont(this, iconFontPath.also { _iconfontPath = it })
+        UtilKTextViewWrapper.applyTypeface_ofAsset(this, iconFontPath.also { _iconfontPath = it })
     }
 
     fun getIconFontPath() = _iconfontPath

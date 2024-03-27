@@ -3,7 +3,7 @@ package com.mozhimen.xmlk.test.layoutk.tab
 import android.os.Bundle
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.android.content.UtilKRes
+import com.mozhimen.basick.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.layoutk.tab.bottom.helpers.TabBottomFragmentAdapter
 import com.mozhimen.xmlk.layoutk.tab.bottom.mos.MTabBottom
 import com.mozhimen.xmlk.layoutk.tab.commons.ITabSelectedListener

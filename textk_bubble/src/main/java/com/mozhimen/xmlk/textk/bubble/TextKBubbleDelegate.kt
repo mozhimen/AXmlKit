@@ -12,6 +12,7 @@ import com.mozhimen.basick.elemk.android.os.cons.CVersCode
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.view.UtilKView
+import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper
 import com.mozhimen.basick.utilk.android.view.applyBackground
 import com.mozhimen.xmlk.commons.ILayoutK
 import com.mozhimen.xmlk.drawablek.arrow.DrawableKArrow
@@ -151,7 +152,7 @@ class TextKBubbleDelegate(private val _context: Context) : ITextKBubble, ILayout
         var arrowToView = getArrowTo()
 
         if (arrowToView == null && _arrowToByViewId != 0) {
-            arrowToView = UtilKView.findViewForParentById(_textKBubble,_arrowToByViewId)
+            arrowToView = UtilKViewWrapper.findViewById_ofParent(_textKBubble,_arrowToByViewId)
             setArrowToViewRef(arrowToView)
         }
 

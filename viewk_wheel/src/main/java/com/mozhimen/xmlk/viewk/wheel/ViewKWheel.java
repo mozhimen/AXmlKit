@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -307,7 +306,7 @@ public class ViewKWheel extends View {
 
     public final void setTextSize(float size) {
         if (size > 0.0F) {
-            textSize = (int) (UtilKDisplayMetrics.getSysDensity() * size);
+            textSize = (int) (UtilKDisplayMetrics.getDensity_ofSys() * size);
             paintOuterText.setTextSize(textSize);
             paintCenterText.setTextSize(textSize);
         }

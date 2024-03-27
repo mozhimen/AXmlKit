@@ -44,7 +44,7 @@ class PopwinKSelector(
 
     fun setItems(items: List<String>) {
         if (_viewKWheel == null || items.isEmpty()) return
-        _viewKWheel!!.adapter = ArrayWheelAdapter(items.also { _items = items })
+        _viewKWheel!!.setAdapter(ArrayWheelAdapter(items.also { _items = items }))
     }
 
     override fun onCreateShowAnimation(): Animation {
