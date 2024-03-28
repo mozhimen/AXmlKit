@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.basick.elemk.android.os.WakeBefPauseLifecycleHandler
+import com.mozhimen.basick.utilk.android.os.UtilKHandler
 import com.mozhimen.xmlk.layoutk.loadrefresh.commons.LoadRefreshLoadCallback
 import com.mozhimen.xmlk.layoutk.loadrefresh.commons.LoadRefreshRefreshCallback
 import com.mozhimen.xmlk.layoutk.refresh.impls.LottieOverView
@@ -35,7 +36,7 @@ class LayoutKLoadRefreshActivity : BaseActivityVDB<ActivityLayoutkLoadrefreshBin
                     override fun onLoading() {
                         super.onLoading()
                         _pageIndex++
-                        WakeBefPauseLifecycleHandler(this@LayoutKLoadRefreshActivity).postDelayed(1000) {
+                        UtilKHandler.postDelayedOnMain(1000) {
                             val items: List<RecyclerKItem<out RecyclerView.ViewHolder>> = arrayListOf(RecyclerKItemLoadMore(_dataSets.size + 1))
                             _dataSets.addAll(items)
                             vdb.loadkContainer.startLoad(items, null)
