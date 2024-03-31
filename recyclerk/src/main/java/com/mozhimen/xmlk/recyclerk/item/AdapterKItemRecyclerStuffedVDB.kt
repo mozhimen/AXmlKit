@@ -18,14 +18,14 @@ import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecyclerVBListener
 //typealias IAdapterKRecyclerStuffedVB2Listener<DATA, VB> = (holder: VHKRecyclerVB<VB>, itemData: DATA, position: Int, currentSelectPos: Int) -> Unit
 
 @Suppress(CSuppress.UNCHECKED_CAST)
-class AdapterKItemRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
+class AdapterKItemRecyclerStuffedVDB<DATA, VDB : ViewDataBinding>(
     private val _datas: List<DATA>,
     private var _defaultLayoutId: Int,
     private var _brId: Int,
     private var _headerLayoutId: Int? = null,
     private var _footerLayoutId: Int? = null,
-    private var _listener: IAdapterKRecyclerVBListener<DATA, VB>? = null
-) : AdapterKItemRecyclerStuffed(), IAdapterKRecyclerVB<DATA, VB> {
+    private var _listener: IAdapterKRecyclerVBListener<DATA, VDB>? = null
+) : AdapterKItemRecyclerStuffed(), IAdapterKRecyclerVB<DATA, VDB> {
     private var _selectItemPosition = -1
 
     init {
@@ -35,7 +35,7 @@ class AdapterKItemRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
     ///////////////////////////////////////////////////////////////////////////////////
 
     override fun refreshData(data: DATA, position: Int, notify: Boolean) {
-        refreshItem(RecyclerKItemVB(data, _brId, _defaultLayoutId, _selectItemPosition, _listener), position, notify)
+        refreshItem(RecyclerKItemVDB(data, _brId, _defaultLayoutId, _selectItemPosition, _listener), position, notify)
     }
 
     override fun refreshDatas(notify: Boolean) {
@@ -47,27 +47,27 @@ class AdapterKItemRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
     }
 
     override fun refreshDatas(datas: List<DATA>, notify: Boolean) {
-        refreshItems(datas.joinT2list { RecyclerKItemVB(it, _brId, _defaultLayoutId, _selectItemPosition, _listener) }, notify)
+        refreshItems(datas.joinT2list { RecyclerKItemVDB(it, _brId, _defaultLayoutId, _selectItemPosition, _listener) }, notify)
     }
 
     override fun addData(data: DATA, notify: Boolean) {
-        addItem(RecyclerKItemVB(data, _brId, _defaultLayoutId, _selectItemPosition, _listener), notify)
+        addItem(RecyclerKItemVDB(data, _brId, _defaultLayoutId, _selectItemPosition, _listener), notify)
     }
 
     override fun addDataAtPosition(data: DATA, position: Int, notify: Boolean) {
-        addItemAtPosition(RecyclerKItemVB(data, _brId, _defaultLayoutId, _selectItemPosition, _listener), position, notify)
+        addItemAtPosition(RecyclerKItemVDB(data, _brId, _defaultLayoutId, _selectItemPosition, _listener), position, notify)
     }
 
     override fun addDatas(datas: List<DATA>, notify: Boolean) {
-        addItems(datas.joinT2list { RecyclerKItemVB(it, _brId, _defaultLayoutId, _selectItemPosition, _listener) }, notify)
+        addItems(datas.joinT2list { RecyclerKItemVDB(it, _brId, _defaultLayoutId, _selectItemPosition, _listener) }, notify)
     }
 
     override fun removeData(data: DATA, notify: Boolean) {
-        _items.find { (it as? RecyclerKItemVB<DATA, VB>?)?.data == data }?.let { removeItem(it, notify) }
+        _items.find { (it as? RecyclerKItemVDB<DATA, VDB>?)?.data == data }?.let { removeItem(it, notify) }
     }
 
     override fun removeDataAtPosition(position: Int, notify: Boolean): DATA? {
-        return (removeDataAtPosition(position, notify) as? RecyclerKItemVB<DATA, VB>?)?.data
+        return (removeDataAtPosition(position, notify) as? RecyclerKItemVDB<DATA, VDB>?)?.data
     }
 
     override fun removeDatasAll(notify: Boolean) {
@@ -75,11 +75,11 @@ class AdapterKItemRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
     }
 
     override fun getData(position: Int): DATA? {
-        return (getData(position) as? RecyclerKItemVB<DATA, VB>?)?.data
+        return (getData(position) as? RecyclerKItemVDB<DATA, VDB>?)?.data
     }
 
     override fun getDatas(): List<DATA?> {
-        return _items.joinT2listIgnoreNull { (it as? RecyclerKItemVB<DATA, VB>?)?.data }
+        return _items.joinT2listIgnoreNull { (it as? RecyclerKItemVDB<DATA, VDB>?)?.data }
     }
 
     override fun onDataSelected(position: Int) {

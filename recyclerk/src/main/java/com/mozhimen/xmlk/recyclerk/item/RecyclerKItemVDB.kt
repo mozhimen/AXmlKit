@@ -12,24 +12,24 @@ import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
  * @Date 2023/4/4 14:32
  * @Version 1.0
  */
-typealias IRecyclerKItemVBListener<DATA, VB> = (holder: VHKRecyclerVDB<VB>, data: DATA, position: Int, currentSelectPos: Int) -> Unit
+typealias IRecyclerKItemVBListener<DATA, VDB> = (holder: VHKRecyclerVDB<VDB>, data: DATA, position: Int, currentSelectPos: Int) -> Unit
 
-class RecyclerKItemVB<DATA, VB : ViewDataBinding>(
+class RecyclerKItemVDB<DATA, VDB : ViewDataBinding>(
     val data: DATA,
     private val _brId: Int,
     private val _layoutId: Int,
     private val _selectItemPos: Int,
-    private val _onBind: IRecyclerKItemVBListener<DATA, VB>? = null
-) : RecyclerKItem<VHKRecyclerVDB<VB>>() {
+    private val _onBind: IRecyclerKItemVBListener<DATA, VDB>? = null
+) : RecyclerKItem<VHKRecyclerVDB<VDB>>() {
 
-    override fun onBindItem(holder: VHKRecyclerVDB<VB>, position: Int) {
+    override fun onBindItem(holder: VHKRecyclerVDB<VDB>, position: Int) {
         super.onBindItem(holder, position)
         holder.vdb.setVariable(_brId, data)
         _onBind?.invoke(holder, data, position, _selectItemPos)
         holder.vdb.executePendingBindings()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup): VHKRecyclerVDB<VB> {
+    override fun onCreateViewHolder(parent: ViewGroup): VHKRecyclerVDB<VDB> {
         return VHKRecyclerVDB(LayoutInflater.from(parent.context).inflate(getItemLayoutId(), parent, false))
     }
 
