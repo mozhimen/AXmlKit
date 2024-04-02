@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mozhimen.basick.elemk.commons.IAB_Listener
 import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.basick.utilk.android.widget.applyTypeface
-import com.mozhimen.imagek.glide.loadImageComplexGlide
+import com.mozhimen.imagek.glide.loadImageComplex_ofGlide
 import com.mozhimen.xmlk.bases.BaseLayoutKLinear
 import com.mozhimen.xmlk.layoutk.side.R
 import com.mozhimen.xmlk.vhk.VHKRecycler
@@ -254,7 +254,7 @@ class LayoutKSideList @JvmOverloads constructor(context: Context, attrs: Attribu
             val contentMo = getContentByPosition(_mo, position)
             holder.findViewByIdOrNull<TextView>(R.id.layoutk_side_content_item_txt)?.text = contentMo?.contentName ?: "暂无数据"
             holder.findViewByIdOrNull<ImageView>(R.id.layoutk_side_content_item_img)
-                ?.loadImageComplexGlide(contentMo?.contentImageUrl ?: "", placeholder = com.mozhimen.xmlk.layoutk.refresh.R.drawable.layoutk_refresh_loading, error = com.mozhimen.xmlk.layoutk.empty.R.drawable.layoutk_empty)
+                ?.loadImageComplex_ofGlide(contentMo?.contentImageUrl ?: "", placeholder = com.mozhimen.xmlk.layoutk.refresh.R.drawable.layoutk_refresh_loading, error = com.mozhimen.xmlk.layoutk.empty.R.drawable.layoutk_empty)
         }
 
         override fun onViewAttachedToWindow(holder: VHKRecycler) {

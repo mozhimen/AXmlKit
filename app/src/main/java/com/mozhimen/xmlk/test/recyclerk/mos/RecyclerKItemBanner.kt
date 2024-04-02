@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.mozhimen.basick.cachek.sharedpreferences.CacheKSP
-import com.mozhimen.imagek.glide.loadImageGlide
+import com.mozhimen.imagek.glide.loadImage_ofGlide
 import com.mozhimen.xmlk.layoutk.banner.IBannerItemChangeListener
 import com.mozhimen.xmlk.layoutk.banner.bases.BaseBannerItem
 import com.mozhimen.xmlk.layoutk.banner.commons.IBannerBindListener
@@ -57,7 +57,7 @@ class RecyclerKItemBanner : RecyclerKItem<VHKRecyclerVDB<ItemRecyclerkBannerBind
                 override fun onBannerBind(viewHolder: BannerViewHolder, item: BaseBannerItem, position: Int) {
                     val model = item as BannerItem
                     val imageView: ImageView = viewHolder.findViewById(R.id.item_layoutk_banner_img)
-                    model.url.let { imageView.loadImageGlide(it) }
+                    model.url.let { imageView.loadImage_ofGlide(it) }
                 }
             })
             setPagerChangeListener(object : IBannerItemChangeListener {
