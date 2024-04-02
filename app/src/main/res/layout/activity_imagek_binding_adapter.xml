@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:loadImageGlideBlur="@{R.drawable.xmlk_img}"
+            app:loadImageBlur_ofGlide="@{R.drawable.xmlk_img}"
             app:placeholder="@{R.drawable.xmlk_img}" />
 
         <com.mozhimen.xmlk.imagek.ImageKCircleText
