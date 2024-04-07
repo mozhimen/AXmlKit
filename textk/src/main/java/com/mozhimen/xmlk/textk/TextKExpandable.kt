@@ -22,7 +22,14 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
 
     private val _expandable = false
     private var _maxLines = 3
-    private var _strOrigin: CharSequence = ""//源文字
+    //源文字
+    private var _strOrigin: CharSequence = ""
+        set(value) {
+            this.post {
+                setLastIndexForLimit(value, width, _maxLines)
+            }
+            field = value
+        }
     private var _strFold: CharSequence? = null//收起的文字
     private var _strExpand: CharSequence? = null//展开的文字
     private var _textKExpandListener: IA_Listener<Boolean>? = null
@@ -32,9 +39,6 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
 
     init {
         initAttrs(attrs)
-        this.post {
-            setLastIndexForLimit(_strOrigin, width, _maxLines)
-        }
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////
