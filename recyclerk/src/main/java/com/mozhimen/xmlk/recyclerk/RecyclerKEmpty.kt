@@ -11,7 +11,6 @@ import com.mozhimen.basick.utilk.commons.IUtilK
  * @ClassName RecyclerKEmpty
  * @Description TODO
  * @Author mozhimen
- * @Date 2021/4/28 16:29
  * @Version 1.0
  */
 class RecyclerKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :

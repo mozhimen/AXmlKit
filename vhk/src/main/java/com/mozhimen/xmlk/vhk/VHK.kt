@@ -14,7 +14,6 @@ import androidx.annotation.IdRes
  * @ClassName VHK
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/11/22 15:10
  * @Version 1.0
  */
 class VHK private constructor(context: Context, parent: ViewGroup, layoutId: Int) {

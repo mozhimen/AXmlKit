@@ -9,7 +9,6 @@ import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
  * @ClassName RecyclerKItemVB
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/4/4 14:32
  * @Version 1.0
  */
 typealias IRecyclerKItemVBListener<DATA, VDB> = (holder: VHKRecyclerVDB<VDB>, data: DATA, position: Int, currentSelectPos: Int) -> Unit

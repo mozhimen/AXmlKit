@@ -10,7 +10,6 @@ import com.mozhimen.xmlk.test.R
  * @ClassName DataKItemGrid
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/9/1 14:54
  * @Version 1.0
  */
 class RecyclerKItemGrid : RecyclerKItem<RecyclerKItemGrid.MyVHKRecycler>() {

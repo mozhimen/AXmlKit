@@ -9,7 +9,6 @@ import com.mozhimen.xmlk.layoutk.slider.helpers.AttrsParser
  * @ClassName Slider
  * @Description TODO
  * @Author mozhimen / Kolin Zhao
- * @Date 2022/9/17 15:48
  * @Version 1.0
  */
 class MSlider() :Parcelable {

@@ -21,7 +21,6 @@ import kotlinx.coroutines.withContext
  * @ClassName AdapterKRecyclerVB2Activity
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/4/6 15:20
  * @Version 1.0
  */
 class AdapterKRecyclerVB2Activity : BaseActivityVDB<ActivityAdapterkRecyclerVb2Binding>() {

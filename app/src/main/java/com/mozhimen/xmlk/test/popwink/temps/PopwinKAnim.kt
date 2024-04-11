@@ -13,7 +13,6 @@ import com.mozhimen.xmlk.test.R
  * @ClassName Popwin
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/1/31 13:08
  * @Version 1.0
  */
 class PopwinKAnim(context: Context) : BasePopwinKLifecycle(context) {

@@ -4,7 +4,6 @@ package com.mozhimen.xmlk.layoutk.slider.mos
  * @ClassName LayoutKSliderAttr
  * @Description TODO
  * @Author mozhimen / Kolin Zhao
- * @Date 2022/9/17 14:23
  * @Version 1.0
  */
 internal data class MSliderAttrs(

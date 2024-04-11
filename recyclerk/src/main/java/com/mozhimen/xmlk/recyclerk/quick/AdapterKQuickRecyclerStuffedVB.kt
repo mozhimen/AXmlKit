@@ -14,7 +14,6 @@ import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
  * @ClassName AdapterKRecyclerStuffedVB
  * @Description 带Header的RecyclerView适配器
  * @Author Kolin Zhao
- * @Date 2021/7/7 14:48
  * @Version 1.0
  */
 

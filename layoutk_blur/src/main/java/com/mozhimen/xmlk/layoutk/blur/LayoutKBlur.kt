@@ -18,7 +18,6 @@ import com.mozhimen.xmlk.layoutk.blur.commons.ILayoutKBlur
  * @ClassName BlurredLayout
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/7/5 16:18
  * @Version 1.0
  */
 class LayoutKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKRelative(context, attrs, defStyleAttr), ILayoutKBlur {

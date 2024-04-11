@@ -14,7 +14,6 @@ import java.lang.ref.WeakReference
  * @ClassName DataKRecycler
  * @Description bugfix: DataKItem<*, out RecyclerView.ViewHolder>都被改成了这样。否则会有类型转换问题
  * @Author Kolin Zhao
- * @Date 2021/8/31 16:14
  * @Version 1.0
  */
 open class AdapterKItemRecyclerStuffed : AdapterKItemRecycler(), IAdapterKRecyclerStuffed {

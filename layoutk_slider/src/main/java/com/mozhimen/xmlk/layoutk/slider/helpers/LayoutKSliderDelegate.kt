@@ -33,7 +33,6 @@ import com.mozhimen.xmlk.layoutk.slider.mos.MSliderAttrs
  *  minVal    currentVal    maxVal  ValBottom
  *
  * @Author Kolin Zhao / Mozhimen
- * @Date 2022/9/8 14:33
  * @Version 1.0
  */
 

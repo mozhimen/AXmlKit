@@ -7,7 +7,6 @@ import android.view.View
  * @ClassName IAdapterKRecyclerStuffed
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/4/3 16:38
  * @Version 1.0
  */
 interface IAdapterKRecyclerStuffed {

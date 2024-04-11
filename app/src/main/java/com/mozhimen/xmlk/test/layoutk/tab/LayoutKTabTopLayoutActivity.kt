@@ -14,7 +14,6 @@ import com.mozhimen.xmlk.test.databinding.ActivityLayoutkTabTopLayoutBinding
  * @ClassName TabTopLayoutActivity
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/8/4 17:17
  * @Version 1.0
  */
 @OptIn(OPermission_INTERNET::class)

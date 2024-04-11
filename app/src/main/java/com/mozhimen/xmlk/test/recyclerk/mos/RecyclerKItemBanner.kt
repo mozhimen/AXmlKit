@@ -21,7 +21,6 @@ import com.mozhimen.xmlk.test.databinding.ItemRecyclerkBannerBinding
  * @ClassName DataKItemBanner
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/9/1 14:39
  * @Version 1.0
  */
 class RecyclerKItemBanner : RecyclerKItem<VHKRecyclerVDB<ItemRecyclerkBannerBinding>>() {

@@ -11,7 +11,6 @@ import com.mozhimen.xmlk.recyclerk.decoration.bases.BaseRecyclerKDecoration
  * @ClassName RecyclerDecorationGap2
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/10/30 10:29
  * @Version 1.0
  */
 class RecyclerKDecorationGapGrid : BaseRecyclerKDecoration {

@@ -12,7 +12,6 @@ import com.mozhimen.xmlk.layoutk.slider.mos.MSliderAttrs
  * @ClassName LayoutKSliderParser
  * @Description TODO
  * @Author mozhimen / Kolin Zhao
- * @Date 2022/9/17 14:19
  * @Version 1.0
  */
 internal object AttrsParser {

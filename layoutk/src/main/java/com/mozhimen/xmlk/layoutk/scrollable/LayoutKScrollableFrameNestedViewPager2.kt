@@ -14,7 +14,6 @@ import kotlin.math.sign
  * @ClassName LayoutKNestedScrollable
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/10/13 11:57
  * @Version 1.0
  */
 class LayoutKScrollableFrameNestedViewPager2 @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleRes: Int = 0) : BaseLayoutKFrame(context, attrs, defStyleRes) {

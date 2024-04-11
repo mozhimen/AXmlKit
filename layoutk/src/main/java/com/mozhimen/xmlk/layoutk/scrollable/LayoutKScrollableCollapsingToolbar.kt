@@ -10,7 +10,6 @@ import com.mozhimen.basick.elemk.kotlin.properties.VarProperty_Set
  * @ClassName LayoutLScrollableCollapsingToolbar
  * @Description TODO
  * @Author Mozhimen
- * @Date 2023/11/6 10:29
  * @Version 1.0
  */
 class LayoutKScrollableCollapsingToolbar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : CollapsingToolbarLayout(context, attrs, defStyleAttr) {

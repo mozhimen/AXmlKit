@@ -19,7 +19,6 @@ import com.mozhimen.basick.utilk.android.view.applyVisibleIfElseInVisible
  * @ClassName RecyclerKViewHolder
  * @Description TODO
  * @Author mozhimen / Kolin Zhao
- * @Date 2021/12/25 15:35
  * @Version 1.0
  */
 open class VHKRecycler(containerView: View) : VHKLifecycle(containerView) {

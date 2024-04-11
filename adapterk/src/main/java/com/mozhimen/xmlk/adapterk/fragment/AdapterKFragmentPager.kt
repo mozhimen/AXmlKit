@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentPagerAdapter
  * @ClassName AdapterKFragmentPager
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/7/5 13:12
  * @Version 1.0
  */
 open class AdapterKFragmentPager : FragmentPagerAdapter {

@@ -11,7 +11,6 @@ import com.mozhimen.xmlk.test.databinding.ActivityLayoutkTabBottomBinding
  * @ClassName TabBottomActivity
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/8/2 14:39
  * @Version 1.0
  */
 class LayoutKTabBottomActivity : BaseActivityVDB<ActivityLayoutkTabBottomBinding>() {

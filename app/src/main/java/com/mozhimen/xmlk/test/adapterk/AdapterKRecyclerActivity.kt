@@ -15,7 +15,6 @@ import com.mozhimen.xmlk.test.recyclerk.mos.*
  * @ClassName DataKActivity
  * @Description
  * @Author Kolin Zhao
- * @Date 2021/9/1 16:16
  * @Version 1.0
  */
 class AdapterKRecyclerActivity : BaseActivityVDB<ActivityAdapterkRecyclerBinding>() {

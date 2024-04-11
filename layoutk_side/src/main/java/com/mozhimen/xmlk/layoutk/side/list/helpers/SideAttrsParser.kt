@@ -13,7 +13,6 @@ import com.mozhimen.xmlk.layoutk.side.list.mos.MSideAttrs
  * @ClassName AttrsParser
  * @Description TODO
  * @Author mozhimen / Kolin Zhao
- * @Date 2021/12/25 16:32
  * @Version 1.0
  */
 internal object SideAttrsParser : IAttrsParser<MSideAttrs> {

@@ -34,7 +34,6 @@ import com.mozhimen.xmlk.layoutk.slider.mos.MSlider
  *  minVal    currentVal    maxVal  ValBottom
  *
  * @Author Kolin Zhao / Mozhimen
- * @Date 2022/9/8 14:14
  * @Version 1.0
  */
 class LayoutKSlider @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKFrame(context, attrs, defStyleAttr), ILayoutKSlider {

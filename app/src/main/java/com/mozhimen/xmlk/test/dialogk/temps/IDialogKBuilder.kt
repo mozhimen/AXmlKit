@@ -6,7 +6,6 @@ import android.view.ViewGroup
  * @ClassName IDialogKBuilder
  * @Description TODO
  * @Author mozhimen / Kolin Zhao
- * @Date 2022/5/20 17:03
  * @Version 1.0
  */
 interface IDialogKBuilder {

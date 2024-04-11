@@ -8,7 +8,6 @@ import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
  * @ClassName IAdapterKRecycler
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/4/1 11:10
  * @Version 1.0
  */
 interface IAdapterKRecycler : IUtilK {
