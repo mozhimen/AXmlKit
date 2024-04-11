@@ -3,7 +3,7 @@ package com.mozhimen.xmlk.drawablek.arrow.helpers
 import android.graphics.Path
 import android.graphics.PointF
 import android.graphics.RectF
-import com.mozhimen.basick.utilk.kotlin.constraint
+import com.mozhimen.basick.utilk.kotlin.ranges.constraint
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowDirection
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowPosPolicy
 import com.mozhimen.xmlk.drawablek.arrow.mos.MShape
