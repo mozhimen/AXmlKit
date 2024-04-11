@@ -33,7 +33,6 @@ typealias ILayoutKSideListListener = IAB_Listener<VHKRecycler, MSideSubContent?>
  * @ClassName LayoutKSideList
  * @Description TODO
  * @Author Kolin Zhao / Mozhimen
- * @Date 2021/12/24 14:10
  * @Version 1.0
  */
 @OPermission_INTERNET

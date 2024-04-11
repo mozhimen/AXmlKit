@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView.Recycler
  * @ClassName RecyclerKCatchGridLayoutManager
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/10/17 17:51
  * @Version 1.0
  */
 class RecyclerKCatchGridLayoutManager : GridLayoutManager {

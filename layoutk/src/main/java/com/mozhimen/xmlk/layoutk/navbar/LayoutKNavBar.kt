@@ -29,7 +29,6 @@ import java.util.*
  * @ClassName LayoutKNavBar
  * @Description TODO
  * @Author Kolin Zhao / Mozhimen
- * @Date 2022/3/2 14:35
  * @Version 1.0
  */
 class LayoutKNavBar @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKRelative(context, attrs, defStyleAttr) {

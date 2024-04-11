@@ -4,7 +4,6 @@ package com.mozhimen.xmlk.layoutk.navbar.mos
  * @ClassName MNavBarAttrs
  * @Description TODO
  * @Author Kolin Zhao / Mozhimen
- * @Date 2022/7/14 16:41
  * @Version 1.0
  */
 data class MNavBarAttrs(

@@ -11,7 +11,6 @@ import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecycler
  * @ClassName DataItemK
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/8/31 15:56
  * @Version 1.0
  */
 open class RecyclerKItem<VH : RecyclerView.ViewHolder> : IUtilK {

@@ -17,7 +17,6 @@ import com.mozhimen.xmlk.test.R
  * @ClassName LoadingDialog
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2022/12/19 15:37
  * @Version 1.0
  */
 class DialogKLoadingAnim @JvmOverloads internal constructor(context: Context, private var _desc: String? = null) : BaseDialogK<IDialogKClickListener>(context) {

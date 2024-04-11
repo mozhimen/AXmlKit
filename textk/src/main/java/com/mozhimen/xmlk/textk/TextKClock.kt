@@ -12,7 +12,6 @@ import com.mozhimen.xmlk.commons.ILayoutK
  * @ClassName TextKClock
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2022/11/11 17:47
  * @Version 1.0
  */
 class TextKClock @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : TextClock(context, attrs, defStyleAttr),

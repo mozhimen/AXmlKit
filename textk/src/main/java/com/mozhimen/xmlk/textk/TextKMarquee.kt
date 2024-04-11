@@ -12,7 +12,6 @@ import com.mozhimen.xmlk.commons.ILayoutK
  * @ClassName TextKMarquee
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2022/11/21 10:43
  * @Version 1.0
  */
 class TextKMarquee @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : AppCompatTextView(context, attrs, defStyleAttr), ILayoutK {

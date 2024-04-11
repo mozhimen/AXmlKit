@@ -16,7 +16,6 @@ import com.mozhimen.xmlk.layoutk.navbar.mos.MNavBarAttrs
  * @ClassName AttrsParser
  * @Description TODO
  * @Author Kolin Zhao / Mozhimen
- * @Date 2022/3/2 14:41
  * @Version 1.0
  */
 internal object AttrsParser : IAttrsParser2<MNavBarAttrs> {

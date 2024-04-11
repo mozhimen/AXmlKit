@@ -9,7 +9,6 @@ import com.mozhimen.xmlk.test.R
  * @ClassName DataKItemVideo
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/9/2 16:21
  * @Version 1.0
  */
 class RecyclerKItemVideo(private var _spanCount: Int) :

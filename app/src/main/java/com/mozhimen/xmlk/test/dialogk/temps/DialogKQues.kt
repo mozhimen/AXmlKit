@@ -16,7 +16,6 @@ import com.mozhimen.xmlk.test.R
  * @ClassName DialogKQues
  * @Description TODO
  * @Author Kolin Zhao / Mozhimen
- * @Date 2021/12/31 14:19
  * @Version 1.0
  */
 class DialogKQues @JvmOverloads constructor(context: Context, themeId: Int = 0) : Dialog(context, themeId) {

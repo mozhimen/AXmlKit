@@ -14,7 +14,6 @@ import com.mozhimen.xmlk.bases.BaseLayoutKFrame
  * @ClassName LayoutKLoading
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/10/16 15:33
  * @Version 1.0
  */
 class LayoutKLoading @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKFrame(context, attrs, defStyleAttr) {

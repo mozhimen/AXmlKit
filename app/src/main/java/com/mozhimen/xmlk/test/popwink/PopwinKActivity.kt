@@ -12,7 +12,6 @@ import com.mozhimen.xmlk.test.popwink.temps.PopwinKTest
  * @ClassName PopwinKActivity
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2022/11/17 16:45
  * @Version 1.0
  */
 class PopwinKActivity : BaseActivityVDB<ActivityPopwinkBinding>() {

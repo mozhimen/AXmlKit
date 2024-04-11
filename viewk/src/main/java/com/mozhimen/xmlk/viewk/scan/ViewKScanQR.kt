@@ -14,7 +14,6 @@ import com.mozhimen.xmlk.bases.BaseViewK
  * @ClassName QRScanView
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/6/21 14:18
  * @Version 1.0
  */
 class ViewKScanQR @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseViewK(context, attrs, defStyleAttr) {

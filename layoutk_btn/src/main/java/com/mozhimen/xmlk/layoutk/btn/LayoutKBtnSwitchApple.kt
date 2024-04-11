@@ -22,7 +22,6 @@ import com.mozhimen.xmlk.bases.BaseLayoutKFrame
  * @ClassName SwitchApple
  * @Description SwitchApple
  * @Author Kolin Zhao / Mozhimen
- * @Date 2021/11/30 14:35
  * @Version 1.0
  */
 typealias ISwitchAppleListener = IA_Listener<Boolean>//(switch: Boolean) -> Unit

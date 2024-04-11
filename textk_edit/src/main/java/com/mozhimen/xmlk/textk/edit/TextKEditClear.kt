@@ -15,7 +15,6 @@ import androidx.core.content.ContextCompat
  * @ClassName ClearEditText
  * @Description TODO
  * @Author mozhimen
- * @Date 2021/4/22 14:58
  * @Version 1.0
  */
 class TextKEditClear @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = android.R.attr.editTextStyle) : AppCompatEditText(context, attrs, defStyle),

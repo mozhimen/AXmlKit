@@ -9,7 +9,6 @@ import com.mozhimen.xmlk.commons.IXmlK
  * @ClassName SquareImageView
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/6/21 15:21
  * @Version 1.0
  */
 class ImageKSquare @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :

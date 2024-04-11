@@ -9,7 +9,6 @@ import com.mozhimen.xmlk.recyclerk.decoration.bases.BaseRecyclerKDecoration
  * @ClassName RecyclerKItemDecoration
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/10/30 10:02
  * @Version 1.0
  */
 class RecyclerKDecorationGap : BaseRecyclerKDecoration {

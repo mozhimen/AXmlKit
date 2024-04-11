@@ -9,7 +9,6 @@ import com.mozhimen.xmlk.test.R
  * @ClassName DataKItemActivity
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/9/2 14:44
  * @Version 1.0
  */
 class RecyclerKItemActivity : RecyclerKItem<VHKRecycler>() {

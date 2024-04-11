@@ -7,7 +7,6 @@ import com.mozhimen.xmlk.test.databinding.ActivityLayoutkLoadingBinding
  * @ClassName LayoutKLoadingActivity
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/11/16 14:12
  * @Version 1.0
  */
 class LayoutKLoadingActivity : BaseActivityVDB<ActivityLayoutkLoadingBinding>() {

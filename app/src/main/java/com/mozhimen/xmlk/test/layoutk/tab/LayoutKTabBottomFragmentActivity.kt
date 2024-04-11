@@ -17,7 +17,6 @@ import com.mozhimen.xmlk.test.layoutk.tab.fragments.MoreFragment
  * @ClassName TabBottomFragmentActivity
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/8/2 14:38
  * @Version 1.0
  */
 class LayoutKTabBottomFragmentActivity : BaseActivityVDB<ActivityLayoutkTabBottomFragmentBinding>() {

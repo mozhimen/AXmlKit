@@ -25,7 +25,6 @@ import kotlinx.coroutines.delay
  * @ClassName LayoutKBtnSwitch
  * @Description LayoutKBtnSwitch
  * @Author Kolin Zhao / Mozhimen
- * @Date 2021/11/30 14:35
  * @Version 1.0
  */
 typealias ILayoutKSwitchListener = IA_Listener<Boolean>// (status: Boolean) -> Unit

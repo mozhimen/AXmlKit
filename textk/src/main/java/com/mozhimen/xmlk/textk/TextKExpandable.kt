@@ -14,7 +14,6 @@ import com.mozhimen.xmlk.commons.IXmlK
  * @ClassName TextKExpandable
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/12/7 17:20
  * @Version 1.0
  */
 class TextKExpandable @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : AppCompatTextView(context, attrs, defStyleAttr), IXmlK,

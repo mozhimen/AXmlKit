@@ -18,7 +18,6 @@ import com.mozhimen.xmlk.test.R
  * @ClassName DialogKLoadingUpdate
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/1/31 11:28
  * @Version 1.0
  */
 class DialogKLoadingUpdate @JvmOverloads internal constructor(

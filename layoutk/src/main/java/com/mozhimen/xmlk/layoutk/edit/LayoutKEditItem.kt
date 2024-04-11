@@ -23,7 +23,6 @@ import com.mozhimen.xmlk.bases.BaseLayoutKLinear
  * @ClassName LayoutKInputItem
  * @Description TODO
  * @Author mozhimen / Kolin Zhao
- * @Date 2021/12/18 12:56
  * @Version 1.0
  */
 class LayoutKEditItem @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKLinear(context, attrs, defStyleAttr) {

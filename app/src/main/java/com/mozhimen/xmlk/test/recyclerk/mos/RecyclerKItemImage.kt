@@ -9,7 +9,6 @@ import com.mozhimen.xmlk.test.R
  * @ClassName DataKItemImage
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/9/2 15:33
  * @Version 1.0
  */
 class RecyclerKItemImage(private var _spanCount: Int) : RecyclerKItem<VHKRecycler>() {

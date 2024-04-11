@@ -12,7 +12,6 @@ import com.mozhimen.xmlk.test.databinding.ActivityLayoutkSpinnerBinding
  * @ClassName AdapterKActivity
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/2/6 17:03
  * @Version 1.0
  */
 class LayoutKSpinnerActivity : BaseActivityVDB<ActivityLayoutkSpinnerBinding>() {

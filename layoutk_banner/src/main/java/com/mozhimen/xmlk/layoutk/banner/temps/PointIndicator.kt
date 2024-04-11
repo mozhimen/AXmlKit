@@ -18,7 +18,6 @@ import com.mozhimen.xmlk.layoutk.banner.commons.IBannerIndicator
  * @ClassName CircleIndicatorK
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/8/23 12:52
  * @Version 1.0
  */
 class PointIndicator @JvmOverloads constructor(

@@ -8,7 +8,6 @@ import androidx.databinding.BindingAdapter
  * @ClassName TextKBindingAdapter
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2023/5/26 16:39
  * @Version 1.0
  */
 object TextKBindingAdapter {

@@ -10,7 +10,6 @@ import com.mozhimen.xmlk.test.databinding.ActivityImagekBinding
  * @ClassName ImageKActivity
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
- * @Date 2022/11/11 14:11
  * @Version 1.0
  */
 class ImageKActivity : BaseActivityVDB<ActivityImagekBinding>() {

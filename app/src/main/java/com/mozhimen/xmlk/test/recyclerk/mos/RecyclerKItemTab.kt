@@ -11,7 +11,6 @@ import com.mozhimen.xmlk.test.databinding.ItemRecyclerkTabBinding
  * @ClassName DataKItemTab
  * @Description TODO
  * @Author Kolin Zhao
- * @Date 2021/9/2 16:03
  * @Version 1.0
  */
 class RecyclerKItemTab : RecyclerKItem<VHKRecyclerVDB<ItemRecyclerkTabBinding>>() {
