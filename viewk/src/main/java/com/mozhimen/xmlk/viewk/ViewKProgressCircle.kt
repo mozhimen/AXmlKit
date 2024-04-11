@@ -8,7 +8,7 @@ import android.graphics.RectF
 import android.util.AttributeSet
 import androidx.annotation.IntRange
 import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.kotlin.constraint
+import com.mozhimen.basick.utilk.kotlin.ranges.constraint
 import com.mozhimen.xmlk.bases.BaseViewK
 
 /**
