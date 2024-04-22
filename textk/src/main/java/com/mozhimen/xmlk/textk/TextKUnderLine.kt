@@ -38,6 +38,4 @@ class TextKUnderLine @JvmOverloads constructor(context: Context, attrs: Attribut
             _textPaint.isUnderlineText = true
         }
     }
-
-    override val TAG: String = "TextKUnderLine>>>>>"
 }

@@ -4,6 +4,9 @@
     <!--textk-->
     <!--////////////////////////////////////////////////////////////////////////////////////////////////-->
 
+    <declare-styleable name="TextKMarquee">
+        <attr name="textkMarquee_desaltEdge" format="boolean" />
+    </declare-styleable>
 
     <declare-styleable name="TextKExpandable">
         <attr name="textKExpandable_maxLines" format="integer" />

@@ -46,6 +46,7 @@ class TextKActivity : BaseActivityVDB<ActivityTextkBinding>() {
             vdb.textkProgress1.setProgressText("100%", 100)
             vdb.textkProgress1.setProgressState(TextKProgress.PROGRESS_STATE_FINISH)
         }
+        vdb.textkMarquee.setText("著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处")
         vdb.textkExpandable.setExpandableText(
             "@Override\n" +
                     "protected void onCreate(Bundle savedInstanceState) {\n" +

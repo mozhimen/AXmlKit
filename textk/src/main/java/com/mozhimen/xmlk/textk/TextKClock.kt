@@ -14,8 +14,7 @@ import com.mozhimen.xmlk.commons.ILayoutK
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0
  */
-class TextKClock @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : TextClock(context, attrs, defStyleAttr),
-    ILayoutK {
+class TextKClock @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : TextClock(context, attrs, defStyleAttr), ILayoutK {
     private var _timeFormat: String = getTimeFormat()
 
     init {
