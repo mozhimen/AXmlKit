@@ -12,6 +12,7 @@ import android.os.Build
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.util.Log
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import androidx.annotation.RequiresApi
 import com.mozhimen.basick.elemk.android.os.cons.CVersCode
 import com.mozhimen.basick.utilk.android.util.dp2px
@@ -167,7 +168,7 @@ class ViewKRegion @JvmOverloads constructor(context: Context, attrs: AttributeSe
                     while (len < pathMeasure.length) {
                         pathMeasure.getPosTan(len.toFloat(), pos, tan)
                         if (regionChecker.contains(pos[0].toInt(), pos[1].toInt())) {
-                            Log.d("RegionView", " 可能发生了碰撞")
+                            UtilKLogWrapper.d("RegionView", " 可能发生了碰撞")
                             _textPaint.setColor(Color.YELLOW)
                         }
                         len++
