@@ -59,8 +59,6 @@ abstract class BaseAdapterK<T>(
         return viewHolder.itemView
     }
 
-
-
     //////////////////////////////////////////////////////////////////////////
 
     abstract fun onBindView(holder: VHK, data: T, position: Int)

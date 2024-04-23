@@ -16,6 +16,12 @@
             android:text="goTextKEdit"
             tools:ignore="HardcodedText,UsingOnClickInXml" />
 
+        <com.mozhimen.xmlk.textk.TextKMarquee
+            android:id="@+id/textk_marquee"
+            tools:text="123"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <com.mozhimen.xmlk.textk.bubble.TextKBubble
             style="@style/StyleK_TextKBubble"
             android:text="这是一个气泡文本"
@@ -87,6 +93,6 @@
             android:id="@+id/textk_expandable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/cok_blue_287ff1"/>
+            android:background="@color/cok_blue_287ff1" />
     </LinearLayout>
 </layout>

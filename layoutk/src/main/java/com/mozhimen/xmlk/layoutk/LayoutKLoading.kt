@@ -18,7 +18,7 @@ import com.mozhimen.xmlk.bases.BaseLayoutKFrame
  */
 class LayoutKLoading @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKFrame(context, attrs, defStyleAttr) {
     private var _loadColor: Int = 0
-    private var _loadSize: Float = 40f.dp2px
+    private var _loadSize: Float = 40f.dp2px()
 
     init {
         initAttrs(attrs)

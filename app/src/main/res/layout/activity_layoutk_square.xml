@@ -25,7 +25,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    app:loadImageRoundedCornerGlide="@{`https://images.pexels.com/photos/2709388/pexels-photo-2709388.jpeg`}"
+                    app:loadImageRoundedCorner_ofGlide="@{`https://images.pexels.com/photos/2709388/pexels-photo-2709388.jpeg`}"
                     app:roundedCornerRadius="@{10}" />
             </com.mozhimen.xmlk.layoutk.LayoutKSquare>
 
@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 app:imageKSquare_measureMode="measureWidth"
-                app:loadImageRoundedCornerGlide="@{`https://images.pexels.com/photos/2709388/pexels-photo-2709388.jpeg`}"
+                app:loadImageRoundedCorner_ofGlide="@{`https://images.pexels.com/photos/2709388/pexels-photo-2709388.jpeg`}"
                 app:roundedCornerRadius="@{10}" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

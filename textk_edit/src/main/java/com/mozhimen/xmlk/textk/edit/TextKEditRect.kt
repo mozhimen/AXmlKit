@@ -11,6 +11,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import com.mozhimen.basick.elemk.android.view.cons.CInputMethodManager
 import com.mozhimen.basick.elemk.commons.IAB_Listener
 import com.mozhimen.basick.utilk.android.util.dp2px
+import com.mozhimen.basick.utilk.android.util.dp2pxI
 import com.mozhimen.basick.utilk.android.view.UtilKInputMethodManager
 import com.mozhimen.basick.utilk.android.widget.applyFilter_ofLength
 import com.mozhimen.basick.utilk.kotlin.ranges.constraint
@@ -35,8 +36,8 @@ class TextKEditRect @JvmOverloads constructor(context: Context, attrs: Attribute
 
     private var _cursorIsShow = true
     private var _cursorFlashIntervalMillis = 800
-    private var _cursorWidth: Int = 2f.dp2px.toInt()// 光标宽度
-    private var _cursorHeight: Int = 15.dp2px.toInt()// 光标高度
+    private var _cursorWidth: Int = 2f.dp2pxI()// 光标宽度
+    private var _cursorHeight: Int = 15.dp2pxI()// 光标高度
     private var _cursorStateDrawable: Drawable? = null// 光标的背景
 
     /////////////////////////////////////////////////////////////////////////////
