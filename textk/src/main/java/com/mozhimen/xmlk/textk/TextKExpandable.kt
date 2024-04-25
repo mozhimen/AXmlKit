@@ -4,6 +4,7 @@ import android.content.Context
 import android.text.Layout
 import android.text.StaticLayout
 import android.util.AttributeSet
+import android.util.Log
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
@@ -21,6 +22,7 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
 
     private val _expandable = false
     private var _maxLines = 3
+
     //源文字
     private var _strOrigin: CharSequence = ""
         set(value) {
@@ -31,6 +33,8 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
         }
     private var _strFold: CharSequence? = null//收起的文字
     private var _strExpand: CharSequence? = null//展开的文字
+    private var _strFoldHeight = 0
+    private var _strExpandHeight = 0
     private var _textKExpandListener: IA_Listener<Boolean>? = null
     private var _textKIsExpandableListener: IA_Listener<Boolean>? = null//文字过短则不需要展开
 
@@ -87,62 +91,19 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////
 
-    /*    private fun setLastIndexForLimit(foldLines: Int, content: CharSequence) {
-            val paint = paint//获取TextView的画笔对象
-            val width = resources.displayMetrics.widthPixels - 40f.dp2px.toInt()//每行文本的布局宽度
-            val staticLayout = StaticLayout(content, paint, width, Layout.Alignment.ALIGN_NORMAL, 1.0F, 0.0F, false)//实例化StaticLayout 传入相应参数
-            if (staticLayout.lineCount > foldLines) {//判断content是行数是否超过最大限制行数3行
-    //            if (_expandable) {
-    //////                val string1 = "$content    收起"
-    ////                val notElipseString = SpannableString(content)//定义展开后的文本内容
-    ////                //给收起两个字设成蓝色
-    ////                notElipseString.setSpan(
-    ////                    ForegroundColorSpan(Color.parseColor("#00A667")),
-    ////                    string1.length - 2,
-    ////                    string1.length,
-    ////                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-    ////                )
-    //                _strExpand = notElipseString
-    //            } else {
-    //_strExpand = content
-    //            }
-                _strExpand = content
-
-                val index = staticLayout.getLineStart(foldLines) - 1//获取到第三行最后一个文字的下标
-                //定义收起后的文本内容
-                val substring = content.substring(0, index - 2) + "展开"
-                val elipseString = SpannableString(substring)
-                //给查看全部设成蓝色
-                elipseString.setSpan(
-                    ForegroundColorSpan(Color.parseColor("#00A668")),
-                    substring.length - 2,
-                    substring.length,
-                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-                )
-                _strFold = elipseString
-                //设置收起后的文本内容
-                text = elipseString
-                setOnClickListener(this)
-                //将textview设成选中状态 true用来表示文本未展示完全的状态,false表示完全展示状态，用于点击时的判断
-                isSelected = true
-            } else {
-                //没有超过 直接设置文本
-                text = content
-                setOnClickListener(null)
-            }
-        }*/
-
     private fun setLastIndexForLimit(content: CharSequence, width: Int, maxLine: Int) {
         val paint = paint//获取TextView的画笔对象
 //        val width = resources.displayMetrics.widthPixels - 40f.dp2px.toInt()//每行文本的布局宽度
-        val staticLayout = StaticLayout(content, paint, width /*width*/, Layout.Alignment.ALIGN_NORMAL, 1f, 0f, false)//实例化StaticLayout 传入相应参数
+        val staticLayout = StaticLayout(content, paint, width /*width*/, Layout.Alignment.ALIGN_NORMAL, lineSpacingMultiplier, lineSpacingExtra, includeFontPadding)//实例化StaticLayout 传入相应参数
         UtilKLogWrapper.d(TAG, "setLastIndexForLimit: width $width")
         if (staticLayout.lineCount > maxLine) {//判断content是行数是否超过最大限制行数3行
             _strExpand = content
+            _strExpandHeight = staticLayout.lineCount * this.lineHeight
             val position = staticLayout.getLineStart(maxLine) - 4//获取到第三行最后一个文字的下标-4是为了加...
             val strFold = content.substring(0, position) + "..."//定义收起后的文本内容
             _strFold = strFold
-            UtilKLogWrapper.d(TAG, "setLastIndexForLimit: _strFold $_strFold")
+            _strFoldHeight = maxLine * this.lineHeight
+            UtilKLogWrapper.d(TAG, "setLastIndexForLimit: _strExpandHeight $_strExpandHeight _strFoldHeight $_strFoldHeight ")
 
             ///////////////////////////////////////////////////////////////////////////
 
@@ -170,6 +131,52 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
             text = _strFold
             isSelected = false
         }
+        Log.d(TAG, "onClick: ")
         _textKExpandListener?.invoke(v.isSelected)
     }
+
+    /*    private fun setLastIndexForLimit(foldLines: Int, content: CharSequence) {
+        val paint = paint//获取TextView的画笔对象
+        val width = resources.displayMetrics.widthPixels - 40f.dp2px.toInt()//每行文本的布局宽度
+        val staticLayout = StaticLayout(content, paint, width, Layout.Alignment.ALIGN_NORMAL, 1.0F, 0.0F, false)//实例化StaticLayout 传入相应参数
+        if (staticLayout.lineCount > foldLines) {//判断content是行数是否超过最大限制行数3行
+//            if (_expandable) {
+//////                val string1 = "$content    收起"
+////                val notElipseString = SpannableString(content)//定义展开后的文本内容
+////                //给收起两个字设成蓝色
+////                notElipseString.setSpan(
+////                    ForegroundColorSpan(Color.parseColor("#00A667")),
+////                    string1.length - 2,
+////                    string1.length,
+////                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+////                )
+//                _strExpand = notElipseString
+//            } else {
+//_strExpand = content
+//            }
+            _strExpand = content
+
+            val index = staticLayout.getLineStart(foldLines) - 1//获取到第三行最后一个文字的下标
+            //定义收起后的文本内容
+            val substring = content.substring(0, index - 2) + "展开"
+            val elipseString = SpannableString(substring)
+            //给查看全部设成蓝色
+            elipseString.setSpan(
+                ForegroundColorSpan(Color.parseColor("#00A668")),
+                substring.length - 2,
+                substring.length,
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            _strFold = elipseString
+            //设置收起后的文本内容
+            text = elipseString
+            setOnClickListener(this)
+            //将textview设成选中状态 true用来表示文本未展示完全的状态,false表示完全展示状态，用于点击时的判断
+            isSelected = true
+        } else {
+            //没有超过 直接设置文本
+            text = content
+            setOnClickListener(null)
+        }
+    }*/
 }

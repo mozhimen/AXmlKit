@@ -11,13 +11,11 @@ import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AccelerateInterpolator
 import androidx.appcompat.widget.AppCompatImageView
-import com.mozhimen.basick.animk.builder.AnimKBuilder
 import com.mozhimen.basick.animk.builder.commons.IAnimatorUpdateListener
-import com.mozhimen.basick.animk.builder.temps.AnimatorAlphaType
+import com.mozhimen.basick.animk.builder.impls.AnimatorAlphaViewType
 import com.mozhimen.basick.taskk.executor.TaskKExecutor
 import com.mozhimen.imagek.blur.mos.ImageKBlurConfig
 import com.mozhimen.basick.utilk.android.util.e
-import com.mozhimen.basick.utilk.android.view.UtilKView
 import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper
 import com.mozhimen.basick.utilk.android.view.applyBackgroundNull
 import com.mozhimen.basick.utilk.java.lang.UtilKThread
@@ -34,8 +32,6 @@ import java.util.concurrent.atomic.AtomicBoolean
  */
 class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
     AppCompatImageView(context, attrs, defStyleAttr), IXmlK {
-
-    override val TAG: String = "ImageKBlur>>>>>"
 
     @Volatile
     private var _abortBlur = false
@@ -161,15 +157,19 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
 //        valueAnimator.addUpdateListener { animation -> imageAlpha = (animation.animatedValue as Int) }
 //        valueAnimator.start()
 
-        AnimKBuilder.asAnimator().add(AnimatorAlphaType().setAlpha(0f, 1f).addAnimatorUpdateListener(object : IAnimatorUpdateListener<Int> {
-            override fun onChange(value: Int) {
-                imageAlpha = value
-            }
-        }).addAnimatorListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-                _isAnimating = false
-            }
-        })).setDuration(duration).setInterpolator(AccelerateDecelerateInterpolator()).build().start()
+        AnimatorAlphaViewType().setAlpha(0f, 1f)
+            .addAnimatorUpdateListener(object : IAnimatorUpdateListener<Int> {
+                override fun onChange(value: Int?) {
+                    value?.let {
+                        imageAlpha = value
+                    }
+                }
+            })
+            .addAnimatorListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    _isAnimating = false
+                }
+            }).setDuration(duration).setInterpolator(AccelerateDecelerateInterpolator()).build().start()
     }
 
     private fun startAlphaOutAnimation(duration: Long) {
@@ -184,15 +184,20 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
 //        valueAnimator.addUpdateListener { animation -> imageAlpha = (animation.animatedValue as Int) }
 //        valueAnimator.start()
 
-        AnimKBuilder.asAnimator().add(AnimatorAlphaType().setAlpha(1f, 0f).addAnimatorUpdateListener(object : IAnimatorUpdateListener<Int> {
-            override fun onChange(value: Int) {
-                imageAlpha = value
-            }
-        }).addAnimatorListener(object : AnimatorListenerAdapter() {
-            override fun onAnimationEnd(animation: Animator) {
-                _isAnimating = false
-            }
-        })).setDuration(duration).setInterpolator(AccelerateInterpolator()).build().start()
+        AnimatorAlphaViewType().setAlpha(1f, 0f)
+            .addAnimatorUpdateListener(object : IAnimatorUpdateListener<Int> {
+                override fun onChange(value: Int?) {
+                    value?.let {
+                        imageAlpha = value
+                    }
+                }
+            })
+            .addAnimatorListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    _isAnimating = false
+                }
+            })
+            .setDuration(duration).setInterpolator(AccelerateInterpolator()).build().start()
     }
 
     /**

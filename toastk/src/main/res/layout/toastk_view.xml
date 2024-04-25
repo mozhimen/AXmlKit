@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/toastk_radius_border"
     android:orientation="vertical"
-    tools:background="@color/cok_amber_100">
+    tools:background="@color/cok_ambe_ffecb3">
 
     <TextView
         android:id="@+id/toast_text"

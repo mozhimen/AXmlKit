@@ -11,7 +11,7 @@ import android.view.LayoutInflater
 import android.widget.TextView
 import com.mozhimen.basick.animk.builder.AnimKBuilder
 import com.mozhimen.basick.animk.builder.commons.IAnimatorUpdateListener
-import com.mozhimen.basick.animk.builder.temps.AnimatorFloatType
+import com.mozhimen.basick.animk.builder.impls.AnimatorFloatType
 import com.mozhimen.basick.utilk.android.widget.applyTypeface
 import com.mozhimen.xmlk.interpolatork.InterpolatorKSpring
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
@@ -79,14 +79,16 @@ open class LayoutKRollText @JvmOverloads constructor(context: Context, attrs: At
 //        }
         setTextViewStyle(_tvTextSize, _tvTextColor)
 
-        _rollAnimator = AnimKBuilder.asAnimator().add(AnimatorFloatType().setFloat(0f, 1f).addAnimatorUpdateListener(object : IAnimatorUpdateListener<Float> {
-            override fun onChange(value: Float) {
-                if (_animatorMode == AAnimatorMode.UP) {
-                    _textView1.translationY = -_tvHeight * value
-                    _textView2.translationY = -_tvHeight * value
-                } else {
-                    _textView1.translationY = _tvHeight * value
-                    _textView2.translationY = -2 * _tvHeight + _tvHeight * value
+        _rollAnimator = AnimKBuilder.asAnimator().combine(AnimatorFloatType().setFloat(0f, 1f).addAnimatorUpdateListener(object : IAnimatorUpdateListener<Float> {
+            override fun onChange(value: Float?) {
+                value?.let {
+                    if (_animatorMode == AAnimatorMode.UP) {
+                        _textView1.translationY = -_tvHeight * value
+                        _textView2.translationY = -_tvHeight * value
+                    } else {
+                        _textView1.translationY = _tvHeight * value
+                        _textView2.translationY = -2 * _tvHeight + _tvHeight * value
+                    }
                 }
             }
         })).setDuration(_animatorDuration).setInterpolator(InterpolatorKSpring()).build() as AnimatorSet

@@ -2,12 +2,11 @@ package com.mozhimen.xmlk.test.popwink.temps
 
 import android.content.Context
 import android.graphics.Color
-import android.util.Log
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import android.view.animation.Animation
 import com.mozhimen.basick.animk.builder.AnimKBuilder
-import com.mozhimen.basick.animk.builder.temps.AnimKTranslationType
+import com.mozhimen.basick.animk.builder.impls.AnimationTranslationType
 import com.mozhimen.xmlk.popwink.bases.BasePopwinKLifecycle
 import com.mozhimen.xmlk.viewk.wheel.ViewKWheel
 import com.mozhimen.xmlk.viewk.wheel.temps.ArrayWheelAdapter
@@ -47,10 +46,10 @@ class PopwinKSelector(
     }
 
     override fun onCreateShowAnimation(): Animation {
-        return AnimKBuilder.asAnimation().add(AnimKTranslationType.FROM_BOTTOM_SHOW).build()
+        return AnimationTranslationType.FROM_BOTTOM_SHOW.build()
     }
 
     override fun onCreateDismissAnimation(): Animation {
-        return AnimKBuilder.asAnimation().add(AnimKTranslationType.TO_BOTTOM_HIDE).build()
+        return AnimationTranslationType.TO_BOTTOM_HIDE.build()
     }
 }

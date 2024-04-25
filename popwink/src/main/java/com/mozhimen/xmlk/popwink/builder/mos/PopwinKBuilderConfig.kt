@@ -7,9 +7,7 @@ import android.graphics.drawable.Drawable
 import android.util.Pair
 import android.view.View
 import android.view.animation.Animation
-import com.mozhimen.basick.animk.builder.AnimKBuilder.asAnimation
-import com.mozhimen.basick.animk.builder.temps.AnimKScaleType.Companion.CENTER_HIDE
-import com.mozhimen.basick.animk.builder.temps.AnimKScaleType.Companion.CENTER_SHOW
+import com.mozhimen.basick.animk.builder.impls.AnimationScaleType
 import com.mozhimen.basick.elemk.android.os.cons.CVersCode
 import com.mozhimen.imagek.blur.mos.ImageKBlurConfig
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
@@ -37,8 +35,8 @@ class PopwinKBuilderConfig : IClearMemoryListener {
         @JvmStatic
         fun generateDefault(): PopwinKBuilderConfig {
             return PopwinKBuilderConfig()
-                .setShowAnimation(asAnimation().add(CENTER_SHOW).build())
-                .setDismissAnimation(asAnimation().add(CENTER_HIDE).build())
+                .setShowAnimation(AnimationScaleType.CENTER_SHOW.build())
+                .setDismissAnimation(AnimationScaleType.CENTER_HIDE.build())
                 .setFadeInAndOut(UtilKBuildVersion.getSDKInt() != CVersCode.V_23_6_M)
         }
     }

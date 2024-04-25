@@ -5,8 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.mozhimen.basick.animk.builder.AnimKBuilder
-import com.mozhimen.basick.animk.builder.temps.AnimKRotationRecyclerType
+import com.mozhimen.basick.animk.builder.impls.AnimationRotationRecyclerType
 import com.mozhimen.basick.utilk.android.widget.applyValueIfNotEmpty
 import com.mozhimen.basick.utilk.wrapper.stopAnim
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogK
@@ -36,7 +35,7 @@ class DialogKLoadingUpdate @JvmOverloads internal constructor(
     private var _imgProgress: ImageView? = null
     private var _txtDesc: TextView? = null
     private var _txtUpdateDesc: TextView? = null
-    private val _rotateAnimation by lazy { AnimKBuilder.asAnimation().add(AnimKRotationRecyclerType()).setDuration(2000).build() }
+    private val _rotateAnimation by lazy { AnimationRotationRecyclerType().setDuration(2000).build() }
 
     init {
         setCancelable(true)

@@ -10,9 +10,8 @@ import android.view.animation.Animation
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.LifecycleOwner
-import com.mozhimen.basick.animk.builder.AnimKBuilder
-import com.mozhimen.basick.animk.builder.temps.AnimKTranslationType
-import com.mozhimen.basick.animk.builder.temps.AnimatorGradientDrawableColorType
+import com.mozhimen.basick.animk.builder.impls.AnimationTranslationType
+import com.mozhimen.basick.animk.builder.impls.AnimatorGradientDrawableColorType
 import com.mozhimen.basick.elemk.commons.IA_Listener
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.androidx.lifecycle.runOnMainScope
@@ -88,14 +87,14 @@ class LayoutKBtnSwitch @JvmOverloads constructor(
     private var _switchOnAnimation: Animation? = null
         get() {
             if (field != null) return field
-            val animation = AnimKBuilder.asAnimation().add(AnimKTranslationType().apply {
+            val animation = AnimationTranslationType().apply {
                 //fromX(0f, false).toX(_switch.leftXOn - _switch.leftXOff, false)
                 if (!_defaultStatus) {
                     fromX(0f, false).toX(_mSwitch.leftXOn - _mSwitch.leftXOff, false)
                 } else {
                     fromX(_mSwitch.leftXOff - _mSwitch.leftXOn, false).toX(0f, false)
                 }
-            }).setDuration(_attrs.animTime.toLong())
+            }.setDuration(_attrs.animTime.toLong())
                 .setInterpolator(AccelerateDecelerateInterpolator()).build()
             animation.setAnimationListener(object : Animation.AnimationListener {
                 override fun onAnimationStart(animation: Animation) {
@@ -116,14 +115,14 @@ class LayoutKBtnSwitch @JvmOverloads constructor(
     private var _switchOffAnimation: Animation? = null
         get() {
             if (field != null) return field
-            val animation = AnimKBuilder.asAnimation().add(AnimKTranslationType().apply {
+            val animation = AnimationTranslationType().apply {
                 //fromX(_switch.leftXOn - _switch.leftXOff, false).toX(0f, false)
                 if (!_defaultStatus) {
                     fromX(_mSwitch.leftXOn - _mSwitch.leftXOff, false).toX(0f, false)
                 } else {
                     fromX(0f, false).toX(_mSwitch.leftXOff - _mSwitch.leftXOn, false)
                 }
-            }).setDuration(_attrs.animTime.toLong())
+            }.setDuration(_attrs.animTime.toLong())
                 .setInterpolator(AccelerateDecelerateInterpolator()).build()
             animation.setAnimationListener(object : Animation.AnimationListener {
                 override fun onAnimationStart(animation: Animation) {
@@ -142,11 +141,11 @@ class LayoutKBtnSwitch @JvmOverloads constructor(
             return animation.also { field = it }
         }
     private val _bgOnAnimator by lazy {
-        AnimKBuilder.asAnimator().add(AnimatorGradientDrawableColorType().setGradientDrawable(_bgView!!.background as GradientDrawable).setColors(_attrs.bgColorOff, _attrs.bgColorOn))
+        AnimatorGradientDrawableColorType().setGradientDrawable(_bgView!!.background as GradientDrawable).setColors(_attrs.bgColorOff, _attrs.bgColorOn)
             .setDuration(_attrs.animTime.toLong()).build()
     }
     private val _bgOffAnimator by lazy {
-        AnimKBuilder.asAnimator().add(AnimatorGradientDrawableColorType().setGradientDrawable(_bgView!!.background as GradientDrawable).setColors(_attrs.bgColorOn, _attrs.bgColorOff))
+        AnimatorGradientDrawableColorType().setGradientDrawable(_bgView!!.background as GradientDrawable).setColors(_attrs.bgColorOn, _attrs.bgColorOff)
             .setDuration(_attrs.animTime.toLong()).build()
     }
 
