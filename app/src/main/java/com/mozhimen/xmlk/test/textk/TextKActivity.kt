@@ -51,7 +51,7 @@ class TextKActivity : BaseActivityVDB<ActivityTextkBinding>() {
             "@Override\n" +
                     "protected void onCreate(Bundle savedInstanceState) {\n" +
                     "super.onCreate(savedInstanceState);\n" +
-                    "setContentView(R.layout.activity_main);\n" +
+                    "setContentView(R.layout.activity_main);\n" /*+
                     "collapsibleTextView = (CollapsibleTextView)\n" +
                     "findViewById(R.id.CollapsibleTextView);\n" +
                     "//设置文字会出现效果\n" +
@@ -61,7 +61,7 @@ class TextKActivity : BaseActivityVDB<ActivityTextkBinding>() {
                     "作者：miaozbetter\n" +
                     "链接：https://www.jianshu.com/p/61aec9d934e5\n" +
                     "来源：简书\n" +
-                    "著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。", 4
+                    "著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"*/, 4
         )
     }
 
