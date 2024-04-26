@@ -11,9 +11,12 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
+import com.mozhimen.basick.elemk.android.view.ViewProxy
 import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
+import com.mozhimen.basick.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.basick.utilk.android.view.applyVisibleIfElseGone
 import com.mozhimen.basick.utilk.android.view.applyVisibleIfElseInVisible
+import java.lang.ref.WeakReference
 
 /**
  * @ClassName RecyclerKViewHolder
@@ -24,6 +27,10 @@ import com.mozhimen.basick.utilk.android.view.applyVisibleIfElseInVisible
 open class VHKRecycler(containerView: View) : VHKLifecycle(containerView) {
 
     private var _viewCaches = SparseArray<View>()
+    @OptIn(OApiInit_ByLazy::class)
+    private val _viewProxy by lazy { ViewProxy<VHKRecycler>(WeakReference(this.itemView)) }
+    @OptIn(OApiInit_ByLazy::class)
+    val viewProxy get() = _viewProxy
 
     //////////////////////////////////////////////////////////////////////
 
@@ -44,67 +51,5 @@ open class VHKRecycler(containerView: View) : VHKLifecycle(containerView) {
             _viewCaches.put(viewId, view)
         }
         return view as? VIEW?
-    }
-
-    //////////////////////////////////////////////////////////////////////
-
-    fun setText(@IdRes viewId: Int, value: CharSequence?): VHKRecycler {
-        findViewById<TextView>(viewId).text = value
-        return this
-    }
-
-    fun setText(@IdRes viewId: Int, @StringRes strId: Int): VHKRecycler {
-        findViewById<TextView>(viewId).setText(strId)
-        return this
-    }
-
-    fun setTextColor(@IdRes viewId: Int, @ColorInt intColor: Int): VHKRecycler {
-        findViewById<TextView>(viewId).setTextColor(intColor)
-        return this
-    }
-
-    fun setTextColorId(@IdRes viewId: Int, @ColorRes colorId: Int): VHKRecycler {
-        findViewById<TextView>(viewId).setTextColor(itemView.resources.getColor(colorId))
-        return this
-    }
-
-    fun setImageResource(@IdRes viewId: Int, @DrawableRes intResDrawable: Int): VHKRecycler {
-        findViewById<ImageView>(viewId).setImageResource(intResDrawable)
-        return this
-    }
-
-    fun setImageDrawable(@IdRes viewId: Int, drawable: Drawable): VHKRecycler {
-        findViewById<ImageView>(viewId).setImageDrawable(drawable)
-        return this
-    }
-
-    fun setImageBitmap(@IdRes viewId: Int, bitmap: Bitmap): VHKRecycler {
-        findViewById<ImageView>(viewId).setImageBitmap(bitmap)
-        return this
-    }
-
-    fun setBackgroundColor(@IdRes viewId: Int, @ColorInt intColor: Int): VHKRecycler {
-        findViewById<View>(viewId).setBackgroundColor(intColor)
-        return this
-    }
-
-    fun setBackgroundResource(@IdRes viewId: Int, @DrawableRes backgroundRes: Int): VHKRecycler {
-        findViewById<View>(viewId).setBackgroundResource(backgroundRes)
-        return this
-    }
-
-    fun setVisible(@IdRes viewId: Int, isVisible: Boolean): VHKRecycler {
-        findViewById<View>(viewId).applyVisibleIfElseInVisible(isVisible)
-        return this
-    }
-
-    fun setGone(@IdRes viewId: Int, isGone: Boolean): VHKRecycler {
-        findViewById<View>(viewId).applyVisibleIfElseGone(!isGone)
-        return this
-    }
-
-    fun setEnabled(@IdRes viewId: Int, isEnabled: Boolean): VHKRecycler {
-        findViewById<View>(viewId).isEnabled = isEnabled
-        return this
     }
 }

@@ -1,5 +1,6 @@
 package com.mozhimen.xmlk.vhk
 
+import android.content.Context
 import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
@@ -38,6 +39,9 @@ open class VHKLifecycle(containerView: View) : RecyclerView.ViewHolder(container
 
     override val lifecycle: Lifecycle
         get() = lifecycleRegistry
+
+    val context: Context
+        get() = this.itemView.context
 
     /////////////////////////////////////////////////////////////////
 

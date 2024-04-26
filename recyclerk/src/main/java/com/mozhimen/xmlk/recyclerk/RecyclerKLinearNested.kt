@@ -2,12 +2,15 @@ package com.mozhimen.xmlk.recyclerk
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
-import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.elemk.android.view.cons.CMotionEvent
 import com.mozhimen.basick.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.basick.lintk.optins.OApiCall_BindViewLifecycle
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.basick.utilk.android.view.requestAllowInterceptTouchEvent
+import com.mozhimen.basick.utilk.androidx.recyclerview.UtilKRecyclerViewWrapper
+import com.mozhimen.basick.utilk.androidx.recyclerview.isScrollVertical
 import kotlin.math.abs
 
 /**
@@ -22,6 +25,7 @@ import kotlin.math.abs
 class RecyclerKLinearNested @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerKLifecycle(context, attrs, defStyleAttr) {
     private var _startX = 0
     private var _startY = 0
+    private val _isScrollVertical by lazy { isScrollVertical().also { UtilKLogWrapper.d(TAG, "_isScrollVertical $it") } }
 
     @OApiCall_BindViewLifecycle
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
@@ -36,20 +40,27 @@ class RecyclerKLinearNested @JvmOverloads constructor(context: Context, attrs: A
             CMotionEvent.ACTION_MOVE -> {
                 val endX = ev.x.toInt()
                 val endY = ev.y.toInt()
-                val disX = abs(endX - _startX)
-                val disY = abs(endY - _startY)
-//                //下拉的时候是false
-//                if (disY >= disX) {
-//                    parent.requestDisallowInterceptTouchEvent(false)//y轴大于x轴->父控件拦截->false->y>x取反->y<=x
-//                    return false
-//                } else {
-//                    parent.requestDisallowInterceptTouchEvent(true)
-//                }
-                parent.requestAllowInterceptTouchEvent(disX <= disY)
+                val distanceHorizontal = abs(endX - _startX)
+                val distanceVertical = abs(endY - _startY)
+                UtilKLogWrapper.v(TAG, "dispatchTouchEvent: distanceHorizontal $distanceHorizontal distanceVertical $distanceVertical")
+                parent.requestAllowInterceptTouchEvent(
+                    if (_isScrollVertical)
+                        if (UtilKRecyclerViewWrapper.isScroll2top(this))
+                            true
+                        else
+                            distanceHorizontal > distanceVertical
+                    else
+                        distanceVertical >= distanceHorizontal
+                )
             }
 
-            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL ->
-                parent.requestAllowInterceptTouchEvent(true)
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                if (_isScrollVertical)
+                    parent.requestAllowInterceptTouchEvent(true)
+                else
+                    parent.requestAllowInterceptTouchEvent(false)
+            }
+
             else -> {}
         }
         return super.dispatchTouchEvent(ev)

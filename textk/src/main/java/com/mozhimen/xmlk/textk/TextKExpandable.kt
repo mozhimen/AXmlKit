@@ -10,8 +10,10 @@ import android.util.Log
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.view.marginTop
 import com.mozhimen.basick.animk.builder.utils.AnimKTypeUtil
 import com.mozhimen.basick.elemk.commons.IA_Listener
+import com.mozhimen.basick.utilk.android.widget.UtilKTextViewWrapper
 import com.mozhimen.xmlk.commons.IXmlK
 
 /**
@@ -23,15 +25,16 @@ import com.mozhimen.xmlk.commons.IXmlK
 class TextKExpandable @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : AppCompatTextView(context, attrs, defStyleAttr), IXmlK,
     View.OnClickListener {
 
-    private val _expandable = false
     private var _maxLines = 3
 
     //源文字
     private var _strOrigin: CharSequence = ""
         set(value) {
             this.post {
-                setLastIndexForLimit(value, width, _maxLines)
-                isSelected = false
+                if (this.isAttachedToWindow) {
+                    setLastIndexForLimit(value, width, _maxLines)
+                    isSelected = false
+                }
             }
             field = value
         }
@@ -88,7 +91,6 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
 
     fun setExpandableText(text: CharSequence, maxLines: Int) {
         UtilKLogWrapper.d(TAG, "setExpandableText: maxLine $maxLines")
-//        setLastIndexForLimit(text, maxLine)
         _maxLines = maxLines
         _strOrigin = text
     }
@@ -97,7 +99,6 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
 
     private fun setLastIndexForLimit(content: CharSequence, width: Int, maxLine: Int) {
         val paint = paint//获取TextView的画笔对象
-//        val width = resources.displayMetrics.widthPixels - 40f.dp2px.toInt()//每行文本的布局宽度
         val staticLayout = StaticLayout(content, paint, width /*width*/, Layout.Alignment.ALIGN_NORMAL, lineSpacingMultiplier, lineSpacingExtra, includeFontPadding)//实例化StaticLayout 传入相应参数
         UtilKLogWrapper.d(TAG, "setLastIndexForLimit: width $width lineCount ${staticLayout.lineCount}")
         if (staticLayout.lineCount > maxLine) {//判断content是行数是否超过最大限制行数3行
@@ -108,6 +109,10 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
             _strFold = strFold
             _strFoldHeight = maxLine * this.lineHeight
             UtilKLogWrapper.d(TAG, "setLastIndexForLimit: _strExpandHeight $_strExpandHeight _strFoldHeight $_strFoldHeight ")
+            UtilKLogWrapper.d(
+                TAG,
+                "setLastIndexForLimit: _strExpandHeight ${UtilKTextViewWrapper.getLineHeight(this, staticLayout.lineCount)} _strFoldHeight ${UtilKTextViewWrapper.getLineHeight(this, maxLine)} "
+            )
 
             ///////////////////////////////////////////////////////////////////////////
 
@@ -124,7 +129,6 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
 
     /**
      * Called when a view has been clicked.
-     *
      * @param v The view that was clicked.
      */
     override fun onClick(v: View) {
@@ -133,13 +137,10 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
             text = _strExpand
             AnimKTypeUtil.get_ofHeight(this, _strFoldHeight, _strExpandHeight).build().start()
         } else {
-            AnimKTypeUtil.get_ofHeight(this, _strExpandHeight, _strFoldHeight).addAnimatorListener(object : AnimatorListenerAdapter(){
-                override fun onAnimationEnd(animation: Animator) {
-                    text = _strFold
-                }
-
+            AnimKTypeUtil.get_ofHeight(this, _strExpandHeight, _strFoldHeight).addAnimatorListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator, isReverse: Boolean) {
                     text = _strFold
+                    UtilKLogWrapper.d(TAG, "onClick !isSelected height onAnimationEnd2 ${this@TextKExpandable.height}")
                 }
 
                 override fun onAnimationCancel(animation: Animator) {
@@ -147,52 +148,6 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
                 }
             }).build().start()
         }
-        Log.d(TAG, "onClick: ${this.isSelected}")
         _textKExpandListener?.invoke(this.isSelected)
     }
 }
-
-/*    private fun setLastIndexForLimit(foldLines: Int, content: CharSequence) {
-    val paint = paint//获取TextView的画笔对象
-    val width = resources.displayMetrics.widthPixels - 40f.dp2px.toInt()//每行文本的布局宽度
-    val staticLayout = StaticLayout(content, paint, width, Layout.Alignment.ALIGN_NORMAL, 1.0F, 0.0F, false)//实例化StaticLayout 传入相应参数
-    if (staticLayout.lineCount > foldLines) {//判断content是行数是否超过最大限制行数3行
-//            if (_expandable) {
-//////                val string1 = "$content    收起"
-////                val notElipseString = SpannableString(content)//定义展开后的文本内容
-////                //给收起两个字设成蓝色
-////                notElipseString.setSpan(
-////                    ForegroundColorSpan(Color.parseColor("#00A667")),
-////                    string1.length - 2,
-////                    string1.length,
-////                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-////                )
-//                _strExpand = notElipseString
-//            } else {
-//_strExpand = content
-//            }
-        _strExpand = content
-
-        val index = staticLayout.getLineStart(foldLines) - 1//获取到第三行最后一个文字的下标
-        //定义收起后的文本内容
-        val substring = content.substring(0, index - 2) + "展开"
-        val elipseString = SpannableString(substring)
-        //给查看全部设成蓝色
-        elipseString.setSpan(
-            ForegroundColorSpan(Color.parseColor("#00A668")),
-            substring.length - 2,
-            substring.length,
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-        )
-        _strFold = elipseString
-        //设置收起后的文本内容
-        text = elipseString
-        setOnClickListener(this)
-        //将textview设成选中状态 true用来表示文本未展示完全的状态,false表示完全展示状态，用于点击时的判断
-        //            isSelected = true
-        //        } else {
-        //            //没有超过 直接设置文本
-        //            text = content
-        //            setOnClickListener(null)
-        //        }
-        //    }*/
