@@ -3,13 +3,16 @@ package com.mozhimen.xmlk.vhk
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.util.SparseArray
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
+import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import com.mozhimen.basick.elemk.android.view.ViewProxy
 import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
@@ -24,11 +27,19 @@ import java.lang.ref.WeakReference
  * @Author mozhimen / Kolin Zhao
  * @Version 1.0
  */
-open class VHKRecycler(containerView: View) : VHKLifecycle(containerView) {
+open class VHKRecycler : VHKLifecycle {
+
+    constructor(containerView: View) : super(containerView)
+
+    constructor(parent: ViewGroup, @LayoutRes intResId: Int) : super(LayoutInflater.from(parent.context).inflate(intResId, parent, false))
+
+    //////////////////////////////////////////////////////////////////////
 
     private var _viewCaches = SparseArray<View>()
+
     @OptIn(OApiInit_ByLazy::class)
     private val _viewProxy by lazy { ViewProxy<VHKRecycler>(WeakReference(this.itemView)) }
+
     @OptIn(OApiInit_ByLazy::class)
     val viewProxy get() = _viewProxy
 
