@@ -42,7 +42,7 @@ class RecyclerKLinearNested @JvmOverloads constructor(context: Context, attrs: A
                 val endY = ev.y.toInt()
                 val distanceHorizontal = abs(endX - _startX)
                 val distanceVertical = abs(endY - _startY)
-                UtilKLogWrapper.v(TAG, "dispatchTouchEvent: distanceHorizontal $distanceHorizontal distanceVertical $distanceVertical")
+//                UtilKLogWrapper.v(TAG, "dispatchTouchEvent: distanceHorizontal $distanceHorizontal distanceVertical $distanceVertical")
                 parent.requestAllowInterceptTouchEvent(
                     if (_isScrollVertical)
                         if (UtilKRecyclerViewWrapper.isScroll2top(this))
