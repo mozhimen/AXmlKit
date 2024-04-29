@@ -1,6 +1,9 @@
 package com.mozhimen.xmlk.vhk
 
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.mozhimen.basick.utilk.commons.IUtilK
@@ -23,4 +26,6 @@ open class VHKRecyclerVDB<VDB : ViewDataBinding> : VHKRecycler, IUtilK {
     constructor(viewDataBinding: VDB) : super(viewDataBinding.root) {
         _vdb = viewDataBinding
     }
+
+    constructor(parent: ViewGroup, @LayoutRes intResLayout: Int) : this(LayoutInflater.from(parent.context).inflate(intResLayout, parent, false))
 }

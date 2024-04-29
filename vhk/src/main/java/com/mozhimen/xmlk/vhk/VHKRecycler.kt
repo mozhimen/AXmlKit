@@ -1,24 +1,14 @@
 package com.mozhimen.xmlk.vhk
 
-import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
 import android.util.SparseArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.annotation.ColorInt
-import androidx.annotation.ColorRes
-import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
-import androidx.annotation.StringRes
 import com.mozhimen.basick.elemk.android.view.ViewProxy
 import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
 import com.mozhimen.basick.lintk.optins.OApiInit_ByLazy
-import com.mozhimen.basick.utilk.android.view.applyVisibleIfElseGone
-import com.mozhimen.basick.utilk.android.view.applyVisibleIfElseInVisible
 import java.lang.ref.WeakReference
 
 /**
@@ -27,6 +17,7 @@ import java.lang.ref.WeakReference
  * @Author mozhimen / Kolin Zhao
  * @Version 1.0
  */
+@Suppress(CSuppress.UNCHECKED_CAST)
 open class VHKRecycler : VHKLifecycle {
 
     constructor(containerView: View) : super(containerView)
@@ -45,22 +36,16 @@ open class VHKRecycler : VHKLifecycle {
 
     //////////////////////////////////////////////////////////////////////
 
-    fun <T : View> findViewById(@IdRes intResId: Int): T {
-        val view = findViewByIdOrNull<T>(intResId)
+    fun <V : View> findViewById(@IdRes intResId: Int): V {
+        val view = findViewByIdOrNull<V>(intResId)
         checkNotNull(view) { "No view found with id $intResId" }
         return view
     }
 
-    /**
-     * 根据资源ID找到View
-     */
-    @Suppress(CSuppress.UNCHECKED_CAST)
-    fun <VIEW : View> findViewByIdOrNull(@IdRes viewId: Int): VIEW? {
-        var view = _viewCaches.get(viewId)
-        if (view == null) {
-            view = itemView.findViewById<VIEW>(viewId)
-            _viewCaches.put(viewId, view)
+    fun <V : View> findViewByIdOrNull(@IdRes intResId: Int): V? {
+        val view = _viewCaches.get(intResId)?: return itemView.findViewById<V>(intResId)?.apply {
+            _viewCaches.put(intResId, this)
         }
-        return view as? VIEW?
+        return view as? V?
     }
 }
