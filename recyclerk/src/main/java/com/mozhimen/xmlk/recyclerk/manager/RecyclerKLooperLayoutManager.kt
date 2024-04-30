@@ -3,9 +3,8 @@ package com.mozhimen.xmlk.recyclerk.manager
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import androidx.recyclerview.widget.RecyclerView.Recycler
 import com.mozhimen.basick.utilk.commons.IUtilK
-
 
 /**
  * @ClassName RecyclerKLooperLayoutManager
@@ -16,11 +15,14 @@ import com.mozhimen.basick.utilk.commons.IUtilK
  */
 class RecyclerKLooperLayoutManager : RecyclerView.LayoutManager, IUtilK {
 
-    constructor(looperEnable: Boolean) : super() {
-        _looperEnable = looperEnable
-    }
+    @RecyclerView.Orientation
+    private var _orientation: Int = RecyclerView.VERTICAL
 
-    private var _looperEnable = true
+    //////////////////////////////////////////////////////////////////////
+
+    constructor(@RecyclerView.Orientation orientation: Int) : super() {
+        _orientation = orientation
+    }
 
     //////////////////////////////////////////////////////////////////////
 
@@ -29,147 +31,208 @@ class RecyclerKLooperLayoutManager : RecyclerView.LayoutManager, IUtilK {
     }
 
     override fun canScrollHorizontally(): Boolean {
-        return true
+        return _orientation == RecyclerView.HORIZONTAL
+    }
+
+    override fun canScrollVertically(): Boolean {
+        return _orientation == RecyclerView.VERTICAL
     }
 
     override fun onLayoutChildren(recycler: RecyclerView.Recycler, state: RecyclerView.State) {
         if (getItemCount() <= 0) {
             return
         }
+
         //标注1.如果当前时准备状态，直接返回
         if (state.isPreLayout()) {
             return
         }
+
         //标注2.将视图分离放入scrap缓存中，以准备重新对view进行排版
         detachAndScrapAttachedViews(recycler)
+        layoutChunk(recycler)
+    }
 
-        var actualWidth = 0
-        for (i in 0 until getItemCount()) {
+    private fun layoutChunk(recycler: Recycler) {
+        if (_orientation == RecyclerView.HORIZONTAL) {
+            var tempLeft = paddingLeft
+            for (i in 0 until getItemCount()) {
+                if (tempLeft > width - paddingRight)
+                    break
 
-            //标注3.初始化，将在屏幕内的view填充
-            val itemView = recycler.getViewForPosition(i)
-            addView(itemView)
+                val itemView = recycler.getViewForPosition(i % getItemCount())//标注3.初始化，将在屏幕内的view填充//标注4.测量itemView的宽高
+                addView(itemView)
 
-            //标注4.测量itemView的宽高
-            measureChildWithMargins(itemView, 0, 0)
-            val width = getDecoratedMeasuredWidth(itemView)
-            val height = getDecoratedMeasuredHeight(itemView)
+                measureChildWithMargins(itemView, 0, 0)
 
-            //标注5.根据itemView的宽高进行布局
-            layoutDecorated(itemView, actualWidth, 0, actualWidth + width, height)
-            actualWidth += width
+                val top = paddingTop
+                val right = getDecoratedMeasuredWidth(itemView) + tempLeft
+                val bottom = getDecoratedMeasuredHeight(itemView) + top
+                layoutDecorated(itemView, tempLeft, top, right, bottom)//标注5.根据itemView的宽高进行布局
 
-            //标注6.如果当前布局过的itemView的宽度总和大于RecyclerView的宽，则不再进行布局
-            if (actualWidth > getWidth()) {
-                break
+                tempLeft = right
+            }
+        } else {
+            var tempTop = paddingTop
+            for (i in 0 until itemCount) {
+                if (tempTop > height - paddingBottom)
+                    break
+
+                val itemView = recycler.getViewForPosition(i % itemCount)
+                addView(itemView)
+
+                measureChildWithMargins(itemView, 0, 0)
+
+                val left = paddingLeft
+                val bottom: Int = tempTop + getDecoratedMeasuredHeight(itemView)
+                val right = left + getDecoratedMeasuredWidth(itemView)
+                layoutDecorated(itemView, left, tempTop, right, bottom)
+
+                tempTop = bottom
             }
         }
     }
 
+    override fun isAutoMeasureEnabled(): Boolean {
+        return true
+    }
+
     override fun scrollHorizontallyBy(dx: Int, recycler: RecyclerView.Recycler, state: RecyclerView.State): Int {
-        //标注1.横向滑动的时候，对左右两边按顺序填充itemView
-        val travl = fill(dx, recycler, state)
-        if (travl == 0) {
-            return 0
-        }
+        fill_Horizontal(recycler, dx)//标注1.横向滑动的时候，对左右两边按顺序填充itemView
+        offsetChildrenHorizontal(-dx)//2.滑动
+        recyclerChildView(recycler, dx) //3.回收已经不可见的itemView
+        return dx
+    }
 
-        //2.滑动
-        offsetChildrenHorizontal(-travl)
-
-        //3.回收已经不可见的itemView
-        recyclerHideView(dx, recycler, state)
-        return travl
+    override fun scrollVerticallyBy(dy: Int, recycler: Recycler, state: RecyclerView.State): Int {
+        fill_Vertical(recycler, dy)
+        offsetChildrenVertical(-dy)
+        recyclerChildView(recycler, dy)
+        return dy
     }
 
     /**
      * 左右滑动的时候，填充
      */
-    private fun fill(dx: Int, recycler: RecyclerView.Recycler, state: RecyclerView.State): Int {
-        var dx = dx
+    private fun fill_Horizontal(recycler: RecyclerView.Recycler, dx: Int) {
+        if (childCount == 0) return
         if (dx > 0) {
-            //标注1.向左滚动
-            val lastView: View = getChildAt(getChildCount() - 1) ?: return 0
-            val lastPos = getPosition(lastView)
+            //填充尾部
+            var anchorView = getChildAt(childCount - 1) ?: return
+            val anchorPosition = getPosition(anchorView)
 
-            //标注2.可见的最后一个itemView完全滑进来了，需要补充新的
-            if (lastView.getRight() < getWidth()) {
-                var scrap: View? = null
+            while (anchorView.right < width - paddingRight) {
+                var position = (anchorPosition + 1) % itemCount
+                if (position < 0) position += itemCount
 
-                //标注3.判断可见的最后一个itemView的索引，
-                // 如果是最后一个，则将下一个itemView设置为第一个，否则设置为当前索引的下一个
-                if (lastPos == getItemCount() - 1) {
-                    if (_looperEnable) {
-                        scrap = recycler.getViewForPosition(0)
-                    } else {
-                        dx = 0
-                    }
-                } else {
-                    scrap = recycler.getViewForPosition(lastPos + 1)
-                }
-                if (scrap == null) {
-                    return dx
-                }
+                val scrapItem = recycler.getViewForPosition(position)
+                addView(scrapItem)
+                measureChildWithMargins(scrapItem, 0, 0)
+                val left = anchorView.right
+                val top = paddingTop
+                val right = left + getDecoratedMeasuredWidth(scrapItem)
+                val bottom = top + getDecoratedMeasuredHeight(scrapItem)
+                layoutDecorated(scrapItem, left, top, right, bottom)
 
-                //标注4.将新的itemViewadd进来并对其测量和布局
-                addView(scrap)
-                measureChildWithMargins(scrap, 0, 0)
-                val width = getDecoratedMeasuredWidth(scrap)
-                val height = getDecoratedMeasuredHeight(scrap)
-                layoutDecorated(scrap, lastView.getRight(), 0, lastView.getRight() + width, height)
-
-                return dx
+                anchorView = scrapItem
             }
         } else {
-            //向右滚动
-            val firstView: View = getChildAt(0) ?: return 0
-            val firstPos = getPosition(firstView)
+            //填充首部
+            var anchorView = getChildAt(0) ?: return
+            val anchorPosition = getPosition(anchorView)
 
-            if (firstView.getLeft() >= 0) {
-                var scrap: View? = null
+            while (anchorView.left > paddingLeft) {
+                var position = (anchorPosition - 1) % itemCount
+                if (position < 0) position += itemCount
 
-                //标注3.判断可见的第一个itemView的索引，
-                if (firstPos == 0) {
-                    if (_looperEnable) {
-                        scrap = recycler.getViewForPosition(getItemCount() - 1)
-                    } else {
-                        dx = 0
-                    }
-                } else {
-                    scrap = recycler.getViewForPosition(firstPos - 1)
-                }
-                if (scrap == null) {
-                    return 0
-                }
+                val scrapItem = recycler.getViewForPosition(position)
+                addView(scrapItem, 0)
+                measureChildWithMargins(scrapItem, 0, 0)
+                val right = anchorView.left
+                val top = paddingTop
+                val left = right - getDecoratedMeasuredWidth(scrapItem)
+                val bottom = top + getDecoratedMeasuredHeight(scrapItem)
+                layoutDecorated(scrapItem, left, top, right, bottom)
 
-                //标注4.将新的itemViewadd进来并对其测量和布局
-                addView(scrap, 0)
-                measureChildWithMargins(scrap, 0, 0)
-                val width = getDecoratedMeasuredWidth(scrap)
-                val height = getDecoratedMeasuredHeight(scrap)
-                layoutDecorated(scrap, firstView.getLeft() - width, 0, firstView.getLeft(), height)
+                anchorView = scrapItem
             }
         }
-        return dx
+    }
+
+    private fun fill_Vertical(recycler: Recycler, dy: Int) {
+        if (childCount == 0) return
+        if (dy > 0) {
+            //填充尾部
+            var anchorView = getChildAt(childCount - 1) ?: return
+            val anchorPosition = getPosition(anchorView)
+
+            while (anchorView.bottom < height - paddingBottom) {
+                var position = (anchorPosition + 1) % itemCount
+                if (position < 0) position += itemCount
+
+                val scrapItem = recycler.getViewForPosition(position)
+                addView(scrapItem)
+                measureChildWithMargins(scrapItem, 0, 0)
+                val left = paddingLeft
+                val top = anchorView.bottom
+                val right = left + getDecoratedMeasuredWidth(scrapItem)
+                val bottom = top + getDecoratedMeasuredHeight(scrapItem)
+                layoutDecorated(scrapItem, left, top, right, bottom)
+                anchorView = scrapItem
+            }
+        } else {
+            //填充首部
+            var anchorView = getChildAt(0) ?: return
+            val anchorPosition = getPosition(anchorView)
+            while (anchorView.top > paddingTop) {
+                var position = (anchorPosition - 1) % itemCount
+                if (position < 0) position += itemCount
+
+                val scrapItem = recycler.getViewForPosition(position)
+                addView(scrapItem, 0)
+                measureChildWithMargins(scrapItem, 0, 0)
+                val left = paddingLeft
+                val right = left + getDecoratedMeasuredWidth(scrapItem)
+                val bottom = anchorView.top
+                val top = bottom - getDecoratedMeasuredHeight(scrapItem)
+                layoutDecorated(
+                    scrapItem, left, top,
+                    right, bottom
+                )
+                anchorView = scrapItem
+            }
+        }
     }
 
     /**
      * 回收界面不可见的view
      */
-    private fun recyclerHideView(dx: Int, recycler: RecyclerView.Recycler, state: RecyclerView.State) {
-        for (i in 0 until getChildCount()) {
-            val view: View = getChildAt(i) ?: continue
-            if (dx > 0) {
-                //标注1.向左滚动，移除左边不在内容里的view
-                if (view.getRight() < 0) {
+    private fun recyclerChildView(recycler: Recycler, dx_dy: Int) {
+        if (dx_dy > 0) {//回收头部
+            for (i in 0 until childCount) {
+                val view: View = getChildAt(i) ?: return
+                val isRecycler =
+                    if (_orientation == RecyclerView.HORIZONTAL)
+                        view.right < paddingLeft
+                    else
+                        view.bottom < paddingTop
+                if (isRecycler)
                     removeAndRecycleView(view, recycler)
-                    UtilKLogWrapper.d(TAG, "recyclerHideView: 移除 一个view  childCount=" + getChildCount())
-                }
-            } else {
-                //标注2.向右滚动，移除右边不在内容里的view
-                if (view.getLeft() > getWidth()) {
+                else
+                    return
+            }
+        } else {//回收尾部
+            for (i in (0 until childCount).reversed()) {
+                val view = getChildAt(i) ?: return
+                val isRecycler =
+                    if (_orientation == RecyclerView.HORIZONTAL)
+                        view.left > width - paddingRight
+                    else
+                        view.top > height - paddingBottom
+                if (isRecycler)
                     removeAndRecycleView(view, recycler)
-                    UtilKLogWrapper.d(TAG, "recyclerHideView: 移除 一个view  childCount=" + getChildCount())
-                }
+                else
+                    return
             }
         }
     }

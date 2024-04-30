@@ -17,6 +17,7 @@ import com.mozhimen.basick.utilk.commons.IUtilK
 open class PagerKDisScroll @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null,
 ) : ViewPager(context, attrs), IUtilK {
+
     protected var _isEnableScroll = true//是否enableScroll
 
     @SuppressLint("ClickableViewAccessibility")

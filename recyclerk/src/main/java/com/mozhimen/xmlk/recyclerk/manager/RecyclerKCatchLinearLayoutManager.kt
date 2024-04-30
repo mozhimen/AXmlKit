@@ -19,6 +19,8 @@ class RecyclerKCatchLinearLayoutManager : LinearLayoutManager {
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
+    //////////////////////////////////////////////////////////////////////
+
     override fun onLayoutChildren(recycler: RecyclerView.Recycler?, state: RecyclerView.State?) {
         try {
             super.onLayoutChildren(recycler, state)
