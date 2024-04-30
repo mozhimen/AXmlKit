@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item_recyclerk_loop"
+            type="int" />
+    </data>
+
+    <ImageView
+        android:id="@+id/item_recyclerk_img"
+        android:layout_width="@dimen/dp_060"
+        android:layout_margin="@dimen/dp_004"
+        android:layout_height="@dimen/dp_060"
+        app:loadImage_ofGlide="@{item_recyclerk_loop}"/>
+</layout>

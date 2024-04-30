@@ -21,5 +21,11 @@
             android:text="goRecyclerKLoad"
             tools:ignore="HardcodedText,UsingOnClickInXml" />
 
+        <com.google.android.material.button.MaterialButton
+            style="@style/XmlKStyle_Btn"
+            android:onClick="goRecyclerKLoop"
+            android:text="goRecyclerKLoop"
+            tools:ignore="HardcodedText,UsingOnClickInXml" />
+
     </LinearLayout>
 </layout>

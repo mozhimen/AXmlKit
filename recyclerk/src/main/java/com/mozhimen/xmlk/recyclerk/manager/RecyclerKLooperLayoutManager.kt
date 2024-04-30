@@ -50,6 +50,8 @@ class RecyclerKLooperLayoutManager : RecyclerView.LayoutManager, IUtilK {
 
         //标注2.将视图分离放入scrap缓存中，以准备重新对view进行排版
         detachAndScrapAttachedViews(recycler)
+
+        //3
         layoutChunk(recycler)
     }
 
@@ -65,7 +67,8 @@ class RecyclerKLooperLayoutManager : RecyclerView.LayoutManager, IUtilK {
 
                 measureChildWithMargins(itemView, 0, 0)
 
-                val top = paddingTop
+                val lp = itemView.layoutParams as? ViewGroup.MarginLayoutParams?
+                val top = paddingTop + (lp?.topMargin ?: 0)
                 val right = getDecoratedMeasuredWidth(itemView) + tempLeft
                 val bottom = getDecoratedMeasuredHeight(itemView) + top
                 layoutDecorated(itemView, tempLeft, top, right, bottom)//标注5.根据itemView的宽高进行布局

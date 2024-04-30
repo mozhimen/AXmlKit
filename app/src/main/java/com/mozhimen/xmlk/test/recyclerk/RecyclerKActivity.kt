@@ -21,4 +21,8 @@ class RecyclerKActivity : BaseActivityVDB<ActivityRecyclerkBinding>() {
     fun goRecyclerKLoad(view: View) {
         startContext<RecyclerKLoadActivity>()
     }
+
+    fun goRecyclerKLoop(view: View) {
+        startContext<RecyclerKLoopActivity>()
+    }
 }

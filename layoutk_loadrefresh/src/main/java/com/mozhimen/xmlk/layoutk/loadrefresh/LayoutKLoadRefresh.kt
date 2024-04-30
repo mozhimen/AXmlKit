@@ -2,8 +2,8 @@ package com.mozhimen.xmlk.layoutk.loadrefresh
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mozhimen.xmlk.recyclerk.item.AdapterKItemRecyclerStuffed
 import com.mozhimen.xmlk.layoutk.loadrefresh.commons.ILoadRefreshListener
 import com.mozhimen.xmlk.recyclerk.load.RecyclerKLoad

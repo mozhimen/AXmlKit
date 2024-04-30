@@ -1,9 +1,7 @@
 package com.mozhimen.xmlk.demo
 
 import android.os.Bundle
-import android.util.Log
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.adaptk.systembar.annors.AAdaptKSystemBarProperty
 import com.mozhimen.adaptk.systembar.cons.CProperty

@@ -166,7 +166,10 @@
             android:exported="false" />
         <activity
             android:name=".recyclerk.RecyclerKLoadActivity"
-            android:exported="false" /> <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+            android:exported="false" />
+        <activity
+            android:name=".recyclerk.RecyclerKLoopActivity"
+            android:exported="false" /><!-- ///////////////////////////////////////////////////////////////////////////////////// -->
         <!-- textk -->
         <activity
             android:name=".textk.TextKActivity"

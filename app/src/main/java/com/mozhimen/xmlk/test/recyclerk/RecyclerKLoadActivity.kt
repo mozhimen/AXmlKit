@@ -2,8 +2,8 @@ package com.mozhimen.xmlk.test.recyclerk
 
 import android.os.Bundle
 import androidx.core.os.postDelayed
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.elemk.android.os.WakeBefPauseLifecycleHandler
