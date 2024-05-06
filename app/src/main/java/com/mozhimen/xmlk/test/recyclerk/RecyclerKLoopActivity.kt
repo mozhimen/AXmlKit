@@ -22,17 +22,19 @@ import com.mozhimen.xmlk.test.databinding.ItemRecyclerkLoopBinding
 class RecyclerKLoopActivity : BaseActivityVDB<ActivityRecyclerkLifecycleBinding>() {
     @OptIn(OApiCall_BindLifecycle::class, OApiCall_BindViewLifecycle::class)
     override fun initView(savedInstanceState: Bundle?) {
-        val list = mutableListOf<Int>()
+        val list = mutableListOf<MKey>()
         repeat(10) {
-            list.add(R.drawable.xmlk_img)
+            list.add(MKey(it,R.drawable.xmlk_img))
         }
         vdb.recyclerkLifecycle.bindLifecycle(this)
         vdb.recyclerkLifecycle.layoutManager = LooperLinearLayoutManager(this)
         vdb.recyclerkLifecycle.adapter =
-            AdapterKItemRecyclerVDB<Int, ItemRecyclerkLoopBinding>(list, R.layout.item_recyclerk_loop, BR.item_recyclerk_loop) { holder, _, position, _ ->
+            AdapterKItemRecyclerVDB<MKey, ItemRecyclerkLoopBinding>(list, R.layout.item_recyclerk_loop, BR.item_recyclerk_loop) { holder, _, position, _ ->
                 holder.vdb.itemRecyclerkImg.setOnClickListener {
                     position.toString().showToast()
                 }
             }
     }
+
+    data class MKey(val pos: Int, val id: Int)
 }

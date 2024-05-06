@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
             name="item_recyclerk_loop"
-            type="int" />
+            type="com.mozhimen.xmlk.test.recyclerk.RecyclerKLoopActivity.MKey" />
     </data>
 
-    <ImageView
+    <FrameLayout
         android:id="@+id/item_recyclerk_img"
         android:layout_width="@dimen/dp_060"
         android:layout_margin="@dimen/dp_004"
-        android:layout_height="@dimen/dp_060"
-        app:loadImage_ofGlide="@{item_recyclerk_loop}"/>
+        android:layout_height="@dimen/dp_060">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:loadImage_ofGlide="@{item_recyclerk_loop.id}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/cok_black"
+            android:textColor="@color/cok_white"
+            android:layout_gravity="top|end"
+            android:text="@{String.valueOf(item_recyclerk_loop.pos)}"
+            android:padding="@dimen/dp_004"
+            tools:text="1"/>
+    </FrameLayout>
 </layout>
