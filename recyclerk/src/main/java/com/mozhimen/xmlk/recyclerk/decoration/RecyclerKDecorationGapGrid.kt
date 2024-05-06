@@ -3,7 +3,6 @@ package com.mozhimen.xmlk.recyclerk.decoration
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.utilk.androidx.recyclerview.UtilKRecyclerView
 import com.mozhimen.basick.utilk.androidx.recyclerview.UtilKRecyclerViewWrapper
 import com.mozhimen.xmlk.recyclerk.decoration.bases.BaseRecyclerKDecoration
 
@@ -35,6 +34,6 @@ class RecyclerKDecorationGapGrid : BaseRecyclerKDecoration {
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         super.getItemOffsets(outRect, view, parent, state)
-        UtilKRecyclerViewWrapper.equilibriumAssignmentOfGridLayoutManager(parent, view, outRect, _gapOuter, _gapInner, _gapOther)
+        UtilKRecyclerViewWrapper.equilibriumAssignment_ofGridLayoutManager(parent, view, outRect, _gapOuter, _gapInner, _gapOther)
     }
 }

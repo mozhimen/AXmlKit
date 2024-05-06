@@ -1,10 +1,13 @@
 package com.mozhimen.xmlk.test.recyclerk
 
 import android.os.Bundle
+import androidx.recyclerview.widget.AutoLooperLinearLayoutManager
 import androidx.recyclerview.widget.LooperLinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.basick.lintk.optins.OApiCall_BindViewLifecycle
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.xmlk.recyclerk.item.AdapterKItemRecyclerVDB
 import com.mozhimen.xmlk.test.BR
@@ -27,7 +30,7 @@ class RecyclerKLoopActivity : BaseActivityVDB<ActivityRecyclerkLifecycleBinding>
             list.add(MKey(it,R.drawable.xmlk_img))
         }
         vdb.recyclerkLifecycle.bindLifecycle(this)
-        vdb.recyclerkLifecycle.layoutManager = LooperLinearLayoutManager(this)
+        vdb.recyclerkLifecycle.layoutManager = AutoLooperLinearLayoutManager(vdb.recyclerkLifecycle,this)
         vdb.recyclerkLifecycle.adapter =
             AdapterKItemRecyclerVDB<MKey, ItemRecyclerkLoopBinding>(list, R.layout.item_recyclerk_loop, BR.item_recyclerk_loop) { holder, _, position, _ ->
                 holder.vdb.itemRecyclerkImg.setOnClickListener {

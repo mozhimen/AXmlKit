@@ -31,6 +31,7 @@ import android.view.accessibility.AccessibilityEvent;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
+
 import java.util.List;
 
 /**
@@ -39,7 +40,7 @@ import java.util.List;
 public class LooperLinearLayoutManager extends RecyclerView.LayoutManager implements
         ItemTouchHelper.ViewDropHandler, RecyclerView.SmoothScroller.ScrollVectorProvider {
 
-    private static final String TAG = "LinearLayoutManager";
+    protected final String TAG = this.getClass().getSimpleName() + ">>>>>";
 
     static final boolean DEBUG = false;
 
@@ -1588,10 +1589,10 @@ public class LooperLinearLayoutManager extends RecyclerView.LayoutManager implem
         //layoutState.mInfinite代表可以布局的空间无限制
         //remainingSpace > 0 代表可用空间大于0
         //代表适配器还有数据
-        Log.i(TAG, "fill: layoutState.mInfinite = " + layoutState.mInfinite);
-        Log.i(TAG, "fill: remainingSpace = " + remainingSpace);
-        Log.i(TAG, "fill: layoutState.hasMore(state) = " + layoutState.hasMore(state));
-        Log.i(TAG, "fill: layoutState.mCurrentPosition = " + layoutState.mCurrentPosition);
+//        Log.i(TAG, "fill: layoutState.mInfinite = " + layoutState.mInfinite);
+//        Log.i(TAG, "fill: remainingSpace = " + remainingSpace);
+//        Log.i(TAG, "fill: layoutState.hasMore(state) = " + layoutState.hasMore(state));
+//        Log.i(TAG, "fill: layoutState.mCurrentPosition = " + layoutState.mCurrentPosition);
         //while ((layoutState.mInfinite || remainingSpace > 0) && layoutState.hasMore(state)) {
         while ((layoutState.mInfinite || remainingSpace > 0)) {
             layoutChunkResult.resetInternal();
@@ -1641,7 +1642,7 @@ public class LooperLinearLayoutManager extends RecyclerView.LayoutManager implem
 
     void layoutChunk(RecyclerView.Recycler recycler, RecyclerView.State state,
                      LayoutState layoutState, LayoutChunkResult result) {
-        Log.i(TAG, "layoutChunk: layoutChunk ");
+//        Log.i(TAG, "layoutChunk: layoutChunk ");
         //如果已经滚动到边界，那么mCurrentPosition就会变成<0或者大于等于getItemCount()，这意味者position越界了。
         //但是显然不能越界，否则next会因此抛出异常
         //为了达到无限循环的效果，我们需要从新给mCurrentPosition赋值，根据滚动的方向获取对应头尾的View用于进行布局add。
@@ -1651,11 +1652,11 @@ public class LooperLinearLayoutManager extends RecyclerView.LayoutManager implem
             //手指向上或往左侧滑动（从底部或者右侧不断出现新的Item View）
             if (mLayoutState.mLayoutDirection == LayoutState.LAYOUT_END) {
                 //走到这里意味着已经没有剩余的View，这时候就要取第一个View放到尾部，完成无限布局。
-                Log.i(TAG, "layoutChunk:  LayoutState.LAYOUT_END ");
+//                Log.i(TAG, "layoutChunk:  LayoutState.LAYOUT_END ");
                 firstOrLastView = getChildAt(0);
                 layoutState.mCurrentPosition = 0;
             } else {
-                Log.i(TAG, "layoutChunk:  LayoutState.LAYOUT_START ");
+//                Log.i(TAG, "layoutChunk:  LayoutState.LAYOUT_START ");
                 //手指向下或往右滑（从顶部或者右左侧不断出现新的Item View）
                 firstOrLastView = getChildAt(getItemCount() - 1);
                 layoutState.mCurrentPosition = getItemCount() - 1;
@@ -1665,15 +1666,15 @@ public class LooperLinearLayoutManager extends RecyclerView.LayoutManager implem
         View view = layoutState.next(recycler);
         //如果为空则，则布局结束，设置result.mFinished = true;
         if (view == null) {
-            Log.i(TAG, "layoutChunk:  view == null ");
+//            Log.i(TAG, "layoutChunk:  view == null ");
             //这里要判断下滚动方向
             //手指向上或往左侧滑动（从底部或者右侧不断出现新的Item View）
             if (mLayoutState.mLayoutDirection == LayoutState.LAYOUT_END) {
                 //走到这里意味着已经没有剩余的View，这时候就要取第一个View放到尾部，完成无限布局。
-                Log.i(TAG, "layoutChunk:  LayoutState.LAYOUT_END ");
+//                Log.i(TAG, "layoutChunk:  LayoutState.LAYOUT_END ");
                 view = getChildAt(0);
             } else {
-                Log.i(TAG, "layoutChunk:  LayoutState.LAYOUT_START ");
+//                Log.i(TAG, "layoutChunk:  LayoutState.LAYOUT_START ");
                 //手指向下或往右滑（从顶部或者右左侧不断出现新的Item View）
                 view = getChildAt(getItemCount() - 1);
             }
@@ -1748,7 +1749,8 @@ public class LooperLinearLayoutManager extends RecyclerView.LayoutManager implem
         result.mFocusable = view.hasFocusable();
     }
 
-    @Override //这里因为权限问题无法重写，所以直接去掉@Override注解，可能会报错
+    @Override
+        //这里因为权限问题无法重写，所以直接去掉@Override注解，可能会报错
     boolean shouldMeasureTwice() {
         return getHeightMode() != View.MeasureSpec.EXACTLY
                 && getWidthMode() != View.MeasureSpec.EXACTLY

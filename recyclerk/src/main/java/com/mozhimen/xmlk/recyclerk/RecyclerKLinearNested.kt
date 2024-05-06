@@ -45,12 +45,12 @@ class RecyclerKLinearNested @JvmOverloads constructor(context: Context, attrs: A
 //                UtilKLogWrapper.v(TAG, "dispatchTouchEvent: distanceHorizontal $distanceHorizontal distanceVertical $distanceVertical")
                 parent.requestAllowInterceptTouchEvent(
                     if (_isScrollVertical)
-                        if (UtilKRecyclerViewWrapper.isScroll2top(this))
+                        if (UtilKRecyclerViewWrapper.isScroll2top(this)||UtilKRecyclerViewWrapper.isScroll2top_ofItem(this))
                             true
                         else
                             distanceHorizontal > distanceVertical
                     else
-                        distanceVertical >= distanceHorizontal
+                        (distanceVertical >= distanceHorizontal).also { UtilKLogWrapper.d(TAG,"ACTION_MOVE requestAllowInterceptTouchEvent distanceVertical >= distanceHorizontal $it") }
                 )
             }
 
