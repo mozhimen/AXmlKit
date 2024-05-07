@@ -4,8 +4,6 @@ import android.content.Context
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener
 import androidx.recyclerview.widget.RecyclerView.Orientation
-import com.mozhimen.basick.elemk.kotlin.properties.VarProperty_Set
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.xmlk.recyclerk.R
 import java.lang.ref.WeakReference
 
@@ -17,7 +15,7 @@ import java.lang.ref.WeakReference
  * @Version 1.0
  */
 class AutoLooperLinearLayoutManager : LooperLinearLayoutManager {
-    private val _pixelDistancePer10ms = 3 //每10毫秒移动的像素值
+    private val _pixelDistance = 3 //每40毫秒移动的像素值
     private var _recyclerViewRef: WeakReference<RecyclerView>? = null
     private var _isLooping = false
 
@@ -59,13 +57,13 @@ class AutoLooperLinearLayoutManager : LooperLinearLayoutManager {
         override fun run() {
             _recyclerViewRef?.get()?.let {
                 if (orientation == RecyclerView.HORIZONTAL) {
-                    it.scrollBy(_pixelDistancePer10ms, 0)
+                    it.scrollBy(_pixelDistance, 0)
                 } else {
-                    it.scrollBy(0, _pixelDistancePer10ms)
+                    it.scrollBy(0, _pixelDistance)
                 }
                 val tag: Any? = it.getTag(R.id.recyclerk_auto_looper_runnable) as? Runnable?
                 if (tag != null && tag == this) {
-                    _recyclerViewRef?.get()?.postDelayed(this, 40)
+                    _recyclerViewRef?.get()?.postDelayed(this, 33)
                 }
             }
         }
@@ -123,11 +121,18 @@ class AutoLooperLinearLayoutManager : LooperLinearLayoutManager {
 
     /////////////////////////////////////////////////////////////////////////////////
 
+    override fun onAttachedToWindow(view: RecyclerView?) {
+        super.onAttachedToWindow(view)
+        view?.let {
+            if (it.layoutManager is AutoLooperLinearLayoutManager)
+                startLooper(view)
+        }
+    }
+
     override fun onDetachedFromWindow(view: RecyclerView?, recycler: RecyclerView.Recycler?) {
-        _recyclerViewRef?.get()?.let {
-            UtilKLogWrapper.w(TAG, "stopLooper & clearRecyclerViewLooperInfo")
-            stopLooper(it)
-            clearRecyclerViewLooperInfo(it)
+        view?.let {
+            if (it.layoutManager is AutoLooperLinearLayoutManager)
+                stopLooper(it)
         }
         super.onDetachedFromWindow(view, recycler)
     }

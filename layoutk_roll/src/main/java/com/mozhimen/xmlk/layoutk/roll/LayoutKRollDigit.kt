@@ -33,6 +33,8 @@ class LayoutKRollDigit @JvmOverloads constructor(context: Context, attrs: Attrib
         setCurrentValue(value.toString(), getAnimatorDelay(digitPlace), mode)
     }
 
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
     /**
      * 计算对应位置的延迟时间
      */

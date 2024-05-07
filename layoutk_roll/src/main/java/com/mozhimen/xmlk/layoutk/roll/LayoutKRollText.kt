@@ -1,6 +1,6 @@
 package com.mozhimen.xmlk.layoutk.roll
 
-import android.animation.AnimatorSet
+import android.animation.Animator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Color
@@ -8,10 +8,13 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.animation.LinearInterpolator
 import android.widget.TextView
-import com.mozhimen.basick.animk.builder.AnimKBuilder
 import com.mozhimen.basick.animk.builder.commons.IAnimatorUpdateListener
 import com.mozhimen.basick.animk.builder.impls.AnimatorFloatType
+import com.mozhimen.basick.lintk.annors.Sp
+import com.mozhimen.basick.utilk.android.animation.cancel_removeAllListeners
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.basick.utilk.android.widget.applyTypeface
 import com.mozhimen.xmlk.interpolatork.InterpolatorKSpring
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
@@ -29,7 +32,7 @@ open class LayoutKRollText @JvmOverloads constructor(context: Context, attrs: At
 
     private lateinit var _textView1: TextView
     private lateinit var _textView2: TextView
-    private var _rollAnimator: AnimatorSet? = null
+    private var _rollAnimator: Animator? = null
     private var _tvWidth = 0
     private var _tvHeight = 0
     private var _currentValue = ""
@@ -39,6 +42,22 @@ open class LayoutKRollText @JvmOverloads constructor(context: Context, attrs: At
     private var _tvTextSize = 14f
     private var _tvTextColor = Color.BLACK
 
+    private val _animatorUpdateListener: IAnimatorUpdateListener<Float> by lazy {
+        object : IAnimatorUpdateListener<Float> {
+            override fun onChange(value: Float?) {
+                value?.let {
+                    UtilKLogWrapper.d(TAG, "onChange $it")
+                    if (_animatorMode == AAnimatorMode.UP) {
+                        _textView1.translationY = -_tvHeight * value
+                        _textView2.translationY = -_tvHeight * value
+                    } else {
+                        _textView1.translationY = _tvHeight * value
+                        _textView2.translationY = -2 * _tvHeight + _tvHeight * value
+                    }
+                }
+            }
+        }
+    }
     //////////////////////////////////////////////////////////////////////////////////////////////
 
     init {
@@ -79,19 +98,11 @@ open class LayoutKRollText @JvmOverloads constructor(context: Context, attrs: At
 //        }
         setTextViewStyle(_tvTextSize, _tvTextColor)
 
-        _rollAnimator = AnimKBuilder.asAnimator().combine(AnimatorFloatType().setFloat(0f, 1f).addAnimatorUpdateListener(object : IAnimatorUpdateListener<Float> {
-            override fun onChange(value: Float?) {
-                value?.let {
-                    if (_animatorMode == AAnimatorMode.UP) {
-                        _textView1.translationY = -_tvHeight * value
-                        _textView2.translationY = -_tvHeight * value
-                    } else {
-                        _textView1.translationY = _tvHeight * value
-                        _textView2.translationY = -2 * _tvHeight + _tvHeight * value
-                    }
-                }
-            }
-        })).setDuration(_animatorDuration).setInterpolator(InterpolatorKSpring()).build() as AnimatorSet
+        _rollAnimator = AnimatorFloatType().setFloat(0f, 1f)
+            .addAnimatorUpdateListener(_animatorUpdateListener)
+            .isAutoClearListener(false)
+            .setDuration(_animatorDuration)
+            .setInterpolator(LinearInterpolator()/*InterpolatorKSpring()*/).build() as ValueAnimator
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -102,8 +113,7 @@ open class LayoutKRollText @JvmOverloads constructor(context: Context, attrs: At
     }
 
     override fun onDetachedFromWindow() {
-        _rollAnimator?.childAnimations?.forEach { if (it is ValueAnimator) it.removeAllUpdateListeners() }
-        _rollAnimator?.removeAllListeners()
+        _rollAnimator?.cancel_removeAllListeners()
         if (_rollAnimator?.isRunning == true)
             _rollAnimator!!.cancel()
         _rollAnimator = null
@@ -115,20 +125,22 @@ open class LayoutKRollText @JvmOverloads constructor(context: Context, attrs: At
     /**
      * 设置宽、高、字体大小
      */
-    private fun setTextViewSize(tvWidth: Int, tvHeight: Int) {
+    fun setTextViewSize(tvWidth: Int, tvHeight: Int) {
         if (_tvWidth == tvWidth) return
         _tvWidth = tvWidth
         _tvHeight = tvHeight
+
         _textView1.layoutParams = LayoutParams(_tvWidth, _tvHeight)
         _textView1.gravity = Gravity.CENTER
         _textView1.applyTypeface(Typeface.BOLD)
+
         _textView2.layoutParams = LayoutParams(_tvWidth, _tvHeight).apply { topMargin = _tvHeight }
         _textView2.gravity = Gravity.CENTER
         _textView2.applyTypeface(Typeface.BOLD)
     }
 
-    fun setTextViewStyle(textSizeSp: Float, textColor: Int) {
-        _tvTextSize = textSizeSp
+    fun setTextViewStyle(@Sp textSize: Float, textColor: Int) {
+        _tvTextSize = textSize
         _tvTextColor = textColor
         _textView1.textSize = _tvTextSize
         _textView1.setTextColor(_tvTextColor)
@@ -142,17 +154,24 @@ open class LayoutKRollText @JvmOverloads constructor(context: Context, attrs: At
      * @param mode Int
      */
     open fun setCurrentValue(value: String, animatorDuration: Long = _animatorDuration, @AAnimatorMode mode: Int = _animatorMode) {
-        if (value == _currentValue) return
+        if (value == _currentValue) {
+            UtilKLogWrapper.d(TAG, "value is same skip")
+            return
+        }
         _animatorMode = mode
         _animatorDuration = animatorDuration
+
         _textView1.text = _currentValue
         _textView2.text = value
+
         if (_rollAnimator!!.isRunning)
             _rollAnimator!!.cancel()
+
         _rollAnimator!!.setDuration(_animatorDuration)
         _textView1.translationY = 0f
         _textView2.translationY = 0f
         _rollAnimator!!.start()
+
         _currentValue = value
     }
 }
