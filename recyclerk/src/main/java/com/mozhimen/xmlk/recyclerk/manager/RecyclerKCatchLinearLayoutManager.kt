@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0
  */
-class RecyclerKCatchLinearLayoutManager : LinearLayoutManager {
+open class RecyclerKCatchLinearLayoutManager : LinearLayoutManager {
 
     constructor(context: Context) : super(context)
 
