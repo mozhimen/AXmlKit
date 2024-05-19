@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.elemk.mos.MKey
 import com.mozhimen.basick.utilk.android.widget.showToast
-import com.mozhimen.xmlk.recyclerk.item.AdapterKItemRecyclerVDB
+import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapterVDB
 import com.mozhimen.xmlk.test.R
 import com.mozhimen.xmlk.test.BR
 import com.mozhimen.xmlk.test.databinding.ActivityAdapterkRecyclerVbBinding

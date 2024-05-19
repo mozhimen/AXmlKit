@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
 import com.mozhimen.basick.utilk.android.util.e
-import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecycler
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapter
 import com.mozhimen.xmlk.vhk.VHKRecycler
 import java.lang.ref.WeakReference
 import java.lang.reflect.ParameterizedType
@@ -25,7 +25,7 @@ import java.util.ArrayList
  * @Date 2023/3/31 18:38
  * @Version 1.0
  */
-open class AdapterKItemRecycler : RecyclerView.Adapter<RecyclerView.ViewHolder>(), IAdapterKRecycler {
+open class RecyclerKItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(), IRecyclerKAdapter {
     protected var _items = ArrayList<RecyclerKItem<out RecyclerView.ViewHolder>>()
     protected val _typePositions = SparseIntArray()
     protected var _recyclerViewRef: WeakReference<RecyclerView>? = null
@@ -35,7 +35,7 @@ open class AdapterKItemRecycler : RecyclerView.Adapter<RecyclerView.ViewHolder>(
     //region # IAdapterKRecycler
     override fun refreshItem(item: RecyclerKItem<out RecyclerView.ViewHolder>, position: Int, notify: Boolean) {
         if (position < 0 || position >= _items.size) return
-        _items[position] = item.apply { bindAdapter(this@AdapterKItemRecycler) }
+        _items[position] = item.apply { bindAdapter(this@RecyclerKItemAdapter) }
         if (notify) notifyItemChanged(position)
     }
 
@@ -46,7 +46,7 @@ open class AdapterKItemRecycler : RecyclerView.Adapter<RecyclerView.ViewHolder>(
 
     override fun refreshItems(items: List<RecyclerKItem<out RecyclerView.ViewHolder>>, notify: Boolean) {
         _items.clear()
-        for (item in items) _items.add(item.apply { bindAdapter(this@AdapterKItemRecycler) })
+        for (item in items) _items.add(item.apply { bindAdapter(this@RecyclerKItemAdapter) })
         refreshItems(notify)
     }
 
@@ -69,7 +69,7 @@ open class AdapterKItemRecycler : RecyclerView.Adapter<RecyclerView.ViewHolder>(
     override fun addItems(items: List<RecyclerKItem<out RecyclerView.ViewHolder>>, notify: Boolean) {
         val start = _items.size
         for (item in items)
-            _items.add(item.apply { bindAdapter(this@AdapterKItemRecycler) })
+            _items.add(item.apply { bindAdapter(this@RecyclerKItemAdapter) })
         UtilKLogWrapper.d(TAG, "addItems: start $start items size ${items.size} _items size ${_items.size}")
         if (notify) notifyItemRangeInserted(start, items.size)
     }

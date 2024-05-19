@@ -10,7 +10,7 @@ import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0
  */
-interface IAdapterKRecycler : IUtilK {
+interface IRecyclerKAdapter : IUtilK {
     /**
      * 刷新Item
      * @param item RecyclerKItem<DATA, ViewHolder>

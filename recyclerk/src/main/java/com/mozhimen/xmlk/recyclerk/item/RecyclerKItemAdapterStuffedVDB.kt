@@ -1,29 +1,30 @@
 package com.mozhimen.xmlk.recyclerk.item
 
 import androidx.databinding.ViewDataBinding
+import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
 import com.mozhimen.basick.utilk.kotlin.collections.joinT2list
 import com.mozhimen.basick.utilk.kotlin.collections.joinT2listIgnoreNull
-import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecyclerVB
-import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecyclerVBListener
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDB
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDBListener
 
 /**
- * @ClassName AdapterKRecyclerVB2
- * @Description 通用RecyclerView适配器
- *  *注意:
- * 在使用Fragment切换,挂起与恢复时, 要使recyclerView.adapter置null
- * 不然持有全局本类, 会引起内存的泄漏
+ * @ClassName AdapterKRecyclerStuffedVB2
+ * @Description 带Header的RecyclerView适配器
  * @Author Kolin Zhao
- * @Date 2021/6/4 20:07
  * @Version 1.0
  */
 
-class AdapterKItemRecyclerVDB<DATA, VDB : ViewDataBinding>(
-    private val _datas: List<DATA>,
-    private val _defaultLayoutId: Int,
-    private val _brId: Int,
-    private val _listener: IAdapterKRecyclerVBListener<DATA, VDB>? = null
-) : AdapterKItemRecycler(), IAdapterKRecyclerVB<DATA, VDB> {
+//typealias IAdapterKRecyclerStuffedVB2Listener<DATA, VB> = (holder: VHKRecyclerVB<VB>, itemData: DATA, position: Int, currentSelectPos: Int) -> Unit
 
+@Suppress(CSuppress.UNCHECKED_CAST)
+class RecyclerKItemAdapterStuffedVDB<DATA, VDB : ViewDataBinding>(
+    private val _datas: List<DATA>,
+    private var _defaultLayoutId: Int,
+    private var _brId: Int,
+    private var _headerLayoutId: Int? = null,
+    private var _footerLayoutId: Int? = null,
+    private var _listener: IRecyclerKAdapterVDBListener<DATA, VDB>? = null
+) : RecyclerKItemAdapterStuffed(), IRecyclerKAdapterVDB<DATA, VDB> {
     private var _selectItemPosition = -1
 
     init {
@@ -41,7 +42,7 @@ class AdapterKItemRecyclerVDB<DATA, VDB : ViewDataBinding>(
     }
 
     override fun refreshDatas(datas: List<DATA>) {
-        refreshDatas(datas,true)
+        refreshDatas(datas)
     }
 
     override fun refreshDatas(datas: List<DATA>, notify: Boolean) {
@@ -83,11 +84,42 @@ class AdapterKItemRecyclerVDB<DATA, VDB : ViewDataBinding>(
     override fun onDataSelected(position: Int) {
         if (position < 0 || position >= _items.size) return
         _selectItemPosition = position
-        refreshItems(true)
 //        val item = getData(_selectItemPosition) as RecyclerKItemVB<DATA, VB>
-//        listener.invoke(item.vh as VHKRecyclerVB<VB>, item.data, _selectItemPosition, _selectItemPosition)
+//        listener.invoke(item.vh, item.data, _selectItemPosition, _selectItemPosition)
+        refreshItems(true)
     }
 
-    override fun getCurrentSelectPosition(): Int =
-        _selectItemPosition
+    override fun getCurrentSelectPosition(): Int {
+        return _selectItemPosition
+    }
+
+//    ///////////////////////////////////////////////////////////////////////////////////
+//
+//    override fun addHeaderView(view: View) {
+//        addHeaderView(view)
+//    }
+//
+//    override fun removeHeaderView(view: View) {
+//        removeHeaderView(view)
+//    }
+//
+//    override fun addFooterView(view: View) {
+//        addFooterView(view)
+//    }
+//
+//    override fun removeFooterView(view: View) {
+//        removeFooterView(view)
+//    }
+//
+//    override fun getHeaderViewSize(): Int {
+//        return getHeaderViewSize()
+//    }
+//
+//    override fun getFooterViewSize(): Int {
+//        return getFooterViewSize()
+//    }
+//
+//    override fun getNormalItemSize(): Int {
+//        return getNormalItemSize()
+//    }
 }

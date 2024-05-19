@@ -9,7 +9,7 @@ import androidx.databinding.ViewDataBinding
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0
  */
-interface IAdapterKRecyclerVB<DATA, VB : ViewDataBinding> {
+interface IRecyclerKAdapterVDB<DATA, VDB : ViewDataBinding> {
 
 
     /**

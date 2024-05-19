@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecyclerStuffed
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterStuffed
 import java.lang.ref.WeakReference
 
 /**
@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference
  * @Author Kolin Zhao
  * @Version 1.0
  */
-open class AdapterKItemRecyclerStuffed : AdapterKItemRecycler(), IAdapterKRecyclerStuffed {
+open class RecyclerKItemAdapterStuffed : RecyclerKItemAdapter(), IRecyclerKAdapterStuffed {
 
     private var _headers = SparseArray<View>()
     private var _footers = SparseArray<View>()

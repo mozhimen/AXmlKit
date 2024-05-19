@@ -8,8 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.utilk.commons.IUtilK
-import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecyclerVB
-import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecyclerVBListener
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDB
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDBListener
 import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
 
 /**
@@ -22,12 +22,12 @@ import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
  * @Date 2021/6/4 20:07
  * @Version 1.0
  */
-open class AdapterKQuickRecyclerVB<DATA, VB : ViewDataBinding>(
+open class RecyclerKQuickAdapterVDB<DATA, VDB : ViewDataBinding>(
     private var _datas: MutableList<DATA>,
     private val _defaultLayout: Int,
     private val _brId: Int,
-    private val _listener: IAdapterKRecyclerVBListener<DATA, VB>? = null /* = (BindKViewHolder<ViewDataBinding>, T, Int) -> Unit */
-) : RecyclerView.Adapter<VHKRecyclerVDB<VB>>(), IAdapterKRecyclerVB<DATA, VB>, IUtilK {
+    private val _listener: IRecyclerKAdapterVDBListener<DATA, VDB>? = null /* = (BindKViewHolder<ViewDataBinding>, T, Int) -> Unit */
+) : RecyclerView.Adapter<VHKRecyclerVDB<VDB>>(), IRecyclerKAdapterVDB<DATA, VDB>, IUtilK {
 
     private var _selectItemPosition = -1
 
@@ -108,8 +108,8 @@ open class AdapterKQuickRecyclerVB<DATA, VB : ViewDataBinding>(
 
     ////////////////////////////////////////////////////////////////////////////
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHKRecyclerVDB<VB> {
-        val binding = DataBindingUtil.inflate<VB>(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHKRecyclerVDB<VDB> {
+        val binding = DataBindingUtil.inflate<VDB>(
             LayoutInflater.from(parent.context),
             viewType,
             parent,
@@ -120,7 +120,7 @@ open class AdapterKQuickRecyclerVB<DATA, VB : ViewDataBinding>(
 
     override fun getItemCount() = if (_datas.isEmpty()) 0 else _datas.size
 
-    override fun onBindViewHolder(holder: VHKRecyclerVDB<VB>, position: Int) {
+    override fun onBindViewHolder(holder: VHKRecyclerVDB<VDB>, position: Int) {
         holder.vdb.setVariable(_brId, _datas[position])
         _listener?.invoke(holder, _datas[position], position, _selectItemPosition)
         holder.vdb.executePendingBindings()

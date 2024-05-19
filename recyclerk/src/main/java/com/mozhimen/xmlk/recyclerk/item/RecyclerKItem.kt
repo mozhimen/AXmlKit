@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.utilk.commons.IUtilK
-import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecycler
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapter
 
 /**
  * @ClassName DataItemK
@@ -14,7 +14,7 @@ import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecycler
  * @Version 1.0
  */
 open class RecyclerKItem<VH : RecyclerView.ViewHolder> : IUtilK {
-    protected var _adapterKRecycler: IAdapterKRecycler? = null
+    protected var _adapterKRecycler: IRecyclerKAdapter? = null
     lateinit var vh: VH
     var pos: Int = -1
 
@@ -22,7 +22,7 @@ open class RecyclerKItem<VH : RecyclerView.ViewHolder> : IUtilK {
      * 设置adapter
      * @param adapter DataKAdapter
      */
-    fun bindAdapter(adapter: IAdapterKRecycler) {
+    fun bindAdapter(adapter: IRecyclerKAdapter) {
         _adapterKRecycler = adapter
     }
 

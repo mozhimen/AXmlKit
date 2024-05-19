@@ -9,7 +9,7 @@ import android.view.View
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0
  */
-interface IAdapterKRecyclerStuffed {
+interface IRecyclerKAdapterStuffed {
     /**
      * 添加Header
      * @param view View

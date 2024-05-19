@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecyclerStuffedVBListener
-import com.mozhimen.xmlk.recyclerk.commons.IAdapterKRecyclerVB
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterStuffedVDBListener
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDB
 import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
 
 /**
@@ -19,14 +19,14 @@ import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
 
 //typealias IAdapterKRecyclerStuffedVBListener<DATA, VB> = (holder: VHKRecyclerVB<VB>, itemData: DATA, position: Int, currentSelectPos: Int) -> Unit
 
-open class AdapterKQuickRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
+open class RecyclerKQuickAdapterStuffedVDB<DATA, VDB : ViewDataBinding>(
     private var _datas: MutableList<DATA>,
     private var _defaultLayout: Int,
     private var _headerLayout: Int?,
     private var _footerLayout: Int?,
     private var _brId: Int,
-    private var _listener: IAdapterKRecyclerStuffedVBListener<DATA, VB>? = null
-) : RecyclerView.Adapter<VHKRecyclerVDB<VB>>(), IAdapterKRecyclerVB<DATA, VB> {
+    private var _listener: IRecyclerKAdapterStuffedVDBListener<DATA, VDB>? = null
+) : RecyclerView.Adapter<VHKRecyclerVDB<VDB>>(), IRecyclerKAdapterVDB<DATA, VDB> {
 
     private var _selectItemPosition = 0
 
@@ -107,14 +107,14 @@ open class AdapterKQuickRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
 
     ////////////////////////////////////////////////////////////////////////////
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHKRecyclerVDB<VB> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHKRecyclerVDB<VDB> {
         return when (viewType) {
             _headerLayout -> VHKRecyclerVDB(LayoutInflater.from(parent.context).inflate(_headerLayout!!, parent, false))
 
             _footerLayout -> VHKRecyclerVDB(LayoutInflater.from(parent.context).inflate(_footerLayout!!, parent, false))
 
             else -> {
-                val binding = DataBindingUtil.inflate<VB>(
+                val binding = DataBindingUtil.inflate<VDB>(
                     LayoutInflater.from(parent.context),
                     viewType,
                     parent, false
@@ -136,7 +136,7 @@ open class AdapterKQuickRecyclerStuffedVB<DATA, VB : ViewDataBinding>(
         }
     }
 
-    override fun onBindViewHolder(holder: VHKRecyclerVDB<VB>, position: Int) {
+    override fun onBindViewHolder(holder: VHKRecyclerVDB<VDB>, position: Int) {
         if (_headerLayout != null) {
             if (position != 0 && position <= _datas.size) {
                 holder.vdb.apply {

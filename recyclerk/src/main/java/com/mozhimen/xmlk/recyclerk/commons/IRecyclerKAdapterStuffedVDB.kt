@@ -10,7 +10,7 @@ import androidx.databinding.ViewDataBinding
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0
  */
-interface IAdapterKRecyclerStuffedVB<DATA, VB : ViewDataBinding> : IAdapterKRecyclerVB<DATA, VB> {
+interface IRecyclerKAdapterStuffedVDB<DATA, VDB : ViewDataBinding> : IRecyclerKAdapterVDB<DATA, VDB> {
     /**
      * 添加Header
      * @param view View
