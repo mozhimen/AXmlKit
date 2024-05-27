@@ -4,9 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.StyleRes
-import androidx.databinding.ViewDataBinding
+import androidx.viewbinding.ViewBinding
 import com.mozhimen.basick.utilk.androidx.databinding.UtilKViewDataBinding
+import com.mozhimen.basick.utilk.androidx.viewbinding.UtilKViewBinding
 import com.mozhimen.xmlk.R
+import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVBClickListener
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVDBClickListener
 
 /**
@@ -16,17 +18,15 @@ import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVDBClickListener
  * @Date 2023/6/2 17:12
  * @Version 1.0
  */
-abstract class BaseDialogKVDB<VDB : ViewDataBinding, T : IDialogKVDBClickListener<VDB>>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogK<T>(context, intResTheme) {
+abstract class BaseDialogKVB<VB : ViewBinding, T : IDialogKVBClickListener<VB>>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogK<T>(context, intResTheme) {
 
-    private var _vdb: VDB? = null
-    protected val vdb get() = _vdb!!
+    private var _vb: VB? = null
+    protected val vb get() = _vb!!
 
     //////////////////////////////////////////////////////////////////////////////
 
     override fun onCreateView(inflater: LayoutInflater): View? {
-        _vdb = UtilKViewDataBinding.get<VDB>(this::class.java, inflater/*, 0*/).apply {
-            lifecycleOwner = this@BaseDialogKVDB
-        }
-        return vdb.root
+        _vb = UtilKViewBinding.get<VB>(this::class.java, inflater/*, 0*/)
+        return vb.root
     }
 }

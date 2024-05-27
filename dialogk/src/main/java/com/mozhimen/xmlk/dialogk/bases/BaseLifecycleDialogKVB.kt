@@ -2,14 +2,14 @@ package com.mozhimen.xmlk.dialogk.bases
 
 import android.content.Context
 import androidx.annotation.StyleRes
-import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
+import androidx.viewbinding.ViewBinding
 import com.mozhimen.basick.elemk.androidx.lifecycle.commons.IDefaultLifecycleObserver
 import com.mozhimen.basick.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.basick.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.basick.utilk.androidx.lifecycle.runOnMainThread
 import com.mozhimen.xmlk.R
-import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVDBClickListener
+import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVBClickListener
 
 /**
  * @ClassName BaseLifecycleDialogKVB
@@ -20,7 +20,7 @@ import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVDBClickListener
  */
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-abstract class BaseLifecycleDialogKVDB<VDB : ViewDataBinding, T : IDialogKVDBClickListener<VDB>>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogKVDB<VDB, T>(context, intResTheme), IDefaultLifecycleObserver {
+abstract class BaseLifecycleDialogKVB<VB : ViewBinding, T : IDialogKVBClickListener<VB>>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogKVB<VB, T>(context, intResTheme), IDefaultLifecycleObserver {
 
     override fun bindLifecycle(owner: LifecycleOwner) {
         owner.runOnMainThread {
