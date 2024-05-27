@@ -10,7 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.DrawableRes
-import com.mozhimen.basick.elemk.commons.IExtension_Listener
+import com.mozhimen.basick.elemk.commons.IExt_Listener
 import com.mozhimen.basick.utilk.android.view.applyGone
 import com.mozhimen.basick.utilk.android.view.applyVisible
 import com.mozhimen.basick.utilk.android.widget.applyTypeface_ofAsset
@@ -78,7 +78,7 @@ class LayoutKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeS
         _btnStr?.let { setButton(it) }
     }
 
-    fun applyBgView(invoke: IExtension_Listener<View>) {
+    fun applyBgView(invoke: IExt_Listener<View>) {
         _bgView.invoke()
     }
 
@@ -105,7 +105,7 @@ class LayoutKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeS
         } else _imageView.applyGone()
     }
 
-    fun applyImage(invoke: IExtension_Listener<ImageView>) {
+    fun applyImage(invoke: IExt_Listener<ImageView>) {
         _imageView.invoke()
     }
 
@@ -120,7 +120,7 @@ class LayoutKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeS
         } else _titleView.applyGone()
     }
 
-    fun applyTitle(invoke: IExtension_Listener<TextView>) {
+    fun applyTitle(invoke: IExt_Listener<TextView>) {
         _titleView.invoke()
     }
 
@@ -135,7 +135,7 @@ class LayoutKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeS
         } else _contentView.applyGone()
     }
 
-    fun applyContent(invoke: IExtension_Listener<TextView>) {
+    fun applyContent(invoke: IExt_Listener<TextView>) {
         _contentView.invoke()
     }
 
@@ -164,7 +164,7 @@ class LayoutKEmpty @JvmOverloads constructor(context: Context, attrs: AttributeS
         } else _btn.applyGone()
     }
 
-    fun applyButton(invoke: IExtension_Listener<Button>) {
+    fun applyButton(invoke: IExt_Listener<Button>) {
         _btn.invoke()
     }
 }
