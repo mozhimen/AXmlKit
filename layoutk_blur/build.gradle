@@ -42,8 +42,11 @@ dependencies {
     } else {
         implementation project(':SwiftKit:xmlk')
     }
-
-    implementation project(':AImageKit:imagek_blur')
+    if (rootProject.name == "SwiftKit") {
+        implementation project(':blurk')
+    } else {
+        implementation project(':SwiftKit:blurk')
+    }
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'

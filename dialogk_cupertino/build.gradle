@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.xmlk.layoutk.refresh'
+    namespace 'com.mozhimen.xmlk.dialogk.cupertino'
     compileSdk 34
 
     defaultConfig {
@@ -31,11 +31,9 @@ android {
 }
 
 dependencies {
-
+    implementation project(':SwiftKit:blurk')
     implementation project(':SwiftKit:basick')
-    implementation project(':SwiftKit:xmlk')
-    implementation project(':recyclerk_load')
-    implementation project(':AAnimKit:animk_lottie')
+    implementation project(project.path.replace(project.name, '')+':viewk_blur')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

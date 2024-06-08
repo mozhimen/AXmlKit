@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.IntRange
 import com.mozhimen.xmlk.bases.BaseLayoutKRelative
-import com.mozhimen.imagek.blur.ImageKBlurRenderScript
 import com.mozhimen.basick.utilk.android.graphics.drawable2bitmap
 import com.mozhimen.basick.utilk.wrapper.UtilKScreen
+import com.mozhimen.blurk.BlurKRenderScript
 import com.mozhimen.xmlk.layoutk.blur.commons.ILayoutKBlur
 
 /**
@@ -59,7 +59,7 @@ class LayoutKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSe
         //模糊图片
         _drawableBlurred?.let {
             _bitmapOrigin = it.drawable2bitmap()
-            _bitmapBlurred = ImageKBlurRenderScript.blurBitmapOfAndroid1(context, _bitmapOrigin)
+            _bitmapBlurred = BlurKRenderScript.blurBitmapOfAndroid1(context, _bitmapOrigin)
         }
 
         //设置模糊禁用
@@ -79,14 +79,14 @@ class LayoutKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSe
 
     override fun setBlurImageView(blurBitmap: Bitmap) {
         _bitmapOrigin = blurBitmap
-        _bitmapBlurred = ImageKBlurRenderScript.blurBitmapOfAndroid1(context, blurBitmap)
+        _bitmapBlurred = BlurKRenderScript.blurBitmapOfAndroid1(context, blurBitmap)
         setImageView(_bitmapOrigin, _bitmapBlurred!!)
         setMove(_isMoveEnable)
     }
 
     override fun setBlurImageView(blurDrawable: Drawable) {
         _bitmapOrigin = blurDrawable.drawable2bitmap()
-        _bitmapBlurred = ImageKBlurRenderScript.blurBitmapOfAndroid1(context, _bitmapOrigin)
+        _bitmapBlurred = BlurKRenderScript.blurBitmapOfAndroid1(context, _bitmapOrigin)
         setImageView(_bitmapOrigin, _bitmapBlurred!!)
         setMove(_isMoveEnable)
     }

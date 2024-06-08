@@ -33,8 +33,8 @@ android {
 dependencies {
 
     implementation project(':AImageKit:imagek_glide_blur')
-    implementation project(':AImageKit:imagek_blur')
     implementation project(':SwiftKit:basick')
+    implementation project(':SwiftKit:blurk')
     implementation project(':SwiftKit:xmlk')
 
     testImplementation 'junit:junit:4.13.2'

@@ -31,7 +31,7 @@ android {
 }
 
 dependencies {
-    implementation project(':AImageKit:imagek_blur')
+    implementation project(':SwiftKit:blurk')
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:xmlk')
     implementation project(project.path.replace(project.name, '') +':imagek_blur')

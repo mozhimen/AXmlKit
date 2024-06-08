@@ -65,22 +65,24 @@ include ':textk_progress'
 include ':viewk_wheel'
 include ':bark_title'
 include ':imagek_blur'
+include ':dialogk_cupertino'
 //SwiftKit
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
 include ':SwiftKit:basick'
 include ':SwiftKit:xmlk'
+include ':SwiftKit:blurk'
 //AImageKit
 include ':AImageKit'
 project(':AImageKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AImageKit")
-include ':AImageKit:imagek_blur'
 include ':AImageKit:imagek_glide'
 include ':AImageKit:imagek_glide_blur'
 //AAdaptKit
 include ':AAdaptKit'
 project(':AAdaptKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AAdaptKit")
 include ':AAdaptKit:adaptk_systembar'
-//AAnimKit_Lottie
-include ':AAnimKit_Lottie'
-project(':AAnimKit_Lottie').projectDir = new File("D:\\WorkSpace\\GitHub\\AAnimKit_Lottie")
-include ':AAnimKit_Lottie:animk_lottie'
+//AAnimKit
+include ':AAnimKit'
+project(':AAnimKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AAnimKit")
+include ':AAnimKit:animk_lottie'
+include ':viewk_blur'

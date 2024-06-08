@@ -14,12 +14,12 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.mozhimen.basick.animk.builder.commons.IAnimatorUpdateListener
 import com.mozhimen.basick.animk.builder.impls.AnimatorAlphaViewType
 import com.mozhimen.basick.taskk.executor.TaskKExecutor
-import com.mozhimen.imagek.blur.mos.ImageKBlurConfig
 import com.mozhimen.basick.utilk.android.util.e
 import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper
 import com.mozhimen.basick.utilk.android.view.applyBackgroundNull
 import com.mozhimen.basick.utilk.java.lang.UtilKThread
-import com.mozhimen.imagek.blur.utils.RenderScriptUtil
+import com.mozhimen.blurk.mos.ImageKBlurConfig
+import com.mozhimen.blurk.utils.RenderScriptUtil
 import com.mozhimen.xmlk.commons.IXmlK
 import java.util.concurrent.atomic.AtomicBoolean
 
