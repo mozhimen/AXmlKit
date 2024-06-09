@@ -10,8 +10,8 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.animation.LinearInterpolator
 import android.widget.TextView
-import com.mozhimen.basick.animk.builder.commons.IAnimatorUpdateListener
-import com.mozhimen.basick.animk.builder.impls.AnimatorFloatType
+import com.mozhimen.animk.builder.commons.IAnimatorUpdateListener
+import com.mozhimen.animk.builder.impls.AnimatorFloatType
 import com.mozhimen.basick.lintk.annors.Sp
 import com.mozhimen.basick.utilk.android.animation.cancel_removeAllListeners
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper

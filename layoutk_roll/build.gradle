@@ -34,6 +34,7 @@ dependencies {
 
     implementation project(':SwiftKit:basick')
 	implementation project(':SwiftKit:xmlk')
+	implementation project(':AAnimKit:animk_builder')
     implementation project(project.path.replace(project.name, '') +':interpolatork')
     
 
