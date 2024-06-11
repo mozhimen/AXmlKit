@@ -7,9 +7,9 @@ import android.graphics.drawable.Drawable
 import android.util.Pair
 import android.view.View
 import android.view.animation.Animation
-import com.mozhimen.basick.animk.builder.impls.AnimationScaleType
+import com.mozhimen.animk.builder.impls.AnimationScaleType
 import com.mozhimen.basick.elemk.android.os.cons.CVersCode
-import com.mozhimen.imagek.blur.mos.ImageKBlurConfig
+import com.mozhimen.blurk.mos.BlurKConfig
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.basick.utilk.kotlin.obj2clazz
@@ -50,7 +50,7 @@ class PopwinKBuilderConfig : IClearMemoryListener {
     private var _flag = CFlag.IDLE
     private var _contentViewLayoutId = 0
     private var _onBlurOptionInitListener: OnBlurOptionInitListener? = null
-    private var _bitmapBlurOption: ImageKBlurConfig? = null
+    private var _bitmapBlurOption: BlurKConfig? = null
 
     init {
         if (UtilKBuildVersion.getSDKInt() == CVersCode.V_23_6_M) {
@@ -86,7 +86,7 @@ class PopwinKBuilderConfig : IClearMemoryListener {
         return _onBlurOptionInitListener
     }
 
-    fun getPopupBlurOption(): ImageKBlurConfig? {
+    fun getPopupBlurOption(): BlurKConfig? {
         return _bitmapBlurOption
     }
 
@@ -125,7 +125,7 @@ class PopwinKBuilderConfig : IClearMemoryListener {
         return this
     }
 
-    fun setBlurOption(bitmapBlurOption: ImageKBlurConfig): PopwinKBuilderConfig {
+    fun setBlurOption(bitmapBlurOption: BlurKConfig): PopwinKBuilderConfig {
         _bitmapBlurOption = bitmapBlurOption
         return this
     }

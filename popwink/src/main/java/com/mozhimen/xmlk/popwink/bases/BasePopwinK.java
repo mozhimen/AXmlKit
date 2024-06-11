@@ -244,7 +244,7 @@ import com.mozhimen.basick.stackk.cons.CStackKCons;
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion;
 import com.mozhimen.basick.utilk.bases.BaseUtilK;
 import com.mozhimen.basick.utilk.wrapper.UtilKRes;
-import com.mozhimen.imagek.blur.mos.ImageKBlurConfig;
+import com.mozhimen.blurk.mos.BlurKConfig;
 import com.mozhimen.basick.utilk.android.view.UtilKDecorView;
 import com.mozhimen.basick.utilk.kotlin.UtilKStrColor;
 import com.mozhimen.xmlk.popwink.R;
@@ -1328,9 +1328,9 @@ public abstract class BasePopwinK extends BaseUtilK implements PopupWindow.OnDis
             onLogInternal("无法配置默认模糊脚本，因为context不是activity");
             return this;
         }
-        ImageKBlurConfig option = null;
+        BlurKConfig option = null;
         if (blurBackgroundEnable) {
-            option = new ImageKBlurConfig();
+            option = new BlurKConfig();
             option.setFullScreen(true)
                     .setBlurInDuration(-1)
                     .setBlurOutDuration(-1);
@@ -1356,7 +1356,7 @@ public abstract class BasePopwinK extends BaseUtilK implements PopupWindow.OnDis
      *
      * @param option 模糊配置
      */
-    public BasePopwinK setBlurOption(ImageKBlurConfig option) {
+    public BasePopwinK setBlurOption(BlurKConfig option) {
         mHelper.setToBlur(option);
         return this;
     }
@@ -2217,7 +2217,7 @@ public abstract class BasePopwinK extends BaseUtilK implements PopupWindow.OnDis
     }
 
     public interface OnBlurOptionInitListener {
-        void onCreateBlurOption(ImageKBlurConfig option);
+        void onCreateBlurOption(BlurKConfig option);
     }
 
     public static abstract class OnDismissListener implements PopupWindow.OnDismissListener {

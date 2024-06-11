@@ -11,14 +11,14 @@ import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AccelerateInterpolator
 import androidx.appcompat.widget.AppCompatImageView
-import com.mozhimen.basick.animk.builder.commons.IAnimatorUpdateListener
-import com.mozhimen.basick.animk.builder.impls.AnimatorAlphaViewType
+import com.mozhimen.animk.builder.commons.IAnimatorUpdateListener
+import com.mozhimen.animk.builder.impls.AnimatorAlphaViewType
 import com.mozhimen.basick.taskk.executor.TaskKExecutor
 import com.mozhimen.basick.utilk.android.util.e
 import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper
 import com.mozhimen.basick.utilk.android.view.applyBackgroundNull
 import com.mozhimen.basick.utilk.java.lang.UtilKThread
-import com.mozhimen.blurk.mos.ImageKBlurConfig
+import com.mozhimen.blurk.mos.BlurKConfig
 import com.mozhimen.blurk.utils.RenderScriptUtil
 import com.mozhimen.xmlk.commons.IXmlK
 import java.util.concurrent.atomic.AtomicBoolean
@@ -35,7 +35,7 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
 
     @Volatile
     private var _abortBlur = false
-    private var _blurOption: ImageKBlurConfig? = null
+    private var _blurOption: BlurKConfig? = null
     private val _blurFinish = AtomicBoolean(false)
 
     @Volatile
@@ -64,7 +64,7 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
         return this
     }
 
-    fun applyBlurOption(option: ImageKBlurConfig) {
+    fun applyBlurOption(option: BlurKConfig) {
         applyBlurOption(option, false)
     }
 
@@ -255,7 +255,7 @@ class ImageKBlur @JvmOverloads constructor(context: Context, attrs: AttributeSet
         }
     }
 
-    private fun applyBlurOption(option: ImageKBlurConfig, isOnUpdate: Boolean) {
+    private fun applyBlurOption(option: BlurKConfig, isOnUpdate: Boolean) {
         _blurOption = option
         val anchorView = option.getBlurView()
         if (anchorView == null) {

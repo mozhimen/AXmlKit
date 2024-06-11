@@ -8,10 +8,6 @@
         <attr name="textkMarquee_desaltEdge" format="boolean" />
     </declare-styleable>
 
-    <declare-styleable name="TextKExpandable">
-        <attr name="textKExpandable_maxLines" format="integer" />
-    </declare-styleable>
-
     <declare-styleable name="TextKClock">
         <attr name="textkClock_timeFormat" format="enum">
             <enum name="yyyyMMddHHmmss" value="0" />

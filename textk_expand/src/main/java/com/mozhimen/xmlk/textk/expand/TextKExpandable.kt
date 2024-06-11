@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.textk
+package com.mozhimen.xmlk.textk.expand
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -6,12 +6,10 @@ import android.content.Context
 import android.text.Layout
 import android.text.StaticLayout
 import android.util.AttributeSet
-import android.util.Log
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.core.view.marginTop
-import com.mozhimen.basick.animk.builder.utils.AnimKTypeUtil
+import com.mozhimen.animk.builder.utils.AnimKTypeUtil
 import com.mozhimen.basick.elemk.commons.IA_Listener
 import com.mozhimen.basick.utilk.android.widget.UtilKTextViewWrapper
 import com.mozhimen.xmlk.commons.IXmlK

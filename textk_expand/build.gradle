@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.xmlk.imagek.blur'
+    namespace 'com.mozhimen.xmlk.textk.expand'
     compileSdk 34
 
     defaultConfig {
@@ -31,10 +31,7 @@ android {
 }
 
 dependencies {
-
-    implementation project(':AImageKit:imagek_glide_blur')
     implementation project(':SwiftKit:basick')
-    implementation project(':SwiftKit:blurk')
     implementation project(':SwiftKit:xmlk')
     implementation project(':AAnimKit:animk_builder')
 

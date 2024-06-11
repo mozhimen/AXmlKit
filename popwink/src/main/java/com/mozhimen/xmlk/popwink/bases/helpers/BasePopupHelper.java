@@ -36,8 +36,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.mozhimen.basick.elemk.android.view.cons.CWinMgr;
-import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper;
-import com.mozhimen.imagek.blur.mos.ImageKBlurConfig;
+import com.mozhimen.blurk.mos.BlurKConfig;
 import com.mozhimen.basick.stackk.cb.StackKCb;
 import com.mozhimen.basick.utilk.android.animation.UtilKAnimator;
 import com.mozhimen.basick.utilk.android.content.UtilKResources;
@@ -47,7 +46,6 @@ import com.mozhimen.basick.utilk.android.view.UtilKAnimation;
 import com.mozhimen.basick.utilk.android.view.UtilKContentView;
 import com.mozhimen.basick.utilk.android.view.UtilKInputMethodManagerWrapper;
 import com.mozhimen.basick.utilk.wrapper.UtilKScreen;
-import com.mozhimen.basick.utilk.android.view.UtilKView;
 import com.mozhimen.basick.utilk.android.view.UtilKViewTreeObserver;
 import com.mozhimen.xmlk.popwink.R;
 import com.mozhimen.xmlk.popwink.bases.BasePopwinK;
@@ -151,7 +149,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
     Rect mAnchorViewBound;
 
     //模糊option(为空的话则不模糊）
-    ImageKBlurConfig mBlurOption;
+    BlurKConfig mBlurOption;
     //背景颜色
     Drawable mBackgroundDrawable = new ColorDrawable(BasePopwinK.DEFAULT_BACKGROUND_COLOR);
     //背景对齐方向
@@ -394,7 +392,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
     }
 
 
-    public void setToBlur(ImageKBlurConfig option) {
+    public void setToBlur(BlurKConfig option) {
         this.mBlurOption = option;
         if (option != null) {
             if (option.getBlurInDuration() <= 0) {
@@ -680,7 +678,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         return this;
     }
 
-    ImageKBlurConfig getBlurOption() {
+    BlurKConfig getBlurOption() {
         return mBlurOption;
     }
 

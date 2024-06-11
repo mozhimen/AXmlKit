@@ -66,6 +66,7 @@ include ':viewk_wheel'
 include ':bark_title'
 include ':imagek_blur'
 include ':dialogk_cupertino'
+include ':viewk_blur'
 //SwiftKit
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
@@ -85,4 +86,5 @@ include ':AAdaptKit:adaptk_systembar'
 include ':AAnimKit'
 project(':AAnimKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AAnimKit")
 include ':AAnimKit:animk_lottie'
-include ':viewk_blur'
+include ':AAnimKit:animk_builder'
+include ':textk_expand'
