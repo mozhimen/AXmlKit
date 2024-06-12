@@ -89,7 +89,7 @@
             app:textKProgress_textColorDefault="@color/cok_blue_e8f3ff"
             app:textKProgress_textColorUnCover="@color/cok_blue_bbdefb" />
 
-        <com.mozhimen.xmlk.textk.TextKExpandable
+        <com.mozhimen.xmlk.textk.expand.TextKExpandable
             android:id="@+id/textk_expandable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
