@@ -25,7 +25,7 @@ class LayoutKLoadRefresh @JvmOverloads constructor(context: Context, attrs: Attr
     LayoutKRefresh(context, attrs, defStyleAttr), ILoadRefresh {
 
     private lateinit var _recyclerKLoad: RecyclerKLoad
-    private val _adapterKRecyclerStuffed by lazy { AdapterKItemRecyclerStuffed() }
+    private val _adapterKRecyclerStuffed by lazy_ofNone { AdapterKItemRecyclerStuffed() }
 
 
     override fun getRecyclerKLoad(): RecyclerKLoad =

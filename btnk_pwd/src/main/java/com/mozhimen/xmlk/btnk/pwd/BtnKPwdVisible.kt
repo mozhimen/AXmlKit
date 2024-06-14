@@ -34,8 +34,8 @@ class BtnKPwdVisible @JvmOverloads constructor(context: Context, attrs: Attribut
 
     private var _showDrawableId: Int = R.drawable.btnk_pwd_eye_open
     private var _hideDrawableId: Int = R.drawable.btnk_pwd_eye_hide
-    private val _showMethod: TransformationMethod by lazy { HideReturnsTransformationMethod.getInstance() }
-    private val _hideMethod: TransformationMethod by lazy { PasswordTransformationMethod.getInstance() }
+    private val _showMethod: TransformationMethod by lazy_ofNone { HideReturnsTransformationMethod.getInstance() }
+    private val _hideMethod: TransformationMethod by lazy_ofNone { PasswordTransformationMethod.getInstance() }
 
     init {
         initAttrs(attrs, defStyleAttr)

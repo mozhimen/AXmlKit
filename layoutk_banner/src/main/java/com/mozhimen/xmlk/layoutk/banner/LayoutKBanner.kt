@@ -2,6 +2,7 @@ package com.mozhimen.xmlk.layoutk.banner
 
 import android.content.Context
 import android.util.AttributeSet
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.layoutk.banner.commons.IBanner
 import com.mozhimen.xmlk.layoutk.banner.commons.IBannerBindListener
 import com.mozhimen.xmlk.layoutk.banner.commons.IBannerIndicator
@@ -24,7 +25,7 @@ import com.mozhimen.xmlk.bases.BaseLayoutKFrame
  */
 class LayoutKBanner @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
     BaseLayoutKFrame(context, attrs, defStyleAttr), IBanner {
-    private val _layoutKBannerDelegate: LayoutKBannerDelegate by lazy { LayoutKBannerDelegate(context, this) }
+    private val _layoutKBannerDelegate: LayoutKBannerDelegate by lazy_ofNone { LayoutKBannerDelegate(context, this) }
 
     private var _autoPlay = true
     private var _loop = true

@@ -21,6 +21,7 @@ import com.mozhimen.xmlk.bases.BaseLayoutKRelative
 import com.mozhimen.basick.utilk.android.util.sp2px
 import com.mozhimen.basick.utilk.android.widget.applyTypeface_ofAsset
 import com.mozhimen.basick.utilk.android.widget.applyTypeface
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.layoutk.navbar.helpers.AttrsParser
 import com.mozhimen.xmlk.layoutk.navbar.mos.MNavBarAttrs
 import java.util.*
@@ -35,9 +36,9 @@ class LayoutKNavBar @JvmOverloads constructor(context: Context, attrs: Attribute
 
     private var _subTitleView: TextView? = null
     private var _titleView: TextView = TextView(context)
-    private val _titleContainer: LinearLayout by lazy { LinearLayout(context) }
-    private val _leftContainer: LinearLayout by lazy { LinearLayout(context) }
-    private val _rightContainer: LinearLayout by lazy { LinearLayout(context) }
+    private val _titleContainer: LinearLayout by lazy_ofNone { LinearLayout(context) }
+    private val _leftContainer: LinearLayout by lazy_ofNone { LinearLayout(context) }
+    private val _rightContainer: LinearLayout by lazy_ofNone { LinearLayout(context) }
 
     private val _leftViewList = ArrayList<View>()
     private val _rightViewList = ArrayList<View>()

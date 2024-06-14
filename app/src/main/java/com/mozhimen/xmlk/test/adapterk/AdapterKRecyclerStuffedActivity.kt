@@ -17,7 +17,7 @@ import com.mozhimen.xmlk.test.recyclerk.mos.*
  */
 class AdapterKRecyclerStuffedActivity : BaseActivityVDB<ActivityAdapterkRecyclerStuffedBinding>() {
 
-    private val _adapterKRecyclerStuffed by lazy { AdapterKItemRecyclerStuffed() }
+    private val _adapterKRecyclerStuffed by lazy_ofNone { AdapterKItemRecyclerStuffed() }
     override fun initView(savedInstanceState: Bundle?) {
         initAdapter()
     }

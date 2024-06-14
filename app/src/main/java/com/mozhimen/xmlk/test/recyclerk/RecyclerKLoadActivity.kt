@@ -20,7 +20,7 @@ import com.mozhimen.xmlk.test.recyclerk.mos.RecyclerKItemLoadMore
 class RecyclerKLoadActivity : BaseActivityVDB<ActivityRecyclerkLoadBinding>() {
     private var _pageIndex: Int = 1
     private lateinit var _textOverView: TextOverView
-    private val _adapterKRecyclerStuffed by lazy { AdapterKItemRecyclerStuffed() }
+    private val _adapterKRecyclerStuffed by lazy_ofNone { AdapterKItemRecyclerStuffed() }
     private val _dataSets = ArrayList<RecyclerKItem<out RecyclerView.ViewHolder>>()
 
     override fun initView(savedInstanceState: Bundle?) {

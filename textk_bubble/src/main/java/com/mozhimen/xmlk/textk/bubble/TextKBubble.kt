@@ -20,7 +20,7 @@ class TextKBubble @JvmOverloads constructor(context: Context, attrs: AttributeSe
     AppCompatTextView(context, attrs, defStyleAttr), ITextKBubble, ITextKBubbleListener {
 
     //region # variate
-    private val _textKBubbleDelegate: TextKBubbleDelegate by lazy { TextKBubbleDelegate(context) }
+    private val _textKBubbleDelegate: TextKBubbleDelegate by lazy_ofNone { TextKBubbleDelegate(context) }
 
     override fun setArrowDirection(arrowDirection: EArrowDirection) {
         _textKBubbleDelegate.setArrowDirection(arrowDirection)

@@ -31,7 +31,7 @@ import com.mozhimen.xmlk.textk.TextKIconFont
  */
 class LayoutKSearch @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKRelative(context, attrs, defStyleAttr) {
 
-    private val _attrs: MSearchAttrs by lazy { SearchAttrsParser.parseAttrs(context, attrs, defStyleAttr) }
+    private val _attrs: MSearchAttrs by lazy_ofNone { SearchAttrsParser.parseAttrs(context, attrs, defStyleAttr) }
     private var _searchTextWatcher: SearchTextWatcher? = null
     private val _debounceRunnable = Runnable { if (_searchTextWatcher != null) _searchTextWatcher!!.afterTextChanged(_editText?.text) }
     private var _editText: EditText? = null
@@ -42,7 +42,7 @@ class LayoutKSearch @JvmOverloads constructor(context: Context, attrs: Attribute
     private var _searchIcon: TextKIconFont? = null
     private var _searchIconHintContainer: LinearLayout? = null
     private var _clearIcon: TextKIconFont? = null
-    private val _weakRefHandler by lazy { BaseWeakRefMainHandler(this) }
+    private val _weakRefHandler by lazy_ofNone { BaseWeakRefMainHandler(this) }
 
     companion object {
         const val GRAVITY_LEFT = 1

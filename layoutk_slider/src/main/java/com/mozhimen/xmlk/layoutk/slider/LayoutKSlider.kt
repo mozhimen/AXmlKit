@@ -38,7 +38,7 @@ import com.mozhimen.xmlk.layoutk.slider.mos.MSlider
  */
 class LayoutKSlider @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKFrame(context, attrs, defStyleAttr), ILayoutKSlider {
 
-    private val _layoutKSliderDelegate: LayoutKSliderDelegate by lazy { LayoutKSliderDelegate(context) }
+    private val _layoutKSliderDelegate: LayoutKSliderDelegate by lazy_ofNone { LayoutKSliderDelegate(context) }
 
     init {
         if (!isInEditMode) {

@@ -26,7 +26,7 @@ typealias IRecyclerKLinearListener = IAB_Listener<Int, MKey>//(position: Int, it
 class RecyclerKLinearVDB @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerView(context, attrs, defStyleAttr), IRecyclerKLinear {
 
     private var _recyclerLinearListener: IRecyclerKLinearListener? = null
-    private val _adapterKItemRecycler by lazy { AdapterKItemRecycler() }
+    private val _adapterKItemRecycler by lazy_ofNone { AdapterKItemRecycler() }
     private val _keys = ArrayList<MKey>()
 
     init {

@@ -43,8 +43,8 @@ internal class LayoutKSliderDelegate(
     //region # variate
     private lateinit var _layoutKSlider: LayoutKSlider
     private lateinit var _attrs: MSliderAttrs
-    private val _slider: MSlider by lazy { MSlider() }
-    private val _rod: MRod by lazy { MRod() }
+    private val _slider: MSlider by lazy_ofNone { MSlider() }
+    private val _rod: MRod by lazy_ofNone { MRod() }
     private var _scrollableParentView: ViewGroup? = null
     private var _rodIsScrolling = false
     private var _isEnableScroll = true

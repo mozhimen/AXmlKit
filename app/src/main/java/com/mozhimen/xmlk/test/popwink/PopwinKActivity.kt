@@ -16,17 +16,17 @@ import com.mozhimen.xmlk.test.popwink.temps.PopwinKTest
  */
 class PopwinKActivity : BaseActivityVDB<ActivityPopwinkBinding>() {
 
-    private val _popwinK by lazy { PopwinKAnim(this) }
+    private val _popwinK by lazy_ofNone { PopwinKAnim(this) }
     fun showPopwinK(view: View) {
         _popwinK.showPopupWindow()
     }
 
-    private val _popwinKTest by lazy { PopwinKTest(this, "inited") }
+    private val _popwinKTest by lazy_ofNone { PopwinKTest(this, "inited") }
     fun showPopwinKTest(view: View) {
         _popwinKTest.showPopupWindow()
     }
 
-    private val _popwinKSelector by lazy { PopwinKSelector(this, mutableListOf("1", "2", "3")) }
+    private val _popwinKSelector by lazy_ofNone { PopwinKSelector(this, mutableListOf("1", "2", "3")) }
     fun showPopwinKSelectorNormal(view: View) {
         if (_popwinKSelector.isShowing) _popwinKSelector.dismiss()
         _popwinKSelector.setItems(listOf("Java", "Kotlin", "ObjectC", "Swift", "Dart", "C#", "C++", "C", "Python"))
