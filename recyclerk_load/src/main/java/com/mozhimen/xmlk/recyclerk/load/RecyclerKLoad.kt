@@ -30,7 +30,7 @@ class RecyclerKLoad @JvmOverloads constructor(context: Context, attrs: Attribute
     private var _isFooterShowing: Boolean = false
     private var _recyclerKLoadListener: IRecyclerKLoadListener? = null
     private var _prefetchSize: Int = 5
-    private val _gestureDetector: GestureDetector by lazy { GestureDetector(context, RecyclerKLoadGestureDetector(_prefetchSize, _recyclerKLoadListener)) }
+    private val _gestureDetector: GestureDetector by lazy_ofNone { GestureDetector(context, RecyclerKLoadGestureDetector(_prefetchSize, _recyclerKLoadListener)) }
 
     override fun setFooterView(layoutId: Int) {
         _footerView = LayoutInflater.from(context).inflate(layoutId, this, false)
@@ -84,7 +84,7 @@ class RecyclerKLoad @JvmOverloads constructor(context: Context, attrs: Attribute
 
     inner class RecyclerKLoadGestureDetector(private val _prefetchSize: Int, private val _listener: IRecyclerKLoadListener?) : GestureDetectorOnGestureCallback() {
         //咱们这里的强转, 因为前面会有前置检查
-        private val _adapterKRecyclerStuffed by lazy { adapter as AdapterKItemRecyclerStuffed }
+        private val _adapterKRecyclerStuffed by lazy_ofNone { adapter as AdapterKItemRecyclerStuffed }
 
         override fun onScroll(e1: MotionEvent?, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
             if (distanceY < 0 && this@RecyclerKLoad.isScroll2top()) {
@@ -112,7 +112,7 @@ class RecyclerKLoad @JvmOverloads constructor(context: Context, attrs: Attribute
 
     inner class RecyclerKLoadScrollCallback : OnScrollListener() {
         //咱们这里的强转, 因为前面会有前置检查
-        private val _adapterKRecyclerStuffed by lazy { adapter as AdapterKItemRecyclerStuffed }
+        private val _adapterKRecyclerStuffed by lazy_ofNone { adapter as AdapterKItemRecyclerStuffed }
 
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             //需要根据当前的滑动状态, 已决定要不要添加footerView, 要不要执行上拉加载分页的动作

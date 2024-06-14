@@ -35,7 +35,7 @@ class DialogKLoadingUpdate @JvmOverloads internal constructor(
     private var _imgProgress: ImageView? = null
     private var _txtDesc: TextView? = null
     private var _txtUpdateDesc: TextView? = null
-    private val _rotateAnimation by lazy { AnimationRotationRecyclerType().setDuration(2000).build() }
+    private val _rotateAnimation by lazy_ofNone { AnimationRotationRecyclerType().setDuration(2000).build() }
 
     init {
         setCancelable(true)

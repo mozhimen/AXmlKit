@@ -14,7 +14,7 @@ import com.mozhimen.xmlk.toastk.R
 
 @OApiDeprecated_Official_AfterV_30_11_R
 class ToastKViewBuilder : BaseUtilK() {
-    private val _toast: Toast by lazy { Toast(_context) }
+    private val _toast: Toast by lazy_ofNone { Toast(_context) }
     private var _toastTextView: TextView
 
     init {

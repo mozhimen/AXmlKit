@@ -11,6 +11,7 @@ import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.basick.utilk.android.view.requestAllowInterceptTouchEvent
 import com.mozhimen.basick.utilk.androidx.recyclerview.UtilKRecyclerViewWrapper
 import com.mozhimen.basick.utilk.androidx.recyclerview.isScrollVertical
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import kotlin.math.abs
 
 /**
@@ -25,7 +26,7 @@ import kotlin.math.abs
 class RecyclerKLinearNested @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerKLifecycle(context, attrs, defStyleAttr) {
     private var _startX = 0
     private var _startY = 0
-    private val _isScrollVertical by lazy { isScrollVertical().also { UtilKLogWrapper.d(TAG, "_isScrollVertical $it") } }
+    private val _isScrollVertical by lazy_ofNone { isScrollVertical().also { UtilKLogWrapper.d(TAG, "_isScrollVertical $it") } }
 
     @OApiCall_BindViewLifecycle
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {

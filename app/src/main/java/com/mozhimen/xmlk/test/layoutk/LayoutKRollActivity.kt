@@ -15,7 +15,7 @@ import kotlinx.coroutines.withContext
 
 class LayoutKRollActivity : BaseActivityVDB<ActivityLayoutkRollBinding>() {
     @OptIn(OApiCall_BindLifecycle::class, OApiInit_ByLazy::class)
-    private val _taskKPoll by lazy { TaskKPoll().apply { bindLifecycle(this@LayoutKRollActivity) } }
+    private val _taskKPoll by lazy_ofNone { TaskKPoll().apply { bindLifecycle(this@LayoutKRollActivity) } }
     private val list = "我喜欢唱跳RAP篮球!"
 
     @OptIn(OApiCall_BindLifecycle::class, OApiInit_ByLazy::class)

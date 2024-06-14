@@ -9,6 +9,7 @@ import androidx.annotation.LayoutRes
 import com.mozhimen.basick.elemk.android.view.ViewProxy
 import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
 import com.mozhimen.basick.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import java.lang.ref.WeakReference
 
 /**
@@ -29,7 +30,7 @@ open class VHKRecycler : VHKLifecycle {
     private var _viewCaches = SparseArray<View>()
 
     @OptIn(OApiInit_ByLazy::class)
-    private val _viewProxy by lazy { ViewProxy<VHKRecycler>(WeakReference(this.itemView)) }
+    private val _viewProxy by lazy_ofNone { ViewProxy<VHKRecycler>(WeakReference(this.itemView)) }
 
     @OptIn(OApiInit_ByLazy::class)
     val viewProxy get() = _viewProxy
