@@ -18,7 +18,11 @@ open class PagerKDisScroll @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null,
 ) : ViewPager(context, attrs), IUtilK {
 
+    ////////////////////////////////////////////////////////////////
+
     protected var _isEnableScroll = true//是否enableScroll
+
+    ////////////////////////////////////////////////////////////////
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(ev: MotionEvent?): Boolean {
@@ -45,7 +49,7 @@ open class PagerKDisScroll @JvmOverloads constructor(
      * 拦截:会走到自己的onTouchEvent方法里面来
      * 不拦截:事件传递给子孩子
      */
-    override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+    override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
         // return false//可行,不拦截事件,
 //        return if (_isEnableScroll) {
 //            super.onInterceptTouchEvent(ev)
@@ -53,7 +57,7 @@ open class PagerKDisScroll @JvmOverloads constructor(
 //            false
 //        }
         return try {
-            return _isEnableScroll && super.onInterceptTouchEvent(ev)
+            _isEnableScroll && super.onInterceptTouchEvent(ev)
         } catch (e: Exception) {
             e.printStackTrace()
             false

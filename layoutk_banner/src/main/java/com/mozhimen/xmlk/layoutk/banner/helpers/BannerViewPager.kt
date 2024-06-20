@@ -22,7 +22,6 @@ import java.lang.Exception
 class BannerViewPager @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     PagerKDisScroll(context, attrs) {
 
-
     private var _intervalTime = 0
     private var _scrollDuration = 0
     private var _autoPlay = true//是否开启自动轮播
