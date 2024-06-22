@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Color
 import android.view.View
 import android.view.animation.Animation
-import com.mozhimen.basick.animk.builder.impls.AnimationTranslationType
+import com.mozhimen.animk.builder.impls.AnimationTranslationType
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.xmlk.popwink.bases.BasePopwinKLifecycle
 import com.mozhimen.xmlk.test.R

@@ -34,6 +34,7 @@ dependencies {
 
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:xmlk')
+    implementation project(':AAnimKit:animk_builder')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

@@ -16,7 +16,7 @@ import com.mozhimen.xmlk.layoutk.slider.commons.ISliderScrollListener
 import com.mozhimen.xmlk.layoutk.slider.mos.MRod
 import com.mozhimen.xmlk.layoutk.slider.mos.MSlider
 import com.mozhimen.xmlk.layoutk.slider.mos.MSliderAttrs
-
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 /**
  * @ClassName LayoutKSliderDelegate
  * @Description

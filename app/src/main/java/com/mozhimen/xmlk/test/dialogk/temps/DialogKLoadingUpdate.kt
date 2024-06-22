@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.mozhimen.basick.animk.builder.impls.AnimationRotationRecyclerType
+import com.mozhimen.animk.builder.impls.AnimationRotationRecyclerType
 import com.mozhimen.basick.utilk.android.widget.applyValueIfNotEmpty
 import com.mozhimen.basick.utilk.wrapper.stopAnim
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogK
