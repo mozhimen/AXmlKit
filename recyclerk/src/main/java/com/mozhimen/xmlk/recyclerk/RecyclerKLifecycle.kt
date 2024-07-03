@@ -13,7 +13,7 @@ import com.mozhimen.basick.utilk.androidx.lifecycle.runOnMainThread
 
 /**
  * @ClassName RecyclerKLifecycle
- * @Description 这边RecyclerView持有Adapter会造成内存泄漏, 特别是在fragment中, 所以在onPause要置空
+ * @Description 这边RecyclerView持有Adapter会造成内存泄漏, 特别是在fragment中, 所以在view onDestroy要置空
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0
  */

@@ -16,7 +16,7 @@ import kotlin.math.abs
 
 /**
  * @ClassName RecyclerKNested
- * @Description 处理上下滑动时会出现左右滑动的问题
+ * @Description
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0
  */
