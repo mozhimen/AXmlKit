@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import com.google.android.material.button.MaterialButton
-import com.mozhimen.basick.elemk.commons.IExtension_Listener
+import com.mozhimen.basick.elemk.commons.IExt_Listener
 import com.mozhimen.basick.elemk.commons.I_Listener
 import com.mozhimen.basick.utilk.android.content.UtilKContext
 import com.mozhimen.basick.utilk.android.util.dp2px
@@ -45,19 +45,19 @@ class DialogKQues @JvmOverloads constructor(context: Context, themeId: Int = 0) 
             return this
         }
 
-        fun genBackground(block: IExtension_Listener<FrameLayout>) {
+        fun genBackground(block: IExt_Listener<FrameLayout>) {
             _bg.block()
         }
 
-        fun genTitle(block: IExtension_Listener<TextView>) {
+        fun genTitle(block: IExt_Listener<TextView>) {
             _titleView.block()
         }
 
-        fun genBtnCancel(block: IExtension_Listener<MaterialButton>) {
+        fun genBtnCancel(block: IExt_Listener<MaterialButton>) {
             _btnCancel.block()
         }
 
-        fun genBtnSure(block: IExtension_Listener<MaterialButton>) {
+        fun genBtnSure(block: IExt_Listener<MaterialButton>) {
             _btnSure.block()
         }
 
@@ -85,7 +85,7 @@ class DialogKQues @JvmOverloads constructor(context: Context, themeId: Int = 0) 
             }
             dialogKQues.setContentView(view)
             dialogKQues.setCancelable(cancelable)
-            dialogKQues.window?.setWindowAnimations(animStyleId ?: com.mozhimen.basick.R.style.AnimK_Theme_Alpha)
+            dialogKQues.window?.setWindowAnimations(animStyleId ?: com.mozhimen.animk.R.style.AnimK_Theme_Alpha)
             dialogKQues.window?.setLayout(width.dp2px().toInt(), height.dp2px().toInt())
             return dialogKQues
         }

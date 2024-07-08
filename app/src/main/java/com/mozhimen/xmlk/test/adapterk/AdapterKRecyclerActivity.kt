@@ -6,7 +6,7 @@ import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.xmlk.recyclerk.item.AdapterKItemRecycler
+import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapter
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
 import com.mozhimen.xmlk.test.databinding.ActivityAdapterkRecyclerBinding
 import com.mozhimen.xmlk.test.recyclerk.mos.*
@@ -19,13 +19,13 @@ import com.mozhimen.xmlk.test.recyclerk.mos.*
  */
 class AdapterKRecyclerActivity : BaseActivityVDB<ActivityAdapterkRecyclerBinding>() {
 
-    private lateinit var _adapterKRecycler: AdapterKItemRecycler
+    private lateinit var _adapterKRecycler: RecyclerKItemAdapter
     override fun initView(savedInstanceState: Bundle?) {
         initAdapter()
     }
 
     private fun initAdapter() {
-        _adapterKRecycler = AdapterKItemRecycler()
+        _adapterKRecycler = RecyclerKItemAdapter()
         vdb.adapterkRecycler.apply {
             layoutManager = GridLayoutManager(this@AdapterKRecyclerActivity, 2)
             adapter = _adapterKRecycler

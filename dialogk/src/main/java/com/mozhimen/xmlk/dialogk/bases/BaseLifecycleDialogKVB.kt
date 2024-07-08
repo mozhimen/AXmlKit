@@ -10,6 +10,7 @@ import com.mozhimen.basick.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.basick.utilk.androidx.lifecycle.runOnMainThread
 import com.mozhimen.xmlk.R
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVBClickListener
+import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVDBClickListener
 
 /**
  * @ClassName BaseLifecycleDialogKVB

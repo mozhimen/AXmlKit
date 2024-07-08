@@ -28,4 +28,15 @@
         <!-- 扫描线是否来回移动，默认值为true -->
         <attr name="viewKScanQR_isScanLineReverse" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="ViewKProgressWave">
+        <!--样式-->
+        <attr name="viewKProgressWave_max" format="integer" />
+        <attr name="viewKProgressWave_progress" format="integer" />
+        <attr name="viewKProgressWave_waveColor" format="color" />
+        <attr name="viewKProgressWave_waveHeight" format="dimension" />
+        <attr name="viewKProgressWave_strokeColor" format="color" />
+        <attr name="viewKProgressWave_strokeWidth" format="dimension" />
+        <attr name="viewKProgressWave_submergedTextColor" format="color" />
+    </declare-styleable>
 </resources>

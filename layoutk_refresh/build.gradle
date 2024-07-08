@@ -36,6 +36,7 @@ dependencies {
     implementation project(':SwiftKit:xmlk')
     implementation project(':recyclerk_load')
     implementation project(':AAnimKit:animk_lottie')
+    implementation project(':AAnimKit:animk_builder')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

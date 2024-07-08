@@ -4,7 +4,8 @@ import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.xmlk.recyclerk.item.AdapterKItemRecyclerStuffed
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapterStuffed
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
 import com.mozhimen.xmlk.test.databinding.ActivityAdapterkRecyclerStuffedBinding
 import com.mozhimen.xmlk.test.recyclerk.mos.*
@@ -17,7 +18,7 @@ import com.mozhimen.xmlk.test.recyclerk.mos.*
  */
 class AdapterKRecyclerStuffedActivity : BaseActivityVDB<ActivityAdapterkRecyclerStuffedBinding>() {
 
-    private val _adapterKRecyclerStuffed by lazy_ofNone { AdapterKItemRecyclerStuffed() }
+    private val _adapterKRecyclerStuffed by lazy_ofNone { RecyclerKItemAdapterStuffed() }
     override fun initView(savedInstanceState: Bundle?) {
         initAdapter()
     }

@@ -9,7 +9,7 @@ import com.mozhimen.adaptk.systembar.initAdaptKSystemBar
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.demo.databinding.ActivityMainBinding
 import com.mozhimen.xmlk.demo.databinding.ItemDemoListBinding
-import com.mozhimen.xmlk.recyclerk.quick.AdapterKQuickRecyclerStuffedVB
+import com.mozhimen.xmlk.recyclerk.quick.RecyclerKQuickAdapterStuffedVB
 import kotlin.math.abs
 
 @AAdaptKSystemBarProperty(property = CProperty.IMMERSED_HARD_STICKY)
@@ -33,7 +33,7 @@ class MainActivity : BaseActivityVDB<ActivityMainBinding>() {
         )
         vdb.demoRecycler.layoutManager = LinearLayoutManager(this)
         vdb.demoRecycler.adapter =
-            AdapterKQuickRecyclerStuffedVB<Astro, ItemDemoListBinding>(list, R.layout.item_demo_list, R.layout.item_demo_header, null, BR.itemAstro) { holder, itemData, position, _ ->
+            RecyclerKQuickAdapterStuffedVB<Astro, ItemDemoListBinding>(list, R.layout.item_demo_list, R.layout.item_demo_header, null, BR.itemAstro) { holder, itemData, position, _ ->
                 if (position in 1 until list.size) {
                     holder.vdb.demoItemListBtn.setOnClickListener {
                         UtilKLogWrapper.i(TAG, itemData.name)

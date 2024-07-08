@@ -4,7 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.xmlk.recyclerk.item.AdapterKItemRecyclerStuffed
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapterStuffed
 import com.mozhimen.xmlk.layoutk.loadrefresh.commons.ILoadRefreshListener
 import com.mozhimen.xmlk.recyclerk.load.RecyclerKLoad
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
@@ -25,7 +26,7 @@ class LayoutKLoadRefresh @JvmOverloads constructor(context: Context, attrs: Attr
     LayoutKRefresh(context, attrs, defStyleAttr), ILoadRefresh {
 
     private lateinit var _recyclerKLoad: RecyclerKLoad
-    private val _adapterKRecyclerStuffed by lazy_ofNone { AdapterKItemRecyclerStuffed() }
+    private val _adapterKRecyclerStuffed by lazy_ofNone { RecyclerKItemAdapterStuffed() }
 
 
     override fun getRecyclerKLoad(): RecyclerKLoad =

@@ -23,7 +23,7 @@ class RecyclerKLifecycleActivity : BaseActivityVDB<ActivityRecyclerkLifecycleBin
         vdb.recyclerkLifecycle.layoutManager = LinearLayoutManager(this)
         vdb.recyclerkLifecycle.addItemDecoration(DividerItemDecoration(this, LinearLayout.VERTICAL))
         vdb.recyclerkLifecycle.adapter =
-            AdapterKItemRecyclerVDB<MKey, ItemRecyclerkLifecycleBinding>(list, R.layout.item_recyclerk_lifecycle, BR.item_recyclerk_lifecycle) { holder, _, position, _ ->
+            RecyclerKItemAdapterVDB<MKey, ItemRecyclerkLifecycleBinding>(list, R.layout.item_recyclerk_lifecycle, BR.item_recyclerk_lifecycle) { holder, _, position, _ ->
                 holder.vdb.itemRecyclerkLifecycleBox.setOnClickListener {
                     position.toString().showToast()
                 }

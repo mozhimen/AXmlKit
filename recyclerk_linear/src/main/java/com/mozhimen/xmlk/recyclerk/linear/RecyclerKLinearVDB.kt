@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mozhimen.basick.elemk.commons.IAB_Listener
 import com.mozhimen.basick.elemk.mos.MKey
-import com.mozhimen.xmlk.recyclerk.item.AdapterKItemRecycler
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
+import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapter
 import com.mozhimen.xmlk.recyclerk.linear.commons.IRecyclerKLinear
 import com.mozhimen.xmlk.recyclerk.linear.databinding.RecyclerkLinearItemBinding
 import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
@@ -26,7 +27,7 @@ typealias IRecyclerKLinearListener = IAB_Listener<Int, MKey>//(position: Int, it
 class RecyclerKLinearVDB @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerView(context, attrs, defStyleAttr), IRecyclerKLinear {
 
     private var _recyclerLinearListener: IRecyclerKLinearListener? = null
-    private val _adapterKItemRecycler by lazy_ofNone { AdapterKItemRecycler() }
+    private val _adapterKItemRecycler by lazy_ofNone { RecyclerKItemAdapter() }
     private val _keys = ArrayList<MKey>()
 
     init {

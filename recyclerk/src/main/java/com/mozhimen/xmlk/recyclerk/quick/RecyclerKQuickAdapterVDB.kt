@@ -13,7 +13,7 @@ import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDBListener
 import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
 
 /**
- * @ClassName AdapterKQuickRecyclerVB
+ * @ClassName RecyclerKQuickAdapterVDB
  * @Description  通用RecyclerView适配器
  * 注意:
  * 在使用Fragment切换,挂起与恢复时, 要使recyclerView.adapter置null

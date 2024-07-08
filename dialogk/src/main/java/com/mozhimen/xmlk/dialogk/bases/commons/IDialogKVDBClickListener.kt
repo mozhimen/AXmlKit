@@ -15,7 +15,7 @@ interface IDialogKVDBClickListener<VDB : ViewDataBinding> : IDialogKClickListene
      * 点击确定
      * @param view View?
      */
-    fun onVBClickPositive(vdb: VDB, dialogK: BaseDialogKVDB<VDB, IDialogKVDBClickListener<VDB>>) {
+    fun onVDBClickPositive(vdb: VDB, dialogK: BaseDialogKVDB<VDB, IDialogKVDBClickListener<VDB>>) {
         onClickPositive(vdb.root, dialogK)
     }
 
@@ -23,7 +23,7 @@ interface IDialogKVDBClickListener<VDB : ViewDataBinding> : IDialogKClickListene
      * 点击取消
      * @param view View?
      */
-    fun onVBClickNegative(vdb: VDB, dialogK: BaseDialogKVDB<VDB, IDialogKVDBClickListener<VDB>>) {
+    fun onVDBClickNegative(vdb: VDB, dialogK: BaseDialogKVDB<VDB, IDialogKVDBClickListener<VDB>>) {
         onClickNegative(vdb.root, dialogK)
     }
 }

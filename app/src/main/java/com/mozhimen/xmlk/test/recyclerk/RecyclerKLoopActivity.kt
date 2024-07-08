@@ -32,7 +32,7 @@ class RecyclerKLoopActivity : BaseActivityVDB<ActivityRecyclerkLifecycleBinding>
         vdb.recyclerkLifecycle.bindLifecycle(this)
         vdb.recyclerkLifecycle.layoutManager = AutoLooperLinearLayoutManager(vdb.recyclerkLifecycle,this)
         vdb.recyclerkLifecycle.adapter =
-            AdapterKItemRecyclerVDB<MKey, ItemRecyclerkLoopBinding>(list, R.layout.item_recyclerk_loop, BR.item_recyclerk_loop) { holder, _, position, _ ->
+            RecyclerKItemAdapterVDB<MKey, ItemRecyclerkLoopBinding>(list, R.layout.item_recyclerk_loop, BR.item_recyclerk_loop) { holder, _, position, _ ->
                 holder.vdb.itemRecyclerkImg.setOnClickListener {
                     position.toString().showToast()
                 }

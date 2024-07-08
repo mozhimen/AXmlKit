@@ -3,7 +3,6 @@ package com.mozhimen.xmlk.test.popwink.temps
 import android.content.Context
 import android.graphics.Color
 import android.view.animation.Animation
-import com.mozhimen.animk.builder.AnimKBuilder
 import com.mozhimen.animk.builder.impls.AnimationTranslationType
 import com.mozhimen.xmlk.popwink.bases.BasePopwinKLifecycle
 import com.mozhimen.xmlk.test.R

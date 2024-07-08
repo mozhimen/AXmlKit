@@ -24,10 +24,10 @@ import kotlinx.coroutines.withContext
  */
 class AdapterKRecyclerVBActivity : BaseActivityVDB<ActivityAdapterkRecyclerVbBinding>() {
 
-    private lateinit var _adapterRecyclerVb: AdapterKItemRecyclerVDB<MKey, ItemAdapterkRecyclerVbBinding>
+    private lateinit var _adapterRecyclerVb: RecyclerKItemAdapterVDB<MKey, ItemAdapterkRecyclerVbBinding>
 
     override fun initView(savedInstanceState: Bundle?) {
-        _adapterRecyclerVb = AdapterKItemRecyclerVDB<MKey, ItemAdapterkRecyclerVbBinding>(
+        _adapterRecyclerVb = RecyclerKItemAdapterVDB<MKey, ItemAdapterkRecyclerVbBinding>(
             mutableListOf(),
             R.layout.item_adapterk_recycler_vb,
             BR.item_adapterk_recycler_vb

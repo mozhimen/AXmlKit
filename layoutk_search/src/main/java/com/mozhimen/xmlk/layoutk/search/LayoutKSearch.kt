@@ -16,6 +16,7 @@ import androidx.core.view.setPadding
 import com.mozhimen.basick.elemk.android.os.bases.BaseWeakRefMainHandler
 import com.mozhimen.basick.utilk.android.view.applyPadding
 import com.mozhimen.basick.utilk.android.view.applyPaddingHorizontal
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.bases.BaseLayoutKRelative
 import com.mozhimen.xmlk.layoutk.search.helpers.SearchAttrsParser
 import com.mozhimen.xmlk.layoutk.search.commons.SearchTextWatcher

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import com.mozhimen.animk.builder.impls.AnimationRotationRecyclerType
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.basick.utilk.wrapper.UtilKRes
 import com.mozhimen.basick.utilk.wrapper.stopAnim
 import com.mozhimen.xmlk.layoutk.refresh.R

@@ -5,7 +5,6 @@ import android.graphics.Color
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import android.view.animation.Animation
-import com.mozhimen.animk.builder.AnimKBuilder
 import com.mozhimen.animk.builder.impls.AnimationTranslationType
 import com.mozhimen.xmlk.popwink.bases.BasePopwinKLifecycle
 import com.mozhimen.xmlk.viewk.wheel.ViewKWheel

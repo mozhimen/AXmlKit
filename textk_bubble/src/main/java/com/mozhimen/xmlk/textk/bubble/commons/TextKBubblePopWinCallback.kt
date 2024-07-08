@@ -316,11 +316,11 @@ open class TextKBubblePopWinCallback(contentView: View, bubbleView: ITextKBubble
 
     private fun getAnimationStyle(direction: EArrowDirection): Int {
         return when (direction) {
-            EArrowDirection.Up -> com.mozhimen.basick.R.style.AnimK_Theme_Scale_Top
-            EArrowDirection.Left -> com.mozhimen.basick.R.style.AnimK_Theme_Scale_Left
-            EArrowDirection.Right -> com.mozhimen.basick.R.style.AnimK_Theme_Scale_Right
-            EArrowDirection.Down -> com.mozhimen.basick.R.style.AnimK_Theme_Scale_Bottom
-            else -> com.mozhimen.basick.R.style.AnimK_Theme_Scale_Center
+            EArrowDirection.Up -> com.mozhimen.animk.R.style.AnimK_Theme_Scale_Top
+            EArrowDirection.Left -> com.mozhimen.animk.R.style.AnimK_Theme_Scale_Left
+            EArrowDirection.Right -> com.mozhimen.animk.R.style.AnimK_Theme_Scale_Right
+            EArrowDirection.Down -> com.mozhimen.animk.R.style.AnimK_Theme_Scale_Bottom
+            else -> com.mozhimen.animk.R.style.AnimK_Theme_Scale_Center
         }
     }
 

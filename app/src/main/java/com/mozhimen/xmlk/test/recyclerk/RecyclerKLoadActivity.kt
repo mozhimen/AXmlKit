@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.elemk.android.os.WakeBefPauseLifecycleHandler
-import com.mozhimen.xmlk.recyclerk.item.AdapterKItemRecyclerStuffed
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapterStuffed
 import com.mozhimen.xmlk.layoutk.refresh.commons.IRefreshListener
 import com.mozhimen.xmlk.layoutk.refresh.impls.TextOverView
 import com.mozhimen.xmlk.layoutk.refresh.cons.ERefreshStatus
@@ -20,7 +21,7 @@ import com.mozhimen.xmlk.test.recyclerk.mos.RecyclerKItemLoadMore
 class RecyclerKLoadActivity : BaseActivityVDB<ActivityRecyclerkLoadBinding>() {
     private var _pageIndex: Int = 1
     private lateinit var _textOverView: TextOverView
-    private val _adapterKRecyclerStuffed by lazy_ofNone { AdapterKItemRecyclerStuffed() }
+    private val _adapterKRecyclerStuffed by lazy_ofNone { RecyclerKItemAdapterStuffed() }
     private val _dataSets = ArrayList<RecyclerKItem<out RecyclerView.ViewHolder>>()
 
     override fun initView(savedInstanceState: Bundle?) {

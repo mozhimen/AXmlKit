@@ -67,6 +67,7 @@ include ':bark_title'
 include ':imagek_blur'
 include ':dialogk_cupertino'
 include ':viewk_blur'
+include ':textk_expand'
 //SwiftKit
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
@@ -85,6 +86,11 @@ include ':AAdaptKit:adaptk_systembar'
 //AAnimKit
 include ':AAnimKit'
 project(':AAnimKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AAnimKit")
+include ':AAnimKit:animk'
 include ':AAnimKit:animk_lottie'
 include ':AAnimKit:animk_builder'
-include ':textk_expand'
+//ACacheKit
+include ':ACacheKit'
+project(':ACacheKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ACacheKit")
+include ':ACacheKit:cachek_sharedpreferences'
+include ':ACacheKit:cachek_basic'

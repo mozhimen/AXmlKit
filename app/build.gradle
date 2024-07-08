@@ -42,6 +42,10 @@ dependencies {
     implementation project(':SwiftKit:xmlk')
     implementation project(':AImageKit:imagek_glide_blur')
     implementation project(':AImageKit:imagek_glide')
+    implementation project(':AAnimKit:animk')
+    implementation project(':AAnimKit:animk_builder')
+    implementation project(':AAnimKit:animk_builder')
+    implementation project(':ACacheKit:cachek_sharedpreferences')
     implementation project(':adapterk')
     implementation project(':bark')
     implementation project(':bark_rating')
@@ -84,6 +88,7 @@ dependencies {
     implementation project(':vhk')
     implementation project(':viewk')
     implementation project(':viewk_wheel')
+    implementation project(':textk_expand')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

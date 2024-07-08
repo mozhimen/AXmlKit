@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.elemk.mos.MKey
 import com.mozhimen.basick.utilk.android.widget.showToast
-import com.mozhimen.xmlk.recyclerk.quick.AdapterKQuickRecyclerVB
+import com.mozhimen.xmlk.recyclerk.quick.RecyclerKQuickAdapterVDB
 import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
 import com.mozhimen.xmlk.test.R
 import com.mozhimen.xmlk.test.BR
@@ -25,10 +25,10 @@ import kotlinx.coroutines.withContext
  */
 class AdapterKRecyclerVB2Activity : BaseActivityVDB<ActivityAdapterkRecyclerVb2Binding>() {
     private val _datas = mutableListOf<MKey>()
-    private lateinit var _adapterRecyclerVb2: AdapterKQuickRecyclerVB<MKey, ItemAdapterkRecyclerVb2Binding>
+    private lateinit var _adapterRecyclerVb2: RecyclerKQuickAdapterVDB<MKey, ItemAdapterkRecyclerVb2Binding>
 
     override fun initView(savedInstanceState: Bundle?) {
-        _adapterRecyclerVb2 = AdapterKQuickRecyclerVB(
+        _adapterRecyclerVb2 = RecyclerKQuickAdapterVDB(
             _datas,
             R.layout.item_adapterk_recycler_vb2,
             BR.item_adapterk_recycler_vb2

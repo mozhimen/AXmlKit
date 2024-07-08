@@ -5,7 +5,7 @@ import android.view.View
 import com.mozhimen.basick.utilk.android.widget.applyValueIfNotEmpty
 import com.mozhimen.basick.utilk.wrapper.UtilKScreen
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogKVDB
-import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVBClickListener
+import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVDBClickListener
 import com.mozhimen.xmlk.test.databinding.DialogkTipBinding
 import kotlin.math.roundToInt
 
@@ -17,7 +17,7 @@ import kotlin.math.roundToInt
  * @Version 1.0
  */
 class DialogKTipVDB(context: Context, private val _txt: String, private var _onSure: IDialogKTipListener) :
-        BaseDialogKVDB<DialogkTipBinding, IDialogKVBClickListener<DialogkTipBinding>>(context) {
+        BaseDialogKVDB<DialogkTipBinding, IDialogKVDBClickListener<DialogkTipBinding>>(context) {
 
     companion object {
         @JvmStatic
@@ -28,14 +28,13 @@ class DialogKTipVDB(context: Context, private val _txt: String, private var _onS
 
     init {
         setDialogCancelable(true)
-        setDialogClickListener(object : IDialogKVBClickListener<DialogkTipBinding> {
-
-            override fun onVBClickPositive(vb: DialogkTipBinding, dialogK: BaseDialogKVDB<DialogkTipBinding, IDialogKVBClickListener<DialogkTipBinding>>) {
+        setDialogClickListener(object : IDialogKVDBClickListener<DialogkTipBinding> {
+            override fun onVDBClickPositive(vdb: DialogkTipBinding, dialogK: BaseDialogKVDB<DialogkTipBinding, IDialogKVDBClickListener<DialogkTipBinding>>) {
                 _onSure.invoke()
                 this@DialogKTipVDB.dismiss()
             }
 
-            override fun onVBClickNegative(vb: DialogkTipBinding, dialogK: BaseDialogKVDB<DialogkTipBinding, IDialogKVBClickListener<DialogkTipBinding>>) {
+            override fun onVDBClickNegative(vdb: DialogkTipBinding, dialogK: BaseDialogKVDB<DialogkTipBinding, IDialogKVDBClickListener<DialogkTipBinding>>) {
                 this@DialogKTipVDB.dismiss()
             }
         })
