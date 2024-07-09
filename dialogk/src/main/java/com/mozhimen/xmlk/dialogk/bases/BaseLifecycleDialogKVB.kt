@@ -25,8 +25,8 @@ abstract class BaseLifecycleDialogKVB<VB : ViewBinding, T : IDialogKVBClickListe
 
     override fun bindLifecycle(owner: LifecycleOwner) {
         owner.runOnMainThread {
-            owner.lifecycle.removeObserver(this)
-            owner.lifecycle.addObserver(this)
+            owner.lifecycle.removeObserver(this@BaseLifecycleDialogKVB)
+            owner.lifecycle.addObserver(this@BaseLifecycleDialogKVB)
         }
     }
 

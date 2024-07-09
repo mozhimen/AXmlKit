@@ -24,8 +24,8 @@ abstract class BaseLifecycleDialogKVDB<VDB : ViewDataBinding, T : IDialogKVDBCli
 
     override fun bindLifecycle(owner: LifecycleOwner) {
         owner.runOnMainThread {
-            owner.lifecycle.removeObserver(this)
-            owner.lifecycle.addObserver(this)
+            owner.lifecycle.removeObserver(this@BaseLifecycleDialogKVDB)
+            owner.lifecycle.addObserver(this@BaseLifecycleDialogKVDB)
         }
     }
 

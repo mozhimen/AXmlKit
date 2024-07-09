@@ -30,6 +30,10 @@
     </declare-styleable>
 
     <declare-styleable name="ViewKProgressWave">
+        <attr name="viewKProgressWave_mode" format="enum">
+            <enum name="color" value="0" />
+            <enum name="icon" value="1" />
+        </attr>
         <!--样式-->
         <attr name="viewKProgressWave_max" format="integer" />
         <attr name="viewKProgressWave_progress" format="integer" />
@@ -37,6 +41,19 @@
         <attr name="viewKProgressWave_waveHeight" format="dimension" />
         <attr name="viewKProgressWave_strokeColor" format="color" />
         <attr name="viewKProgressWave_strokeWidth" format="dimension" />
-        <attr name="viewKProgressWave_submergedTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewKProgressWaveImage">
+        <attr name="viewKProgressWaveImage_mode" format="enum">
+            <enum name="icon" value="1" />
+            <enum name="color" value="2" />
+        </attr>
+        <attr name="viewKProgressWaveImage_autoLoad" format="boolean" />
+        <attr name="viewKProgressWaveImage_src" format="reference" />
+        <attr name="viewKProgressWaveImage_color" format="reference|color" />
+        <attr name="viewKProgressWaveImage_text" format="boolean" />
+        <attr name="viewKProgressWaveImage_textSize" format="dimension" />
+        <attr name="viewKProgressWaveImage_duration" format="integer" />
+        <attr name="viewKProgressWaveImage_strokeWidth" format="dimension" />
     </declare-styleable>
 </resources>
