@@ -23,11 +23,20 @@
                 app:viewKScanQR_lineDrawable="@drawable/viewk_qr_scan_line"
                 app:viewKScanQR_lineWidth="2dp" />
 
-            <com.mozhimen.xmlk.viewk.ViewKProgressWave
+            <com.mozhimen.xmlk.viewk.ViewKProgressWave2
                 android:id="@+id/viewk_progress_wave"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:viewKProgressWave_progress="0" />
+                app:viewKProgressWave_progress="0"
+                app:viewKProgressWave_src="@drawable/xmlk_img"
+                app:viewKProgressWave_style="icon"
+                app:viewKProgressWave_strokeWidth="0dp" />
+
+            <com.mozhimen.xmlk.viewk.ViewKProgressWaveImage
+                android:id="@+id/viewk_progress_wave_image"
+                android:layout_width="100dp"
+                app:viewKProgressWaveImage_src="@drawable/xmlk_img"
+                android:layout_height="100dp" />
 
             <!--<com.mozhimen.xmlk.viewk.ViewKScanQR
                 android:id="@+id/viewk_squareQrScan"

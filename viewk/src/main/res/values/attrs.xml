@@ -29,18 +29,19 @@
         <attr name="viewKScanQR_isScanLineReverse" format="boolean" />
     </declare-styleable>
 
-    <declare-styleable name="ViewKProgressWave">
-        <attr name="viewKProgressWave_mode" format="enum">
+    <declare-styleable name="ViewKProgressWave2">
+        <attr name="viewKProgressWave2_style" format="enum">
             <enum name="color" value="0" />
             <enum name="icon" value="1" />
         </attr>
         <!--样式-->
-        <attr name="viewKProgressWave_max" format="integer" />
-        <attr name="viewKProgressWave_progress" format="integer" />
-        <attr name="viewKProgressWave_waveColor" format="color" />
-        <attr name="viewKProgressWave_waveHeight" format="dimension" />
-        <attr name="viewKProgressWave_strokeColor" format="color" />
-        <attr name="viewKProgressWave_strokeWidth" format="dimension" />
+        <attr name="viewKProgressWave2_max" format="integer" />
+        <attr name="viewKProgressWave2_progress" format="integer" />
+        <attr name="viewKProgressWave2_waveColor" format="color" />
+        <attr name="viewKProgressWave2_waveHeight" format="dimension" />
+        <attr name="viewKProgressWave2_strokeColor" format="color" />
+        <attr name="viewKProgressWave2_strokeWidth" format="dimension" />
+        <attr name="viewKProgressWave2_src" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="ViewKProgressWaveImage">
@@ -55,5 +56,24 @@
         <attr name="viewKProgressWaveImage_textSize" format="dimension" />
         <attr name="viewKProgressWaveImage_duration" format="integer" />
         <attr name="viewKProgressWaveImage_strokeWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewKProgressWave">
+        <attr name="viewKProgressWave_style" format="enum">
+            <enum name="color" value="0" />
+            <enum name="icon" value="1" />
+        </attr>
+        <!--样式-->
+        <attr name="viewKProgressWave_max" format="integer" />
+        <attr name="viewKProgressWave_progress" format="integer" />
+        <attr name="viewKProgressWave_waveNum" format="enum">
+            <enum name="single" value="1" />
+            <enum name="double" value="2" />
+        </attr>
+        <attr name="viewKProgressWave_waveColor" format="color" />
+        <attr name="viewKProgressWave_waveHeight" format="dimension" />
+        <attr name="viewKProgressWave_strokeColor" format="color" />
+        <attr name="viewKProgressWave_strokeWidth" format="dimension" />
+        <attr name="viewKProgressWave_src" format="reference" />
     </declare-styleable>
 </resources>

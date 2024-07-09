@@ -1,18 +1,16 @@
 package com.mozhimen.xmlk.viewk
 
-import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.graphics.DrawFilter
 import android.graphics.Paint
-import android.graphics.PaintFlagsDrawFilter
-import android.graphics.Path
 import android.util.AttributeSet
 import androidx.annotation.IntDef
+import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyScaleRatio
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.util.dp2pxI
+import com.mozhimen.basick.utilk.kotlin.intResDrawable2bitmapAny
 import com.mozhimen.xmlk.bases.BaseViewK
-import kotlin.math.sin
 
 
 /**
@@ -25,11 +23,11 @@ import kotlin.math.sin
 class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseViewK(context, attrs, defStyleAttr) {
 
     companion object {
-        private const val WAVE_PAINT_COLOR = -0x37ea437d//默认波纹颜色
-        private const val OUTER_RING_COLOR = -0x7ff7c71//默认外环颜色
+        private const val WAVE_COLOR = -0x37ea437d//默认波纹颜色
+        private const val STROKE_COLOR = -0x7ff7c71//默认外环颜色
         private const val STRETCH_FACTOR_A = 15f// y = Asin(wx+b)+h
-        private const val TRANSLATE_X_SPEED_ONE = 5// 第一条水波移动速度
-        private const val TRANSLATE_X_SPEED_TWO = 3// 第二条水波移动速度
+        private const val TRANSLATE_X_SPEED_BTM = 5// 第一条水波移动速度
+        private const val TRANSLATE_X_SPEED_TOP = 3// 第二条水波移动速度
     }
 
     @IntDef(STYLE.STYLE_ICON, STYLE.STYLE_COLOR)
@@ -42,31 +40,27 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
 
     ///////////////////////////////////////////////////////////////////////////////
 
-    private var _mode = STYLE.STYLE_COLOR
+    private var _style = STYLE.STYLE_COLOR
     private var _max = 100
+
+    @Volatile
     private var _progress = 0
-    private var _waveColor = WAVE_PAINT_COLOR
+    private var _waveColor = WAVE_COLOR
     private var _waveHeight = STRETCH_FACTOR_A
-    private var _strokeWidth = 5.dp2px()
-    private var _strokeColor = OUTER_RING_COLOR
+    private var _waveNum = 1
+    private var _strokeWidth = 2.dp2px()
+    private var _strokeColor = STROKE_COLOR
+    private var _src = 0
 
     ///////////////////////////////////////////////////////////////////////////////
 
-    private val _drawFilter: DrawFilter by lazy { PaintFlagsDrawFilter(0, Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG) }
-    private val _cirPath: Path by lazy { Path() }
-
     private lateinit var _wavePaint: Paint
-    private lateinit var _outerRingPaint: Paint
-    private lateinit var _yPositions: FloatArray
-    private lateinit var _resetOneYPositions: FloatArray
-    private lateinit var _resetTwoYPositions: FloatArray
-
+    private lateinit var _borderPaint: Paint
+    private lateinit var _iconPaint: Paint
     private var _width = 0
     private var _height = 0
-    private var _xOffsetSpeedOne = 0
-    private var _xOffsetSpeedTwo = 0
-    private var _xOneOffset = 0
-    private var _xTwoOffset = 0
+    private var _maskBitmap: Bitmap? = null//圆形遮罩
+    private var _iconBitmap: Bitmap? = null//圆形遮罩
 
     ///////////////////////////////////////////////////////////////////////////////
 
@@ -81,31 +75,36 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
     override fun initAttrs(attrs: AttributeSet?) {
         attrs ?: return
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ViewKProgressWave)
-        _mode = typedArray.getInt(R.styleable.ViewKProgressWave_viewKProgressWave_mode, _mode)
+        _style = typedArray.getInt(R.styleable.ViewKProgressWave_viewKProgressWave_style, _style)
         _max = typedArray.getInt(R.styleable.ViewKProgressWave_viewKProgressWave_max, _max)
         _progress = typedArray.getInt(R.styleable.ViewKProgressWave_viewKProgressWave_progress, _progress)
+        _waveNum = typedArray.getColor(R.styleable.ViewKProgressWave_viewKProgressWave_waveNum, _waveNum)
         _waveColor = typedArray.getColor(R.styleable.ViewKProgressWave_viewKProgressWave_waveColor, _waveColor)
         _waveHeight = typedArray.getDimension(R.styleable.ViewKProgressWave_viewKProgressWave_waveHeight, _waveHeight)
         _strokeWidth = typedArray.getDimension(R.styleable.ViewKProgressWave_viewKProgressWave_strokeWidth, _strokeWidth)
         _strokeColor = typedArray.getColor(R.styleable.ViewKProgressWave_viewKProgressWave_strokeColor, _strokeColor)
+        _src = typedArray.getResourceId(R.styleable.ViewKProgressWave_viewKProgressWave_src, _src)
         typedArray.recycle()
     }
 
     override fun initPaint() {
-        _outerRingPaint = Paint()
-        _outerRingPaint.isAntiAlias = true
-        _outerRingPaint.strokeWidth = _strokeWidth
-        _outerRingPaint.color = _strokeColor
-        _outerRingPaint.style = Paint.Style.STROKE
-
         _wavePaint = Paint()
         _wavePaint.isAntiAlias = true
         _wavePaint.style = Paint.Style.FILL
         _wavePaint.color = _waveColor
-    }
 
-    override fun initView() {
-        setProgress(_progress)
+        _borderPaint = Paint()
+        _borderPaint.isAntiAlias = true
+        _borderPaint.strokeWidth = _strokeWidth
+        _borderPaint.color = _strokeColor
+        _borderPaint.style = Paint.Style.STROKE
+
+        if (_style == STYLE.STYLE_ICON) {
+            _iconPaint = Paint()
+            _iconPaint.isFilterBitmap = true
+            _iconPaint.isAntiAlias = true
+            _iconPaint.isDither = true
+        }
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -135,113 +134,71 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
             _width = _height
         }
 
-        _yPositions = FloatArray(_width)// 用于保存原始波纹的y值
-        _resetOneYPositions = FloatArray(_width)// 用于保存波纹一的y值
-        _resetTwoYPositions = FloatArray(_width)// 用于保存波纹二的y值
+        if (_style == STYLE.STYLE_ICON)
+            createBallBitmap()
 
-        val mCycleFactorW = (2 * Math.PI / _width).toFloat()// 将周期定意
-
-        for (i in 0 until _width) {// 根据view总宽度得出所有对应的y值
-            _yPositions[i] = (_waveHeight * sin((mCycleFactorW * i).toDouble()) - _waveHeight).toFloat()
-        }
-        _cirPath.addCircle(_width / 2.0f, _height / 2.0f, _width / 2.0f - _strokeWidth + 0.3f, Path.Direction.CW)
-
-        _xOffsetSpeedOne = TRANSLATE_X_SPEED_ONE.dp2pxI() * _width / 330.dp2pxI()// 将dp转化为px，用于控制不同分辨率上移动速度基本一致
-        _xOffsetSpeedTwo = TRANSLATE_X_SPEED_TWO.dp2pxI() * _width / 330.dp2pxI()
     }
 
-    @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas) {
-        super.onDraw(canvas)
-        canvas.drawFilter = _drawFilter
-        canvas.save()
-        // 从canvas层面去除绘制时锯齿
-        canvas.clipPath(_cirPath) //裁剪
-        resetPositionY()
-        val proHeight = _height - _progress.toFloat() / _max * (_height - 2 * _strokeWidth) - _strokeWidth
-        for (i in 0 until _width) {
-            // 绘制第一条水波纹
-            canvas.drawLine(i.toFloat(), proHeight - _resetOneYPositions[i], i.toFloat(), _height.toFloat(), _wavePaint)
-            // 绘制第二条水波纹
-            canvas.drawLine(i.toFloat(), proHeight - _resetTwoYPositions[i], i.toFloat(), _height.toFloat(), _wavePaint)
-        }
-        canvas.restore()
+    }
 
-        if (_strokeWidth > 0) canvas.drawCircle(_width / 2.0f, _height / 2.0f, _width / 2.0f - _strokeWidth / 2, _outerRingPaint) //绘制外环
-
-        // 改变两条波纹的移动点
-        _xOneOffset += _xOffsetSpeedOne
-        _xTwoOffset += _xOffsetSpeedTwo
-        // 如果已经移动到结尾处，则重头记录
-        if (_xOneOffset >= _width)
-            _xOneOffset = 0
-        if (_xTwoOffset > _width)
-            _xTwoOffset = 0
-        if (_waveHeight > 0)
-            postInvalidate()
+    private fun createBallBitmap() {
+        _maskBitmap = Bitmap.createBitmap(_width, _height, Bitmap.Config.ARGB_8888)
+        val canvas = Canvas(_maskBitmap!!)
+        canvas.drawCircle(_width / 2f, _height / 2f, _width / 2f - _strokeWidth * 3f / 2f, _iconPaint)
+        val icBitmap = _src.intResDrawable2bitmapAny(context)
+        val scaleWidth = _width.toFloat() / icBitmap.width
+        val scaleHeight = _height.toFloat() / icBitmap.height
+        _iconBitmap = icBitmap.applyBitmapAnyScaleRatio(scaleWidth, scaleHeight)
     }
 
     ///////////////////////////////////////////////////////////////////////////////
 
-    fun getMax(): Int {
-        return _max
-    }
+    fun getMax(): Int =
+        _max
 
     fun setMax(max: Int) {
         _max = max
         invalidate()
     }
 
-    fun getProgress(): Int {
-        return _progress
-    }
+    fun getProgress(): Int =
+        _progress
 
     /**
      * 可在子线程中刷新
      */
     fun setProgress(progress: Int) {
         _progress = progress
+        invalidate()
+    }
+
+    fun postProgress(progress: Int) {
+        _progress = progress
         postInvalidate()
     }
 
-    fun getStrokeWidth(): Float {
-        return _strokeWidth
-    }
+    fun getStrokeWidth(): Float =
+        _strokeWidth
 
     fun setStrokeWidth(strokeWidth: Float) {
         _strokeWidth = strokeWidth
         invalidate()
     }
 
-    fun getStrokeColor(): Int {
-        return _strokeColor
-    }
+    fun getStrokeColor(): Int =
+        _strokeColor
 
     fun setStrokeColor(strokeColor: Int) {
-        _outerRingPaint.color = _strokeColor
+        _borderPaint.color = strokeColor.also { _strokeColor = it }
         invalidate()
     }
 
-    fun getWaveColor(): Int {
-        return _waveColor
-    }
+    fun getWaveColor(): Int =
+        _waveColor
 
     fun setWaveColor(wavePaintColor: Int) {
-        _wavePaint.color = wavePaintColor
+        _wavePaint.color = wavePaintColor.also { _waveColor = it }
         invalidate()
-    }
-
-    ///////////////////////////////////////////////////////////////////////////////
-
-    private fun resetPositionY() {
-        // _xOneOffset代表当前第一条水波纹要移动的距离
-        val oneInterval = _yPositions.size - _xOneOffset
-        // 重新填充第一条波纹的数据
-        System.arraycopy(_yPositions, _xOneOffset, _resetOneYPositions, 0, oneInterval)
-        System.arraycopy(_yPositions, 0, _resetOneYPositions, oneInterval, _xOneOffset)
-
-        val twoInterval = _yPositions.size - _xTwoOffset
-        System.arraycopy(_yPositions, _xTwoOffset, _resetTwoYPositions, 0, twoInterval)
-        System.arraycopy(_yPositions, 0, _resetTwoYPositions, twoInterval, _xTwoOffset)
     }
 }
