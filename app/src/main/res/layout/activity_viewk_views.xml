@@ -24,18 +24,28 @@
                 app:viewKScanQR_lineWidth="2dp" />
 
             <com.mozhimen.xmlk.viewk.ViewKProgressWave2
-                android:id="@+id/viewk_progress_wave"
+                android:id="@+id/viewk_progress_wave2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:viewKProgressWave_progress="0"
-                app:viewKProgressWave_src="@drawable/xmlk_img"
-                app:viewKProgressWave_style="icon"
-                app:viewKProgressWave_strokeWidth="0dp" />
+                app:viewKProgressWave2_progress="0"
+                app:viewKProgressWave2_strokeWidth="0dp" />
 
             <com.mozhimen.xmlk.viewk.ViewKProgressWaveImage
                 android:id="@+id/viewk_progress_wave_image"
                 android:layout_width="100dp"
-                app:viewKProgressWaveImage_src="@drawable/xmlk_img"
+                android:layout_height="100dp"
+                app:viewKProgressWaveImage_src="@drawable/xmlk_img" />
+
+            <!--            <com.mozhimen.xmlk.viewk.ViewKProgressWave
+                            android:id="@+id/viewk_progress_wave"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            app:viewKProgressWave_src="@drawable/xmlk_img"
+                            app:viewKProgressWave_style="icon" />-->
+
+            <com.mozhimen.xmlk.viewk.WaterWaveProView
+                android:id="@+id/wave_view"
+                android:layout_width="100dp"
                 android:layout_height="100dp" />
 
             <!--<com.mozhimen.xmlk.viewk.ViewKScanQR

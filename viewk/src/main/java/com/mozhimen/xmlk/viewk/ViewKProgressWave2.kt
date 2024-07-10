@@ -38,17 +38,8 @@ class ViewKProgressWave2 @JvmOverloads constructor(context: Context, attrs: Attr
         private const val TRANSLATE_X_SPEED_TOP = 3// 第二条水波移动速度
     }
 
-    @IntDef(STYLE.STYLE_ICON, STYLE.STYLE_COLOR)
-    annotation class STYLE {
-        companion object {
-            const val STYLE_COLOR: Int = 0
-            const val STYLE_ICON: Int = 1
-        }
-    }
-
     ///////////////////////////////////////////////////////////////////////////////
 
-    private var _style = STYLE.STYLE_COLOR
     private var _max = 100
 
     @Volatile
@@ -57,7 +48,6 @@ class ViewKProgressWave2 @JvmOverloads constructor(context: Context, attrs: Attr
     private var _waveHeight = STRETCH_FACTOR_A
     private var _strokeWidth = 5.dp2px()
     private var _strokeColor = OUTER_RING_COLOR
-    private var _src = 0
 
     ///////////////////////////////////////////////////////////////////////////////
 
@@ -69,7 +59,6 @@ class ViewKProgressWave2 @JvmOverloads constructor(context: Context, attrs: Attr
     private lateinit var _yPositions: FloatArray
     private lateinit var _resetYPositionsBtm: FloatArray
     private lateinit var _resetYPositionsTop: FloatArray
-    private var _iconBitmap: Bitmap? = null
 
     private var _width = 0
     private var _height = 0
@@ -91,14 +80,12 @@ class ViewKProgressWave2 @JvmOverloads constructor(context: Context, attrs: Attr
     override fun initAttrs(attrs: AttributeSet?) {
         attrs ?: return
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ViewKProgressWave2)
-        _style = typedArray.getInt(R.styleable.ViewKProgressWave2_viewKProgressWave2_style, _style)
         _max = typedArray.getInt(R.styleable.ViewKProgressWave2_viewKProgressWave2_max, _max)
         _progress = typedArray.getInt(R.styleable.ViewKProgressWave2_viewKProgressWave2_progress, _progress)
         _waveColor = typedArray.getColor(R.styleable.ViewKProgressWave2_viewKProgressWave2_waveColor, _waveColor)
         _waveHeight = typedArray.getDimension(R.styleable.ViewKProgressWave2_viewKProgressWave2_waveHeight, _waveHeight)
         _strokeWidth = typedArray.getDimension(R.styleable.ViewKProgressWave2_viewKProgressWave2_strokeWidth, _strokeWidth)
         _strokeColor = typedArray.getColor(R.styleable.ViewKProgressWave2_viewKProgressWave2_strokeColor, _strokeColor)
-        _src = typedArray.getResourceId(R.styleable.ViewKProgressWave2_viewKProgressWave2_src, _src)
         typedArray.recycle()
     }
 
@@ -159,17 +146,6 @@ class ViewKProgressWave2 @JvmOverloads constructor(context: Context, attrs: Attr
 
         _xOffsetSpeedBtm = TRANSLATE_X_SPEED_BTM.dp2pxI() * _width / 330.dp2pxI()// 将dp转化为px，用于控制不同分辨率上移动速度基本一致
         _xOffsetSpeedTop = TRANSLATE_X_SPEED_TOP.dp2pxI() * _width / 330.dp2pxI()
-
-        if (_style == STYLE.STYLE_ICON && _src != 0) {
-            createIconBmp()
-        }
-    }
-
-    private fun createIconBmp() {
-        val bitmap = _src.intResDrawable2bitmapAny(context)
-        val scaleWidth = _width.toFloat() / bitmap.width.toFloat()
-        val scaleHeight = _height.toFloat() / bitmap.height.toFloat()
-        _iconBitmap = bitmap.applyBitmapAnyScaleRatio(scaleWidth, scaleHeight)
     }
 
     @SuppressLint("DrawAllocation")

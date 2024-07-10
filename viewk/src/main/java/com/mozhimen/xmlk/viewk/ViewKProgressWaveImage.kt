@@ -316,7 +316,7 @@ class ViewKProgressWaveImage @JvmOverloads constructor(context: Context, attrs: 
 
         mProgressAnim = ValueAnimator.ofInt()
         mProgressAnim!!.addUpdateListener(ValueAnimator.AnimatorUpdateListener { animation ->
-            mWaterTop = animation.animatedValue as Float
+            mWaterTop = (animation.animatedValue as Int).toFloat()
             val progress = (-mWaterTop / mHeight + 1) * 100
             mProgress = progress.toInt()
             invalidate()
@@ -327,7 +327,7 @@ class ViewKProgressWaveImage @JvmOverloads constructor(context: Context, attrs: 
 
         mWaveHeightAnim = ValueAnimator.ofInt()
         mWaveHeightAnim!!.addUpdateListener(ValueAnimator.AnimatorUpdateListener { animation ->
-            mWaveHeight = animation.animatedValue as Float / 6f
+            mWaveHeight = animation.animatedValue as Int / 6f
             invalidate()
         })
 

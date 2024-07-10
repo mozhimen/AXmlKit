@@ -21,19 +21,19 @@ class ViewKViewsActivity : BaseActivityVDB<ActivityViewkViewsBinding>() {
            delay(4000)
            squareQRScan.requireSuccess()
        }*/
-        vdb.viewkProgressWave.setOnClickListener {
+        vdb.viewkProgressWave2.setOnClickListener {
             if (index++ > 100) {
                 index = 0
             }
             UtilKLogWrapper.v(TAG, "initView: setProgress $index")
-            vdb.viewkProgressWave.setProgress(index)
+            vdb.viewkProgressWave2.setProgress(index)
         }
 
-        vdb.viewkProgressWave.post {
+        vdb.waveView.post {
             runOnBackThread {
                 repeat(100) {
                     delay(200)
-                    vdb.viewkProgressWave.setProgress(it)
+                    vdb.waveView.setCurrentNum(it.toDouble())
                 }
             }
         }
