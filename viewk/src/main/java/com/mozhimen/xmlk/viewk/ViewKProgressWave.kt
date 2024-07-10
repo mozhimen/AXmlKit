@@ -4,6 +4,9 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Path
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
 import android.util.AttributeSet
 import androidx.annotation.IntDef
 import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyScaleRatio
@@ -57,9 +60,11 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
     private lateinit var _wavePaint: Paint
     private lateinit var _borderPaint: Paint
     private lateinit var _iconPaint: Paint
+    private lateinit var _wavePath: Path
     private var _width = 0
     private var _height = 0
-    private var _maskBitmap: Bitmap? = null//圆形遮罩
+
+    //    private var _maskBitmap: Bitmap? = null//圆形遮罩
     private var _iconBitmap: Bitmap? = null//圆形遮罩
 
     ///////////////////////////////////////////////////////////////////////////////
@@ -92,6 +97,7 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
         _wavePaint.isAntiAlias = true
         _wavePaint.style = Paint.Style.FILL
         _wavePaint.color = _waveColor
+        _wavePaint.setXfermode(PorterDuffXfermode(PorterDuff.Mode.SRC_IN))
 
         _borderPaint = Paint()
         _borderPaint.isAntiAlias = true
@@ -105,6 +111,8 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
             _iconPaint.isAntiAlias = true
             _iconPaint.isDither = true
         }
+
+        _wavePath = Path()
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -143,9 +151,9 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
     }
 
     private fun createBallBitmap() {
-        _maskBitmap = Bitmap.createBitmap(_width, _height, Bitmap.Config.ARGB_8888)
-        val canvas = Canvas(_maskBitmap!!)
-        canvas.drawCircle(_width / 2f, _height / 2f, _width / 2f - _strokeWidth * 3f / 2f, _iconPaint)
+//        _maskBitmap = Bitmap.createBitmap(_width, _height, Bitmap.Config.ARGB_8888)
+//        val canvas = Canvas(_maskBitmap!!)
+//        canvas.drawCircle(_width / 2f, _height / 2f, _width / 2f - _strokeWidth * 3f / 2f, _iconPaint)
         val icBitmap = _src.intResDrawable2bitmapAny(context)
         val scaleWidth = _width.toFloat() / icBitmap.width
         val scaleHeight = _height.toFloat() / icBitmap.height
