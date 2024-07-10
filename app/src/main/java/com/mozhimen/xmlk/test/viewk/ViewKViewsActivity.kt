@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.basick.utilk.androidx.appcompat.runOnBackThread
-import com.mozhimen.basick.utilk.androidx.lifecycle.runOnMainThread
 import com.mozhimen.xmlk.test.databinding.ActivityViewkViewsBinding
 import kotlinx.coroutines.delay
 
@@ -33,7 +32,7 @@ class ViewKViewsActivity : BaseActivityVDB<ActivityViewkViewsBinding>() {
             runOnBackThread {
                 repeat(100) {
                     delay(200)
-                    vdb.waveView.setCurrentNum(it.toDouble())
+                    vdb.waveView.setProgress(it)
                 }
             }
         }

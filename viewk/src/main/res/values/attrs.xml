@@ -72,7 +72,7 @@
         <attr name="viewKProgressWave_src" format="reference" />
     </declare-styleable>
     <declare-styleable name="WaterWaveProView">
-        <attr name="liys_progress_water_waterColor" format="color"/>
-        <attr name="liys_progress_water_inColor" format="color"/>
+        <attr name="bgColor" format="color"/>
+        <attr name="waveColor" format="color"/>
     </declare-styleable>
 </resources>

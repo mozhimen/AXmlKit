@@ -11,10 +11,9 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.animation.LinearInterpolator
 import com.mozhimen.basick.utilk.android.animation.cancel_removeAllListeners
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.util.dp2pxI
 import com.mozhimen.xmlk.bases.BaseViewK
 
@@ -30,25 +29,35 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
     BaseViewK(context, attrs, defStyleAttr) {
 
     companion object {
-        const val defaultInColor = "#69B655" //默认里面颜色
-        const val defaultWaterColor = "#0AA328" //默认水波颜色
+        const val DEFAULT_BG_COLOR: Int = -0x7ff7c71 //默认里面颜色
+        const val DEFAULT_WAVE_COLOR: Int = -0x37ea437d //默认水波颜色
+        const val DEFAULT_WAVE_COUNT: Int = 1
+//        const val DEFAULT_WAVE_SPLIT_ONE = 4
+//        const val DEFAULT_WAVE_SPLIT_TWO = 3
     }
 
-    private var mMaxNum = 100.0 //最大值
-    private var mCurrentNum = 0.0 //当前的值
-    private var mPercent = 0.0 //百分比
-    private var mInColor = 0 //里面颜色
-    private var mWaterColor = 0 //水波颜色
+    ///////////////////////////////////////////////////////////////////////////////
 
-    //控件宽高
-//    var mDefaultWidthHeight: Int = 100 //默认宽高，单位sp
-    private var mStartX = 0f //开始位置
-    private var mWaveWidth = 0 //水波长
-    private var mWaveHeight = 0 //水波高度
-    private lateinit var mPaint: Paint
-    private lateinit var mPath: Path
+    private var _max = 100 //最大值
+    private var _progress = 0 //当前的值
+    private var _bgColor: Int = DEFAULT_BG_COLOR //里面颜色
+    private var _waveColor: Int = DEFAULT_WAVE_COLOR //水波颜色
+    private var _waveHeight = 5.dp2px() //水波高度
+    private var _waveCount = DEFAULT_WAVE_COUNT
+
+    ///////////////////////////////////////////////////////////////////////////////
+
+    private lateinit var _paint: Paint
+    private lateinit var _porterDuffXfermode: PorterDuffXfermode
+    private lateinit var _rect: Rect
+    private var _splits = intArrayOf(4, 2)
+    private val _paths = mutableListOf<Path>()
+    private var _waveLocationXStart = 0f //开始位置
+    private var _percent = 0f //百分比
     private var _width = 0
     private var _height = 0
+
+    ///////////////////////////////////////////////////////////////////////////////
 
     init {
         setLayerType(LAYER_TYPE_SOFTWARE, null) //关闭硬件加速
@@ -56,20 +65,26 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
         initPaint()
     }
 
+    ///////////////////////////////////////////////////////////////////////////////
+
     override fun initAttrs(attrs: AttributeSet?) {
-        // 获取自定义属性
+        attrs ?: return
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.WaterWaveProView)
-        mWaterColor = typedArray.getColor(R.styleable.WaterWaveProView_liys_progress_water_waterColor, Color.parseColor(defaultInColor))
-        mInColor = typedArray.getColor(R.styleable.WaterWaveProView_liys_progress_water_inColor, Color.parseColor(defaultWaterColor))
+        _waveColor = typedArray.getColor(R.styleable.WaterWaveProView_waveColor, _waveColor)
+        _bgColor = typedArray.getColor(R.styleable.WaterWaveProView_bgColor, _bgColor)
         typedArray.recycle()
     }
 
     override fun initPaint() {
-        mPaint = Paint()
-        mPaint.isAntiAlias = true
-        mPaint.color = mWaterColor
+        _paint = Paint()
+        _paint.isAntiAlias = true
+        _paint.color = _waveColor
 
-        mPath = Path()
+        repeat(_waveCount) {
+            _paths.add(Path())
+        }
+
+        _porterDuffXfermode = PorterDuffXfermode(PorterDuff.Mode.DST_ATOP)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -99,12 +114,8 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
             _width = _height
         }
 
-        val defaultWaterHeight = 5 //默认水波高度 单位sp
-
-        //5. 确定波长和波高
-        mWaveWidth = _width / 4
-        mWaveHeight = sp2px(defaultWaterHeight)
-
+        // 确定波长和波高
+        _rect = Rect(0, 0, _width, _height)
         startAnimator()
     }
 
@@ -122,15 +133,34 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
         super.onDraw(canvas)
 
         //1. 绘制贝塞尔曲线
-        drawBessel(_width.toFloat(), mStartX, (_height * (1 - mPercent)).toInt().toFloat(), mWaveWidth.toFloat(), mWaveHeight.toFloat(), mPath, mPaint)
-        canvas.drawPath(mPath, mPaint)
+        for (i in 0 until _waveCount) {
+            generateBesselPath(_width.toFloat(), _waveLocationXStart, (_height * (1 - _percent)).toInt().toFloat(), _width.toFloat() / _splits[i], _waveHeight, _paths[i])
+            canvas.drawPath(_paths[i], _paint)
+        }
         //2. 设置模式
-        mPaint.setXfermode(PorterDuffXfermode(PorterDuff.Mode.DST_ATOP))
+        _paint.setXfermode(_porterDuffXfermode)
         //3. 绘制圆形bitmap
-        canvas.drawBitmap(createCircleBitmap(_width / 2, mInColor), null, Rect(0, 0, _width, _height), mPaint)
+        canvas.drawBitmap(createCircleBitmap(_width / 2, _bgColor), null, _rect, _paint)
         //4. 绘制文字
 //        drawText(canvas, mText, mWidth, mHeight, mTextPaint)
     }
+
+    ///////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * 设置当前进度
+     */
+    fun setProgress(progress: Int) {
+        _progress = progress
+        setPercent()
+    }
+
+    fun setMax(max: Int) {
+        _max = max
+        setPercent()
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////
 
     /**
      * 绘制贝塞尔曲线
@@ -140,9 +170,8 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
      * @param waveWidth 波长(半个周期)
      * @param waveHeight 波高
      * @param path
-     * @param paint 画笔
      */
-    private fun drawBessel(width: Float, startX: Float, startY: Float, waveWidth: Float, waveHeight: Float, path: Path, paint: Paint) {
+    private fun generateBesselPath(width: Float, startX: Float, startY: Float, waveWidth: Float, waveHeight: Float, path: Path): Path {
         //Android贝塞尔曲线
         // 二阶写法：rQuadTo(float dx1, float dy1, float dx2, float dy2) 相对上一个起点的坐标
         path.reset()
@@ -154,9 +183,10 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
             currentWidth = (currentWidth + 2 * waveWidth).toInt()
         }
         //封闭的区域
-        mPath.lineTo(getWidth() + 4 * waveWidth, height.toFloat())
-        mPath.lineTo(0f, height.toFloat())
+        path.lineTo(getWidth() + 4 * waveWidth, height.toFloat())
+        path.lineTo(0f, height.toFloat())
         path.close()
+        return path
     }
 
     private fun createCircleBitmap(radius: Int, color: Int): Bitmap {
@@ -169,49 +199,28 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
         return canvasBmp
     }
 
-    /**
-     * 设置当前进度
-     * @param currentNum
-     */
-    fun setCurrentNum(currentNum: Double) {
-        this.mCurrentNum = currentNum
-        setPercent()
-    }
-
-    fun setMaxNum(maxNum: Int) {
-        this.mMaxNum = maxNum.toDouble()
-        setPercent()
-    }
-
     private fun setPercent() {
-        if (mCurrentNum > mMaxNum) {
-            mCurrentNum = mMaxNum
+        if (_progress > _max) {
+            _progress = _max
         }
-        mPercent = mCurrentNum / mMaxNum
+        _percent = _progress.toFloat() / _max
     }
 
-    private fun setStartX(startX: Float) {
-        mStartX = startX
-        invalidate()
-    }
-
-    private fun sp2px(sp: Int): Int {
-        return TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_SP, sp.toFloat(),
-            resources.displayMetrics
-        ).toInt()
-    }
+    ///////////////////////////////////////////////////////////////////////////
 
     private var _valueAnimator: ValueAnimator? = null
 
     private fun startAnimator() {
+        if (_width == 0) return
+
         if (_valueAnimator == null) {
-            _valueAnimator = ValueAnimator.ofFloat((0 - 4 * mWaveWidth).toFloat(), 0f)
+            _valueAnimator = ValueAnimator.ofFloat(-_width.toFloat(), 0f)
             _valueAnimator!!.interpolator = LinearInterpolator() //匀速插值器 解决卡顿问题
             _valueAnimator!!.setDuration(2000)
             _valueAnimator!!.repeatCount = ValueAnimator.INFINITE
             _valueAnimator!!.addUpdateListener { animation ->
-                setStartX((animation.animatedValue as Float).also{ UtilKLogWrapper.d(TAG, "startAnimator: animatedValue $it") })
+                _waveLocationXStart = animation.animatedValue as Float
+                invalidate()
             }
             _valueAnimator!!.start()
         } else if (!_valueAnimator!!.isRunning || !_valueAnimator!!.isStarted) {
