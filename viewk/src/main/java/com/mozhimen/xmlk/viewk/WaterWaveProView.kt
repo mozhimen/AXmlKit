@@ -29,33 +29,38 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
     BaseViewK(context, attrs, defStyleAttr) {
 
     companion object {
-        const val DEFAULT_BG_COLOR: Int = -0x7ff7c71 //默认里面颜色
-        const val DEFAULT_WAVE_COLOR: Int = -0x37ea437d //默认水波颜色
-        const val DEFAULT_WAVE_COUNT: Int = 1
+        const val DEFAULT_WAVE_COLOR1: Int = -0x7ff7c71 //默认里面颜色
+        const val DEFAULT_WAVE_COLOR2: Int = -0x37ea437d //默认水波颜色
+        const val DEFAULT_WAVE_COUNT: Int = 2
+        const val DEFAULT_WAVE_MAX: Int = 100
+        const val DEFAULT_WAVE_HEIGHT: Int = 5
+
 //        const val DEFAULT_WAVE_SPLIT_ONE = 4
 //        const val DEFAULT_WAVE_SPLIT_TWO = 3
     }
 
     ///////////////////////////////////////////////////////////////////////////////
 
-    private var _max = 100 //最大值
+    private var _max = DEFAULT_WAVE_MAX //最大值
     private var _progress = 0 //当前的值
-    private var _bgColor: Int = DEFAULT_BG_COLOR //里面颜色
-    private var _waveColor: Int = DEFAULT_WAVE_COLOR //水波颜色
-    private var _waveHeight = 5.dp2px() //水波高度
+
+    //    private var _bgColor: Int = DEFAULT_BG_COLOR //里面颜色
+    private var _waveColors: IntArray = intArrayOf(DEFAULT_WAVE_COLOR1, DEFAULT_WAVE_COLOR2) //水波颜色
+    private var _waveHeight = DEFAULT_WAVE_HEIGHT.dp2px() //水波高度
     private var _waveCount = DEFAULT_WAVE_COUNT
 
     ///////////////////////////////////////////////////////////////////////////////
 
     private lateinit var _paint: Paint
-    private lateinit var _porterDuffXfermode: PorterDuffXfermode
+    private lateinit var _porterDuffXfermode: PorterDuffXfermode//DST_ATOP
     private lateinit var _rect: Rect
-    private var _splits = intArrayOf(4, 2)
+    private var _splits = intArrayOf(4, 3)
     private val _paths = mutableListOf<Path>()
     private var _waveLocationXStart = 0f //开始位置
     private var _percent = 0f //百分比
     private var _width = 0
     private var _height = 0
+    private var _iconBitmap: Bitmap? = null
 
     ///////////////////////////////////////////////////////////////////////////////
 
@@ -70,15 +75,15 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
     override fun initAttrs(attrs: AttributeSet?) {
         attrs ?: return
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.WaterWaveProView)
-        _waveColor = typedArray.getColor(R.styleable.WaterWaveProView_waveColor, _waveColor)
-        _bgColor = typedArray.getColor(R.styleable.WaterWaveProView_bgColor, _bgColor)
+//        _waveColor = typedArray.getColor(R.styleable.WaterWaveProView_waveColor, _waveColor)
+//        _bgColor = typedArray.getColor(R.styleable.WaterWaveProView_bgColor, _bgColor)
         typedArray.recycle()
     }
 
     override fun initPaint() {
         _paint = Paint()
         _paint.isAntiAlias = true
-        _paint.color = _waveColor
+//        _paint.color = _waveColor
 
         repeat(_waveCount) {
             _paths.add(Path())
@@ -116,6 +121,8 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
 
         // 确定波长和波高
         _rect = Rect(0, 0, _width, _height)
+        _paint.color = Color.TRANSPARENT
+        _iconBitmap = createCircleBitmap(_paint, _width / 2)
         startAnimator()
     }
 
@@ -134,13 +141,16 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
 
         //1. 绘制贝塞尔曲线
         for (i in 0 until _waveCount) {
-            generateBesselPath(_width.toFloat(), _waveLocationXStart, (_height * (1 - _percent)).toInt().toFloat(), _width.toFloat() / _splits[i], _waveHeight, _paths[i])
+            _paint.color = _waveColors[i]
+            generateBesselPath(_width.toFloat(), _waveLocationXStart, (_height * (1 - _percent)).toInt().toFloat(), _width.toFloat() / _splits[i], _waveHeight,_splits[i], _paths[i])
             canvas.drawPath(_paths[i], _paint)
         }
         //2. 设置模式
-        _paint.setXfermode(_porterDuffXfermode)
+//        _paint.setXfermode(_porterDuffXfermode)
         //3. 绘制圆形bitmap
-        canvas.drawBitmap(createCircleBitmap(_width / 2, _bgColor), null, _rect, _paint)
+//        if (_iconBitmap != null) {
+//            canvas.drawBitmap(_iconBitmap!!, null, _rect, _paint)
+//        }
         //4. 绘制文字
 //        drawText(canvas, mText, mWidth, mHeight, mTextPaint)
     }
@@ -171,30 +181,28 @@ class WaterWaveProView @JvmOverloads constructor(context: Context, attrs: Attrib
      * @param waveHeight 波高
      * @param path
      */
-    private fun generateBesselPath(width: Float, startX: Float, startY: Float, waveWidth: Float, waveHeight: Float, path: Path): Path {
+    private fun generateBesselPath(width: Float, startX: Float, startY: Float, waveWidth: Float, waveHeight: Float, split: Int, path: Path): Path {
         //Android贝塞尔曲线
         // 二阶写法：rQuadTo(float dx1, float dy1, float dx2, float dy2) 相对上一个起点的坐标
         path.reset()
         var currentWidth = 0 //当前已经绘制的宽度
         path.moveTo(startX, startY) //画笔位置
-        while (currentWidth <= width + 4 * waveWidth && waveWidth > 0) {
+        while (currentWidth <= width + split * waveWidth && waveWidth > 0) {
             path.rQuadTo(waveWidth, -waveHeight, 2 * waveWidth, 0f)
             path.rQuadTo(waveWidth, waveHeight, 2 * waveWidth, 0f)
             currentWidth = (currentWidth + 2 * waveWidth).toInt()
         }
         //封闭的区域
-        path.lineTo(getWidth() + 4 * waveWidth, height.toFloat())
+        path.lineTo(getWidth() + split * waveWidth, height.toFloat())
         path.lineTo(0f, height.toFloat())
         path.close()
         return path
     }
 
-    private fun createCircleBitmap(radius: Int, color: Int): Bitmap {
+    private fun createCircleBitmap(paint: Paint, radius: Int): Bitmap {
         val canvasBmp = Bitmap.createBitmap(_width, _height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(canvasBmp)
         canvas.drawColor(Color.TRANSPARENT)
-        val paint = Paint()
-        paint.color = color
         canvas.drawCircle(radius.toFloat(), radius.toFloat(), radius.toFloat(), paint) //确定位置
         return canvasBmp
     }

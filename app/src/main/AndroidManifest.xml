@@ -14,11 +14,11 @@
         <activity
             android:name=".XmlKActivity"
             android:exported="true">
-            <intent-filter>
+ <!--           <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
         <!-- toastk -->
@@ -186,7 +186,13 @@
             android:exported="false" />
         <activity
             android:name=".viewk.ViewKViewsActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".viewk.ViewKWheelActivity"
             android:exported="false" />
