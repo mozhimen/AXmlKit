@@ -30,40 +30,31 @@ import com.mozhimen.xmlk.bases.BaseViewK
  * @Date 2024/7/10
  * @Version 1.0
  */
-class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
     BaseViewK(context, attrs, defStyleAttr) {
 
     companion object {
-        const val DEFAULT_COLOR_WAVE1: String = "#E8FDA085" //默认里面颜色
-        const val DEFAULT_COLOR_WAVE2: String = "#E2F6D365" //默认水波颜色
-        const val DEFAULT_COLOR_WAVE3: String = "#E2F5E198" //默认水波颜色
+        const val DEFAULT_COLOR_WAVE1: String = "#310177FD" //默认里面颜色
+        const val DEFAULT_COLOR_WAVE2: String = "#80ffffff" //默认水波颜色
+        const val DEFAULT_COLOR_WAVE3: String = "#80000000" //默认水波颜色
         const val DEFAULT_COLOR_BG: Int = Color.WHITE //默认水波颜色
         const val DEFAULT_WAVE_COUNT: Int = 1
         const val DEFAULT_WAVE_MAX: Int = 100
         const val DEFAULT_WAVE_HEIGHT: Int = 7
     }
 
-    @IntDef(STYLE.STYLE_ICON, STYLE.STYLE_COLOR)
-    annotation class STYLE {
-        companion object {
-            const val STYLE_COLOR: Int = 0
-            const val STYLE_ICON: Int = 1
-        }
-    }
-
     ///////////////////////////////////////////////////////////////////////////////
 
-    private var _style = STYLE.STYLE_ICON
     private var _max = DEFAULT_WAVE_MAX //最大值
     private var _progress = 0 //当前的值
     private var _bgColor: Int = DEFAULT_COLOR_BG
-    private val _waveColors: IntArray by lazy_ofNone { intArrayOf("#80ffffff".strColor2intColor(), DEFAULT_COLOR_WAVE2.strColor2intColor(), DEFAULT_COLOR_WAVE3.strColor2intColor()) }//水波颜色
+    private val _waveColors: IntArray by lazy_ofNone { intArrayOf(DEFAULT_COLOR_WAVE1.strColor2intColor(), DEFAULT_COLOR_WAVE2.strColor2intColor(), DEFAULT_COLOR_WAVE3.strColor2intColor()) }//水波颜色
     private var _waveAnimTime: LongArray = longArrayOf(3000, 2000)
     private var _waveHeight = DEFAULT_WAVE_HEIGHT.dp2px() //水波高度
     private var _waveCount = DEFAULT_WAVE_COUNT
     private var _iconRedId = 0
     private var _splits = intArrayOf(1, 1)
-    private val _paths by lazy_ofNone { mutableListOf(Path(), Path()) }
+    private val _paths by lazy_ofNone { mutableListOf(Path(), Path(), Path()) }
 
     ///////////////////////////////////////////////////////////////////////////////
 
@@ -90,21 +81,17 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
 
     override fun initAttrs(attrs: AttributeSet?) {
         attrs ?: return
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ViewKProgressWave)
-        _style =
-            typedArray.getInt(R.styleable.ViewKProgressWave_viewKProgressWave_style, _style)
-        _bgColor =
-            typedArray.getColor(R.styleable.ViewKProgressWave_viewKProgressWave_bgColor, _bgColor)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ViewKProgressWaveIcon)
         _waveHeight =
-            typedArray.getDimension(R.styleable.ViewKProgressWave_viewKProgressWave_waveHeight, _waveHeight)
+            typedArray.getDimension(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_waveHeight, _waveHeight)
         _max =
-            typedArray.getInt(R.styleable.ViewKProgressWave_viewKProgressWave_max, _max)
+            typedArray.getInt(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_max, _max)
         _progress =
-            typedArray.getInt(R.styleable.ViewKProgressWave_viewKProgressWave_progress, _progress)
+            typedArray.getInt(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_progress, _progress)
         _iconRedId =
-            typedArray.getResourceId(R.styleable.ViewKProgressWave_viewKProgressWave_src, _iconRedId)
+            typedArray.getResourceId(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_src, _iconRedId)
         _waveCount =
-            typedArray.getInt(R.styleable.ViewKProgressWave_viewKProgressWave_waveCount, _waveCount)
+            typedArray.getInt(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_waveCount, _waveCount)
         typedArray.recycle()
     }
 
@@ -118,11 +105,7 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
         _iconPaint.isAntiAlias = true
         _iconPaint.isDither = true
 
-        _porterDuffXfermode = if (_style == STYLE.STYLE_ICON) {
-            PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
-        } else {
-            PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP)
-        }
+        _porterDuffXfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -173,50 +156,31 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
+        if (_bgBitmap != null) {
+            canvas.drawBitmap(_bgBitmap!!, 0f, 0f, _iconPaint)
+        }
+
+        _iconPaint.setXfermode(_porterDuffXfermode)
+
         //隔离层绘制混合模式
-//        val layerId = canvas.saveLayer(0f, 0f, _width.toFloat(), _height.toFloat(), null, Canvas.ALL_SAVE_FLAG)
+        if (_iconBitmap != null) {
+            canvas.drawBitmap(_iconBitmap!!, 0f, 0f, _iconPaint)
+        }
 
         //1. 绘制贝塞尔曲线
-        if (_style == STYLE.STYLE_COLOR) {
-            if (_bgBitmap != null) {
-                canvas.drawBitmap(_bgBitmap!!, 0f, 0f, _iconPaint)
-            }
-
-            _iconPaint.setXfermode(_porterDuffXfermode)
-
-            if (_iconBitmap != null) {
-                canvas.drawBitmap(_iconBitmap!!, 0f, 0f, _iconPaint)
-            }
-
-            for (i in 0 until _waveCount) {
-                _iconPaint.color = _waveColors[i]
-                generateBesselPath(_waveLocationXStarts[i], _height.toFloat() * (1 - _percent), _width.toFloat() / _splits[i], _waveHeight, _splits[i], _paths[i])
-                canvas.drawPath(_paths[i], _iconPaint)
-            }
-            _iconPaint.color = Color.BLACK
-
-            _iconPaint.setXfermode(null)
-        } else {
-            for (i in 0 until _waveCount) {
-                _iconPaint.color = _waveColors[i]
-                generateBesselPath(_waveLocationXStarts[i], _height.toFloat() * (1 - _percent), _width.toFloat() / _splits[i], _waveHeight, _splits[i], _paths[i])
-                canvas.drawPath(_paths[i], _iconPaint)
-            }
-            _iconPaint.color = Color.BLACK
-
-            _iconPaint.setXfermode(_porterDuffXfermode)
-
-            if (_bgBitmap != null) {
-                canvas.drawBitmap(_bgBitmap!!, 0f, 0f, _iconPaint)
-            }
-
-            //隔离层绘制混合模式
-            if (_iconBitmap != null) {
-                canvas.drawBitmap(_iconBitmap!!, 0f, 0f, _iconPaint)
-            }
-
-            _iconPaint.setXfermode(null)
+        for (i in 0 until _waveCount) {
+            _iconPaint.color = _waveColors[i]
+            generateBesselPath(_waveLocationXStarts[i], _height.toFloat() * (1 - _percent), _width.toFloat() / _splits[i], _waveHeight, _splits[i], _paths[i])
+            canvas.drawPath(_paths[i], _iconPaint)
         }
+        generateMaskPath(_paths[2])
+        _paths[2].op(_paths[0], Path.Op.DIFFERENCE)
+        _iconPaint.color = _waveColors[2]
+        canvas.drawPath(_paths[2], _iconPaint)
+        _iconPaint.color = Color.BLACK
+
+
+        _iconPaint.setXfermode(null)
     }
 
     ///////////////////////////////////////////////////////////////////////////////
@@ -282,6 +246,12 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
         path.lineTo(getWidth().toFloat(), getHeight().toFloat())
         path.lineTo(0f, getHeight().toFloat())
         path.close()
+        return path
+    }
+
+    private fun generateMaskPath(path: Path): Path {
+        path.reset()
+        path.addRect(0f, 0f, _width.toFloat(), _height.toFloat(), Path.Direction.CW)
         return path
     }
 
