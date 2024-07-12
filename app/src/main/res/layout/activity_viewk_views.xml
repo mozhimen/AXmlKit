@@ -43,7 +43,10 @@
                 android:id="@+id/viewk_progress_wave2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                app:viewKProgressWaveIcon_strokeWidth="4dp"
+                app:viewKProgressWaveIcon_textEnabled="true"
                 app:viewKProgressWaveIcon_waveCount="two"
+                app:viewKProgressWaveIcon_strokeEnabled="true"
                 app:viewKProgressWaveIcon_src="@drawable/xmlk_img" />
 
             <!--<com.mozhimen.xmlk.viewk.ViewKScanQR

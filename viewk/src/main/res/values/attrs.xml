@@ -54,5 +54,11 @@
             <enum name="one" value="1" />
             <enum name="two" value="2" />
         </attr>
+        <attr name="viewKProgressWaveIcon_textEnabled" format="boolean" />
+        <attr name="viewKProgressWaveIcon_textSize" format="dimension" />
+        <attr name="viewKProgressWaveIcon_textColor" format="color" />
+        <attr name="viewKProgressWaveIcon_strokeEnabled" format="boolean" />
+        <attr name="viewKProgressWaveIcon_strokeWidth" format="dimension" />
+        <attr name="viewKProgressWaveIcon_strokeColor" format="color" />
     </declare-styleable>
 </resources>

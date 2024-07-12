@@ -10,14 +10,18 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
+import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.animation.LinearInterpolator
 import androidx.annotation.IntDef
 import com.mozhimen.basick.utilk.android.animation.cancel_removeAllListeners
 import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyScaleRatio
+import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.util.dp2pxI
+import com.mozhimen.basick.utilk.android.util.sp2px
 import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.basick.utilk.kotlin.ifNotEmpty
 import com.mozhimen.basick.utilk.kotlin.intResDrawable2bitmapAny
 import com.mozhimen.basick.utilk.kotlin.strColor2intColor
 import com.mozhimen.xmlk.bases.BaseViewK
@@ -41,33 +45,66 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
         const val DEFAULT_WAVE_COUNT: Int = 1
         const val DEFAULT_WAVE_MAX: Int = 100
         const val DEFAULT_WAVE_HEIGHT: Int = 7
+        const val DEFAULT_TEXT_SIZE: Int = 20
     }
 
     ///////////////////////////////////////////////////////////////////////////////
 
     private var _max = DEFAULT_WAVE_MAX //最大值
+
+    @Volatile
     private var _progress = 0 //当前的值
     private var _bgColor: Int = DEFAULT_COLOR_BG
-    private val _waveColors: IntArray by lazy_ofNone { intArrayOf(DEFAULT_COLOR_WAVE1.strColor2intColor(), DEFAULT_COLOR_WAVE2.strColor2intColor(), DEFAULT_COLOR_WAVE3.strColor2intColor()) }//水波颜色
     private var _waveAnimTime: LongArray = longArrayOf(3000, 2000)
     private var _waveHeight = DEFAULT_WAVE_HEIGHT.dp2px() //水波高度
     private var _waveCount = DEFAULT_WAVE_COUNT
     private var _iconRedId = 0
-    private var _splits = intArrayOf(1, 1)
-    private val _paths by lazy_ofNone { mutableListOf(Path(), Path(), Path()) }
+    private var _textEnabled = false
+    private var _textSize = DEFAULT_TEXT_SIZE.sp2px()
+    private var _textColor = Color.WHITE
+    private var _strokeEnabled = false
+    private var _strokeWidth = 4.dp2px()
+    private var _strokeColor = Color.BLACK
 
     ///////////////////////////////////////////////////////////////////////////////
 
     private lateinit var _bgPaint: Paint
     private lateinit var _iconPaint: Paint
+    private val _textPaint: Paint by lazy_ofNone {
+        val textPaint = TextPaint()
+        textPaint.style = Paint.Style.FILL
+        textPaint.textAlign = Paint.Align.CENTER
+        textPaint.isFakeBoldText = true
+        textPaint.isAntiAlias = true
+        textPaint.textSize = _textSize
+        textPaint.setColor(_textColor)
+        textPaint
+    }
+    private val _strokePaint by lazy_ofNone {
+        val paint = Paint()
+        paint.style = Paint.Style.STROKE
+        paint.strokeCap = Paint.Cap.ROUND
+        paint.isAntiAlias = true
+        paint.strokeWidth = _strokeWidth
+        paint.color = _strokeColor
+        paint.color
+        paint
+    }
     private lateinit var _porterDuffXfermode: PorterDuffXfermode//DST_ATOP
 
+    private val _isAfter21: Boolean = UtilKBuildVersion.isAfterV_21_5_L()
+    private val _waveColors: IntArray by lazy_ofNone { intArrayOf(DEFAULT_COLOR_WAVE1.strColor2intColor(), DEFAULT_COLOR_WAVE2.strColor2intColor(), DEFAULT_COLOR_WAVE3.strColor2intColor()) }//水波颜色
+    private var _splits = intArrayOf(1, 1)
+    private val _paths by lazy_ofNone { mutableListOf(Path(), Path(), Path()) }
     private var _waveLocationXStarts = floatArrayOf(0f, 0f) //开始位置
     private var _percent = 0f //百分比
     private var _width = 0
     private var _height = 0
     private var _bgBitmap: Bitmap? = null
     private var _iconBitmap: Bitmap? = null
+
+    @Volatile
+    private var _text: String = ""
 
     ///////////////////////////////////////////////////////////////////////////////
 
@@ -92,6 +129,18 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
             typedArray.getResourceId(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_src, _iconRedId)
         _waveCount =
             typedArray.getInt(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_waveCount, _waveCount)
+        _textEnabled =
+            typedArray.getBoolean(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_textEnabled, _textEnabled)
+        _textSize =
+            typedArray.getDimension(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_textSize, _textSize)
+        _textColor =
+            typedArray.getColor(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_textColor, _textColor)
+        _strokeEnabled =
+            typedArray.getBoolean(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_strokeEnabled, _strokeEnabled)
+        _strokeWidth =
+            typedArray.getDimension(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_strokeWidth, _strokeWidth)
+        _strokeColor =
+            typedArray.getColor(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_strokeColor, _strokeColor)
         typedArray.recycle()
     }
 
@@ -181,6 +230,14 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
 
 
         _iconPaint.setXfermode(null)
+
+        if (_textEnabled && _text.isNotEmpty()) {
+            canvas.drawText(_text, centerX, centerY + _textPaint.textSize / 2f, _textPaint)
+        }
+
+        if (_strokeEnabled && _isAfter21 && _strokeWidth != 0f) {
+            canvas.drawArc( _strokeWidth /2f,  _strokeWidth/2f, _width - (_strokeWidth/2f), _height - (_strokeWidth / 2f), 90f, _percent * 360f, false, _strokePaint)
+        }
     }
 
     ///////////////////////////////////////////////////////////////////////////////
@@ -203,6 +260,14 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
 
     fun getMax(): Int =
         _max
+
+    fun setIconBitmap(bitmap: Bitmap) {
+        createIconBitmap(bitmap)
+    }
+
+    fun setText(text: String) {
+        text.ifNotEmpty { _text = text }
+    }
 
 //    fun getStrokeColor(): Int =
 //        _strokeColor
@@ -267,6 +332,12 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
             val scaleRatioY = _height.toFloat() / bitmap.height
             _iconBitmap = bitmap.applyBitmapAnyScaleRatio(scaleRatioX, scaleRatioY)
         }
+    }
+
+    private fun createIconBitmap(bitmap: Bitmap) {
+        val scaleRatioX = _width.toFloat() / bitmap.width
+        val scaleRatioY = _height.toFloat() / bitmap.height
+        _iconBitmap = bitmap.applyBitmapAnyScaleRatio(scaleRatioX, scaleRatioY)
     }
 
     private fun setPercent() {

@@ -26,7 +26,10 @@ class ViewKViewsActivity : BaseActivityVDB<ActivityViewkViewsBinding>() {
                     delay(200)
                     vdb.viewkProgressWave.setProgress(it)
                     vdb.viewkProgressWave1.setProgress(it)
-                    vdb.viewkProgressWave2.setProgress(it)
+                    vdb.viewkProgressWave2.apply {
+                        setProgress(it)
+                        setText("$it%")
+                    }
                 }
             }
         }
