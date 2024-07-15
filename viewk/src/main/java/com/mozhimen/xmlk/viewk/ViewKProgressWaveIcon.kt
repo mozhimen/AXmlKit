@@ -1,11 +1,11 @@
 package com.mozhimen.xmlk.viewk
 
+import android.animation.Animator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.LinearGradient
 import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PorterDuff
@@ -13,10 +13,11 @@ import android.graphics.PorterDuffXfermode
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.animation.LinearInterpolator
-import androidx.annotation.IntDef
+import androidx.annotation.UiThread
 import com.mozhimen.basick.utilk.android.animation.cancel_removeAllListeners
 import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyScaleRatio
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.util.dp2pxI
 import com.mozhimen.basick.utilk.android.util.sp2px
@@ -38,8 +39,8 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     BaseViewK(context, attrs, defStyleAttr) {
 
     companion object {
-        const val DEFAULT_COLOR_WAVE1: String = "#310177FD" //默认里面颜色
-        const val DEFAULT_COLOR_WAVE2: String = "#80ffffff" //默认水波颜色
+        const val DEFAULT_COLOR_WAVE1: String = "#11ffffff" //默认里面颜色
+        const val DEFAULT_COLOR_WAVE2: String = "#21ffffff" //默认水波颜色
         const val DEFAULT_COLOR_WAVE3: String = "#80000000" //默认水波颜色
         const val DEFAULT_COLOR_BG: Int = Color.WHITE //默认水波颜色
         const val DEFAULT_WAVE_COUNT: Int = 1
@@ -97,10 +98,12 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     private var _splits = intArrayOf(1, 1)
     private val _paths by lazy_ofNone { mutableListOf(Path(), Path(), Path()) }
     private var _waveLocationXStarts = floatArrayOf(0f, 0f) //开始位置
+    private var _waveLocationYStart = 0f //开始位置
     private var _percent = 0f //百分比
     private var _width = 0
     private var _height = 0
     private var _bgBitmap: Bitmap? = null
+    @Volatile
     private var _iconBitmap: Bitmap? = null
 
     @Volatile
@@ -186,20 +189,22 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
 
         _waveLocationXStarts[0] = -2f * _width.toFloat()
         _waveLocationXStarts[1] = -2f * _width.toFloat()
+        _waveLocationYStart = _height.toFloat() * (1 - _percent)
 
         createBitmaps()
 
-        startAnimator()
+        startAnimatorX()
     }
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        startAnimator()
+        startAnimatorX()
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
-        stopAnimator()
+        stopAnimatorX()
+        stopAnimatorY()
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -219,7 +224,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
         //1. 绘制贝塞尔曲线
         for (i in 0 until _waveCount) {
             _iconPaint.color = _waveColors[i]
-            generateBesselPath(_waveLocationXStarts[i], _height.toFloat() * (1 - _percent), _width.toFloat() / _splits[i], _waveHeight, _splits[i], _paths[i])
+            generateBesselPath(_waveLocationXStarts[i], _waveLocationYStart/*_height.toFloat() * (1 - _percent)*/, _width.toFloat() / _splits[i], _waveHeight, _splits[i], _paths[i])
             canvas.drawPath(_paths[i], _iconPaint)
         }
         generateMaskPath(_paths[2])
@@ -228,7 +233,6 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
         canvas.drawPath(_paths[2], _iconPaint)
         _iconPaint.color = Color.BLACK
 
-
         _iconPaint.setXfermode(null)
 
         if (_textEnabled && _text.isNotEmpty()) {
@@ -236,7 +240,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
         }
 
         if (_strokeEnabled && _isAfter21 && _strokeWidth != 0f) {
-            canvas.drawArc( _strokeWidth /2f,  _strokeWidth/2f, _width - (_strokeWidth/2f), _height - (_strokeWidth / 2f), 90f, _percent * 360f, false, _strokePaint)
+            canvas.drawArc(_strokeWidth / 2f, _strokeWidth / 2f, _width - (_strokeWidth / 2f), _height - (_strokeWidth / 2f), 90f, _percent * 360f, false, _strokePaint)
         }
     }
 
@@ -245,6 +249,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     /**
      * 设置当前进度
      */
+    @UiThread
     fun setProgress(progress: Int) {
         _progress = progress
         setPercent()
@@ -253,6 +258,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     fun getProgress(): Int =
         _progress
 
+    @UiThread
     fun setMax(max: Int) {
         _max = max
         setPercent()
@@ -328,9 +334,11 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
 
         if (_iconRedId != 0) {
             val bitmap = _iconRedId.intResDrawable2bitmapAny(context)
-            val scaleRatioX = _width.toFloat() / bitmap.width
-            val scaleRatioY = _height.toFloat() / bitmap.height
-            _iconBitmap = bitmap.applyBitmapAnyScaleRatio(scaleRatioX, scaleRatioY)
+            if (bitmap!=null){
+                val scaleRatioX = _width.toFloat() / bitmap.width
+                val scaleRatioY = _height.toFloat() / bitmap.height
+                _iconBitmap = bitmap.applyBitmapAnyScaleRatio(scaleRatioX, scaleRatioY)
+            }
         }
     }
 
@@ -345,16 +353,51 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
             _progress = _max
         }
         _percent = _progress.toFloat() / _max
+        val curY = _waveLocationYStart
+        val desY = _height.toFloat() * (1f - _percent)
+        if (_percent == 1f) {
+            _waveLocationYStart = 0f
+        }
+        if (curY == desY || _valueAnimatorY != null) return
+        startAnimatorY(curY, desY)
     }
 
     ///////////////////////////////////////////////////////////////////////////
 
-    private var _valueAnimators: MutableList<ValueAnimator> = mutableListOf()
+    private var _valueAnimatorsX: MutableList<ValueAnimator> = mutableListOf()
+    private var _valueAnimatorY: ValueAnimator? = null
 
-    private fun startAnimator() {
+    private fun startAnimatorY(curY: Float, desY: Float) {
+        if (_height == 0) return
+        if (_valueAnimatorY == null) {
+            _valueAnimatorY = ValueAnimator.ofFloat(curY, desY)
+            _valueAnimatorY!!.interpolator = LinearInterpolator() //匀速插值器 解决卡顿问题
+            _valueAnimatorY!!.setDuration(800)
+            _valueAnimatorY!!.addUpdateListener { animation ->
+                _waveLocationYStart = animation.animatedValue as Float//_height.toFloat() * (1 - _percent)
+            }
+            _valueAnimatorY!!.addListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(animation: Animator) {
+                }
+
+                override fun onAnimationEnd(animation: Animator) {
+                    _valueAnimatorY = null
+                }
+
+                override fun onAnimationCancel(animation: Animator) {
+                }
+
+                override fun onAnimationRepeat(animation: Animator) {
+                }
+            })
+            _valueAnimatorY!!.start()
+        }
+    }
+
+    private fun startAnimatorX() {
         if (_width == 0) return
 
-        if (_valueAnimators.isEmpty()) {
+        if (_valueAnimatorsX.isEmpty()) {
             repeat(_waveCount) { index ->
                 val valueAnimator = ValueAnimator.ofFloat(-2f * _width.toFloat(), 0f)
                 valueAnimator.interpolator = LinearInterpolator() //匀速插值器 解决卡顿问题
@@ -365,10 +408,10 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
                     invalidate()
                 }
                 valueAnimator.start()
-                _valueAnimators.add(valueAnimator)
+                _valueAnimatorsX.add(valueAnimator)
             }
         } else {
-            _valueAnimators.forEach { animator ->
+            _valueAnimatorsX.forEach { animator ->
                 if (!animator.isRunning || !animator.isStarted) {
                     animator.start()
                 }
@@ -376,10 +419,15 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
         }
     }
 
-    private fun stopAnimator() {
-        _valueAnimators.forEach {
+    private fun stopAnimatorX() {
+        _valueAnimatorsX.forEach {
             it.cancel_removeAllListeners()
         }
-        _valueAnimators.clear()
+        _valueAnimatorsX.clear()
+    }
+
+    private fun stopAnimatorY() {
+        _valueAnimatorY?.removeAllUpdateListeners()
+        _valueAnimatorY = null
     }
 }

@@ -13,6 +13,7 @@ import android.graphics.PorterDuffXfermode
 import android.util.AttributeSet
 import android.view.animation.LinearInterpolator
 import androidx.annotation.IntDef
+import androidx.annotation.UiThread
 import com.mozhimen.basick.utilk.android.animation.cancel_removeAllListeners
 import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyScaleRatio
 import com.mozhimen.basick.utilk.android.util.dp2px
@@ -224,6 +225,7 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
     /**
      * 设置当前进度
      */
+    @UiThread
     fun setProgress(progress: Int) {
         _progress = progress
         setPercent()
@@ -293,9 +295,11 @@ class ViewKProgressWave @JvmOverloads constructor(context: Context, attrs: Attri
 
         if (_iconRedId != 0) {
             val bitmap = _iconRedId.intResDrawable2bitmapAny(context)
-            val scaleRatioX = _width.toFloat() / bitmap.width
-            val scaleRatioY = _height.toFloat() / bitmap.height
-            _iconBitmap = bitmap.applyBitmapAnyScaleRatio(scaleRatioX, scaleRatioY)
+            if (bitmap != null) {
+                val scaleRatioX = _width.toFloat() / bitmap.width
+                val scaleRatioY = _height.toFloat() / bitmap.height
+                _iconBitmap = bitmap.applyBitmapAnyScaleRatio(scaleRatioX, scaleRatioY)
+            }
         }
     }
 
