@@ -1,7 +1,16 @@
 package com.mozhimen.xmlk.test.viewk
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
+import android.view.animation.Animation
+import com.mozhimen.animk.builder.impls.AnimationTranslationType
+import com.mozhimen.animk.builder.impls.AnimatorTranslationXYType
 import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.basick.utilk.android.view.UtilKStatusBar
+import com.mozhimen.basick.utilk.android.view.getLocation
+import com.mozhimen.basick.utilk.android.widget.showToast
 import com.mozhimen.basick.utilk.androidx.appcompat.runOnBackThread
 import com.mozhimen.basick.utilk.kotlin.intResDrawable2bitmapAny
 import com.mozhimen.xmlk.test.databinding.ActivityViewkViewsBinding
@@ -29,14 +38,14 @@ class ViewKViewsActivity : BaseActivityVDB<ActivityViewkViewsBinding>() {
                     delay(200)
                     vdb.viewkProgressWave.setProgress(it)
                     vdb.viewkProgressWave1.setProgress(it)
-                    withContext(Dispatchers.Main){
+                    withContext(Dispatchers.Main) {
 
                         vdb.viewkProgressWave2.apply {
                             setProgress(it)
                             setText("$it%")
-                            if (it==10){
+                            if (it == 10) {
                                 val bitmap = R.drawable.layoutk_tab_bottom_layout_fire.intResDrawable2bitmapAny(this@ViewKViewsActivity)
-                                if(bitmap!=null){
+                                if (bitmap != null) {
                                     setIconBitmap(bitmap)
                                 }
                             }
@@ -44,6 +53,25 @@ class ViewKViewsActivity : BaseActivityVDB<ActivityViewkViewsBinding>() {
                     }
                 }
             }
+        }
+
+        UtilKLogWrapper.d(TAG, "initView: ${UtilKStatusBar.getHeight()} ${UtilKStatusBar.getHeight(this)} ${UtilKStatusBar.getHeight(true)}")
+        vdb.viewkImg.setOnClickListener {
+            var xy = vdb.viewkImg.getLocation()
+            UtilKLogWrapper.d(TAG, "initView: x ${vdb.viewkImg.x} y ${vdb.viewkImg.y} xy ${xy.first} ${xy.second}")
+//            vdb.viewkImg.animate().x(0f).y(0f).setListener(object : AnimatorListenerAdapter() {
+//                override fun onAnimationEnd(animation: Animator) {
+//                    "动画结束啦".showToast()
+//                }
+//            })
+
+            AnimatorTranslationXYType().setViewRef(vdb.viewkImg).fromX(vdb.viewkImg.x).fromY(vdb.viewkImg.y).toX(0f).toY(0f).addAnimatorListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    xy = vdb.viewkImg.getLocation()
+                    UtilKLogWrapper.d(TAG, "initView: x ${vdb.viewkImg.x} y ${vdb.viewkImg.y} xy ${xy.first} ${xy.second}")
+                    "动画结束啦".showToast()
+                }
+            }).build().start()
         }
     }
 }

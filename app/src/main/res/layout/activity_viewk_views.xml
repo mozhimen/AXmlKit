@@ -27,9 +27,9 @@
                 android:id="@+id/viewk_progress_wave"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:viewKProgressWave_waveCount="one"
+                app:viewKProgressWave_src="@drawable/xmlk_img"
                 app:viewKProgressWave_style="icon"
-                app:viewKProgressWave_src="@drawable/xmlk_img" />
+                app:viewKProgressWave_waveCount="one" />
 
             <com.mozhimen.xmlk.viewk.ViewKProgressWave
                 android:id="@+id/viewk_progress_wave1"
@@ -43,11 +43,18 @@
                 android:id="@+id/viewk_progress_wave2"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                app:viewKProgressWaveIcon_isBgRounded="true"
+                app:viewKProgressWaveIcon_src="@drawable/xmlk_img"
+                app:viewKProgressWaveIcon_strokeEnabled="true"
                 app:viewKProgressWaveIcon_strokeWidth="4dp"
                 app:viewKProgressWaveIcon_textEnabled="true"
-                app:viewKProgressWaveIcon_waveCount="two"
-                app:viewKProgressWaveIcon_strokeEnabled="true"
-                app:viewKProgressWaveIcon_src="@drawable/xmlk_img" />
+                app:viewKProgressWaveIcon_waveCount="two" />
+
+            <ImageView
+                android:id="@+id/viewk_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/xmlk_img" />
 
             <!--<com.mozhimen.xmlk.viewk.ViewKScanQR
                 android:id="@+id/viewk_squareQrScan"

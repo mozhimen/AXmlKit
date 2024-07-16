@@ -66,6 +66,8 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     private var _strokeEnabled = false
     private var _strokeWidth = 4.dp2px()
     private var _strokeColor = Color.BLACK
+    private var _isBgRounded = false
+    private var _roundedCornerRadius = 14.dp2px()
 
     ///////////////////////////////////////////////////////////////////////////////
 
@@ -103,6 +105,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     private var _width = 0
     private var _height = 0
     private var _bgBitmap: Bitmap? = null
+
     @Volatile
     private var _iconBitmap: Bitmap? = null
 
@@ -144,6 +147,10 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
             typedArray.getDimension(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_strokeWidth, _strokeWidth)
         _strokeColor =
             typedArray.getColor(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_strokeColor, _strokeColor)
+        _isBgRounded =
+            typedArray.getBoolean(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_isBgRounded, _isBgRounded)
+        _roundedCornerRadius =
+            typedArray.getDimension(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_roundedCornerRadius, _roundedCornerRadius)
         typedArray.recycle()
     }
 
@@ -330,11 +337,14 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
         _bgBitmap = Bitmap.createBitmap(_width, _height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(_bgBitmap!!)
         _bgPaint.color = _bgColor
-        canvas.drawCircle(_width / 2f, _height / 2f, _width / 2f, _bgPaint) //确定位置
+        if (_isBgRounded && _isAfter21) {
+            canvas.drawRoundRect(0f, 0f, _width.toFloat(), _height.toFloat(), _roundedCornerRadius, _roundedCornerRadius, _bgPaint)
+        } else
+            canvas.drawCircle(_width / 2f, _height / 2f, _width / 2f, _bgPaint) //确定位置
 
         if (_iconRedId != 0) {
             val bitmap = _iconRedId.intResDrawable2bitmapAny(context)
-            if (bitmap!=null){
+            if (bitmap != null) {
                 val scaleRatioX = _width.toFloat() / bitmap.width
                 val scaleRatioY = _height.toFloat() / bitmap.height
                 _iconBitmap = bitmap.applyBitmapAnyScaleRatio(scaleRatioX, scaleRatioY)

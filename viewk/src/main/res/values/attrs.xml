@@ -60,5 +60,7 @@
         <attr name="viewKProgressWaveIcon_strokeEnabled" format="boolean" />
         <attr name="viewKProgressWaveIcon_strokeWidth" format="dimension" />
         <attr name="viewKProgressWaveIcon_strokeColor" format="color" />
+        <attr name="viewKProgressWaveIcon_isBgRounded" format="boolean" />
+        <attr name="viewKProgressWaveIcon_roundedCornerRadius" format="dimension" />
     </declare-styleable>
 </resources>
