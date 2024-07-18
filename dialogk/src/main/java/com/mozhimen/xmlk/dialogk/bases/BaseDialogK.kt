@@ -12,6 +12,7 @@ import com.mozhimen.basick.elemk.android.view.cons.CWinMgr
 import com.mozhimen.basick.lintk.optins.permission.OPermission_SYSTEM_ALERT_WINDOW
 import com.mozhimen.basick.manifestk.cons.CPermission
 import com.mozhimen.basick.utilk.android.app.isFinishingOrDestroyed
+import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.basick.utilk.android.util.e
 import com.mozhimen.basick.utilk.java.lang.UtilKThread
 import com.mozhimen.xmlk.dialogk.bases.annors.ADialogMode
@@ -23,12 +24,11 @@ import kotlinx.coroutines.launch
 
 /**
  * @ClassName BaseDialogK
- * @Description TODO
- * @Author mozhimen / Kolin Zhao
  * @Date 2022/11/24 22:31
  * @Version 1.0
  */
-abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(context: Context, @StyleRes intResTheme: Int = com.mozhimen.xmlk.R.style.ThemeK_Dialog_Blur) : ComponentDialog(context, intResTheme),
+abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(context: Context, @StyleRes intResTheme: Int = com.mozhimen.xmlk.R.style.ThemeK_Dialog_Blur) :
+    ComponentDialog(context, intResTheme),
     IBaseDialogK<I> {
 
     private var _isHasSetWindowAttr = false
@@ -69,21 +69,52 @@ abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(
     }
 
     override fun show() {
-        if (context is Activity&& (context as Activity).isFinishingOrDestroyed()) return
-        if (isShowing) return
-        lifecycleScope.launch(Dispatchers.Main) {
-            super.show()
+        if (context is Activity && (context as Activity).isFinishingOrDestroyed()) {
+            UtilKLogWrapper.d(TAG, "show: the parasitifer is finishing or destroyed")
+            return
+        }
+        if (isShowing) {
+            UtilKLogWrapper.d(TAG, "show: the dialog already show")
+            return
+        }
+        if (UtilKThread.isMainThread()) {
+            try {
+                super.show()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                UtilKLogWrapper.e(TAG, "show: ", e)
+            }
+        } else {
+            lifecycleScope.launch(Dispatchers.Main) {
+                if (context is Activity && (context as Activity).isFinishingOrDestroyed()) {
+                    UtilKLogWrapper.d(TAG, "show: the parasitifer is finishing or destroyed")
+                    return@launch
+                }
+                try {
+                    super.show()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    UtilKLogWrapper.e(TAG, "show: ", e)
+                }
+            }
         }
     }
 
     override fun showByDelay(delayMillis: Long) {
-        if (isShowing) return
-        lifecycleScope.launch(Dispatchers.Main) {
-            if (delayMillis <= 0) {
-                super.show()
-            } else {
+        if (context is Activity && (context as Activity).isFinishingOrDestroyed()) {
+            UtilKLogWrapper.d(TAG, "showByDelay: the parasitifer is finishing or destroyed")
+            return
+        }
+        if (isShowing) {
+            UtilKLogWrapper.d(TAG, "showByDelay: the dialog already show")
+            return
+        }
+        if (delayMillis <= 0) {
+            show()
+        } else {
+            lifecycleScope.launch(Dispatchers.Main) {
                 delay(delayMillis)
-                super.show()
+                show()
             }
         }
     }
@@ -102,12 +133,25 @@ abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(
     }
 
     override fun dismiss() {
-        if (!isShowing) return
+        if (!isShowing) {
+            UtilKLogWrapper.w(TAG, "dismiss: dialog already dismiss")
+            return
+        }
         if (UtilKThread.isMainThread()) {
-            super.dismiss()
+            try {
+                super.dismiss()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                UtilKLogWrapper.e(TAG, "dismiss: ", e)
+            }
         } else {
             lifecycleScope.launch(Dispatchers.Main) {
-                super.dismiss()
+                try {
+                    super.dismiss()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    UtilKLogWrapper.e(TAG, "dismiss: ", e)
+                }
             }
         }
     }
