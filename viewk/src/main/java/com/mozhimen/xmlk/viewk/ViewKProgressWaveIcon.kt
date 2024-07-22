@@ -2,14 +2,18 @@ package com.mozhimen.xmlk.viewk
 
 import android.animation.Animator
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.LinearGradient
 import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
+import android.graphics.Rect
+import android.graphics.Shader
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.animation.LinearInterpolator
@@ -17,7 +21,6 @@ import androidx.annotation.UiThread
 import com.mozhimen.basick.utilk.android.animation.cancel_removeAllListeners
 import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyScaleRatio
 import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.util.dp2pxI
 import com.mozhimen.basick.utilk.android.util.sp2px
@@ -39,13 +42,13 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     BaseViewK(context, attrs, defStyleAttr) {
 
     companion object {
-        const val DEFAULT_COLOR_WAVE1: String = "#11ffffff" //默认里面颜色
-        const val DEFAULT_COLOR_WAVE2: String = "#21ffffff" //默认水波颜色
+        const val DEFAULT_COLOR_WAVE1: String = "#00ffffff" //默认里面颜色
+        const val DEFAULT_COLOR_WAVE2: String = "#00ffffff" //默认水波颜色
         const val DEFAULT_COLOR_WAVE3: String = "#80000000" //默认水波颜色
         const val DEFAULT_COLOR_BG: Int = Color.WHITE //默认水波颜色
         const val DEFAULT_WAVE_COUNT: Int = 1
         const val DEFAULT_WAVE_MAX: Int = 100
-        const val DEFAULT_WAVE_HEIGHT: Int = 7
+        const val DEFAULT_WAVE_HEIGHT: Int = 4
         const val DEFAULT_TEXT_SIZE: Int = 20
     }
 
@@ -63,6 +66,8 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     private var _textEnabled = false
     private var _textSize = DEFAULT_TEXT_SIZE.sp2px()
     private var _textColor = Color.WHITE
+    private var _textColor2 = Color.BLACK
+    private var _textStrokeWidth = 1.dp2px()
     private var _strokeEnabled = false
     private var _strokeWidth = 4.dp2px()
     private var _strokeColor = Color.BLACK
@@ -80,6 +85,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
         textPaint.isFakeBoldText = true
         textPaint.isAntiAlias = true
         textPaint.textSize = _textSize
+//        textPaint.strokeWidth = _textStrokeWidth
         textPaint.setColor(_textColor)
         textPaint
     }
@@ -97,6 +103,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
 
     private val _isAfter21: Boolean = UtilKBuildVersion.isAfterV_21_5_L()
     private val _waveColors: IntArray by lazy_ofNone { intArrayOf(DEFAULT_COLOR_WAVE1.strColor2intColor(), DEFAULT_COLOR_WAVE2.strColor2intColor(), DEFAULT_COLOR_WAVE3.strColor2intColor()) }//水波颜色
+    private val _textColors: IntArray by lazy_ofNone { intArrayOf(_textColor, _textColor2) }
     private var _splits = intArrayOf(1, 1)
     private val _paths by lazy_ofNone { mutableListOf(Path(), Path(), Path()) }
     private var _waveLocationXStarts = floatArrayOf(0f, 0f) //开始位置
@@ -105,6 +112,8 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     private var _width = 0
     private var _height = 0
     private var _bgBitmap: Bitmap? = null
+    private var _progressTextGradient: LinearGradient? = null
+    private var _textPos = floatArrayOf(1f - _percent, 1f - _percent - 0.001f)
 
     @Volatile
     private var _iconBitmap: Bitmap? = null
@@ -141,6 +150,10 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
             typedArray.getDimension(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_textSize, _textSize)
         _textColor =
             typedArray.getColor(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_textColor, _textColor)
+        _textColor2 =
+            typedArray.getColor(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_textColor2, _textColor2)
+        _textStrokeWidth =
+            typedArray.getDimension(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_textStrokeWidth, _textStrokeWidth)
         _strokeEnabled =
             typedArray.getBoolean(R.styleable.ViewKProgressWaveIcon_viewKProgressWaveIcon_strokeEnabled, _strokeEnabled)
         _strokeWidth =
@@ -214,6 +227,9 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
         stopAnimatorY()
     }
 
+    private var _textRect = Rect()
+
+    @SuppressLint("DrawAllocation")
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
@@ -242,7 +258,18 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
 
         _iconPaint.setXfermode(null)
 
+
         if (_textEnabled && _text.isNotEmpty()) {
+            _textPaint.color = Color.BLACK
+            _textPaint.getTextBounds(_text, 0, _text.length, _textRect)
+            val textHeight = _textRect.height().toFloat()
+            //设置变色效果
+            _textPos = floatArrayOf(1f - _percent, 1f - _percent - 0.001f)
+            _progressTextGradient = LinearGradient(
+                0f, /*(_height - textHeight) / 2*/0f, 0f, _height.toFloat() + _textPaint.textSize / 4f/*(_height + textHeight) / 2*/, _textColors, _textPos,
+                Shader.TileMode.CLAMP
+            )
+            _textPaint.setShader(_progressTextGradient)
             canvas.drawText(_text, centerX, centerY + _textPaint.textSize / 2f, _textPaint)
         }
 
@@ -367,6 +394,8 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
         val desY = _height.toFloat() * (1f - _percent)
         if (_percent == 1f) {
             _waveLocationYStart = 0f
+            stopAnimatorY()
+            startAnimatorY(curY, desY)
         }
         if (curY == desY || _valueAnimatorY != null) return
         startAnimatorY(curY, desY)
