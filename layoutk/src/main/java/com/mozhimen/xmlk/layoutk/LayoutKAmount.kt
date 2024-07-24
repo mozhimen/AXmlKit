@@ -16,6 +16,7 @@ import com.mozhimen.basick.utilk.android.util.dp2px
 import com.mozhimen.basick.utilk.android.util.sp2px
 import com.mozhimen.basick.utilk.android.view.applyElevation
 import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.commons.IAttrsParser2
 
 /**
@@ -30,7 +31,7 @@ typealias ILayoutKAmountListener = IA_Listener<Int>//(amount: Int) -> Unit
 class LayoutKAmount @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKLinear(context, attrs, defStyleAttr) {
 
     //region # private variate
-    private val _attrs by UtilKLazyJVM.lazy_ofNone { LayoutKAmountParser.parseAttrs(context, attrs, defStyleAttr) }
+    private val _attrs by lazy_ofNone { LayoutKAmountParser.parseAttrs(context, attrs, defStyleAttr) }
     private var _layoutKAmountListener: ILayoutKAmountListener? = null
 
     private var _btnIncrease: Button? = null

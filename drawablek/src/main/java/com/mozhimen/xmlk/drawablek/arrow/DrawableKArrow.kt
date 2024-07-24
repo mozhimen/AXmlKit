@@ -3,6 +3,7 @@ package com.mozhimen.xmlk.drawablek.arrow
 import android.graphics.*
 import android.graphics.drawable.Drawable
 import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM
+import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.drawablek.arrow.commons.IArrow
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowDirection
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowPosPolicy
@@ -19,7 +20,7 @@ import kotlin.math.sin
  * @Version 1.0
  */
 class DrawableKArrow : Drawable(), IArrow {
-    private val _shapeDrawer: ShapeDrawer by UtilKLazyJVM.lazy_ofNone { ShapeDrawer() }
+    private val _shapeDrawer: ShapeDrawer by lazy_ofNone { ShapeDrawer() }
     private val _shape = MShape()
     private val _borderShape = MShape()
     private val _fillShape = MShape()

@@ -15,8 +15,10 @@ import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.Shader
 import android.text.TextPaint
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.animation.LinearInterpolator
+import androidx.annotation.Px
 import androidx.annotation.UiThread
 import com.mozhimen.basick.utilk.android.animation.cancel_removeAllListeners
 import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyScaleRatio
@@ -68,6 +70,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     private var _textColor = Color.WHITE
     private var _textColor2 = Color.BLACK
     private var _textStrokeWidth = 1.dp2px()
+    private var _textPadding = 1.dp2px()
     private var _strokeEnabled = false
     private var _strokeWidth = 4.dp2px()
     private var _strokeColor = Color.BLACK
@@ -78,7 +81,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
 
     private lateinit var _bgPaint: Paint
     private lateinit var _iconPaint: Paint
-    private val _textPaint: Paint by lazy_ofNone {
+    private val _textPaint: TextPaint by lazy_ofNone {
         val textPaint = TextPaint()
         textPaint.style = Paint.Style.FILL
         textPaint.textAlign = Paint.Align.CENTER
@@ -260,6 +263,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
 
 
         if (_textEnabled && _text.isNotEmpty()) {
+            _textPaint.textSize = _textSize
             _textPaint.color = Color.BLACK
             _textPaint.getTextBounds(_text, 0, _text.length, _textRect)
             val textHeight = _textRect.height().toFloat()
@@ -270,7 +274,8 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
                 Shader.TileMode.CLAMP
             )
             _textPaint.setShader(_progressTextGradient)
-            canvas.drawText(_text, centerX, centerY + _textPaint.textSize / 2f, _textPaint)
+
+            canvas.drawText(TextUtils.ellipsize(_text, _textPaint, _width.toFloat() - 2f * _textPadding, TextUtils.TruncateAt.END).toString(), centerX, centerY + _textPaint.textSize / 2f, _textPaint)
         }
 
         if (_strokeEnabled && _isAfter21 && _strokeWidth != 0f) {
@@ -285,6 +290,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
      */
     @UiThread
     fun setProgress(progress: Int) {
+        if (progress == _progress) return
         _progress = progress
         setPercent()
     }
@@ -307,6 +313,11 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
 
     fun setText(text: String) {
         text.ifNotEmpty { _text = text }
+    }
+
+    fun setTextSize(@Px textSize: Float) {
+        if (textSize == _textSize) return
+        _textSize = textSize
     }
 
 //    fun getStrokeColor(): Int =
@@ -382,6 +393,8 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     private fun createIconBitmap(bitmap: Bitmap) {
         val scaleRatioX = _width.toFloat() / bitmap.width
         val scaleRatioY = _height.toFloat() / bitmap.height
+        if (scaleRatioX <= 0 || scaleRatioY <= 0)
+            return
         _iconBitmap = bitmap.applyBitmapAnyScaleRatio(scaleRatioX, scaleRatioY)
     }
 
