@@ -100,7 +100,7 @@ open class LayoutKRollText @JvmOverloads constructor(context: Context, attrs: At
 
         _rollAnimator = AnimatorFloatType().setFloat(0f, 1f)
             .addAnimatorUpdateListener(_animatorUpdateListener)
-            .isAutoClearListener(false)
+//            .isAutoClearListener(false)
             .setDuration(_animatorDuration)
             .setInterpolator(LinearInterpolator()/*InterpolatorKSpring()*/).build() as ValueAnimator
     }
