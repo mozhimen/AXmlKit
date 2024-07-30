@@ -80,7 +80,6 @@ class TextKProgress @JvmOverloads constructor(context: Context, attrs: Attribute
 
     //////////////////////////////////////////////////////////////////
 
-    @Volatile
     private lateinit var _textPaint: Paint//按钮文字画笔
     private lateinit var _backgroundPaint: Paint//背景画笔
     private lateinit var _progressAnimation: ValueAnimator//下载平滑动画

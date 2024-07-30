@@ -58,7 +58,6 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
 
     private var _max = DEFAULT_WAVE_MAX //最大值
 
-    @Volatile
     private var _progress = 0 //当前的值
     private var _bgColor: Int = DEFAULT_COLOR_BG
     private var _waveAnimTime: LongArray = longArrayOf(3000, 2000)
@@ -117,11 +116,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     private var _bgBitmap: Bitmap? = null
     private var _progressTextGradient: LinearGradient? = null
     private var _textPos = floatArrayOf(1f - _percent, 1f - _percent - 0.001f)
-
-    @Volatile
     private var _iconBitmap: Bitmap? = null
-
-    @Volatile
     private var _text: String = ""
 
     ///////////////////////////////////////////////////////////////////////////////
