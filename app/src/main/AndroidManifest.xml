@@ -74,6 +74,15 @@
             android:name=".imagek.ImageKPhotoActivity"
             android:exported="false" /> <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
         <!-- layoutk -->
+           <activity
+               android:name=".layoutk.LayoutKConstraintActivity"
+               android:exported="true" >
+                  <intent-filter>
+                         <action android:name="android.intent.action.MAIN" />
+
+                         <category android:name="android.intent.category.LAUNCHER" />
+                  </intent-filter>
+           </activity>
         <activity
             android:name=".layoutk.LayoutKLoadingActivity"
             android:exported="false" />
@@ -187,11 +196,7 @@
         <activity
             android:name=".viewk.ViewKViewsActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".viewk.ViewKWheelActivity"

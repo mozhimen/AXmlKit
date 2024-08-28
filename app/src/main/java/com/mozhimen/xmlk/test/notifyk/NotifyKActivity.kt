@@ -44,7 +44,7 @@ class NotifyKActivity : BaseActivityVDB<ActivityNotifykBinding>() {
         }
 
         val builder = NotificationCompat.Builder(context, NAME)
-            .setSmallIcon(UtilKApplicationInfo.getIcon_ofCxt(context))
+            .setSmallIcon(UtilKApplicationInfo.getIcon(context))
             .setContentTitle(contentTitle)
             .setContentText(contentText)
             .setSubText(subText)

@@ -99,4 +99,9 @@ include ':ACacheKit:cachek_basic'
 include ':ACryptoKit'
 project(':ACryptoKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ACryptoKit")
 include ':ACryptoKit:cryptok_basic'
+//APostKit
+include ':APostKit'
+project(':APostKit').projectDir = new File("D:\\WorkSpace\\GitHub\\APostKit")
+include ':APostKit:postk_livedata'
+
 

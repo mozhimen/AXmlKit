@@ -32,4 +32,8 @@
         <item name="android:windowEnterAnimation">@anim/animk_trans_top_show</item>
         <item name="android:windowExitAnimation">@anim/animk_trans_top_hide</item>
     </style>
+
+    <style name="LeleTxt_style.Detail_Content" parent="StyleK_Txt.Font_Sans_Serif.Gravity_Center.Style_Norm.Color_Gray_999.Size_013.Width_Wrap.Height_Wrap">
+        <item name="android:gravity">start</item>
+    </style>
 </resources>

@@ -35,6 +35,7 @@ dependencies {
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:xmlk')
     implementation project(':AAnimKit:animk_builder')
+    implementation project(':APostKit:postk_livedata')
     implementation project(project.path.replace(project.name, '') +':imagek_blur')
 
     testImplementation 'junit:junit:4.13.2'
