@@ -8,7 +8,7 @@ import android.graphics.Shader
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.ViewGroup
-import com.mozhimen.basick.utilk.android.view.UtilKMotionEvent
+import com.mozhimen.kotlin.utilk.android.view.UtilKMotionEvent
 import com.mozhimen.xmlk.commons.IViewK
 import com.mozhimen.xmlk.layoutk.slider.LayoutKSlider
 import com.mozhimen.xmlk.layoutk.slider.commons.ILayoutKSlider
@@ -16,7 +16,7 @@ import com.mozhimen.xmlk.layoutk.slider.commons.ISliderScrollListener
 import com.mozhimen.xmlk.layoutk.slider.mos.MRod
 import com.mozhimen.xmlk.layoutk.slider.mos.MSlider
 import com.mozhimen.xmlk.layoutk.slider.mos.MSliderAttrs
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 /**
  * @ClassName LayoutKSliderDelegate
  * @Description

@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import com.mozhimen.basick.elemk.mos.MKey
+import com.mozhimen.kotlin.elemk.mos.MKey
 import com.mozhimen.xmlk.bases.BaseLayoutKLinear
 
 typealias ILayoutKChipGroupListener = (chaip: Chip, position: Int, item: MKey) -> Unit

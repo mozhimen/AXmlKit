@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RatingBar;
 
-import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion;
+import com.mozhimen.kotlin.utilk.android.os.UtilKBuildVersion;
 import com.mozhimen.xmlk.drawablek.bases.BaseDrawableK;
 import com.mozhimen.xmlk.drawablek.DrawableKStar;
 

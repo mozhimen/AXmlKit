@@ -7,11 +7,11 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.elemk.android.view.commons.GestureDetectorOnGestureCallback
-import com.mozhimen.basick.utilk.androidx.recyclerview.getLastVisibleItemPosition
-import com.mozhimen.basick.utilk.androidx.recyclerview.isScroll2end
-import com.mozhimen.basick.utilk.androidx.recyclerview.isScroll2top
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.elemk.android.view.commons.GestureDetectorOnGestureCallback
+import com.mozhimen.kotlin.utilk.androidx.recyclerview.getLastVisibleItemPosition
+import com.mozhimen.kotlin.utilk.androidx.recyclerview.isScroll2end
+import com.mozhimen.kotlin.utilk.androidx.recyclerview.isScroll2top
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapterStuffed
 import com.mozhimen.xmlk.recyclerk.load.commons.IRecyclerKLoad
 import com.mozhimen.xmlk.recyclerk.load.commons.IRecyclerKLoadListener

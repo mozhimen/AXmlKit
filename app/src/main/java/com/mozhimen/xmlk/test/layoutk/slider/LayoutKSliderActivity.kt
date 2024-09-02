@@ -2,8 +2,8 @@ package com.mozhimen.xmlk.test.layoutk.slider
 
 import android.os.Bundle
 import android.view.View
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.utilk.android.util.dp2px
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.layoutk.slider.commons.ISliderScrollListener
 import com.mozhimen.xmlk.layoutk.slider.mos.MRod
 import com.mozhimen.xmlk.popwink.bubble.PopwinKBubbleBuilder

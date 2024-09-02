@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.recyclerk.item
 
 import android.annotation.SuppressLint
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.util.SparseIntArray
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
-import com.mozhimen.basick.utilk.android.util.e
+import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
+import com.mozhimen.kotlin.utilk.android.util.e
 import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapter
 import com.mozhimen.xmlk.vhk.VHKRecycler
 import java.lang.ref.WeakReference

@@ -6,14 +6,14 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.elemk.androidx.lifecycle.LifecycleOwnerProxy
-import com.mozhimen.basick.lintk.optins.OApiInit_ByLazy
-import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnCreate
-import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnDestroy
-import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnResume
-import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStart
-import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStop
-import com.mozhimen.basick.utilk.commons.IUtilK
+import com.mozhimen.kotlin.elemk.androidx.lifecycle.LifecycleOwnerProxy
+import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnCreate
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnDestroy
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnResume
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnStart
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnStop
+import com.mozhimen.kotlin.utilk.commons.IUtilK
 
 /**
  * @ClassName VHKLifecycle

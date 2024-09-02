@@ -9,15 +9,15 @@ import android.widget.ScrollView
 import androidx.annotation.FloatRange
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.utilk.android.view.UtilKView
-import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper
+import com.mozhimen.kotlin.utilk.android.view.UtilKView
+import com.mozhimen.kotlin.utilk.android.view.UtilKViewWrapper
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
 import com.mozhimen.xmlk.layoutk.slider.commons.ILayoutKSlider
 import com.mozhimen.xmlk.layoutk.slider.commons.ISliderScrollListener
 import com.mozhimen.xmlk.layoutk.slider.helpers.LayoutKSliderDelegate
 import com.mozhimen.xmlk.layoutk.slider.mos.MRod
 import com.mozhimen.xmlk.layoutk.slider.mos.MSlider
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 
 /**
  * @ClassName LayoutKSlider

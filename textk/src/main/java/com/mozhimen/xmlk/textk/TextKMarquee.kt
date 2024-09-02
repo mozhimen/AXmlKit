@@ -3,7 +3,7 @@ package com.mozhimen.xmlk.textk
 import android.content.Context
 import android.text.TextUtils
 import android.util.AttributeSet
-import com.mozhimen.basick.utilk.android.view.applyFocusable
+import com.mozhimen.kotlin.utilk.android.view.applyFocusable
 import com.mozhimen.xmlk.bases.BaseTextK
 
 

@@ -1,11 +1,11 @@
 package com.mozhimen.xmlk.layoutk.tab.bottom.helpers
 
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.mozhimen.basick.utilk.commons.IUtilK
+import com.mozhimen.kotlin.utilk.commons.IUtilK
 
 import com.mozhimen.xmlk.layoutk.tab.bottom.mos.MTabBottom
 import java.lang.Exception

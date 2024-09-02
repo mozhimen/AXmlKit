@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.view.WindowInsets;
 import android.view.WindowManager;
 
-import com.mozhimen.basick.elemk.android.os.cons.CVersCode;
-import com.mozhimen.basick.elemk.android.view.cons.CWinMgr;
-import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion;
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
+import com.mozhimen.kotlin.elemk.android.os.cons.CVersCode;
+import com.mozhimen.kotlin.elemk.android.view.cons.CWinMgr;
+import com.mozhimen.kotlin.utilk.android.os.UtilKBuildVersion;
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper;
 import com.mozhimen.xmlk.popwink.bases.commons.IClearMemoryListener;
 
 import androidx.annotation.Nullable;

@@ -2,9 +2,9 @@ package com.mozhimen.xmlk.test.layoutk.side
 
 import android.os.Bundle
 import android.widget.Toast
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
-import com.mozhimen.basick.utilk.android.widget.showToast
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.lintk.optins.permission.OPermission_INTERNET
+import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.vhk.VHKRecycler
 import com.mozhimen.xmlk.layoutk.side.list.ILayoutKSideListListener
 import com.mozhimen.xmlk.layoutk.side.list.mos.*

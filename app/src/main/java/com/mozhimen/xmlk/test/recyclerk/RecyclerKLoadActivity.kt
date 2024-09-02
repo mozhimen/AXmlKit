@@ -4,10 +4,10 @@ import android.os.Bundle
 import androidx.core.os.postDelayed
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.elemk.android.os.WakeBefPauseLifecycleHandler
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.utilk.android.util.dp2px
+import com.mozhimen.kotlin.elemk.android.os.WakeBefPauseLifecycleHandler
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapterStuffed
 import com.mozhimen.xmlk.layoutk.refresh.commons.IRefreshListener
 import com.mozhimen.xmlk.layoutk.refresh.impls.TextOverView

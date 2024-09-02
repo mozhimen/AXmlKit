@@ -10,13 +10,13 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper;
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper;
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.mozhimen.basick.utilk.android.util.UtilKDisplayMetrics;
+import com.mozhimen.kotlin.utilk.android.util.UtilKDisplayMetrics;
 import com.mozhimen.xmlk.viewk.wheel.commons.IWheelAdapter;
 import com.mozhimen.xmlk.viewk.wheel.commons.IPickerViewData;
 import com.mozhimen.xmlk.viewk.wheel.commons.LoopViewGestureCallback;

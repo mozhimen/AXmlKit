@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import androidx.annotation.Px
-import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
-import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.wrapper.UtilKScreen
+import com.mozhimen.kotlin.lintk.optins.permission.OPermission_INTERNET
+import com.mozhimen.kotlin.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen
 import com.mozhimen.xmlk.layoutk.tab.commons.ILayoutKTab
 import com.mozhimen.xmlk.layoutk.tab.commons.ITabSelectedListener
 import com.mozhimen.xmlk.layoutk.tab.top.mos.MTabTop

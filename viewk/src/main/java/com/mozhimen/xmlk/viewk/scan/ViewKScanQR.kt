@@ -5,8 +5,8 @@ import android.graphics.*
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import com.mozhimen.basick.utilk.android.graphics.drawable2bitmap
-import com.mozhimen.basick.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.android.graphics.drawable2bitmap
+import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.viewk.R
 import com.mozhimen.xmlk.bases.BaseViewK
 

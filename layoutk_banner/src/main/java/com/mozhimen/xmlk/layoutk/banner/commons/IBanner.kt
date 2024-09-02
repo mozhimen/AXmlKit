@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.layoutk.banner.commons
 
 import androidx.annotation.LayoutRes
-import com.mozhimen.basick.utilk.commons.IUtilK
+import com.mozhimen.kotlin.utilk.commons.IUtilK
 import com.mozhimen.xmlk.layoutk.banner.IBannerItemChangeListener
 import com.mozhimen.xmlk.layoutk.banner.bases.BaseBannerItem
 

@@ -4,10 +4,10 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.utilk.android.content.startContext
-import com.mozhimen.basick.utilk.kotlin.strHtml2chars
-import com.mozhimen.basick.utilk.kotlin.text.replaceLineBreak2strHtmlBr
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.utilk.android.content.startContext
+import com.mozhimen.kotlin.utilk.kotlin.strHtml2chars
+import com.mozhimen.kotlin.utilk.kotlin.text.replaceLineBreak2strHtmlBr
 import com.mozhimen.xmlk.popwink.bubble.PopwinKBubbleBuilder
 import com.mozhimen.xmlk.textk.progress.TextKProgress
 import com.mozhimen.xmlk.test.databinding.ActivityTextkBinding

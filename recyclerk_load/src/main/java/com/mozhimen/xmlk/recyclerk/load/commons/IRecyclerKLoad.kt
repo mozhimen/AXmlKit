@@ -1,6 +1,6 @@
 package com.mozhimen.xmlk.recyclerk.load.commons
 
-import com.mozhimen.basick.utilk.commons.IUtilK
+import com.mozhimen.kotlin.utilk.commons.IUtilK
 
 
 /**

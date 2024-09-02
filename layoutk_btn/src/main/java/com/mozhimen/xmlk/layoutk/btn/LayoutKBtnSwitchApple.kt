@@ -14,8 +14,8 @@ import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
-import com.mozhimen.basick.elemk.commons.IA_Listener
-import com.mozhimen.basick.utilk.android.util.dp2px
+import com.mozhimen.kotlin.elemk.commons.IA_Listener
+import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
 
 /**

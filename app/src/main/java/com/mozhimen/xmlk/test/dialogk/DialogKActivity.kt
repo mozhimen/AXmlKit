@@ -1,11 +1,11 @@
 package com.mozhimen.xmlk.test.dialogk
 
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.elemk.commons.I_Listener
-import com.mozhimen.basick.utilk.android.widget.showToast
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.elemk.commons.I_Listener
+import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.test.dialogk.temps.DialogKLoadingAnim
 import com.mozhimen.xmlk.test.dialogk.temps.DialogKLoadingAnimDrawable
 import com.mozhimen.xmlk.test.dialogk.temps.DialogKQues

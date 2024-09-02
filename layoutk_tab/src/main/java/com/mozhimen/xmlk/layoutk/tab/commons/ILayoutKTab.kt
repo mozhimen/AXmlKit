@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.layoutk.tab.commons
 
 import android.view.ViewGroup
-import com.mozhimen.basick.utilk.commons.IUtilK
+import com.mozhimen.kotlin.utilk.commons.IUtilK
 
 /**
  * @ClassName ITabLayout

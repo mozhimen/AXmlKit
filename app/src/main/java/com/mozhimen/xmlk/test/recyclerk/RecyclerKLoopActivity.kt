@@ -4,11 +4,11 @@ import android.os.Bundle
 import androidx.recyclerview.widget.AutoLooperLinearLayoutManager
 import androidx.recyclerview.widget.LooperLinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.basick.lintk.optins.OApiCall_BindViewLifecycle
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
-import com.mozhimen.basick.utilk.android.widget.showToast
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapterVDB
 import com.mozhimen.xmlk.test.BR
 import com.mozhimen.xmlk.test.R

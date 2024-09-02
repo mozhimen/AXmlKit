@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.annotation.StyleRes
 import androidx.lifecycle.LifecycleOwner
 import androidx.viewbinding.ViewBinding
-import com.mozhimen.basick.elemk.androidx.lifecycle.commons.IDefaultLifecycleObserver
-import com.mozhimen.basick.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.basick.lintk.optins.OApiInit_ByLazy
-import com.mozhimen.basick.utilk.androidx.lifecycle.runOnMainThread
+import com.mozhimen.kotlin.elemk.androidx.lifecycle.commons.IDefaultLifecycleObserver
+import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.runOnMainThread
 import com.mozhimen.xmlk.R
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVBClickListener
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVDBClickListener

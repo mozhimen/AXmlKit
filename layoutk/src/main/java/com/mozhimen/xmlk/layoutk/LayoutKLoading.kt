@@ -6,8 +6,8 @@ import android.graphics.BlendMode
 import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.ProgressBar
-import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
-import com.mozhimen.basick.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.android.os.UtilKBuildVersion
+import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
 
 /**

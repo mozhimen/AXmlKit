@@ -12,10 +12,10 @@ import android.util.TypedValue
 import android.view.Gravity
 import android.widget.EditText
 import android.widget.TextView
-import com.mozhimen.basick.utilk.wrapper.UtilKRes
-import com.mozhimen.basick.utilk.android.view.applyPadding
-import com.mozhimen.basick.utilk.android.util.sp2px
-import com.mozhimen.basick.utilk.android.widget.applyFilter_ofLength
+import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
+import com.mozhimen.kotlin.utilk.android.view.applyPadding
+import com.mozhimen.kotlin.utilk.android.util.sp2px
+import com.mozhimen.kotlin.utilk.android.widget.applyFilter_ofLength
 import com.mozhimen.xmlk.layoutk.R
 import com.mozhimen.xmlk.bases.BaseLayoutKLinear
 

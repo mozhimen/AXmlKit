@@ -13,10 +13,10 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.setPadding
-import com.mozhimen.basick.elemk.android.os.bases.BaseWeakRefMainHandler
-import com.mozhimen.basick.utilk.android.view.applyPadding
-import com.mozhimen.basick.utilk.android.view.applyPaddingHorizontal
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.elemk.android.os.bases.BaseWeakRefMainHandler
+import com.mozhimen.kotlin.utilk.android.view.applyPadding
+import com.mozhimen.kotlin.utilk.android.view.applyPaddingHorizontal
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.bases.BaseLayoutKRelative
 import com.mozhimen.xmlk.layoutk.search.helpers.SearchAttrsParser
 import com.mozhimen.xmlk.layoutk.search.commons.SearchTextWatcher

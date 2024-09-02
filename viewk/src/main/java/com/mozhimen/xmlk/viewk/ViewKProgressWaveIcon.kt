@@ -20,16 +20,16 @@ import android.util.AttributeSet
 import android.view.animation.LinearInterpolator
 import androidx.annotation.Px
 import androidx.annotation.UiThread
-import com.mozhimen.basick.utilk.android.animation.cancel_removeAllListeners
-import com.mozhimen.basick.utilk.android.graphics.applyBitmapAnyScaleRatio
-import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
-import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.android.util.dp2pxI
-import com.mozhimen.basick.utilk.android.util.sp2px
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
-import com.mozhimen.basick.utilk.kotlin.ifNotEmpty
-import com.mozhimen.basick.utilk.kotlin.intResDrawable2bitmapAny
-import com.mozhimen.basick.utilk.kotlin.strColor2intColor
+import com.mozhimen.kotlin.utilk.android.animation.cancel_removeAllListeners
+import com.mozhimen.kotlin.utilk.android.graphics.applyBitmapAnyScaleRatio
+import com.mozhimen.kotlin.utilk.android.os.UtilKBuildVersion
+import com.mozhimen.kotlin.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.android.util.dp2pxI
+import com.mozhimen.kotlin.utilk.android.util.sp2px
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.utilk.kotlin.ifNotEmpty
+import com.mozhimen.kotlin.utilk.kotlin.intResDrawable2bitmapAny
+import com.mozhimen.kotlin.utilk.kotlin.strColor2intColor
 import com.mozhimen.xmlk.bases.BaseViewK
 
 

@@ -4,7 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.mozhimen.basick.utilk.android.util.e
+import com.mozhimen.kotlin.utilk.android.util.e
 import com.mozhimen.xmlk.popwink.bases.BasePopwinK
 import com.mozhimen.xmlk.popwink.bases.cons.CFlag
 import com.mozhimen.xmlk.popwink.builder.commons.PopwinKBuilderOnClickCallback

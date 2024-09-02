@@ -12,7 +12,7 @@ import android.view.Gravity;
 
 import androidx.appcompat.content.res.AppCompatResources;
 
-import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion;
+import com.mozhimen.kotlin.utilk.android.os.UtilKBuildVersion;
 
 import java.lang.reflect.Field;
 

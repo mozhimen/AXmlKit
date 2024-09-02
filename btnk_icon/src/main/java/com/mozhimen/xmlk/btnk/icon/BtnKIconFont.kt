@@ -3,8 +3,8 @@ package com.mozhimen.xmlk.btnk.icon
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
-import com.mozhimen.basick.utilk.android.widget.UtilKTextView
-import com.mozhimen.basick.utilk.android.widget.UtilKTextViewWrapper
+import com.mozhimen.kotlin.utilk.android.widget.UtilKTextView
+import com.mozhimen.kotlin.utilk.android.widget.UtilKTextViewWrapper
 import com.mozhimen.xmlk.commons.IXmlK
 
 /**

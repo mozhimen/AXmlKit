@@ -9,10 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.FragmentActivity
-import com.mozhimen.basick.utilk.android.content.startContext
-import com.mozhimen.basick.utilk.android.view.applyRequestFocus
-import com.mozhimen.basick.utilk.android.widget.value
-import com.mozhimen.basick.utilk.kotlin.ifNotEmpty
+import com.mozhimen.kotlin.utilk.android.content.startContext
+import com.mozhimen.kotlin.utilk.android.view.applyRequestFocus
+import com.mozhimen.kotlin.utilk.android.widget.value
+import com.mozhimen.kotlin.utilk.kotlin.ifNotEmpty
 import com.mozhimen.xmlk.textk.edit.bar.bases.BaseEditBarHolder
 import com.mozhimen.xmlk.textk.edit.bar.commons.ITextKEditBarListener
 import com.mozhimen.xmlk.textk.edit.bar.cons.CTextKEditBar

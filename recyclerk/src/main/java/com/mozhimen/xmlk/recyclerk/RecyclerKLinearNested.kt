@@ -4,14 +4,14 @@ import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
-import com.mozhimen.basick.elemk.android.view.cons.CMotionEvent
-import com.mozhimen.basick.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.basick.lintk.optins.OApiCall_BindViewLifecycle
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
-import com.mozhimen.basick.utilk.android.view.requestAllowInterceptTouchEvent
-import com.mozhimen.basick.utilk.androidx.recyclerview.UtilKRecyclerViewWrapper
-import com.mozhimen.basick.utilk.androidx.recyclerview.isScrollVertical
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.elemk.android.view.cons.CMotionEvent
+import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.view.requestAllowInterceptTouchEvent
+import com.mozhimen.kotlin.utilk.androidx.recyclerview.UtilKRecyclerViewWrapper
+import com.mozhimen.kotlin.utilk.androidx.recyclerview.isScrollVertical
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import kotlin.math.abs
 
 /**

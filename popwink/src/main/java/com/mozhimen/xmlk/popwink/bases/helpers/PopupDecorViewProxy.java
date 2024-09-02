@@ -16,14 +16,14 @@ import android.view.ViewPropertyAnimator;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-import com.mozhimen.basick.elemk.android.view.cons.CWinMgr;
-import com.mozhimen.basick.utilk.android.view.UtilKView;
+import com.mozhimen.kotlin.elemk.android.view.cons.CWinMgr;
+import com.mozhimen.kotlin.utilk.android.view.UtilKView;
 import com.mozhimen.xmlk.popwink.bases.BasePopwinK;
 import com.mozhimen.xmlk.popwink.bases.commons.IClearMemoryListener;
 
-import com.mozhimen.basick.utilk.android.view.UtilKInputMethodManagerWrapper;
-import com.mozhimen.basick.utilk.wrapper.UtilKScreen;
-import com.mozhimen.basick.utilk.android.view.UtilKStatusBar;
+import com.mozhimen.kotlin.utilk.android.view.UtilKInputMethodManagerWrapper;
+import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen;
+import com.mozhimen.kotlin.utilk.android.view.UtilKStatusBar;
 import com.mozhimen.xmlk.popwink.bases.commons.IEventObserver;
 import com.mozhimen.xmlk.popwink.bases.cons.CEvent;
 import com.mozhimen.xmlk.popwink.bases.cons.CFlag;

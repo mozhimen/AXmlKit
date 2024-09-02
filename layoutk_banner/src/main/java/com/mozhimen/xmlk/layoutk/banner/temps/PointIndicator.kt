@@ -9,8 +9,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
-import com.mozhimen.basick.elemk.android.view.cons.CViewGroup
-import com.mozhimen.basick.utilk.android.util.dp2px
+import com.mozhimen.kotlin.elemk.android.view.cons.CViewGroup
+import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.layoutk.banner.R
 import com.mozhimen.xmlk.layoutk.banner.commons.IBannerIndicator
 

@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.layoutk.roll
 
 import android.content.Context
 import android.util.AttributeSet
-import com.mozhimen.basick.lintk.annors.ADigitPlace
+import com.mozhimen.kotlin.lintk.annors.ADigitPlace
 import com.mozhimen.xmlk.layoutk.roll.annors.AAnimatorMode
 
 /**

@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
-import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.android.widget.applyTypeface
-import com.mozhimen.basick.utilk.wrapper.UtilKRes
+import com.mozhimen.kotlin.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.android.widget.applyTypeface
+import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
 import com.mozhimen.xmlk.vhk.VHKRecycler
 import com.mozhimen.xmlk.test.R

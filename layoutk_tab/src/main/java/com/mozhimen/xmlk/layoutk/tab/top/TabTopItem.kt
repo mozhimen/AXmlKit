@@ -9,11 +9,11 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.mozhimen.imagek.glide.loadImage_ofGlide
-import com.mozhimen.basick.lintk.optins.permission.OPermission_INTERNET
-import com.mozhimen.basick.utilk.android.util.dp2px
+import com.mozhimen.kotlin.lintk.optins.permission.OPermission_INTERNET
+import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.bases.BaseLayoutKRelative
-import com.mozhimen.basick.utilk.android.view.applyLayoutParams
-import com.mozhimen.basick.utilk.android.widget.applyTypeface
+import com.mozhimen.kotlin.utilk.android.view.applyLayoutParams
+import com.mozhimen.kotlin.utilk.android.widget.applyTypeface
 import com.mozhimen.xmlk.layoutk.tab.R
 import com.mozhimen.xmlk.layoutk.tab.commons.ITabItem
 import com.mozhimen.xmlk.layoutk.tab.top.cons.ETabTopType

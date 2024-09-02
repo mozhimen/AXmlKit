@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.recyclerk.mos
 
 import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView

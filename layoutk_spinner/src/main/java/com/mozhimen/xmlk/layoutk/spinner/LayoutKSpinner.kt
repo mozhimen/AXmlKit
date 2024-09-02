@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.res.Resources.Theme
 import android.util.AttributeSet
 import android.widget.ArrayAdapter
-import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
+import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
 
 /**
  * @ClassName AdapterKSpinner

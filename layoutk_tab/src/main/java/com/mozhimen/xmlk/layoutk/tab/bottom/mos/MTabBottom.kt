@@ -1,8 +1,8 @@
 package com.mozhimen.xmlk.layoutk.tab.bottom.mos
 
 import androidx.fragment.app.Fragment
-import com.mozhimen.basick.utilk.kotlin.UtilKAnyFormat
-import com.mozhimen.basick.utilk.kotlin.str2strUnicode
+import com.mozhimen.kotlin.utilk.kotlin.UtilKAnyFormat
+import com.mozhimen.kotlin.utilk.kotlin.str2strUnicode
 import com.mozhimen.xmlk.layoutk.tab.bottom.cons.ETabBottomType
 import java.io.Serializable
 

@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.layoutk.tab.top.mos
 
 import androidx.fragment.app.Fragment
-import com.mozhimen.basick.utilk.kotlin.UtilKAnyFormat
+import com.mozhimen.kotlin.utilk.kotlin.UtilKAnyFormat
 import com.mozhimen.xmlk.layoutk.tab.top.cons.ETabTopType
 
 /**

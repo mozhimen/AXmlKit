@@ -10,11 +10,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.mozhimen.basick.utilk.android.graphics.UtilKColorDrawable;
+import com.mozhimen.kotlin.utilk.android.graphics.UtilKColorDrawable;
 import com.mozhimen.xmlk.imagek.blur.ImageKBlur;
 import com.mozhimen.xmlk.popwink.bases.commons.IClearMemoryListener;
 
-import com.mozhimen.basick.utilk.android.view.UtilKStatusBar;
+import com.mozhimen.kotlin.utilk.android.view.UtilKStatusBar;
 import com.mozhimen.xmlk.popwink.bases.commons.IEventObserver;
 import com.mozhimen.xmlk.popwink.bases.cons.CEvent;
 

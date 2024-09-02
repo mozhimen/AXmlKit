@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
-import com.mozhimen.basick.elemk.android.view.annors.AGravity
-import com.mozhimen.basick.elemk.android.view.cons.CGravity
-import com.mozhimen.basick.elemk.android.widget.annors.AToastDuration
-import com.mozhimen.basick.elemk.android.widget.cons.CToast
-import com.mozhimen.basick.lintk.optins.OApiDeprecated_Official_AfterV_30_11_R
-import com.mozhimen.basick.utilk.bases.BaseUtilK
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.elemk.android.view.annors.AGravity
+import com.mozhimen.kotlin.elemk.android.view.cons.CGravity
+import com.mozhimen.kotlin.elemk.android.widget.annors.AToastDuration
+import com.mozhimen.kotlin.elemk.android.widget.cons.CToast
+import com.mozhimen.kotlin.lintk.optins.OApiDeprecated_Official_AfterV_30_11_R
+import com.mozhimen.kotlin.utilk.bases.BaseUtilK
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.toastk.R
 
 @OApiDeprecated_Official_AfterV_30_11_R

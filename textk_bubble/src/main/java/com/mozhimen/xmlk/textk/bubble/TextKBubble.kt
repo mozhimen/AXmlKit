@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowDirection
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowPosPolicy
 import com.mozhimen.xmlk.textk.bubble.commons.ITextKBubble

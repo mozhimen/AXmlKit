@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.layoutk.banner
 
 import android.content.Context
 import android.util.AttributeSet
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.layoutk.banner.commons.IBanner
 import com.mozhimen.xmlk.layoutk.banner.commons.IBannerBindListener
 import com.mozhimen.xmlk.layoutk.banner.commons.IBannerIndicator

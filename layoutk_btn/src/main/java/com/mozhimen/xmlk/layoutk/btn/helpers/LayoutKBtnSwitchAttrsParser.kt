@@ -2,8 +2,8 @@ package com.mozhimen.xmlk.layoutk.btn.helpers
 
 import android.content.Context
 import android.util.AttributeSet
-import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.wrapper.UtilKRes
+import com.mozhimen.kotlin.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.commons.IAttrsParser
 import com.mozhimen.xmlk.layoutk.btn.R
 import com.mozhimen.xmlk.layoutk.btn.mos.LayoutKBtnSwitchAttrs

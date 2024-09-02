@@ -3,9 +3,9 @@ package com.mozhimen.xmlk.viewk.scan
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
-import com.mozhimen.basick.utilk.wrapper.UtilKRes
-import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.android.util.sp2px
+import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
+import com.mozhimen.kotlin.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.android.util.sp2px
 import com.mozhimen.xmlk.bases.BaseViewK
 import com.mozhimen.xmlk.viewk.R
 import java.util.*

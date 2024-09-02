@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import com.mozhimen.basick.elemk.commons.I_Listener
-import com.mozhimen.basick.utilk.android.widget.applyValueIfNotEmpty
-import com.mozhimen.basick.utilk.wrapper.UtilKScreen
+import com.mozhimen.kotlin.elemk.commons.I_Listener
+import com.mozhimen.kotlin.utilk.android.widget.applyValueIfNotEmpty
+import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogK
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKClickListener
 import com.mozhimen.xmlk.test.R

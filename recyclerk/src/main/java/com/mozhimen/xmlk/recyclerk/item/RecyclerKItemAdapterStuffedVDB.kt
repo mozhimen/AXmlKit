@@ -1,9 +1,9 @@
 package com.mozhimen.xmlk.recyclerk.item
 
 import androidx.databinding.ViewDataBinding
-import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
-import com.mozhimen.basick.utilk.kotlin.collections.joinT2list
-import com.mozhimen.basick.utilk.kotlin.collections.joinT2listIgnoreNull
+import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
+import com.mozhimen.kotlin.utilk.kotlin.collections.joinT2list
+import com.mozhimen.kotlin.utilk.kotlin.collections.joinT2listIgnoreNull
 import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDB
 import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDBListener
 

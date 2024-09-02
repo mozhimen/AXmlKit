@@ -2,8 +2,8 @@ package com.mozhimen.xmlk.drawablek.arrow
 
 import android.graphics.*
 import android.graphics.drawable.Drawable
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.drawablek.arrow.commons.IArrow
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowDirection
 import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowPosPolicy

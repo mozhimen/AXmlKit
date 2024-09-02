@@ -5,8 +5,8 @@ import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
-import com.mozhimen.basick.utilk.android.view.UtilKView
-import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper
+import com.mozhimen.kotlin.utilk.android.view.UtilKView
+import com.mozhimen.kotlin.utilk.android.view.UtilKViewWrapper
 
 /**
  * @ClassName ViewKBindingAdapter

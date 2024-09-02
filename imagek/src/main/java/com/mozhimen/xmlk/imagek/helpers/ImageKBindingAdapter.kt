@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.imagek.helpers
 
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
-import com.mozhimen.basick.utilk.android.widget.applyImageResource_of
+import com.mozhimen.kotlin.utilk.android.widget.applyImageResource_of
 
 /**
  * @ClassName ImageKBindingAdapter

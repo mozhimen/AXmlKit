@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.layoutk.slider.mos
 
 import android.os.Parcel
 import android.os.Parcelable
-import com.mozhimen.basick.utilk.kotlin.ranges.constraint
+import com.mozhimen.kotlin.utilk.kotlin.ranges.constraint
 import com.mozhimen.xmlk.layoutk.slider.commons.ISliderScrollListener
 import com.mozhimen.xmlk.layoutk.slider.helpers.AttrsParser
 

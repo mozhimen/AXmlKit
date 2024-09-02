@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.basick.elemk.commons.IAB_Listener
-import com.mozhimen.basick.elemk.mos.MKey
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.elemk.commons.IAB_Listener
+import com.mozhimen.kotlin.elemk.mos.MKey
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapter
 import com.mozhimen.xmlk.recyclerk.linear.commons.IRecyclerKLinear

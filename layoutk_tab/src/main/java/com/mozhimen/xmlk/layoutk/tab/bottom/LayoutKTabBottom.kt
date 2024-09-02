@@ -10,11 +10,11 @@ import android.widget.AbsListView
 import android.widget.FrameLayout
 import android.widget.ScrollView
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.wrapper.UtilKScreen
-import com.mozhimen.basick.utilk.android.view.UtilKViewGroup
-import com.mozhimen.basick.utilk.android.view.UtilKViewGroupWrapper
-import com.mozhimen.basick.utilk.kotlin.UtilKAnyFormat
+import com.mozhimen.kotlin.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen
+import com.mozhimen.kotlin.utilk.android.view.UtilKViewGroup
+import com.mozhimen.kotlin.utilk.android.view.UtilKViewGroupWrapper
+import com.mozhimen.kotlin.utilk.kotlin.UtilKAnyFormat
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
 import com.mozhimen.xmlk.layoutk.tab.R
 import com.mozhimen.xmlk.layoutk.tab.bottom.mos.MTabBottom

@@ -1,9 +1,9 @@
 package com.mozhimen.xmlk.test.toastk
 
 import android.os.Bundle
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.lintk.optins.OApiDeprecated_Official_AfterV_30_11_R
-import com.mozhimen.basick.utilk.android.widget.showToast
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.lintk.optins.OApiDeprecated_Official_AfterV_30_11_R
+import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.toastk.builder.ToastKViewBuilder
 import com.mozhimen.xmlk.test.databinding.ActivityToastkBinding
 

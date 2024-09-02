@@ -10,10 +10,10 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.DrawableRes
-import com.mozhimen.basick.elemk.commons.IExt_Listener
-import com.mozhimen.basick.utilk.android.view.applyGone
-import com.mozhimen.basick.utilk.android.view.applyVisible
-import com.mozhimen.basick.utilk.android.widget.applyTypeface_ofAsset
+import com.mozhimen.kotlin.elemk.commons.IExt_Listener
+import com.mozhimen.kotlin.utilk.android.view.applyGone
+import com.mozhimen.kotlin.utilk.android.view.applyVisible
+import com.mozhimen.kotlin.utilk.android.widget.applyTypeface_ofAsset
 import com.mozhimen.xmlk.bases.BaseLayoutKLinear
 
 /**

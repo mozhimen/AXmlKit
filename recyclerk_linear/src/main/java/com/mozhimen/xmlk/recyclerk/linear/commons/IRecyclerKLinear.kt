@@ -1,6 +1,6 @@
 package com.mozhimen.xmlk.recyclerk.linear.commons
 
-import com.mozhimen.basick.elemk.mos.MKey
+import com.mozhimen.kotlin.elemk.mos.MKey
 import com.mozhimen.xmlk.recyclerk.linear.IRecyclerKLinearListener
 
 

@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.mozhimen.basick.utilk.android.view.applyVisibleIfElseGone
-import com.mozhimen.basick.utilk.android.widget.applyValueIfNotEmpty
-import com.mozhimen.basick.utilk.wrapper.UtilKRes
+import com.mozhimen.kotlin.utilk.android.view.applyVisibleIfElseGone
+import com.mozhimen.kotlin.utilk.android.widget.applyValueIfNotEmpty
+import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogK
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKClickListener
 import com.mozhimen.xmlk.test.R

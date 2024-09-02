@@ -8,11 +8,11 @@ import android.util.Pair
 import android.view.View
 import android.view.animation.Animation
 import com.mozhimen.animk.builder.impls.AnimationScaleType
-import com.mozhimen.basick.elemk.android.os.cons.CVersCode
+import com.mozhimen.kotlin.elemk.android.os.cons.CVersCode
 import com.mozhimen.blurk.mos.BlurKConfig
-import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
-import com.mozhimen.basick.utilk.kotlin.obj2clazz
+import com.mozhimen.kotlin.utilk.android.os.UtilKBuildVersion
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.kotlin.obj2clazz
 import com.mozhimen.xmlk.popwink.bases.BasePopwinK
 import com.mozhimen.xmlk.popwink.bases.BasePopwinK.KeyEventListener
 import com.mozhimen.xmlk.popwink.bases.BasePopwinK.OnBlurOptionInitListener

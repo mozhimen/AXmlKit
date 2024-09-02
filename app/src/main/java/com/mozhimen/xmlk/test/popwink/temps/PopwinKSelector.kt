@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.test.popwink.temps
 
 import android.content.Context
 import android.graphics.Color
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import android.view.animation.Animation
 import com.mozhimen.animk.builder.impls.AnimationTranslationType

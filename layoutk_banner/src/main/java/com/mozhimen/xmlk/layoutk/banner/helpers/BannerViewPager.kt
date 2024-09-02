@@ -8,7 +8,7 @@ import android.os.Looper
 import android.util.AttributeSet
 import android.view.MotionEvent
 import androidx.viewpager.widget.ViewPager
-import com.mozhimen.basick.utilk.android.util.e
+import com.mozhimen.kotlin.utilk.android.util.e
 import com.mozhimen.xmlk.pagerk.PagerKDisScroll
 import java.lang.Exception
 

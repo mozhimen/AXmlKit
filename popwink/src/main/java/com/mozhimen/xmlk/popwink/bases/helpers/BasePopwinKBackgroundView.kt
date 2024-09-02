@@ -3,9 +3,9 @@ package com.mozhimen.xmlk.popwink.bases.helpers
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import com.mozhimen.basick.utilk.android.graphics.UtilKColorDrawable
-import com.mozhimen.basick.utilk.android.view.UtilKView
-import com.mozhimen.basick.utilk.android.view.applyBackground
+import com.mozhimen.kotlin.utilk.android.graphics.UtilKColorDrawable
+import com.mozhimen.kotlin.utilk.android.view.UtilKView
+import com.mozhimen.kotlin.utilk.android.view.applyBackground
 
 
 /**

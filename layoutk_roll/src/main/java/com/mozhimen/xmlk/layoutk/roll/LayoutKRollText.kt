@@ -12,10 +12,10 @@ import android.view.animation.LinearInterpolator
 import android.widget.TextView
 import com.mozhimen.animk.builder.commons.IAnimatorUpdateListener
 import com.mozhimen.animk.builder.impls.AnimatorFloatType
-import com.mozhimen.basick.lintk.annors.Sp
-import com.mozhimen.basick.utilk.android.animation.cancel_removeAllListeners
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
-import com.mozhimen.basick.utilk.android.widget.applyTypeface
+import com.mozhimen.kotlin.lintk.annors.Sp
+import com.mozhimen.kotlin.utilk.android.animation.cancel_removeAllListeners
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.widget.applyTypeface
 //import com.mozhimen.xmlk.interpolatork.InterpolatorKSpring
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
 import com.mozhimen.xmlk.layoutk.roll.annors.AAnimatorMode

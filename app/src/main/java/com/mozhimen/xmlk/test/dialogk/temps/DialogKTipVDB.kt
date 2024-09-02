@@ -2,8 +2,8 @@ package com.mozhimen.xmlk.test.dialogk.temps
 
 import android.content.Context
 import android.view.View
-import com.mozhimen.basick.utilk.android.widget.applyValueIfNotEmpty
-import com.mozhimen.basick.utilk.wrapper.UtilKScreen
+import com.mozhimen.kotlin.utilk.android.widget.applyValueIfNotEmpty
+import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogKVDB
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVDBClickListener
 import com.mozhimen.xmlk.test.databinding.DialogkTipBinding

@@ -2,10 +2,10 @@ package com.mozhimen.xmlk.recyclerk
 
 import android.content.Context
 import android.util.AttributeSet
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.utilk.commons.IUtilK
+import com.mozhimen.kotlin.utilk.commons.IUtilK
 
 /**
  * @ClassName RecyclerKEmpty

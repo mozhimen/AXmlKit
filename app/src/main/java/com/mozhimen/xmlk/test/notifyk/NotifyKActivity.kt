@@ -5,12 +5,12 @@ import android.app.NotificationChannel
 import android.content.Context
 import android.view.View
 import androidx.core.app.NotificationCompat
-import com.mozhimen.basick.elemk.android.app.cons.CNotificationManager
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.lintk.optins.permission.OPermission_POST_NOTIFICATIONS
-import com.mozhimen.basick.utilk.android.app.UtilKNotificationManager
-import com.mozhimen.basick.utilk.android.content.UtilKApplicationInfo
-import com.mozhimen.basick.utilk.android.os.UtilKBuildVersion
+import com.mozhimen.kotlin.elemk.android.app.cons.CNotificationManager
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.lintk.optins.permission.OPermission_POST_NOTIFICATIONS
+import com.mozhimen.kotlin.utilk.android.app.UtilKNotificationManager
+import com.mozhimen.kotlin.utilk.android.content.UtilKApplicationInfo
+import com.mozhimen.kotlin.utilk.android.os.UtilKBuildVersion
 import com.mozhimen.xmlk.test.databinding.ActivityNotifykBinding
 
 /**

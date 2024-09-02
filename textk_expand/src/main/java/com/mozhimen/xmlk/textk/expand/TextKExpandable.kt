@@ -6,12 +6,12 @@ import android.content.Context
 import android.text.Layout
 import android.text.StaticLayout
 import android.util.AttributeSet
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import com.mozhimen.animk.builder.utils.AnimKTypeUtil
-import com.mozhimen.basick.elemk.commons.IA_Listener
-import com.mozhimen.basick.utilk.android.widget.UtilKTextViewWrapper
+import com.mozhimen.kotlin.elemk.commons.IA_Listener
+import com.mozhimen.kotlin.utilk.android.widget.UtilKTextViewWrapper
 import com.mozhimen.xmlk.commons.IXmlK
 
 /**

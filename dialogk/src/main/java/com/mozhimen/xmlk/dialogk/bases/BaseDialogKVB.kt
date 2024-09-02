@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.StyleRes
 import androidx.viewbinding.ViewBinding
-import com.mozhimen.basick.utilk.androidx.viewbinding.UtilKViewBinding
+import com.mozhimen.kotlin.utilk.androidx.viewbinding.UtilKViewBinding
 import com.mozhimen.xmlk.R
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVBClickListener
 

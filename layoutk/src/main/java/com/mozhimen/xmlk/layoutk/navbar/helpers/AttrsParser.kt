@@ -4,10 +4,10 @@ import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
 import android.util.TypedValue
-import com.mozhimen.basick.utilk.wrapper.UtilKRes
-import com.mozhimen.basick.utilk.android.content.UtilKTheme
-import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.android.util.sp2px
+import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
+import com.mozhimen.kotlin.utilk.android.content.UtilKTheme
+import com.mozhimen.kotlin.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.android.util.sp2px
 import com.mozhimen.xmlk.commons.IAttrsParser2
 import com.mozhimen.xmlk.layoutk.R
 import com.mozhimen.xmlk.layoutk.navbar.mos.MNavBarAttrs

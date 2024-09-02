@@ -3,8 +3,8 @@ package com.mozhimen.xmlk.textk
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.TextClock
-import com.mozhimen.basick.elemk.java.util.cons.CDateFormat
-import com.mozhimen.basick.utilk.android.util.d
+import com.mozhimen.kotlin.elemk.java.util.cons.CDateFormat
+import com.mozhimen.kotlin.utilk.android.util.d
 import com.mozhimen.xmlk.commons.ILayoutK
 
 

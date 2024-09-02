@@ -2,14 +2,14 @@ package com.mozhimen.xmlk.popwink.bases
 
 import android.content.Context
 import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
-import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnCreate
-import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStart
-import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStop
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnCreate
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnStart
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnStop
 
 /**
  * @ClassName PopwinKTip

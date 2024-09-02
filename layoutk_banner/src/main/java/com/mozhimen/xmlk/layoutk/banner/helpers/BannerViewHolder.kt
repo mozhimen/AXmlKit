@@ -4,7 +4,7 @@ import android.util.SparseArray
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
-import com.mozhimen.basick.elemk.kotlin.cons.CSuppress
+import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
 
 /**
  * @ClassName BannerViewHolder

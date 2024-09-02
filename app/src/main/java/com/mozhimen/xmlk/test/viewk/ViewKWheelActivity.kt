@@ -2,8 +2,8 @@ package com.mozhimen.xmlk.test.viewk
 
 import android.os.Bundle
 import android.util.Log
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.viewk.wheel.temps.ArrayWheelAdapter
 import com.mozhimen.xmlk.test.databinding.ActivityViewkWheelBinding
 

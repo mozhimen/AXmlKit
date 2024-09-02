@@ -12,10 +12,10 @@ import androidx.cardview.widget.CardView
 import androidx.lifecycle.LifecycleOwner
 import com.mozhimen.animk.builder.impls.AnimationTranslationType
 import com.mozhimen.animk.builder.impls.AnimatorGradientDrawableColorType
-import com.mozhimen.basick.elemk.commons.IA_Listener
-import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.androidx.lifecycle.runOnMainScope
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.elemk.commons.IA_Listener
+import com.mozhimen.kotlin.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.runOnMainScope
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
 import com.mozhimen.xmlk.layoutk.btn.helpers.LayoutKBtnSwitchAttrsParser
 import com.mozhimen.xmlk.layoutk.btn.mos.LayoutKBtnSwitchAttrs

@@ -1,8 +1,8 @@
 package com.mozhimen.xmlk.test.layoutk
 
 import android.os.Bundle
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.utilk.android.widget.showToast
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkEmptyBinding
 
 class LayoutKEmptyActivity : BaseActivityVDB<ActivityLayoutkEmptyBinding>() {

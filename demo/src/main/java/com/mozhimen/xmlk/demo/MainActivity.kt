@@ -2,12 +2,12 @@ package com.mozhimen.xmlk.demo
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.adaptk.systembar.annors.AAdaptKSystemBarProperty
 import com.mozhimen.adaptk.systembar.cons.CProperty
 import com.mozhimen.adaptk.systembar.initAdaptKSystemBar
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.demo.databinding.ActivityMainBinding
 import com.mozhimen.xmlk.demo.databinding.ItemDemoListBinding
 import com.mozhimen.xmlk.recyclerk.quick.RecyclerKQuickAdapterStuffedVDB

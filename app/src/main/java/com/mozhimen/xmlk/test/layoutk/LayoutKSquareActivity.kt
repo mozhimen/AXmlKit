@@ -1,6 +1,6 @@
 package com.mozhimen.xmlk.test.layoutk
 
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkSquareBinding
 
 /**

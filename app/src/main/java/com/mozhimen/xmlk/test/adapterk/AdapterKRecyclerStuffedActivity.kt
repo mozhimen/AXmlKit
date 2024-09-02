@@ -3,8 +3,8 @@ package com.mozhimen.xmlk.test.adapterk
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapterStuffed
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
 import com.mozhimen.xmlk.test.databinding.ActivityAdapterkRecyclerStuffedBinding

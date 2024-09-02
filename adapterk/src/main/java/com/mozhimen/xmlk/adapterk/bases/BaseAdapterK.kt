@@ -8,9 +8,9 @@ import androidx.annotation.LayoutRes
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
-import com.mozhimen.basick.lintk.optins.OApiCall_Recycle
-import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnDestroy
-import com.mozhimen.basick.utilk.androidx.lifecycle.handleLifecycleEventOnStart
+import com.mozhimen.kotlin.lintk.optins.OApiCall_Recycle
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnDestroy
+import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnStart
 import com.mozhimen.xmlk.vhk.VHK
 
 

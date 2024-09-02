@@ -1,6 +1,6 @@
 package com.mozhimen.xmlk.test.viewk
 
-import com.mozhimen.basick.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.test.databinding.ActivityViewkRegionBinding
 
 /**

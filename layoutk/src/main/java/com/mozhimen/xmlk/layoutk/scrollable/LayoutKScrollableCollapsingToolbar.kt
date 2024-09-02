@@ -3,8 +3,8 @@ package com.mozhimen.xmlk.layoutk.scrollable
 import android.content.Context
 import android.util.AttributeSet
 import com.google.android.material.appbar.CollapsingToolbarLayout
-import com.mozhimen.basick.elemk.commons.IA_Listener
-import com.mozhimen.basick.elemk.kotlin.properties.VarProperty_Set
+import com.mozhimen.kotlin.elemk.commons.IA_Listener
+import com.mozhimen.kotlin.elemk.kotlin.properties.VarProperty_Set
 
 /**
  * @ClassName LayoutLScrollableCollapsingToolbar

@@ -3,8 +3,8 @@ package com.mozhimen.xmlk.textk
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
-import com.mozhimen.basick.utilk.android.widget.UtilKTextViewWrapper
-import com.mozhimen.basick.utilk.android.widget.applyTypeface_ofAsset
+import com.mozhimen.kotlin.utilk.android.widget.UtilKTextViewWrapper
+import com.mozhimen.kotlin.utilk.android.widget.applyTypeface_ofAsset
 
 /**
  * @ClassName TextKIconFont

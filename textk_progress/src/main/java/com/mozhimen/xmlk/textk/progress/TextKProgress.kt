@@ -16,7 +16,7 @@ import android.text.TextUtils
 import android.util.AttributeSet
 import androidx.annotation.ColorInt
 import androidx.appcompat.widget.AppCompatTextView
-import com.mozhimen.basick.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.commons.IViewK
 import com.mozhimen.xmlk.textk.progress.helpers.ProgressSavedState
 

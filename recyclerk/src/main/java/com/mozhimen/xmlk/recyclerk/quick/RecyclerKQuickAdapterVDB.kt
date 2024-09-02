@@ -1,13 +1,13 @@
 package com.mozhimen.xmlk.recyclerk.quick
 
 import android.annotation.SuppressLint
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.utilk.commons.IUtilK
+import com.mozhimen.kotlin.utilk.commons.IUtilK
 import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDB
 import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDBListener
 import com.mozhimen.xmlk.vhk.VHKRecyclerVDB

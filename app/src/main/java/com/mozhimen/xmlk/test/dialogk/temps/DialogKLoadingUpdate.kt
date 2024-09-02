@@ -6,9 +6,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.mozhimen.animk.builder.impls.AnimationRotationRecyclerType
-import com.mozhimen.basick.utilk.android.widget.applyValueIfNotEmpty
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
-import com.mozhimen.basick.utilk.wrapper.stopAnim
+import com.mozhimen.kotlin.utilk.android.widget.applyValueIfNotEmpty
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.utilk.wrapper.stopAnim
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogK
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKClickListener
 import com.mozhimen.xmlk.test.R

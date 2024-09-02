@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.IntRange
 import com.mozhimen.xmlk.bases.BaseLayoutKRelative
-import com.mozhimen.basick.utilk.android.graphics.drawable2bitmap
-import com.mozhimen.basick.utilk.wrapper.UtilKScreen
+import com.mozhimen.kotlin.utilk.android.graphics.drawable2bitmap
+import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen
 import com.mozhimen.blurk.BlurKRenderScript
 import com.mozhimen.xmlk.layoutk.blur.commons.ILayoutKBlur
 

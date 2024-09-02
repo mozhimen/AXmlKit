@@ -5,18 +5,18 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.graphics.drawable.ColorDrawable
 import android.text.TextUtils
-import com.mozhimen.basick.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import android.view.WindowManager
 import android.widget.PopupWindow
-import com.mozhimen.basick.elemk.android.view.cons.CView
-import com.mozhimen.basick.lintk.optins.OApiUse_BaseApplication
-import com.mozhimen.basick.utilk.android.app.UtilKActivityWrapper
-import com.mozhimen.basick.utilk.commons.IUtilK
-import com.mozhimen.basick.utilk.android.util.e
-import com.mozhimen.basick.utilk.wrapper.UtilKRes
-import com.mozhimen.basick.utilk.android.view.UtilKViewWrapper
-import com.mozhimen.basick.utilk.android.view.UtilKWindowManagerLayoutParams
+import com.mozhimen.kotlin.elemk.android.view.cons.CView
+import com.mozhimen.kotlin.lintk.optins.OApiUse_BaseApplication
+import com.mozhimen.kotlin.utilk.android.app.UtilKActivityWrapper
+import com.mozhimen.kotlin.utilk.commons.IUtilK
+import com.mozhimen.kotlin.utilk.android.util.e
+import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
+import com.mozhimen.kotlin.utilk.android.view.UtilKViewWrapper
+import com.mozhimen.kotlin.utilk.android.view.UtilKWindowManagerLayoutParams
 import com.mozhimen.xmlk.popwink.R
 import com.mozhimen.xmlk.popwink.bases.commons.IClearMemoryListener
 

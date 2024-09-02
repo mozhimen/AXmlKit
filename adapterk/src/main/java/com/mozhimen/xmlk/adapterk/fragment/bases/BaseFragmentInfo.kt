@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.adapterk.fragment.bases
 
 import androidx.fragment.app.Fragment
-import com.mozhimen.basick.elemk.commons.I_AListener
+import com.mozhimen.kotlin.elemk.commons.I_AListener
 
 /**
  * @ClassName BaseFragmentInfo

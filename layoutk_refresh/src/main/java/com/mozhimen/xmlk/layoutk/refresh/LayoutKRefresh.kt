@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import android.widget.Scroller
-import com.mozhimen.basick.elemk.android.view.commons.GestureDetectorOnGestureCallback
-import com.mozhimen.basick.utilk.android.view.UtilKViewGroupWrapper
+import com.mozhimen.kotlin.elemk.android.view.commons.GestureDetectorOnGestureCallback
+import com.mozhimen.kotlin.utilk.android.view.UtilKViewGroupWrapper
 import com.mozhimen.xmlk.bases.BaseLayoutKFrame
 import com.mozhimen.xmlk.layoutk.refresh.commons.IRefresh
 import com.mozhimen.xmlk.layoutk.refresh.commons.IRefreshListener

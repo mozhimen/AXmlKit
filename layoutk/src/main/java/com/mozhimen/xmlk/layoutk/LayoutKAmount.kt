@@ -8,15 +8,15 @@ import android.view.Gravity
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.setPadding
-import com.mozhimen.basick.elemk.commons.IA_Listener
-import com.mozhimen.basick.utilk.kotlin.ranges.constraint
+import com.mozhimen.kotlin.elemk.commons.IA_Listener
+import com.mozhimen.kotlin.utilk.kotlin.ranges.constraint
 import com.mozhimen.xmlk.bases.BaseLayoutKLinear
-import com.mozhimen.basick.utilk.wrapper.UtilKRes
-import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.android.util.sp2px
-import com.mozhimen.basick.utilk.android.view.applyElevation
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM
-import com.mozhimen.basick.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
+import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
+import com.mozhimen.kotlin.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.android.util.sp2px
+import com.mozhimen.kotlin.utilk.android.view.applyElevation
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM
+import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.commons.IAttrsParser2
 
 /**

@@ -8,13 +8,13 @@ import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
-import com.mozhimen.basick.elemk.android.view.cons.CInputMethodManager
-import com.mozhimen.basick.elemk.commons.IAB_Listener
-import com.mozhimen.basick.utilk.android.util.dp2px
-import com.mozhimen.basick.utilk.android.util.dp2pxI
-import com.mozhimen.basick.utilk.android.view.UtilKInputMethodManager
-import com.mozhimen.basick.utilk.android.widget.applyFilter_ofLength
-import com.mozhimen.basick.utilk.kotlin.ranges.constraint
+import com.mozhimen.kotlin.elemk.android.view.cons.CInputMethodManager
+import com.mozhimen.kotlin.elemk.commons.IAB_Listener
+import com.mozhimen.kotlin.utilk.android.util.dp2px
+import com.mozhimen.kotlin.utilk.android.util.dp2pxI
+import com.mozhimen.kotlin.utilk.android.view.UtilKInputMethodManager
+import com.mozhimen.kotlin.utilk.android.widget.applyFilter_ofLength
+import com.mozhimen.kotlin.utilk.kotlin.ranges.constraint
 import com.mozhimen.xmlk.commons.IXmlK
 import kotlin.math.max
 

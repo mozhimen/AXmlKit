@@ -4,7 +4,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.LooperLinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.basick.utilk.androidx.recyclerview.getItemCount
+import com.mozhimen.kotlin.utilk.androidx.recyclerview.getItemCount
 
 /**
  * @ClassName RecyclerDecorationGap2

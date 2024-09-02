@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.TextView
 import com.google.android.material.button.MaterialButton
-import com.mozhimen.basick.elemk.commons.IExt_Listener
-import com.mozhimen.basick.elemk.commons.I_Listener
-import com.mozhimen.basick.utilk.android.content.UtilKContext
-import com.mozhimen.basick.utilk.android.util.dp2px
+import com.mozhimen.kotlin.elemk.commons.IExt_Listener
+import com.mozhimen.kotlin.elemk.commons.I_Listener
+import com.mozhimen.kotlin.utilk.android.content.UtilKContext
+import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.test.R
 
 /**
