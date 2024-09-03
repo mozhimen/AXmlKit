@@ -5,6 +5,36 @@ import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import androidx.fragment.app.Fragment
+import com.mozhimen.kotlin.utilk.android.util.dp2pxI
+
+/**
+ * layout dsl for customized view
+ */
+inline fun ViewGroup.layoutKLineFeed(autoAdd: Boolean = true, init: LayoutKLineFeed.() -> Unit) =
+    LayoutKLineFeed(context).apply(init).also { if (autoAdd) addView(it) }
+
+inline fun Context.layoutKLineFeed(init: LayoutKLineFeed.() -> Unit): LayoutKLineFeed =
+    LayoutKLineFeed(this).apply(init)
+
+inline fun Fragment.layoutKLineFeed(init: LayoutKLineFeed.() -> Unit) =
+    context?.let { LayoutKLineFeed(it).apply(init) }
+
+////////////////////////////////////////////////////////////////////////
+
+inline var LayoutKLineFeed.horizontal_gap: Int
+    get() =-1
+    set(value) {
+        horizontalGap = value.dp2pxI()
+    }
+
+inline var LayoutKLineFeed.vertical_gap: Int
+    get() =-1
+    set(value) {
+        verticalGap = value.dp2pxI()
+    }
+
+////////////////////////////////////////////////////////////////////////
 
 /**
  * a special [ViewGroup] acts like [LinearLayout],
