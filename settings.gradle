@@ -103,5 +103,9 @@ include ':ACryptoKit:cryptok_basic'
 include ':APostKit'
 project(':APostKit').projectDir = new File("D:\\WorkSpace\\GitHub\\APostKit")
 include ':APostKit:postk_livedata'
-
+//KUtilKit
+include ':KUtilKit'
+project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
+include ':KUtilKit:utilk_android'
+include ':KUtilKit:utilk_kotlin'
 
