@@ -1,6 +1,6 @@
 package com.mozhimen.xmlk.test.imagek
 
-import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.test.databinding.ActivityImagekBindingAdapterBinding
 
 

@@ -3,7 +3,7 @@ package com.mozhimen.xmlk.test.adapterk
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.elemk.mos.MKey
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.recyclerk.quick.RecyclerKQuickAdapterVDB

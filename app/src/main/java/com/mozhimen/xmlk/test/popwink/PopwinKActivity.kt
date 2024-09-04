@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.popwink
 
 import android.view.View
-import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.test.databinding.ActivityPopwinkBinding
 import com.mozhimen.xmlk.test.popwink.temps.PopwinKAnim

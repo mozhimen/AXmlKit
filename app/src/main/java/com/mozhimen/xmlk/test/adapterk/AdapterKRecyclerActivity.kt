@@ -5,7 +5,7 @@ import android.util.Log
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapter
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
 import com.mozhimen.xmlk.test.databinding.ActivityAdapterkRecyclerBinding

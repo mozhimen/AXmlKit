@@ -2,11 +2,11 @@ package com.mozhimen.xmlk.test.layoutk
 
 import android.graphics.Color
 import android.os.Bundle
-import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.lintk.annors.ADigitPlace
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
-import com.mozhimen.basick.taskk.temps.TaskKPoll
+import com.mozhimen.taskk.temps.TaskKPoll
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.layoutk.roll.annors.AAnimatorMode

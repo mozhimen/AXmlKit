@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.layoutk
 
 import android.os.Bundle
-import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.kotlin.elemk.mos.MKey
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkChipGroupBinding

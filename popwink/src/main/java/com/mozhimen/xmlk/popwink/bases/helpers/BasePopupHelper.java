@@ -37,7 +37,7 @@ import androidx.fragment.app.Fragment;
 
 import com.mozhimen.kotlin.elemk.android.view.cons.CWinMgr;
 import com.mozhimen.blurk.mos.BlurKConfig;
-import com.mozhimen.basick.stackk.cb.StackKCb;
+import com.mozhimen.stackk.callback.StackKCb;
 import com.mozhimen.kotlin.utilk.android.animation.UtilKAnimator;
 import com.mozhimen.kotlin.utilk.android.content.UtilKResources;
 import com.mozhimen.kotlin.utilk.android.os.UtilKBuildVersion;

@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.btnk
 
 import android.os.Bundle
-import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.test.databinding.ActivityBtnkBinding
 
 class BtnKActivity : BaseActivityVDB<ActivityBtnkBinding>() {

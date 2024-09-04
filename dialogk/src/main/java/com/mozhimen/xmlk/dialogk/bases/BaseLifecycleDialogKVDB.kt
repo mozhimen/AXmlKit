@@ -7,7 +7,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.mozhimen.kotlin.elemk.androidx.lifecycle.commons.IDefaultLifecycleObserver
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
-import com.mozhimen.kotlin.utilk.androidx.lifecycle.runOnMainThread
+import com.mozhimen.basick.utils.runOnMainThread
 import com.mozhimen.xmlk.R
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVDBClickListener
 

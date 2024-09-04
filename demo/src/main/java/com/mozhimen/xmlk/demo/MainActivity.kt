@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.adaptk.systembar.annors.AAdaptKSystemBarProperty
 import com.mozhimen.adaptk.systembar.cons.CProperty
 import com.mozhimen.adaptk.systembar.initAdaptKSystemBar
-import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.demo.databinding.ActivityMainBinding
 import com.mozhimen.xmlk.demo.databinding.ItemDemoListBinding
 import com.mozhimen.xmlk.recyclerk.quick.RecyclerKQuickAdapterStuffedVDB

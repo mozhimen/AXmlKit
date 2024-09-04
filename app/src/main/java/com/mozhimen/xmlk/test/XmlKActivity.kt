@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test
 
 import android.view.View
-import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.content.startContext
 import com.mozhimen.xmlk.test.adapterk.AdapterKActivity
 import com.mozhimen.xmlk.test.btnk.BtnKActivity

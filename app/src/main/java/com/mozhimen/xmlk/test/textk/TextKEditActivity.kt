@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.test.textk
 
 import android.view.View
 import android.view.ViewGroup
-import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.textk.edit.bar.TextKEditBarActivity
 import com.mozhimen.xmlk.textk.edit.bar.commons.ITextKEditBarListener

@@ -13,7 +13,7 @@ import android.view.animation.AccelerateInterpolator
 import androidx.appcompat.widget.AppCompatImageView
 import com.mozhimen.animk.builder.commons.IAnimatorUpdateListener
 import com.mozhimen.animk.builder.impls.AnimatorAlphaViewType
-import com.mozhimen.basick.taskk.executor.TaskKExecutor
+import com.mozhimen.taskk.executor.TaskKExecutor
 import com.mozhimen.kotlin.utilk.android.util.e
 import com.mozhimen.kotlin.utilk.android.view.UtilKViewWrapper
 import com.mozhimen.kotlin.utilk.android.view.applyBackgroundNull

@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.test.layoutk
 
 import android.os.Bundle
 import android.view.View
-import com.mozhimen.kotlin.elemk.androidx.appcompat.bases.databinding.BaseActivityVDB
+import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkConstraintBinding
 
 /**
