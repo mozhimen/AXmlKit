@@ -23,7 +23,7 @@ import kotlin.math.abs
 
 @OApiCall_BindViewLifecycle
 @OApiCall_BindLifecycle
-class RecyclerKLinearNested @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerKLifecycle(context, attrs, defStyleAttr) {
+open class RecyclerKLinearNested @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : RecyclerKLifecycle(context, attrs, defStyleAttr) {
     private var _startX = 0
     private var _startY = 0
     private val _isScrollVertical by lazy_ofNone { isScrollVertical().also { UtilKLogWrapper.d(TAG, "_isScrollVertical $it") } }

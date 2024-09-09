@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RecyclerKSnap">
+        <attr name="recyclerKSnap_snapGravity" format="enum">
+            <enum name="start" value="0" />
+            <enum name="top" value="1" />
+            <enum name="end" value="2" />
+            <enum name="bottom" value="3" />
+            <enum name="center" value="4" />
+        </attr>
+        <attr name="recyclerKSnap_snapToPadding" format="boolean" />
+        <attr name="recyclerKSnap_enableSnapLastItem" format="boolean" />
+        <attr name="recyclerKSnap_snapMaxFlingSizeFraction" format="float" />
+        <attr name="recyclerKSnap_snapScrollMsPerInch" format="float" />
+        <attr name="recyclerKSnap_snapEnabled" format="boolean" />
+    </declare-styleable>
+</resources>
