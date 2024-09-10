@@ -111,3 +111,4 @@ project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
 include ':KUtilKit:utilk_android'
 include ':KUtilKit:utilk_kotlin'
 include ':recyclerk_snap_test'
+include ':layoutk_magnet'
