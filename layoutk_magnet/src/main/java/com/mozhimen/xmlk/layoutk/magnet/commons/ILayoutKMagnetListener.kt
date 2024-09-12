@@ -10,6 +10,6 @@ import com.mozhimen.xmlk.layoutk.magnet.LayoutKMagnet
  * @Version 1.0
  */
 interface ILayoutKMagnetListener {
-    fun onRemoved(layoutKMagnet: LayoutKMagnet)
-    fun onClicked(layoutKMagnet: LayoutKMagnet)
+    fun onRemoved(layoutKMagnet: LayoutKMagnet){}
+    fun onClicked(layoutKMagnet: LayoutKMagnet){}
 }

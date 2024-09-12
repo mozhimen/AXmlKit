@@ -6,11 +6,11 @@ import android.content.res.Configuration
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.ViewConfiguration
 import android.view.ViewGroup
 import com.mozhimen.xmlk.basic.bases.BaseLayoutKFrame
-import com.mozhimen.xmlk.layoutk.magnet.commons.ILayoutKMagnetListener
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -27,8 +27,8 @@ open class LayoutKMagnet @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : BaseLayoutKFrame(context, attrs, defStyleAttr) {
+
     companion object {
-        const val MARGIN_EDGE: Int = 13
         const val TOUCH_TIME_THRESHOLD: Int = 150
     }
 
@@ -36,7 +36,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
     private var _originalRawY = 0f
     private var _originalX = 0f
     private var _originalY = 0f
-    private var _iLayoutKMagnetListener: ILayoutKMagnetListener? = null
+//    private var _iLayoutKMagnetListener: ILayoutKMagnetListener? = null
 
     //    private val mStatusBarHeight = 0
     private var _isNearestLeft = true
@@ -44,6 +44,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
     private var _dragEnable = true
     private var _autoMoveToEdge = true
     private var _touchDownX = 0f
+    private var _margin = 0
     private var _lastTouchDownTime: Long = 0
 
     /////////////////////////////////////////////////////
@@ -64,25 +65,6 @@ open class LayoutKMagnet @JvmOverloads constructor(
         _moveRunnable = MoveRunnable()
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        event ?: return false
-        when (event.action) {
-            MotionEvent.ACTION_DOWN -> {}
-            MotionEvent.ACTION_MOVE -> updateViewPosition(event)
-            MotionEvent.ACTION_UP -> {
-                clearPortraitY()
-                if (_autoMoveToEdge) {
-                    moveToEdge()
-                }
-                if (isOnClickEvent()) {
-                    dealClickEvent()
-                }
-            }
-        }
-        return true
-    }
-
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
         var intercepted = false
         when (ev.actionMasked) {
@@ -96,6 +78,25 @@ open class LayoutKMagnet @JvmOverloads constructor(
             MotionEvent.ACTION_UP -> intercepted = false
         }
         return intercepted
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        event ?: return false
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {}
+            MotionEvent.ACTION_MOVE -> updateViewPosition(event)
+            MotionEvent.ACTION_UP -> {
+                clearPortraitY()
+                if (_autoMoveToEdge) {
+                    moveToEdge()
+                }
+//                if (isOnClickEvent()) {
+//                    dealClickEvent()
+//                }
+            }
+        }
+        return true
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -112,14 +113,14 @@ open class LayoutKMagnet @JvmOverloads constructor(
 
     /////////////////////////////////////////////////////
 
-    fun setMagnetViewListener(magnetViewListener: ILayoutKMagnetListener) {
-        _iLayoutKMagnetListener = magnetViewListener
-    }
+//    fun setMagnetViewListener(magnetViewListener: ILayoutKMagnetListener) {
+//        _iLayoutKMagnetListener = magnetViewListener
+//    }
 
     /**
      * @param dragEnable 是否可拖动
      */
-    fun updateDragState(dragEnable: Boolean) {
+    fun setDragEnable(dragEnable: Boolean) {
         _dragEnable = dragEnable
     }
 
@@ -137,7 +138,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
     }
 
     fun moveToEdge(isLeft: Boolean, isLandscape: Boolean) {
-        val moveDistance: Float = (if (isLeft) MARGIN_EDGE else _screenWidth - MARGIN_EDGE).toFloat()
+        val moveDistance: Float = (if (isLeft) _margin else _screenWidth - _margin).toFloat()
         var y = y
         if (!isLandscape && _portraitY != 0f) {
             y = _portraitY
@@ -146,9 +147,9 @@ open class LayoutKMagnet @JvmOverloads constructor(
         _moveRunnable?.start(moveDistance, min(max(0f, y), (_screenHeight.toFloat() - height.toFloat())))
     }
 
-    fun onRemove() {
-        _iLayoutKMagnetListener?.onRemoved(this)
-    }
+//    fun onRemove() {
+//        _iLayoutKMagnetListener?.onRemoved(this)
+//    }
 
     protected fun isNearestLeft(): Boolean {
         val middle = _screenWidth / 2
@@ -160,9 +161,9 @@ open class LayoutKMagnet @JvmOverloads constructor(
         return System.currentTimeMillis() - _lastTouchDownTime < TOUCH_TIME_THRESHOLD
     }
 
-    protected fun dealClickEvent() {
-        _iLayoutKMagnetListener?.onClicked(this)
-    }
+//    protected fun dealClickEvent() {
+//        _iLayoutKMagnetListener?.onClicked(this)
+//    }
 
     protected fun updateSize() {
         val viewGroup = parent as? ViewGroup
@@ -209,10 +210,10 @@ open class LayoutKMagnet @JvmOverloads constructor(
         var desX = _originalX + event.rawX - _originalRawX
         if (params.width == LayoutParams.WRAP_CONTENT) {
             if (desX < 0) {
-                desX = MARGIN_EDGE.toFloat()
+                desX = _margin.toFloat()
             }
             if (desX > _screenWidth) {
-                desX = (_screenWidth - MARGIN_EDGE).toFloat()
+                desX = (_screenWidth - _margin).toFloat()
             }
             x = desX
         }
