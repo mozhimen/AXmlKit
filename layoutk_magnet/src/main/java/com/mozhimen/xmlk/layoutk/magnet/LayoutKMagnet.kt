@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.ViewConfiguration
 import android.view.ViewGroup
+import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen
 import com.mozhimen.xmlk.basic.bases.BaseLayoutKFrame
 import kotlin.math.abs
 import kotlin.math.max
@@ -51,7 +52,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
 
     protected var _moveRunnable: MoveRunnable? = null
     protected var _screenWidth: Int = 0
-    protected var _screenHeight = 0
+    protected var _screenHeight: Int = 0
 
     /////////////////////////////////////////////////////
 
@@ -60,6 +61,8 @@ open class LayoutKMagnet @JvmOverloads constructor(
     }
 
     /////////////////////////////////////////////////////
+
+
 
     override fun initFlag() {
         _moveRunnable = MoveRunnable()
@@ -85,7 +88,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
         event ?: return false
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {}
-            MotionEvent.ACTION_MOVE -> updateViewPosition(event)
+            MotionEvent.ACTION_MOVE -> updateViewPosition(event.rawX, event.rawY)
             MotionEvent.ACTION_UP -> {
                 clearPortraitY()
                 if (_autoMoveToEdge) {
@@ -101,14 +104,14 @@ open class LayoutKMagnet @JvmOverloads constructor(
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        if (parent != null) {
-            val isLandscape = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE
-            markPortraitY(isLandscape)
-            (parent as ViewGroup).post {
-                updateSize()
-                moveToEdge(_isNearestLeft, isLandscape)
-            }
-        }
+        Log.d(TAG, "onConfigurationChanged: ")
+        startResetLocation(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        Log.d(TAG, "onSizeChanged: ")
+        startResetLocation(UtilKScreen.isOrientationLandscape_ofDefDisplay(context))
     }
 
     /////////////////////////////////////////////////////
@@ -177,6 +180,16 @@ open class LayoutKMagnet @JvmOverloads constructor(
 
     /////////////////////////////////////////////////////
 
+    private fun startResetLocation(isLandscape:Boolean) {
+        if (parent != null) {
+            markPortraitY(isLandscape)
+            (parent as ViewGroup).post {
+                updateSize()
+                moveToEdge(_isNearestLeft, isLandscape)
+            }
+        }
+    }
+
     private fun markPortraitY(isLandscape: Boolean) {
         if (isLandscape) {
             _portraitY = y
@@ -201,13 +214,13 @@ open class LayoutKMagnet @JvmOverloads constructor(
         _portraitY = 0f
     }
 
-    private fun updateViewPosition(event: MotionEvent) {
+    private fun updateViewPosition(rawX: Float, rawY: Float) {
         //dragEnable
         if (!_dragEnable) return
         //占满width或height时不用变
         val params = layoutParams as LayoutParams
         //限制不可超出屏幕宽度
-        var desX = _originalX + event.rawX - _originalRawX
+        var desX = _originalX + rawX - _originalRawX
         if (params.width == LayoutParams.WRAP_CONTENT) {
             if (desX < 0) {
                 desX = _margin.toFloat()
@@ -218,7 +231,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
             x = desX
         }
         // 限制不可超出屏幕高度
-        var desY = _originalY + event.rawY - _originalRawY
+        var desY = _originalY + rawY - _originalRawY
         if (params.height == LayoutParams.WRAP_CONTENT) {
 //            if (desY < mStatusBarHeight) {
 //                desY = mStatusBarHeight.toFloat()
