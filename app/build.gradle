@@ -37,7 +37,6 @@ android {
 }
 
 dependencies {
-
     implementation project(':SwiftKit:basick')
     implementation project(':SwiftKit:xmlk')
     implementation project(':AImageKit:imagek_glide_blur')
@@ -55,7 +54,6 @@ dependencies {
     implementation project(':dialogk')
     implementation project(':drawablek')
     implementation project(':drawablek_progress')
-    implementation project(':fontk')
     implementation project(':imagek')
     implementation project(':interpolatork')
     implementation project(':layoutk')
