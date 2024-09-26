@@ -149,7 +149,7 @@ object PopwinKUtil {
             private var _lastHeight = 0
 
             override fun onGlobalLayout() {
-                val contentView = UtilKContentView.get_ofDecor<View>(activity)
+                val contentView = UtilKContentView.get_ofDecorView<View>(activity)
                 if (_originalContentRect.isEmpty) {
                     val destView: View = UtilKViewWrapper.findViewByView_ofParent(decorView, contentView)!!
                     _originalContentRect[destView.left, destView.top, destView.right] = destView.bottom
@@ -182,7 +182,7 @@ object PopwinKUtil {
     fun registerInputChangeListener(window: Window, listener: IA_Listener<Int>) {
         if (UtilKWindow.getAttributesFlags(window) and CWinMgr.Lpf.LAYOUT_NO_LIMITS != 0)
             window.clearFlags(CWinMgr.Lpf.LAYOUT_NO_LIMITS)
-        val contentView = UtilKContentView.get_ofPac<FrameLayout>(window)
+        val contentView = UtilKContentView.get_ofWindow<FrameLayout>(window)
         val decorViewInvisibleHeightPre = intArrayOf(UtilKDecorViewWrapper.getInvisibleHeight(window))
         val onGlobalLayoutListener = ViewTreeObserver.OnGlobalLayoutListener {
             val height = UtilKDecorViewWrapper.getInvisibleHeight(window)
@@ -200,7 +200,7 @@ object PopwinKUtil {
      */
     @JvmStatic
     fun unregisterInputChangeListener(window: Window) {
-        val contentView = UtilKContentView.get_ofPac<View>(window)
+        val contentView = UtilKContentView.get_ofWindow<View>(window)
         val tag = contentView.getTag(UTILK_INPUT_CHANGE_TAG_ON_GLOBAL_LAYOUT_LISTENER)
         if (tag is ViewTreeObserver.OnGlobalLayoutListener) {
             if (UtilKBuildVersion.isAfterV_16_41_J()) {

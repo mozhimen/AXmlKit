@@ -37,6 +37,7 @@ dependencies {
     implementation project(':SwiftKit:blurk')
     implementation project(':SwiftKit:xmlk')
     implementation project(':AAnimKit:animk_builder')
+    implementation project(':ATaskKit:taskk_executor')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

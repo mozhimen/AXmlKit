@@ -1214,7 +1214,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
             decorView = ((Fragment) parent).getView();
         } else if (parent instanceof Context) {
             Activity act = UtilKActivityWrapper.get_ofContext((Context) parent, true);
-            decorView = act == null ? null : UtilKContentView.get_ofPac(act);
+            decorView = act == null ? null : UtilKContentView.get_ofWindow(act);
         }
 
         if (decorView != null) {

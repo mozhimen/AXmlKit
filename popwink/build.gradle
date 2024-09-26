@@ -28,6 +28,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
@@ -36,6 +40,7 @@ dependencies {
     implementation project(':SwiftKit:xmlk')
     implementation project(':AAnimKit:animk_builder')
     implementation project(':APostKit:postk_livedata')
+    implementation project(':AStackKit:stackk_callback')
     implementation project(project.path.replace(project.name, '') +':imagek_blur')
 
     testImplementation 'junit:junit:4.13.2'

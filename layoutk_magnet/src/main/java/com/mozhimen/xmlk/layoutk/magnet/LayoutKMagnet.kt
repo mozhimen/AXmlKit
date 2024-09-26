@@ -3,6 +3,8 @@ package com.mozhimen.xmlk.layoutk.magnet
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
+import android.graphics.Rect
+import android.graphics.RectF
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
@@ -26,7 +28,7 @@ import kotlin.math.min
 open class LayoutKMagnet @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    defStyleAttr: Int = 0,
 ) : BaseLayoutKFrame(context, attrs, defStyleAttr) {
 
     companion object {
@@ -47,26 +49,15 @@ open class LayoutKMagnet @JvmOverloads constructor(
     private var _touchDownX = 0f
     private var _margin = 0
     private var _lastTouchDownTime: Long = 0
+    private var _initMargin = RectF()
 
     /////////////////////////////////////////////////////
 
-    protected var _moveRunnable: MoveRunnable? = null
+    protected var _moveRunnable: MoveRunnable = MoveRunnable()
     protected var _screenWidth: Int = 0
     protected var _screenHeight: Int = 0
 
     /////////////////////////////////////////////////////
-
-    init {
-        initFlag()
-    }
-
-    /////////////////////////////////////////////////////
-
-
-
-    override fun initFlag() {
-        _moveRunnable = MoveRunnable()
-    }
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
         var intercepted = false
@@ -120,6 +111,10 @@ open class LayoutKMagnet @JvmOverloads constructor(
 //        _iLayoutKMagnetListener = magnetViewListener
 //    }
 
+    fun setInitMargin(rectF: RectF) {
+        _initMargin = rectF
+    }
+
     /**
      * @param dragEnable 是否可拖动
      */
@@ -147,8 +142,14 @@ open class LayoutKMagnet @JvmOverloads constructor(
             y = _portraitY
             clearPortraitY()
         }
-        _moveRunnable?.start(moveDistance, min(max(0f, y), (_screenHeight.toFloat() - height.toFloat())))
+        if (_initMargin.top != 0f) {
+            y += _initMargin.top
+            _initMargin.top = 0f
+        }
+        _moveRunnable.start(x = moveDistance, y = min(max(0f, y), (_screenHeight.toFloat() - height.toFloat())))
     }
+
+    /////////////////////////////////////////////////////
 
 //    fun onRemove() {
 //        _iLayoutKMagnetListener?.onRemoved(this)
@@ -180,7 +181,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
 
     /////////////////////////////////////////////////////
 
-    private fun startResetLocation(isLandscape:Boolean) {
+    private fun startResetLocation(isLandscape: Boolean) {
         if (parent != null) {
             markPortraitY(isLandscape)
             (parent as ViewGroup).post {
@@ -207,7 +208,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
     private fun initTouchDown(ev: MotionEvent) {
         changeOriginalTouchParams(ev)
         updateSize()
-        _moveRunnable?.stop()
+        _moveRunnable.stop()
     }
 
     private fun clearPortraitY() {
@@ -236,8 +237,11 @@ open class LayoutKMagnet @JvmOverloads constructor(
 //            if (desY < mStatusBarHeight) {
 //                desY = mStatusBarHeight.toFloat()
 //            }
+            if (desY < 0) {
+                desY = _margin.toFloat()
+            }
             if (desY > _screenHeight - height) {
-                desY = (_screenHeight - height).toFloat()
+                desY = (_screenHeight - _margin - height).toFloat()
             }
             y = desY
         }

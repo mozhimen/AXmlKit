@@ -151,7 +151,7 @@ public enum BasePopupUnsafe {
         private static final Map<String, StackDumpInfo> STACK_MAP = new HashMap<>();
 
         private static StackTraceElement getCurrentStackTrace() {
-            StackTraceElement[] trace = UtilKThread.getStackTrace_ofCur();
+            StackTraceElement[] trace = UtilKThread.getStackTrace_ofCurrent();
             int stackOffset = UtilKStackTraceElement.getOffset(trace, BasePopupUnsafe.class);
             if (stackOffset == -1) {
                 stackOffset = UtilKStackTraceElement.getOffset(trace, StackFetcher.class);
