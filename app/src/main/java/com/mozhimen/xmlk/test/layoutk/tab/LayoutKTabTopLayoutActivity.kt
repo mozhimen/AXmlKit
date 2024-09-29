@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.layoutk.tab
 
 import android.os.Bundle
-import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.kotlin.utilk.wrapper.UtilKRes

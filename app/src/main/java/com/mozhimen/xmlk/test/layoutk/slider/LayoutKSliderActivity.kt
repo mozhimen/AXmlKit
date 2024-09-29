@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.test.layoutk.slider
 
 import android.os.Bundle
 import android.view.View
-import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.layoutk.slider.commons.ISliderScrollListener
 import com.mozhimen.xmlk.layoutk.slider.mos.MRod

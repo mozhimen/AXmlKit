@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.test.drawablek
 
 import android.graphics.Color
 import android.os.Bundle
-import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.drawablek.arrow.DrawableKArrow

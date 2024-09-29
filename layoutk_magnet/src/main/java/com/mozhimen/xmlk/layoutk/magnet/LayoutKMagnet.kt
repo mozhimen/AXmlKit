@@ -3,7 +3,6 @@ package com.mozhimen.xmlk.layoutk.magnet
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Configuration
-import android.graphics.Rect
 import android.graphics.RectF
 import android.os.Handler
 import android.os.Looper
@@ -39,10 +38,13 @@ open class LayoutKMagnet @JvmOverloads constructor(
     private var _originalRawY = 0f
     private var _originalX = 0f
     private var _originalY = 0f
+    private var _lastMoveX = 0f
+    private var _lastMoveY = 0f
+    private var _lastStickLeft = true
 //    private var _iLayoutKMagnetListener: ILayoutKMagnetListener? = null
 
     //    private val mStatusBarHeight = 0
-    private var _isNearestLeft = true
+//    private var _isNearestLeft = true
     private var _portraitY = 0f
     private var _dragEnable = true
     private var _autoMoveToEdge = true
@@ -79,12 +81,10 @@ open class LayoutKMagnet @JvmOverloads constructor(
         event ?: return false
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {}
-            MotionEvent.ACTION_MOVE -> updateViewPosition(event.rawX, event.rawY)
+            MotionEvent.ACTION_MOVE -> moveTouch(event.rawX, event.rawY)
             MotionEvent.ACTION_UP -> {
                 clearPortraitY()
-                if (_autoMoveToEdge) {
-                    moveToEdge()
-                }
+                moveToEdge()
 //                if (isOnClickEvent()) {
 //                    dealClickEvent()
 //                }
@@ -96,13 +96,13 @@ open class LayoutKMagnet @JvmOverloads constructor(
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         Log.d(TAG, "onConfigurationChanged: ")
-        startResetLocation(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+        startResetLocation(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE, false)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         Log.d(TAG, "onSizeChanged: ")
-        startResetLocation(UtilKScreen.isOrientationLandscape_ofDefDisplay(context))
+        startResetLocation(UtilKScreen.isOrientationLandscape_ofDefDisplay(context), true)
     }
 
     /////////////////////////////////////////////////////
@@ -130,13 +130,12 @@ open class LayoutKMagnet @JvmOverloads constructor(
     }
 
     fun moveToEdge() {
-        //dragEnable
-        if (!_dragEnable) return
-        moveToEdge(isNearestLeft(), false)
+        moveToEdge(isNearestLeft(), false, true, false, false)
     }
 
-    fun moveToEdge(isLeft: Boolean, isLandscape: Boolean) {
-        val moveDistance: Float = (if (isLeft) _margin else _screenWidth - _margin).toFloat()
+    fun moveToEdge(isLeft: Boolean, isLandscape: Boolean, isTouch: Boolean, isResize: Boolean, isFullParent: Boolean) {
+        //dragEnable
+        if (!_dragEnable || !_autoMoveToEdge) return
         var y = y
         if (!isLandscape && _portraitY != 0f) {
             y = _portraitY
@@ -146,7 +145,32 @@ open class LayoutKMagnet @JvmOverloads constructor(
             y += _initMargin.top
             _initMargin.top = 0f
         }
-        _moveRunnable.start(x = moveDistance, y = min(max(0f, y), (_screenHeight.toFloat() - height.toFloat())))
+        val isLeftTemp = if (_lastMoveY != 0f && !isFullParent && !isTouch) _lastStickLeft else isLeft
+        val desXTemp = (if (isLeftTemp) _margin else _screenWidth - _margin).toFloat()
+        val desYTemp = if (_lastMoveY != 0f && !isFullParent && !isTouch) _lastMoveY else min(max(0f, y), (_screenHeight.toFloat() - height.toFloat()))
+        var desX = desXTemp
+        var desY = desYTemp
+        if (isResize) {
+            if (!isFullParent) {
+                if (_lastMoveX != 0f) {
+                    desX = _lastMoveX
+                    Log.d(TAG, "moveToEdge: 释放")
+                }
+                if (_lastMoveY != 0f) {
+                    desY = _lastMoveY
+                    Log.d(TAG, "moveToEdge: 释放")
+                }
+            }
+        }
+
+        _moveRunnable.start(x = desX, y = desY)
+
+        if (!isResize || !isFullParent) {
+            _lastMoveX = desXTemp
+            _lastMoveY = desYTemp
+            _lastStickLeft = isLeftTemp
+            Log.d(TAG, "moveToEdge: 记住 _lastMoveX $_lastMoveX _lastMoveY $_lastMoveY")
+        }
     }
 
     /////////////////////////////////////////////////////
@@ -156,9 +180,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
 //    }
 
     protected fun isNearestLeft(): Boolean {
-        val middle = _screenWidth / 2
-        _isNearestLeft = x < middle
-        return _isNearestLeft
+        return (x < _screenWidth / 2).also { Log.d(TAG, "isNearestLeft: $it") }
     }
 
     protected fun isOnClickEvent(): Boolean {
@@ -174,19 +196,24 @@ open class LayoutKMagnet @JvmOverloads constructor(
         if (viewGroup != null) {
             _screenWidth = viewGroup.width - width
             _screenHeight = viewGroup.height
+            Log.d(TAG, "updateSize: viewGroup.width ${viewGroup.width} width ${width} viewGroup.height ${viewGroup.height}")
+            Log.d(TAG, "updateSize: _screenWidth $_screenWidth _screenHeight $_screenHeight")
         }
 //        mScreenWidth = (SystemUtils.getScreenWidth(getContext()) - this.getWidth());
 //        mScreenHeight = SystemUtils.getScreenHeight(getContext());
     }
 
+    protected fun isFullParent(): Boolean {
+        return (_screenWidth == 0 && (parent != null && (parent as ViewGroup).height == _screenHeight)).also { Log.d(TAG, "isFullParent: $it") }
+    }
     /////////////////////////////////////////////////////
 
-    private fun startResetLocation(isLandscape: Boolean) {
+    private fun startResetLocation(isLandscape: Boolean, isResize: Boolean) {
         if (parent != null) {
             markPortraitY(isLandscape)
             (parent as ViewGroup).post {
                 updateSize()
-                moveToEdge(_isNearestLeft, isLandscape)
+                moveToEdge(isNearestLeft(), isLandscape, false, isResize, isFullParent())
             }
         }
     }
@@ -215,9 +242,22 @@ open class LayoutKMagnet @JvmOverloads constructor(
         _portraitY = 0f
     }
 
-    private fun updateViewPosition(rawX: Float, rawY: Float) {
+    /////////////////////////////////////////////////////
+
+    private fun moveOffset(deltaX: Float, deltaY: Float) {
+        x += deltaX
+        y += deltaY
+    }
+
+    private fun moveTo(desX: Float, desY: Float) {
+        x = desX
+        y = desY
+    }
+
+    private fun moveTouch(rawX: Float, rawY: Float) {
         //dragEnable
-        if (!_dragEnable) return
+        if (!_dragEnable)
+            return
         //占满width或height时不用变
         val params = layoutParams as LayoutParams
         //限制不可超出屏幕宽度
@@ -247,11 +287,6 @@ open class LayoutKMagnet @JvmOverloads constructor(
         }
     }
 
-    private fun move(deltaX: Float, deltaY: Float) {
-        x += deltaX
-        y += deltaY
-    }
-
     /////////////////////////////////////////////////////
 
     protected inner class MoveRunnable : Runnable {
@@ -260,12 +295,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
         private var _destinationY = 0f
         private var _startingTime: Long = 0
 
-        fun start(x: Float, y: Float) {
-            _destinationX = x
-            _destinationY = y
-            _startingTime = System.currentTimeMillis()
-            _handler.post(this)
-        }
+        /////////////////////////////////////////////////////
 
         override fun run() {
             if (getRootView() == null || getRootView().getParent() == null) {
@@ -274,10 +304,19 @@ open class LayoutKMagnet @JvmOverloads constructor(
             val progress = min(1.0, ((System.currentTimeMillis() - _startingTime) / 400f).toDouble()).toFloat()
             val deltaX: Float = (_destinationX - getX()) * progress
             val deltaY: Float = (_destinationY - getY()) * progress
-            move(deltaX, deltaY)
+            moveOffset(deltaX, deltaY)
             if (progress < 1) {
                 _handler.post(this)
             }
+        }
+
+        /////////////////////////////////////////////////////
+
+        fun start(x: Float, y: Float) {
+            _destinationX = x
+            _destinationY = y
+            _startingTime = System.currentTimeMillis()
+            _handler.post(this)
         }
 
         fun stop() {

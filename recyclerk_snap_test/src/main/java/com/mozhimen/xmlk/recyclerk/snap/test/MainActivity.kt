@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.utilk.android.content.startContext
-import com.mozhimen.mvvmk.bases.activity.viewbinding.BaseActivityVB
+import com.mozhimen.bindk.bases.activity.viewbinding.BaseActivityVB
 import com.mozhimen.xmlk.recyclerk.snap.test.adapter.AppAdapter
 import com.mozhimen.xmlk.recyclerk.snap.test.adapter.SnapListAdapter
 import com.mozhimen.xmlk.recyclerk.snap.test.databinding.ActivityMainBinding
