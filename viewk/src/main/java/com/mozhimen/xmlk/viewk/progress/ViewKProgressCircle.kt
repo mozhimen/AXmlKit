@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.viewk
+package com.mozhimen.xmlk.viewk.progress
 
 import android.content.Context
 import android.graphics.Canvas

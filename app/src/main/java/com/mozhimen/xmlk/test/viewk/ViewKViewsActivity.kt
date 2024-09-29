@@ -3,15 +3,13 @@ package com.mozhimen.xmlk.test.viewk
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
-import android.view.animation.Animation
-import com.mozhimen.animk.builder.impls.AnimationTranslationType
 import com.mozhimen.animk.builder.impls.AnimatorTranslationXYType
+import com.mozhimen.basick.utils.runOnBackThread
 import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.view.UtilKStatusBar
 import com.mozhimen.kotlin.utilk.android.view.getLocation
 import com.mozhimen.kotlin.utilk.android.widget.showToast
-import com.mozhimen.kotlin.utilk.androidx.appcompat.runOnBackThread
 import com.mozhimen.kotlin.utilk.kotlin.intResDrawable2bitmapAny
 import com.mozhimen.xmlk.test.databinding.ActivityViewkViewsBinding
 import kotlinx.coroutines.Dispatchers

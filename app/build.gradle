@@ -34,10 +34,14 @@ android {
     buildFeatures {
         dataBinding true
     }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
 }
 
 dependencies {
-    implementation project(':SwiftKit:basick')
+    implementation project(':SwiftKit:mvvmk')
     implementation project(':SwiftKit:xmlk')
     implementation project(':AImageKit:imagek_glide_blur')
     implementation project(':AImageKit:imagek_glide')

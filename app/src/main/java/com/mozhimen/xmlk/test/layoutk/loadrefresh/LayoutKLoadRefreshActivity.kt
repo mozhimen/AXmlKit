@@ -3,9 +3,9 @@ package com.mozhimen.xmlk.test.layoutk.loadrefresh
 import android.os.Bundle
 import androidx.core.os.postDelayed
 import androidx.recyclerview.widget.RecyclerView
+import com.mozhimen.basick.helpers.WakeBefPauseLifecycleHandler
 import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
-import com.mozhimen.kotlin.elemk.android.os.WakeBefPauseLifecycleHandler
 import com.mozhimen.kotlin.utilk.android.os.UtilKHandler
 import com.mozhimen.xmlk.layoutk.loadrefresh.commons.LoadRefreshLoadCallback
 import com.mozhimen.xmlk.layoutk.loadrefresh.commons.LoadRefreshRefreshCallback

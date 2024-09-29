@@ -69,6 +69,9 @@ include ':viewk_blur'
 include ':textk_expand'
 include ':bark_app'
 include ':recyclerk_snap'
+include ':recyclerk_snap_test'
+include ':layoutk_magnet'
+include ':basic'
 //SwiftKit
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
@@ -109,6 +112,12 @@ include ':KUtilKit'
 project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
 include ':KUtilKit:utilk_android'
 include ':KUtilKit:utilk_kotlin'
-include ':recyclerk_snap_test'
-include ':layoutk_magnet'
-include ':basic'
+//ATaskKit
+include ':ATaskKit'
+project(':ATaskKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ATaskKit")
+include ':ATaskKit:taskk_executor'
+//AStackKit
+include ':AStackKit'
+project(':AStackKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AStackKit")
+include ':AStackKit:stackk_callback'
+include ':AStackKit:basic'

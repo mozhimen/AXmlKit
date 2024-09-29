@@ -65,4 +65,31 @@
         <attr name="viewKProgressWaveIcon_isBgRounded" format="boolean" />
         <attr name="viewKProgressWaveIcon_roundedCornerRadius" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="ViewKProgressAnim">
+        <!-- 通用属性适合所有形状的进度条 -->
+        <attr format="color" name="progress_color"/>
+        <attr format="color" name="progress_color_background"/>
+        <attr format="integer" name="progress_value"/>
+        <attr format="integer" name="progress_value_max"/>
+        <attr format="integer" name="progress_animate_duration"/>
+        <attr format="integer" name="progress_type"/>
+        <attr format="string" name="progress_text"/>
+        <attr format="dimension" name="progress_text_size"/>
+        <attr format="color" name="progress_text_color"/>
+        <attr format="boolean" name="progress_text_visible"/>
+        <attr format="dimension" name="progress_paint_bg_width"/>
+        <attr format="dimension" name="progress_paint_value_width"/>
+        <attr format="boolean" name="progress_start_animate"/>
+
+        <!-- 圆形进度条专有属性 -->
+        <attr format="integer" name="progress_circle_sweep_angle"/>
+
+        <!-- 矩形 或者 圆角矩形 进度条专有属性 -->
+        <attr format="integer" name="progress_rect_text_align"/>
+        <attr format="dimension" name="progress_rect_radius"/>
+
+    </declare-styleable>
+    <string name="circle_progress_value">%1$d%%</string>
+
 </resources>

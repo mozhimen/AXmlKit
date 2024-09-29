@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.viewk
+package com.mozhimen.xmlk.viewk.progress
 
 import android.animation.Animator
 import android.animation.ValueAnimator
@@ -31,6 +31,7 @@ import com.mozhimen.kotlin.utilk.kotlin.ifNotEmpty
 import com.mozhimen.kotlin.utilk.kotlin.intResDrawable2bitmapAny
 import com.mozhimen.kotlin.utilk.kotlin.strColor2intColor
 import com.mozhimen.xmlk.bases.BaseViewK
+import com.mozhimen.xmlk.viewk.R
 
 
 /**

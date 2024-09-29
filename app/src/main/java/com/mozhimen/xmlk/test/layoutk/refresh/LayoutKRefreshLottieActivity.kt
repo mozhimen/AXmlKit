@@ -2,9 +2,9 @@ package com.mozhimen.xmlk.test.layoutk.refresh
 
 import android.os.Bundle
 import androidx.core.os.postDelayed
+import com.mozhimen.basick.helpers.WakeBefPauseLifecycleHandler
 import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.util.dp2px
-import com.mozhimen.kotlin.elemk.android.os.WakeBefPauseLifecycleHandler
 import com.mozhimen.xmlk.layoutk.refresh.commons.IRefreshListener
 import com.mozhimen.xmlk.layoutk.refresh.impls.LottieOverView
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkRefreshLottieBinding

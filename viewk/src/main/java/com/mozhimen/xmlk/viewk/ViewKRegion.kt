@@ -11,13 +11,9 @@ import android.graphics.Region
 import android.os.Build
 import android.text.TextPaint
 import android.util.AttributeSet
-import android.util.Log
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
-import androidx.annotation.RequiresApi
-import com.mozhimen.kotlin.elemk.android.os.cons.CVersCode
 import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.bases.BaseViewK
-
 
 /**
  * @ClassName ViewKRegion

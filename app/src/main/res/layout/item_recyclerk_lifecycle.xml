@@ -6,7 +6,7 @@
 
         <variable
             name="item_recyclerk_lifecycle"
-            type="com.mozhimen.basick.elemk.mos.MKey" />
+            type="com.mozhimen.kotlin.elemk.mos.MKey" />
     </data>
 
     <LinearLayout

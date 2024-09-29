@@ -6,7 +6,7 @@
 
         <variable
             name="item_adapterk_recycler_vb2"
-            type="com.mozhimen.basick.elemk.mos.MKey" />
+            type="com.mozhimen.kotlin.elemk.mos.MKey" />
     </data>
 
     <LinearLayout
