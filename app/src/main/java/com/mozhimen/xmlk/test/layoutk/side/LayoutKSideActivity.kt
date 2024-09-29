@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.test.layoutk.side
 
 import android.os.Bundle
 import android.widget.Toast
-import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.vhk.VHKRecycler

@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.test.bark
 
 import android.util.Log
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
-import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.test.databinding.ActivityBarkBinding
 
 class BarKActivity : BaseActivityVDB<ActivityBarkBinding>() {

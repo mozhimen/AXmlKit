@@ -3,7 +3,7 @@ package com.mozhimen.xmlk.test.dialogk
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import androidx.lifecycle.lifecycleScope
-import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.elemk.commons.I_Listener
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.test.dialogk.temps.DialogKLoadingAnim

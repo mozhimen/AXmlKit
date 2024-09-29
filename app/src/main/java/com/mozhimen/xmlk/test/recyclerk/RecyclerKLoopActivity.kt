@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.AutoLooperLinearLayoutManager
 import androidx.recyclerview.widget.LooperLinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper

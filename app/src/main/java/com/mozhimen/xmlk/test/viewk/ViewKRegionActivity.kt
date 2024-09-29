@@ -1,6 +1,6 @@
 package com.mozhimen.xmlk.test.viewk
 
-import com.mozhimen.mvvmk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
 import com.mozhimen.xmlk.test.databinding.ActivityViewkRegionBinding
 
 /**
