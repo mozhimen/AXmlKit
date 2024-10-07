@@ -18,7 +18,6 @@ import java.lang.ref.WeakReference
  * @Author mozhimen / Kolin Zhao
  * @Version 1.0
  */
-@Suppress(CSuppress.UNCHECKED_CAST)
 open class VHKRecycler : VHKLifecycle {
 
     constructor(containerView: View) : super(containerView)
@@ -27,7 +26,7 @@ open class VHKRecycler : VHKLifecycle {
 
     //////////////////////////////////////////////////////////////////////
 
-    private var _viewCaches = SparseArray<View>()
+    private var _viewCaches: SparseArray<View> = SparseArray<View>()
 
     @OptIn(OApiInit_ByLazy::class)
     private val _viewProxy by lazy_ofNone { ViewProxy<VHKRecycler>(WeakReference(this.itemView)) }
@@ -43,9 +42,10 @@ open class VHKRecycler : VHKLifecycle {
         return view
     }
 
+    @Suppress(CSuppress.UNCHECKED_CAST)
     fun <V : View> findViewByIdOrNull(@IdRes intResId: Int): V? {
-        val view = _viewCaches.get(intResId)?: return itemView.findViewById<V>(intResId)?.apply {
-            _viewCaches.put(intResId, this)
+        val view = _viewCaches.get(intResId) ?: return itemView.findViewById<V>(intResId)?.also {
+            _viewCaches.put(intResId, it)
         }
         return view as? V?
     }

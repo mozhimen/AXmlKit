@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-    implementation project(':SwiftKit:mvvmk')
+    implementation project(':SwiftKit:bindk')
     implementation project(':SwiftKit:xmlk')
     implementation project(':AImageKit:imagek_glide_blur')
     implementation project(':AImageKit:imagek_glide')
