@@ -24,7 +24,7 @@ abstract class BaseDialogKVB<VB : ViewBinding, T : IDialogKVBClickListener<VB>>(
     //////////////////////////////////////////////////////////////////////////////
 
     override fun onCreateView(inflater: LayoutInflater): View? {
-        _vb = UtilKViewBinding.get<VB>(this::class.java, inflater/*, 0*/)
+        _vb = UtilKViewBinding.get_ofClass<VB>(this::class.java, inflater/*, 0*/)
         return vb.root
     }
 }

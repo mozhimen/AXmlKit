@@ -6,7 +6,7 @@ import android.content.Context
 import android.view.View
 import androidx.core.app.NotificationCompat
 import com.mozhimen.kotlin.elemk.android.app.cons.CNotificationManager
-import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.lintk.optins.permission.OPermission_POST_NOTIFICATIONS
 import com.mozhimen.kotlin.utilk.android.app.UtilKNotificationManager
 import com.mozhimen.kotlin.utilk.android.content.UtilKApplicationInfo

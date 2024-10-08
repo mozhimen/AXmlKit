@@ -5,7 +5,7 @@ import android.animation.AnimatorListenerAdapter
 import android.os.Bundle
 import com.mozhimen.animk.builder.impls.AnimatorTranslationXYType
 import com.mozhimen.basick.utils.runOnBackThread
-import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.view.UtilKStatusBar
 import com.mozhimen.kotlin.utilk.android.view.getLocation

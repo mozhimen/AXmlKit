@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.elemk.mos.MKey
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle

@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.test.layoutk
 
 import android.graphics.Color
 import android.os.Bundle
-import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.lintk.annors.ADigitPlace
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy

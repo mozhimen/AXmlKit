@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.layoutk.tab
 
 import android.os.Bundle
-import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.layoutk.tab.bottom.mos.MTabBottom
 import com.mozhimen.xmlk.test.R

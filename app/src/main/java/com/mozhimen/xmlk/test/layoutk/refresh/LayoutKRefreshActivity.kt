@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.layoutk.refresh
 
 import android.view.View
-import com.mozhimen.bindk.bases.activity.databinding.BaseActivityVDB
+import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.content.startContext
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkRefreshBinding
 
