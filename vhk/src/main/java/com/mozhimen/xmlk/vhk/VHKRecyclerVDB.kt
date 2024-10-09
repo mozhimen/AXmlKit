@@ -27,5 +27,5 @@ open class VHKRecyclerVDB<VDB : ViewDataBinding> : VHKRecycler, IUtilK {
         _vdb = viewDataBinding
     }
 
-    constructor(parent: ViewGroup, @LayoutRes intResLayout: Int) : this(LayoutInflater.from(parent.context).inflate(intResLayout, parent, false))
+    constructor(@LayoutRes intResLayout: Int,parent: ViewGroup) : this(LayoutInflater.from(parent.context).inflate(intResLayout, parent, false))
 }
