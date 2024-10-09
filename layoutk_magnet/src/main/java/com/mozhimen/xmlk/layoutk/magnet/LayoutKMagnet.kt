@@ -143,6 +143,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
         }
         if (_initMargin.top != 0f) {
             y += _initMargin.top
+            _lastMoveY = y
             _initMargin.top = 0f
         }
         val isLeftTemp = if (_lastMoveY != 0f && !isFullParent && !isTouch) _lastStickLeft else isLeft
