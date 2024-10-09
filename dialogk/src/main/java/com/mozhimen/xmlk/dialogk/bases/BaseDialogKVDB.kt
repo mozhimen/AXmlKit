@@ -24,7 +24,7 @@ abstract class BaseDialogKVDB<VDB : ViewDataBinding, T : IDialogKVDBClickListene
     //////////////////////////////////////////////////////////////////////////////
 
     override fun onCreateView(inflater: LayoutInflater): View? {
-        _vdb = UtilKViewDataBinding.get<VDB>(this::class.java, inflater/*, 0*/).apply {
+        _vdb = UtilKViewDataBinding.get_ofClass<VDB>(this::class.java, inflater/*, 0*/).apply {
             lifecycleOwner = this@BaseDialogKVDB
         }
         return vdb.root
