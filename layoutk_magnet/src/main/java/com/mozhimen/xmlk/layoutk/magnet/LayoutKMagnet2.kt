@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import androidx.annotation.LayoutRes
 import com.mozhimen.kotlin.utilk.android.view.UtilKViewGroup
+import com.mozhimen.kotlin.utilk.android.view.UtilKViewGroupWrapper
 
 /**
  * @ClassName LayoutKMagnet2
@@ -21,6 +22,6 @@ class LayoutKMagnet2 : LayoutKMagnet {
     constructor(context: Context, view: View) : this(context, view, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
 
     constructor(context: Context, view: View, layoutParams: LayoutParams) : super(context) {
-        UtilKViewGroup.addViewSafe(this, view, layoutParams)
+        UtilKViewGroupWrapper.addViewSafe(this, view, layoutParams)
     }
 }

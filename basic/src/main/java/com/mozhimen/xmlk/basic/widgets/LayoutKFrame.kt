@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import com.mozhimen.kotlin.utilk.android.view.UtilKViewGroup
+import com.mozhimen.kotlin.utilk.android.view.UtilKViewGroupWrapper
 import com.mozhimen.xmlk.basic.bases.BaseLayoutKFrame
 
 /**
@@ -22,6 +23,6 @@ class LayoutKFrame:BaseLayoutKFrame {
     constructor(context: Context, view: View) : this(context, view, LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
 
     constructor(context: Context, view: View, layoutParams: ViewGroup.LayoutParams) : super(context) {
-        UtilKViewGroup.addViewSafe(this, view, layoutParams)
+        UtilKViewGroupWrapper.addViewSafe(this, view, layoutParams)
     }
 }
