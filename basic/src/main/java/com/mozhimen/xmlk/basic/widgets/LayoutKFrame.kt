@@ -1,9 +1,12 @@
 package com.mozhimen.xmlk.basic.widgets
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.view.UtilKViewGroup
 import com.mozhimen.kotlin.utilk.android.view.UtilKViewGroupWrapper
 import com.mozhimen.xmlk.basic.bases.BaseLayoutKFrame
@@ -15,7 +18,7 @@ import com.mozhimen.xmlk.basic.bases.BaseLayoutKFrame
  * @Date 2024/9/26
  * @Version 1.0
  */
-class LayoutKFrame:BaseLayoutKFrame {
+open class LayoutKFrame:BaseLayoutKFrame {
     constructor(context: Context, @LayoutRes resource: Int) : super(context) {
         inflate(context, resource, this)
     }

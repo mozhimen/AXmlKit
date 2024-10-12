@@ -9,10 +9,15 @@ import android.os.Looper
 import android.util.AttributeSet
 import android.util.Log
 import android.view.MotionEvent
+import android.view.View
 import android.view.ViewConfiguration
 import android.view.ViewGroup
+import android.view.WindowManager
+import android.widget.FrameLayout
 import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen
 import com.mozhimen.xmlk.basic.bases.BaseLayoutKFrame
+import com.mozhimen.xmlk.basic.widgets.LayoutKFrameTouch
+import com.mozhimen.xmlk.basic.widgets.LayoutKFrameTouch2
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -28,7 +33,7 @@ open class LayoutKMagnet @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : BaseLayoutKFrame(context, attrs, defStyleAttr) {
+) : LayoutKFrameTouch2(context, attrs, defStyleAttr) {
 
     companion object {
         const val TOUCH_TIME_THRESHOLD: Int = 150
@@ -56,25 +61,8 @@ open class LayoutKMagnet @JvmOverloads constructor(
     /////////////////////////////////////////////////////
 
     protected var _moveRunnable: MoveRunnable = MoveRunnable()
-    protected var _screenWidth: Int = 0
-    protected var _screenHeight: Int = 0
 
     /////////////////////////////////////////////////////
-
-    override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
-        var intercepted = false
-        when (ev.actionMasked) {
-            MotionEvent.ACTION_DOWN -> {
-                intercepted = false
-                _touchDownX = ev.x
-                initTouchDown(ev)
-            }
-
-            MotionEvent.ACTION_MOVE -> intercepted = abs((_touchDownX - ev.x).toDouble()) >= ViewConfiguration.get(context).scaledTouchSlop
-            MotionEvent.ACTION_UP -> intercepted = false
-        }
-        return intercepted
-    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -192,27 +180,22 @@ open class LayoutKMagnet @JvmOverloads constructor(
 //        _iLayoutKMagnetListener?.onClicked(this)
 //    }
 
-    protected fun updateSize() {
-        val viewGroup = parent as? ViewGroup
-        if (viewGroup != null) {
-            _screenWidth = viewGroup.width - width
-            _screenHeight = viewGroup.height
-            Log.d(TAG, "updateSize: viewGroup.width ${viewGroup.width} width ${width} viewGroup.height ${viewGroup.height}")
-            Log.d(TAG, "updateSize: _screenWidth $_screenWidth _screenHeight $_screenHeight")
-        }
-//        mScreenWidth = (SystemUtils.getScreenWidth(getContext()) - this.getWidth());
-//        mScreenHeight = SystemUtils.getScreenHeight(getContext());
+    protected fun isFullParent(): Boolean {
+        return (_screenWidth == 0 && run {
+            if (parent!=null&&parent is ViewGroup){
+                (parent as ViewGroup).height == _screenHeight
+            }else{
+                UtilKScreen.getHeight() == _screenHeight
+            }
+        }).also { Log.d(TAG, "isFullParent: $it") }
     }
 
-    protected fun isFullParent(): Boolean {
-        return (_screenWidth == 0 && (parent != null && (parent as ViewGroup).height == _screenHeight)).also { Log.d(TAG, "isFullParent: $it") }
-    }
     /////////////////////////////////////////////////////
 
     private fun startResetLocation(isLandscape: Boolean, isResize: Boolean) {
         if (parent != null) {
             markPortraitY(isLandscape)
-            (parent as ViewGroup).post {
+            this.post {
                 updateSize()
                 moveToEdge(isNearestLeft(), isLandscape, false, isResize, isFullParent())
             }
@@ -225,17 +208,8 @@ open class LayoutKMagnet @JvmOverloads constructor(
         }
     }
 
-    private fun changeOriginalTouchParams(event: MotionEvent) {
-        _originalX = x
-        _originalY = y
-        _originalRawX = event.rawX
-        _originalRawY = event.rawY
-        _lastTouchDownTime = System.currentTimeMillis()
-    }
-
-    private fun initTouchDown(ev: MotionEvent) {
-        changeOriginalTouchParams(ev)
-        updateSize()
+    override fun initTouchDown(ev: MotionEvent) {
+        super.initTouchDown(ev)
         _moveRunnable.stop()
     }
 
@@ -253,39 +227,6 @@ open class LayoutKMagnet @JvmOverloads constructor(
     private fun moveTo(desX: Float, desY: Float) {
         x = desX
         y = desY
-    }
-
-    private fun moveTouch(rawX: Float, rawY: Float) {
-        //dragEnable
-        if (!_dragEnable)
-            return
-        //占满width或height时不用变
-        val params = layoutParams as LayoutParams
-        //限制不可超出屏幕宽度
-        var desX = _originalX + rawX - _originalRawX
-        if (params.width == LayoutParams.WRAP_CONTENT) {
-            if (desX < 0) {
-                desX = _margin.toFloat()
-            }
-            if (desX > _screenWidth) {
-                desX = (_screenWidth - _margin).toFloat()
-            }
-            x = desX
-        }
-        // 限制不可超出屏幕高度
-        var desY = _originalY + rawY - _originalRawY
-        if (params.height == LayoutParams.WRAP_CONTENT) {
-//            if (desY < mStatusBarHeight) {
-//                desY = mStatusBarHeight.toFloat()
-//            }
-            if (desY < 0) {
-                desY = _margin.toFloat()
-            }
-            if (desY > _screenHeight - height) {
-                desY = (_screenHeight - _margin - height).toFloat()
-            }
-            y = desY
-        }
     }
 
     /////////////////////////////////////////////////////
