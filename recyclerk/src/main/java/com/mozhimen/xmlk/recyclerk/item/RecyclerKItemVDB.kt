@@ -13,7 +13,7 @@ import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
  */
 typealias IRecyclerKItemVBListener<DATA, VDB> = (holder: VHKRecyclerVDB<VDB>, data: DATA, position: Int, currentSelectPos: Int) -> Unit
 
-class RecyclerKItemVDB<DATA, VDB : ViewDataBinding>(
+open class RecyclerKItemVDB<DATA, VDB : ViewDataBinding>(
     val data: DATA,
     private val _brId: Int,
     private val _layoutId: Int,
