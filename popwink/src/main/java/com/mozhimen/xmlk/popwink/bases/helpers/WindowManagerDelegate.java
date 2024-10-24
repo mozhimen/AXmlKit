@@ -338,7 +338,7 @@ public final class WindowManagerDelegate implements WindowManager, IClearMemoryL
                     // 状态栏和导航栏相关处理交给decorview proxy，这里永远占用
                     p.flags |= CWinMgr.Lpf.LAYOUT_IN_SCREEN;
                     p.flags |= CWinMgr.Lpf.LAYOUT_NO_LIMITS;
-                    if (UtilKBuildVersion.isAfterV_18_43_J2()) {
+                    if (UtilKBuildVersion.isAfterV_18_43_JBM2()) {
                         p.flags |= CWinMgr.Lpf.LAYOUT_IN_OVERSCAN;
                     }
                 }
