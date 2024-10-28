@@ -1,6 +1,7 @@
 package com.mozhimen.xmlk.recyclerk.item
 
 import android.annotation.SuppressLint
+import android.util.Log
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.util.SparseIntArray
 import android.view.LayoutInflater
@@ -33,6 +34,12 @@ open class RecyclerKItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
     ////////////////////////////////////////////////////////////////////////////////////
 
     //region # IAdapterKRecycler
+    override fun refreshItem(item: RecyclerKItem<out RecyclerView.ViewHolder>, position: Int, notify: Boolean, payloads: Any?) {
+        if (position < 0 || position >= _items.size) return
+        _items[position] = item.apply { bindAdapter(this@RecyclerKItemAdapter) }
+        if (notify) notifyItemChanged(position, payloads)
+    }
+
     override fun refreshItem(item: RecyclerKItem<out RecyclerView.ViewHolder>, position: Int, notify: Boolean) {
         if (position < 0 || position >= _items.size) return
         _items[position] = item.apply { bindAdapter(this@RecyclerKItemAdapter) }
@@ -146,7 +153,18 @@ open class RecyclerKItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = getItem(position)
+        Log.d(TAG, "onBindViewHolder: item $item")
         item?.onBindItem(holder, position)
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int, payloads: MutableList<Any>) {
+        val item = getItem(position)
+        Log.d(TAG, "onBindViewHolder: item $item payloads $payloads")
+        if (payloads.isNotEmpty()) {
+            item?.onBindItem(holder, position, payloads)
+        } else {
+            item?.onBindItem(holder, position)
+        }
     }
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
@@ -224,7 +242,12 @@ open class RecyclerKItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
                     try {
                         //如果是则使用反射 实例化类上标记的实际的泛型对象
                         //这里需要 try-catch, 如果直接在RecyclerKItem子类上标记 RecyclerView.ViewHolder. 抽象类是不允许反射的
-                        return (argument.getConstructor(View::class.java).newInstance(view) as RecyclerView.ViewHolder).also { UtilKLogWrapper.d(TAG, "onCreateViewHolderInternal: getViewHolder success") }
+                        return (argument.getConstructor(View::class.java).newInstance(view) as RecyclerView.ViewHolder).also {
+                            UtilKLogWrapper.d(
+                                TAG,
+                                "onCreateViewHolderInternal: getViewHolder success"
+                            )
+                        }
                     } catch (e: Throwable) {
                         e.printStackTrace()
                         e.message?.e(TAG)

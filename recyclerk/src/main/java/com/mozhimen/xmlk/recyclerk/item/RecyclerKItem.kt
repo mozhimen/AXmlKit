@@ -51,6 +51,10 @@ open class RecyclerKItem<VH : RecyclerView.ViewHolder> : IUtilK {
         pos = position
     }
 
+    open fun onBindItem(holder: VH, position: Int, payloads: MutableList<Any>) {
+
+    }
+
     /**
      * 返回该item的资源id
      * @return Int

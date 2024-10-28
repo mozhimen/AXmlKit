@@ -11,6 +11,7 @@ import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
  * @Version 1.0
  */
 interface IRecyclerKAdapter : IUtilK {
+    fun refreshItem(item: RecyclerKItem<out RecyclerView.ViewHolder>, position: Int, notify: Boolean, payloads: Any?)
     /**
      * 刷新Item
      * @param item RecyclerKItem<DATA, ViewHolder>
