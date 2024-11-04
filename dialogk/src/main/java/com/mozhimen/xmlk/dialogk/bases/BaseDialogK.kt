@@ -15,6 +15,7 @@ import com.mozhimen.kotlin.utilk.android.app.isFinishingOrDestroyed
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.util.e
 import com.mozhimen.kotlin.utilk.java.lang.UtilKThread
+import com.mozhimen.kotlin.utilk.java.lang.UtilKThreadWrapper
 import com.mozhimen.xmlk.dialogk.bases.annors.ADialogMode
 import com.mozhimen.xmlk.dialogk.bases.commons.IBaseDialogK
 import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKClickListener
@@ -77,7 +78,7 @@ abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(
             UtilKLogWrapper.d(TAG, "show: the dialog already show")
             return
         }
-        if (UtilKThread.isMainThread()) {
+        if (UtilKThreadWrapper.isMainThread()) {
             try {
                 super.show()
             } catch (e: Exception) {
@@ -137,7 +138,7 @@ abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(
             UtilKLogWrapper.w(TAG, "dismiss: dialog already dismiss")
             return
         }
-        if (UtilKThread.isMainThread()) {
+        if (UtilKThreadWrapper.isMainThread()) {
             try {
                 super.dismiss()
             } catch (e: Exception) {
