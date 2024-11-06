@@ -4,6 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 import android.os.Parcelable.Creator
 import android.view.View
+import com.mozhimen.xmlk.textk.progress.cons.CProgressState
 
 /**
  * @ClassName ProgressSavedState
@@ -14,30 +15,49 @@ import android.view.View
  */
 
 class ProgressSavedState : View.BaseSavedState {
-    private var _progress: Int
-    val progress :Int get() = _progress
-    private var _state: Int
-    val state:Int get() = _state
-    private var _currentText: String
-    val currentText get() = _currentText
+    var progress: Int = 0
+    var progressState: Int = CProgressState.PROGRESS_STATE_IDLE
+    var charSequence: String = ""
 
-    constructor(parcel: Parcelable?, progress: Int, state: Int, currentText: String) : super(parcel) {
-        _progress = progress
-        _state = state
-        _currentText = currentText
+    ////////////////////////////////////////////////////////////////////////////////////
+
+    constructor(parcel: Parcel) : super(parcel) {
+        this.progress = parcel.readInt()
+        this.progressState = parcel.readInt()
+        this.charSequence = parcel.readString() ?: ""
     }
 
-    private constructor(parcel: Parcel) : super(parcel) {
-        _progress = parcel.readInt()
-        _state = parcel.readInt()
-        _currentText = parcel.readString()?:""
+    constructor(parcelable: Parcelable?, progress: Int, state: Int, currentText: String) : super(parcelable) {
+        this.progress = progress
+        this.progressState = state
+        this.charSequence = currentText
     }
 
     override fun writeToParcel(out: Parcel, flags: Int) {
         super.writeToParcel(out, flags)
-        out.writeInt(_progress)
-        out.writeInt(_state)
-        out.writeString(_currentText)
+        out.writeInt(progress)
+        out.writeInt(progressState)
+        out.writeString(charSequence)
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as ProgressSavedState
+
+        if (progress != other.progress) return false
+        if (progressState != other.progressState) return false
+        if (charSequence != other.charSequence) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = progress.hashCode()
+        result = 31 * result + progressState
+        result = 31 * result + charSequence.hashCode()
+        return result
     }
 
     companion object CREATOR : Creator<ProgressSavedState> {
@@ -49,16 +69,4 @@ class ProgressSavedState : View.BaseSavedState {
             return arrayOfNulls(size)
         }
     }
-
-//    companion object {
-//        val CREATOR: Creator<ProgressSavedState> = object : Creator<ProgressSavedState> {
-//            override fun createFromParcel(`in`: Parcel): ProgressSavedState {
-//                return ProgressSavedState(`in`)
-//            }
-//
-//            override fun newArray(size: Int): Array<ProgressSavedState?> {
-//                return arrayOfNulls(size)
-//            }
-//        }
-//    }
 }

@@ -163,9 +163,9 @@ class TextKProgress @JvmOverloads constructor(context: Context, attrs: Attribute
     override fun onRestoreInstanceState(state: Parcelable) {
         val progressSavedState = state as ProgressSavedState
         super.onRestoreInstanceState(progressSavedState.superState)
-        _progressState = progressSavedState.state
+        _progressState = progressSavedState.progressState
         _progress = progressSavedState.progress.toFloat()
-        _currentText = progressSavedState.currentText
+        _currentText = progressSavedState.charSequence
     }
 
     override fun onSaveInstanceState(): Parcelable {

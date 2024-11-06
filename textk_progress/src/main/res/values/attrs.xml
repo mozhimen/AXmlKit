@@ -24,4 +24,31 @@
             <enum name="rect" value="1" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="TextKProgress2">
+        <attr name="textKProgress2_backgroundColorIdle" format="color" />
+        <attr name="textKProgress2_backgroundColorLoaded" format="color" />
+        <attr name="textKProgress2_backgroundColorUnload" format="color" />
+        <attr name="textKProgress2_backgroundColorOver" format="color" />
+        <attr name="textKProgress2_textColorIdle" format="color" />
+        <attr name="textKProgress2_textColorLoaded" format="color" />
+        <attr name="textKProgress2_textColorUnload" format="color" />
+        <attr name="textKProgress2_textColorOver" format="color" />
+        <attr name="textKProgress2_borderRadius" format="dimension" />
+        <attr name="textKProgress2_borderWidthIdle" format="dimension" />
+        <attr name="textKProgress2_borderWidthLoad" format="dimension" />
+        <attr name="textKProgress2_borderWidthOver" format="dimension" />
+        <attr name="textKProgress2_borderColorIdle" format="color" />
+        <attr name="textKProgress2_borderColorLoad" format="color" />
+        <attr name="textKProgress2_borderColorOver" format="color" />
+        <attr name="textKProgress2_minProgress" format="integer" />
+        <attr name="textKProgress2_maxProgress" format="integer" />
+        <attr name="textKProgress2_progress" format="integer" />
+        <attr name="textKProgress2_progressState" format="enum" >
+            <enum name="idle" value="0"/>
+            <enum name="load" value="1"/>
+            <enum name="over" value="2"/>
+        </attr>
+        <attr name="textKProgress2_content" format="string" />
+    </declare-styleable>
 </resources>

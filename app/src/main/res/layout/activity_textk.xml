@@ -18,9 +18,9 @@
 
         <com.mozhimen.xmlk.textk.TextKMarquee
             android:id="@+id/textk_marquee"
-            tools:text="123"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            tools:text="123" />
 
         <com.mozhimen.xmlk.textk.bubble.TextKBubble
             style="@style/StyleK_TextKBubble"
@@ -88,6 +88,19 @@
             app:textKProgress_textColorCover="@color/white"
             app:textKProgress_textColorDefault="@color/cok_blue_e8f3ff"
             app:textKProgress_textColorUnCover="@color/cok_blue_bbdefb" />
+
+        <com.mozhimen.xmlk.textk.progress.TextKProgress2
+            android:id="@+id/textk_progress2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_040"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            app:textKProgress2_backgroundColorIdle="@color/white"
+            app:textKProgress2_backgroundColorLoaded="@color/cok_blue_bbdefb"
+            app:textKProgress2_borderRadius="10dp"
+            app:textKProgress2_borderWidthLoad="0dp"
+            app:textKProgress2_textColorIdle="@color/cok_blue_bbdefb"
+            app:textKProgress2_textColorLoaded="@color/white" />
 
         <com.mozhimen.xmlk.textk.expand.TextKExpandable
             android:id="@+id/textk_expandable"

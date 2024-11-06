@@ -13,4 +13,18 @@
         <item name="textKProgress_textColorDefault">@color/cok_white</item>
         <item name="textKProgress_textColorUnCover">@color/cok_blue_0177fd</item>
     </style>
+
+    <style name="StyleK_TextKProgress2_Rounded" parent="StyleK_Txt.Font_Sans_Serif.Gravity_Center.Style_Norm.Color_Gray_999.Size_013.Width_Wrap.Height_Wrap">
+        <item name="android:textColor">@color/cok_blue_0177fd</item>
+        <item name="android:background">@null</item>
+        <item name="textKProgress2_backgroundColorIdle">@color/cok_blue_0177fd</item>
+        <item name="textKProgress2_backgroundColorLoaded">@color/cok_blue_0177fd</item>
+        <item name="textKProgress2_backgroundColorUnload">@color/cok_white</item>
+        <item name="textKProgress2_backgroundColorOver">@color/cok_blue_0177fd</item>
+        <item name="textKProgress2_textColorIdle">@color/cok_white</item>
+        <item name="textKProgress2_textColorLoaded">@color/cok_white</item>
+        <item name="textKProgress2_textColorUnload">@color/cok_blue_0177fd</item>
+        <item name="textKProgress2_borderRadius">30dp</item>
+        <item name="textKProgress2_borderWidthLoad">0dp</item>
+    </style>
 </resources>

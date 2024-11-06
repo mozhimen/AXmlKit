@@ -77,11 +77,7 @@
            <activity
                android:name=".layoutk.LayoutKConstraintActivity"
                android:exported="true" >
-                  <intent-filter>
-                         <action android:name="android.intent.action.MAIN" />
 
-                         <category android:name="android.intent.category.LAUNCHER" />
-                  </intent-filter>
            </activity>
         <activity
             android:name=".layoutk.LayoutKLoadingActivity"
@@ -182,7 +178,13 @@
         <!-- textk -->
         <activity
             android:name=".textk.TextKActivity"
-            android:exported="false" />
+            android:exported="true" >
+               <intent-filter>
+                      <action android:name="android.intent.action.MAIN" />
+
+                      <category android:name="android.intent.category.LAUNCHER" />
+               </intent-filter>
+        </activity>
         <activity
             android:name=".textk.TextKEditActivity"
             android:exported="false" /> <!-- ///////////////////////////////////////////////////////////////////////////////////// -->

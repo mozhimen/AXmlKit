@@ -318,7 +318,7 @@ class TextKBubbleDelegate(private val _context: Context) : ITextKBubble, ILayout
 
     override fun setPadding(left: Float, top: Float, right: Float, bottom: Float) {
         UtilKLogWrapper.d(TAG, "setPadding: _bubbleListener is not null")
-        if (UtilKBuildVersion.getSDKInt() <= CVersCode.V_16_41_J) {
+        if (UtilKBuildVersion.getSDKInt() <= CVersCode.V_16_41_JB) {
             val stack = Throwable().stackTrace
             for (i in 0..6) {
                 if (stack[i].className == View::class.java.name && (stack[i].methodName == "recomputePadding")

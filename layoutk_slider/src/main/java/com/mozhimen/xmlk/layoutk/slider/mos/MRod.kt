@@ -25,7 +25,7 @@ class MRod() : Parcelable {
         get() = currentPercent * intervalX + minX
     var currentPercent: Float = 0f
         set(value) {
-            field = value.constraint(0f to 1f)
+            field = value.constraint(0f , 1f)
             _sliderListener?.onScrolling(currentPercent, currentVal, this)
         }
     val currentVal: Float
@@ -41,7 +41,7 @@ class MRod() : Parcelable {
     var radius: Float = 0f
     var radiusInside: Float = 0f
         set(value) {
-            field = value.constraint(0f to radius)
+            field = value.constraint(0f , radius)
         }
     var minVal: Float = 0f
     var maxVal: Float = 100f
