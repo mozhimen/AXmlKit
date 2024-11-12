@@ -3,6 +3,7 @@ package com.mozhimen.xmlk.adapterk.fragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.fragment.app.FragmentStatePagerAdapter
 import com.mozhimen.xmlk.adapterk.fragment.bases.BaseFragmentInfo
 
 /**
@@ -12,7 +13,7 @@ import com.mozhimen.xmlk.adapterk.fragment.bases.BaseFragmentInfo
  * @Date 2023/10/7 11:12
  * @Version 1.0
  */
-class AdapterKFragmentPagerFragmentInfo : FragmentPagerAdapter {
+class AdapterKFragmentPagerFragmentInfo : FragmentStatePagerAdapter {
 
     private val _fragmentInfos: List<BaseFragmentInfo>
 
