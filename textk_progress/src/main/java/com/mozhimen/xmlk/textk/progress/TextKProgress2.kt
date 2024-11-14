@@ -12,6 +12,8 @@ import android.graphics.PorterDuffXfermode
 import android.graphics.RectF
 import android.graphics.Shader
 import android.os.Parcelable
+import android.text.TextPaint
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.Log
 import android.view.animation.LinearInterpolator
@@ -38,6 +40,7 @@ class TextKProgress2 @JvmOverloads constructor(context: Context, attrs: Attribut
     private var _backgroundColorLoaded = Color.parseColor("#00A667")
     private var _backgroundColorUnload = _backgroundColorIdle//下载中后半部分后面背景颜色
     private var _backgroundColorOver = _backgroundColorLoaded
+    private var _textPadding = 2.dp2px()
     private var _textColorIdle = Color.parseColor("#00A667")//文字颜色
     private var _textColorLoaded = Color.WHITE//覆盖后颜色
     private var _textColorUnload = _textColorIdle
@@ -74,7 +77,7 @@ class TextKProgress2 @JvmOverloads constructor(context: Context, attrs: Attribut
 
     //////////////////////////////////////////////////////////////////
 
-    private lateinit var _paintText: Paint//按钮文字画笔
+    private lateinit var _paintText: TextPaint//按钮文字画笔
     private lateinit var _paintBackground: Paint//背景画笔
     private var _linearGradientProgress: LinearGradient? = null
     private val _boundBorder = RectF()
@@ -96,10 +99,11 @@ class TextKProgress2 @JvmOverloads constructor(context: Context, attrs: Attribut
         _paintBackground.isAntiAlias = true
         _paintBackground.style = Paint.Style.FILL
         //设置文字画笔
-        _paintText = Paint()
+        _paintText = TextPaint()
         _paintText.isAntiAlias = true
         _paintText.textSize = textSize
         _paintText.typeface = typeface
+        _paintText.textAlign = Paint.Align.CENTER
         //解决文字有时候画不出问题
         setLayerType(LAYER_TYPE_SOFTWARE, _paintText)
     }
@@ -344,14 +348,15 @@ class TextKProgress2 @JvmOverloads constructor(context: Context, attrs: Attribut
     private fun drawText(canvas: Canvas) {
         //计算Baseline绘制的Y坐标
         val y = canvas.height / 2 - (_paintText.descent() / 2 + _paintText.ascent() / 2)
-        val textWidth = _paintText.measureText(_content.toString())
+        val content = TextUtils.ellipsize(_content, _paintText, measuredWidth - 2f * _textPadding, TextUtils.TruncateAt.END).toString()
+        val textWidth = _paintText.measureText(content)
         _textOffsetBottomY = y
         _textOffsetRightX = (measuredWidth + textWidth) / 2
         when (_progressState) {
             CProgressState.PROGRESS_STATE_IDLE -> {
                 _paintText.setShader(null)
                 _paintText.color = _textColorIdle
-                canvas.drawText(_content.toString(), (measuredWidth - textWidth) / 2, y, _paintText)
+                canvas.drawText(content, measuredWidth  / 2f, y, _paintText)
             }
 
             CProgressState.PROGRESS_STATE_LOAD -> {
@@ -387,13 +392,13 @@ class TextKProgress2 @JvmOverloads constructor(context: Context, attrs: Attribut
                         _paintText.color = _textColorLoaded
                     }
                 }
-                canvas.drawText(_content.toString(), (measuredWidth - textWidth) / 2, y, _paintText)
+                canvas.drawText(content, measuredWidth  / 2f, y, _paintText)
             }
 
             else -> {
                 _paintText.setShader(null)
                 _paintText.color = _textColorOver
-                canvas.drawText(_content.toString(), (measuredWidth - textWidth) / 2, y, _paintText)
+                canvas.drawText(content, measuredWidth  / 2f, y, _paintText)
             }
         }
     }

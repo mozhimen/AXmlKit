@@ -1,6 +1,7 @@
 package com.mozhimen.xmlk.recyclerk.snap
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
@@ -24,7 +25,7 @@ import com.mozhimen.xmlk.recyclerk.RecyclerKLinearNested
 class RecyclerKSnap @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    defStyleAttr: Int = 0,
 ) : RecyclerKLinearNested(context, attrs, defStyleAttr), ILayoutK {
 
     private lateinit var _gravityLinearSnapHelper: RecyclerKSnapHelperGravity
@@ -46,20 +47,24 @@ class RecyclerKSnap @JvmOverloads constructor(
 
     override fun initAttrs(attrs: AttributeSet?, defStyleAttr: Int) {
         attrs ?: return
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.RecyclerKSnap, defStyleAttr, 0)
-        _snapGravity =
-            typedArray.getInt(R.styleable.RecyclerKSnap_recyclerKSnap_snapGravity, _snapGravity)
-        _snapToPadding =
-            typedArray.getBoolean(R.styleable.RecyclerKSnap_recyclerKSnap_snapToPadding, _snapToPadding)
-        _enableSnapLastItem =
-            typedArray.getBoolean(R.styleable.RecyclerKSnap_recyclerKSnap_enableSnapLastItem, _enableSnapLastItem)
-        _snapMaxFlingSizeFraction =
-            typedArray.getFloat(R.styleable.RecyclerKSnap_recyclerKSnap_snapMaxFlingSizeFraction, _snapMaxFlingSizeFraction)
-        _snapScrollMsPerInch =
-            typedArray.getFloat(R.styleable.RecyclerKSnap_recyclerKSnap_snapScrollMsPerInch, _snapScrollMsPerInch)
-        _snapEnabled =
-            typedArray.getBoolean(R.styleable.RecyclerKSnap_recyclerKSnap_snapEnabled, _snapEnabled)
-        typedArray.recycle()
+        var typedArray: TypedArray? = null
+        try {
+            typedArray = context.obtainStyledAttributes(attrs, R.styleable.RecyclerKSnap, defStyleAttr, 0)
+            _snapGravity =
+                typedArray.getInt(R.styleable.RecyclerKSnap_recyclerKSnap_snapGravity, _snapGravity)
+            _snapToPadding =
+                typedArray.getBoolean(R.styleable.RecyclerKSnap_recyclerKSnap_snapToPadding, _snapToPadding)
+            _enableSnapLastItem =
+                typedArray.getBoolean(R.styleable.RecyclerKSnap_recyclerKSnap_enableSnapLastItem, _enableSnapLastItem)
+            _snapMaxFlingSizeFraction =
+                typedArray.getFloat(R.styleable.RecyclerKSnap_recyclerKSnap_snapMaxFlingSizeFraction, _snapMaxFlingSizeFraction)
+            _snapScrollMsPerInch =
+                typedArray.getFloat(R.styleable.RecyclerKSnap_recyclerKSnap_snapScrollMsPerInch, _snapScrollMsPerInch)
+            _snapEnabled =
+                typedArray.getBoolean(R.styleable.RecyclerKSnap_recyclerKSnap_snapEnabled, _snapEnabled)
+        } finally {
+            typedArray?.recycle()
+        }
     }
 
     override fun initView() {

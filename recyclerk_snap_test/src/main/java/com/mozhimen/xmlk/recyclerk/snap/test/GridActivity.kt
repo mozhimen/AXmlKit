@@ -24,7 +24,7 @@ class GridActivity : BaseActivityVB<ActivityGridBinding>() {
     @OptIn(OApiCall_BindLifecycle::class, OApiCall_BindViewLifecycle::class)
     override fun initView(savedInstanceState: Bundle?) {
         vb.recyclerView.bindLifecycle(this)
-        vb.recyclerView.layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
+        vb.recyclerView.layoutManager = GridLayoutManager(this, 3, RecyclerView.HORIZONTAL, false)
         vb.recyclerView.setHasFixedSize(true)
         vb.recyclerView.adapter = AppAdapter(R.layout.adapter_vertical, App.getApps())
     }
