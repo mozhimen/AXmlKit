@@ -147,9 +147,7 @@ class TextKEditBarActivity : FragmentActivity(), View.OnClickListener {
         }
         if (!TextUtils.isEmpty(_mTextKEditBarConfig!!.regexRule)) {
             _mTextKEditBarConfig!!.regexRule?.let {
-                val pattern = Pattern.compile(it)
-                val matcher = pattern.matcher(content)
-                if (!matcher.matches()) {
+                if (!Pattern.compile(it).matcher(content).matches()) {
                     _textKEditBarListener?.onIllegal()
                     return false
                 }
