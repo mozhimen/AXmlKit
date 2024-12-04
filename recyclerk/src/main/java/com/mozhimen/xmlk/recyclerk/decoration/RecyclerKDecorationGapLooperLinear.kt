@@ -4,7 +4,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.LooperLinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.kotlin.utilk.androidx.recyclerview.getItemCount
+import com.mozhimen.kotlin.utilk.androidx.recyclerview.gainItemCount
 
 /**
  * @ClassName RecyclerDecorationGap2
@@ -29,7 +29,7 @@ class RecyclerKDecorationGapLooperLinear : RecyclerKDecorationGapLinear {
     ////////////////////////////////////////////////////////////////
 
     private fun equilibriumAssignment_ofLooperLinearLayoutManager(recyclerView: RecyclerView, itemView: View, outRect: Rect, gapOuter: Int, gapInner: Int = gapOuter / 2, gapOther: Int = gapOuter) {
-        val itemCount = recyclerView.getItemCount()// item 的个数
+        val itemCount = recyclerView.gainItemCount()// item 的个数
         val itemPosition = recyclerView.getChildAdapterPosition(itemView)// 当前 item 的 position
         val layoutManager = requireLayoutManager_ofLooperLinear(recyclerView) ?: return
         val orientation = layoutManager.orientation// 获取 LinearLayoutManager 的布局方向
