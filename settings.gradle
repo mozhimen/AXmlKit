@@ -72,6 +72,8 @@ include ':recyclerk_snap'
 include ':recyclerk_snap_test'
 include ':layoutk_magnet'
 include ':basic'
+include ':layoutk_marquee'
+include ':layoutk_marquee_test'
 //SwiftKit
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
@@ -121,3 +123,4 @@ include ':AStackKit'
 project(':AStackKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AStackKit")
 include ':AStackKit:stackk_callback'
 include ':AStackKit:stackk_basic'
+
