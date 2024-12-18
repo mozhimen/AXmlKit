@@ -1,17 +1,22 @@
 package com.mozhimen.layoutk.marquee
 
 import android.content.Context
+import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
+import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import android.widget.ViewFlipper
 import androidx.annotation.IntRange
+import com.mozhimen.kotlin.elemk.android.view.commons.IAnimation_AnimationListener
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.layoutk.marquee.bases.BaseMarqueeAdapter
+import com.mozhimen.layoutk.marquee.commons.ILayoutKMarqueeAnimListener
 import com.mozhimen.xmlk.basic.commons.ILayoutK
 
 /**
@@ -23,27 +28,78 @@ import com.mozhimen.xmlk.basic.commons.ILayoutK
  */
 @OptIn(OApiInit_ByLazy::class, OApiCall_BindLifecycle::class, OApiCall_BindViewLifecycle::class)
 class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
-    ViewFlipper(context, attrs), ILayoutK, BaseMarqueeAdapter.OnDataChangedListener {
-    private val _interval = 3000//轮播间隔
-    private val _animDuration = 1000//动画时间
+    ViewFlipper(context, attrs), ILayoutK, BaseMarqueeAdapter.OnDataChangedListener, ILayoutKMarqueeAnimListener {
+    private var _interval = 3000//轮播间隔
+    private var _animDuration = 1000//动画时间
     private var _itemCountPerLine = 1//一次性显示item数目
     private var _marqueeAdapter: BaseMarqueeAdapter<*>? = null
+    private var _animRunning = false
+
+    private var _animInListener: Animation.AnimationListener = object : IAnimation_AnimationListener {
+        override fun onAnimationStart(animation: Animation?) {
+            if (displayedChild == 0) {
+                onItemsAnimStart()
+            }
+            onItemAnimIn(displayedChild)
+        }
+    }
+
+    private var _animOutListener: Animation.AnimationListener = object : IAnimation_AnimationListener {
+        override fun onAnimationEnd(animation: Animation?) {
+            onItemAnimOut(displayedChild)
+            if (displayedChild == childCount - 1) {
+                onItemsAnimEnd()
+            }
+        }
+    }
+    private var _layoutKMarqueeAnimListener: ILayoutKMarqueeAnimListener? = null
 
     //////////////////////////////////////////////////////////////////////////////////////////////
 
     init {
+        initAttrs(attrs)
         initView()
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
 
+    fun setMarqueeAdapter(adapter: BaseMarqueeAdapter<*>) {
+        _marqueeAdapter = adapter
+        _marqueeAdapter!!.setOnDataChangedListener(this)
+    }
+
+    fun setItemCountPerLine(@IntRange(from = 1) itemCount: Int) {
+        _itemCountPerLine = itemCount
+    }
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////
+
+    override fun initAttrs(attrs: AttributeSet?) {
+        attrs ?: return
+        var typedArray: TypedArray? = null
+        try {
+            typedArray = context.obtainStyledAttributes(attrs, R.styleable.LayoutKMarqueeText)
+            _interval =
+                typedArray.getInt(R.styleable.LayoutKMarqueeText_layoutKMarqueeText_interval, _interval)
+            _animDuration =
+                typedArray.getInt(R.styleable.LayoutKMarqueeText_layoutKMarqueeText_animDuration, _animDuration)
+            _itemCountPerLine =
+                typedArray.getInt(R.styleable.LayoutKMarqueeText_layoutKMarqueeText_itemCountPerLine, _itemCountPerLine)
+        } finally {
+            typedArray?.recycle()
+        }
+    }
+
     override fun initView() {
         // 动画
         val animIn = AnimationUtils.loadAnimation(context, R.anim.anim_marquee_in).apply {
             duration = _animDuration.toLong()
+            setAnimationListener(_animInListener)
         }
         val animOut = AnimationUtils.loadAnimation(context, R.anim.anim_marquee_out).apply {
             duration = _animDuration.toLong()
+            setAnimationListener(_animOutListener)
         }
         this.inAnimation = animIn// 设置切换View的进入动画
         this.outAnimation = animOut// 设置切换View的退出动画
@@ -52,7 +108,16 @@ class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: Attr
     }
 
     override fun onDataChanged() {
-        resetDatas()
+        if (!_animRunning) {
+            resetDatas()
+        } else {
+            _layoutKMarqueeAnimListener = object : ILayoutKMarqueeAnimListener {
+                override fun onItemsAnimEnd() {
+                    _layoutKMarqueeAnimListener = null
+                    resetDatas()
+                }
+            }
+        }
     }
 
     override fun onVisibilityChanged(changedView: View, visibility: Int) {
@@ -74,6 +139,17 @@ class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: Attr
         stopFlipping()
     }
 
+    override fun onItemAnimIn(index: Int) {
+        _animRunning = true
+        UtilKLogWrapper.d(TAG, "onItemAnimIn: index $index")
+        _layoutKMarqueeAnimListener?.onItemAnimIn(index)
+    }
+
+    override fun onItemAnimOut(index: Int) {
+        UtilKLogWrapper.d(TAG, "onItemAnimOut: index $index")
+        _layoutKMarqueeAnimListener?.onItemAnimOut(index)
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////
 
     private fun resetDatas() {
@@ -85,23 +161,23 @@ class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: Attr
         val loopCount: Int = if (marqueeAdapter.getItemCount() % _itemCountPerLine == 0) marqueeAdapter.getItemCount() / _itemCountPerLine else marqueeAdapter.getItemCount() / _itemCountPerLine + 1
         // 遍历动态添加每页的View
         for (i in 0 until loopCount) {
-            val parentView = LinearLayout(context)
-            parentView.orientation = LinearLayout.VERTICAL
-            parentView.gravity = Gravity.CENTER
-            parentView.removeAllViews()
-            if (_itemCountPerLine<=1){
+            if (_itemCountPerLine <= 1) {
                 val view: View = marqueeAdapter.onCreateView(this)
-                parentView.addView(view)
                 if (currentIndex < marqueeAdapter.getItemCount()) { // 绑定View
                     marqueeAdapter.onBindView(view, currentIndex)
                 }
                 currentIndex += 1
-                addView(parentView)
-            }else{
+                addView(view)
+            } else {
+                val parentView = LinearLayout(context).apply {
+                    orientation = LinearLayout.VERTICAL
+                    gravity = Gravity.CENTER
+                    removeAllViews()
+                }
                 // 每页显示多少条，就遍历添加几个子View
                 for (j in 0 until _itemCountPerLine) {
                     currentIndex = getRealPosition(j, currentIndex)
-                    if (currentIndex in 0 until marqueeAdapter.getItemCount()){
+                    if (currentIndex in 0 until marqueeAdapter.getItemCount()) {
                         val view: View = marqueeAdapter.onCreateView(this)
                         parentView.addView(view)
                         if (currentIndex < marqueeAdapter.getItemCount()) {
@@ -120,13 +196,4 @@ class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: Attr
         } else {
             currentIndex + 1
         }
-
-    fun setMarqueeAdapter(adapter: BaseMarqueeAdapter<*>) {
-        _marqueeAdapter = adapter
-        _marqueeAdapter!!.setOnDataChangedListener(this)
-    }
-
-    fun setItemCountPerLine(@IntRange(from = 1) itemCount: Int) {
-        _itemCountPerLine = itemCount
-    }
 }

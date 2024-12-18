@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LayoutKMarqueeText">
+        <attr name="layoutKMarqueeText_interval" format="integer"/>
+        <attr name="layoutKMarqueeText_animDuration" format="integer"/>
+        <attr name="layoutKMarqueeText_itemCountPerLine" format="integer"/>
+    </declare-styleable>
+</resources>
