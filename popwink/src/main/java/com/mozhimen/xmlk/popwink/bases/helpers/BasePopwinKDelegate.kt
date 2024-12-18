@@ -16,8 +16,7 @@ import com.mozhimen.kotlin.utilk.commons.IUtilK
 import com.mozhimen.kotlin.utilk.android.util.e
 import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
 import com.mozhimen.kotlin.utilk.android.view.UtilKViewWrapper
-import com.mozhimen.kotlin.utilk.android.view.UtilKWindowManagerLayoutParams
-import com.mozhimen.kotlin.utilk.android.view.UtilKWindowManagerLayoutParamsWrapper
+import com.mozhimen.kotlin.utilk.android.view.UtilKWindowManager_LayoutParamsWrapper
 import com.mozhimen.xmlk.popwink.R
 import com.mozhimen.xmlk.popwink.bases.commons.IClearMemoryListener
 
@@ -94,7 +93,7 @@ class BasePopwinKDelegate(context: BasePopwinKContextWrapper) : PopupWindow(cont
     }
 
     fun onBeforeShowExec(activity: Activity) {
-        if (UtilKWindowManagerLayoutParamsWrapper.isFullScreen(activity)) {
+        if (UtilKWindowManager_LayoutParamsWrapper.isFullScreen(activity)) {
             handleFullScreenFocusable()
         }
     }

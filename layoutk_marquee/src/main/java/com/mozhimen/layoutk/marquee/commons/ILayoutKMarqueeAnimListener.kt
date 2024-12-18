@@ -1,5 +1,7 @@
 package com.mozhimen.layoutk.marquee.commons
 
+import android.view.View
+
 /**
  * @ClassName ILayoutKMarqueeAnimListener
  * @Description TODO
@@ -8,6 +10,8 @@ package com.mozhimen.layoutk.marquee.commons
  * @Version 1.0
  */
 interface ILayoutKMarqueeAnimListener {
-    fun onItemAnimIn(index: Int){}
-    fun onItemAnimOut(index: Int){}
+    fun onItemAnimInStart(index: Int, view: View?) {}
+    fun onItemAnimInEnd(index: Int, view: View?) {}
+    fun onItemAnimOutStart(index: Int, view: View?) {}
+    fun onItemAnimOutEnd(index: Int, view: View?) {}
 }

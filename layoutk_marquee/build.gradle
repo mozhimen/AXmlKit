@@ -31,7 +31,7 @@ android {
 }
 
 dependencies {
-    api project(':basic')
+    api project(project.path.replace(project.name, '') + ':basic')
     implementation project(':SwiftKit:basick')
 
     testImplementation 'junit:junit:4.13.2'

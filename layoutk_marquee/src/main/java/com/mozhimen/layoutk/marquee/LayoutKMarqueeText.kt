@@ -11,13 +11,18 @@ import android.widget.LinearLayout
 import android.widget.ViewFlipper
 import androidx.annotation.IntRange
 import com.mozhimen.kotlin.elemk.android.view.commons.IAnimation_AnimationListener
+import com.mozhimen.kotlin.elemk.android.view.cons.CGravity
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.utilk.android.animation.applyAnimateTranslationYToTopHide
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.android.widget.UtilKFrameLayout_LayoutParamsGet
+import com.mozhimen.kotlin.utilk.kotlin.ranges.constraint
 import com.mozhimen.layoutk.marquee.bases.BaseMarqueeAdapter
 import com.mozhimen.layoutk.marquee.commons.ILayoutKMarqueeAnimListener
 import com.mozhimen.xmlk.basic.commons.ILayoutK
+import java.util.LinkedList
 
 /**
  * @ClassName LayoutKMarqueeVertical
@@ -33,26 +38,48 @@ class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: Attr
     private var _animDuration = 1000//动画时间
     private var _itemCountPerLine = 1//一次性显示item数目
     private var _marqueeAdapter: BaseMarqueeAdapter<*>? = null
-    private var _animRunning = false
 
+    //    private var _animRunning = false
+    private var _viewQueue = LinkedList<View>()
+
+    /**
+     * 顺序
+     * onItemAnimOutStart: index 0
+     * onItemAnimInStart: index 1
+     * onItemAnimOutEnd: index 0
+     * onItemAnimInEnd: index 1
+     */
     private var _animInListener: Animation.AnimationListener = object : IAnimation_AnimationListener {
         override fun onAnimationStart(animation: Animation?) {
-            if (displayedChild == 0) {
-                onItemsAnimStart()
-            }
-            onItemAnimIn(displayedChild)
+            onItemAnimInStart(displayedChild, currentView)
+        }
+
+        override fun onAnimationEnd(animation: Animation?) {
+            onItemAnimInEnd(displayedChild, currentView)
         }
     }
 
     private var _animOutListener: Animation.AnimationListener = object : IAnimation_AnimationListener {
+        override fun onAnimationStart(animation: Animation?) {
+            val index = getDisplayedChildIndex(displayedChild - 1)
+            onItemAnimOutStart(index, getChildAt(index))
+        }
+
         override fun onAnimationEnd(animation: Animation?) {
-            onItemAnimOut(displayedChild)
-            if (displayedChild == childCount - 1) {
-                onItemsAnimEnd()
-            }
+            val index = getDisplayedChildIndex(displayedChild - 1)
+            onItemAnimOutEnd(index, getChildAt(index))
         }
     }
-    private var _layoutKMarqueeAnimListener: ILayoutKMarqueeAnimListener? = null
+
+    private fun getDisplayedChildIndex(displayedChild: Int): Int =
+        if (displayedChild >= childCount)
+            0
+        else if (displayedChild < 0) {
+            (childCount - 1).constraint(0, childCount)
+        } else
+            displayedChild
+
+    //    private var _layoutKMarqueeAnimListener: ILayoutKMarqueeAnimListener? = null
 
     //////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -72,8 +99,32 @@ class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: Attr
         _itemCountPerLine = itemCount
     }
 
-
     //////////////////////////////////////////////////////////////////////////////////////////////
+
+    override fun onItemAnimOutStart(index: Int, view: View?) {
+        UtilKLogWrapper.d(TAG, "onItemAnimOutStart: ------------------------>")
+        UtilKLogWrapper.d(TAG, "onItemAnimOutStart: index $index")
+    }
+
+    override fun onItemAnimInStart(index: Int, view: View?) {
+        UtilKLogWrapper.d(TAG, "onItemAnimInStart: index $index")
+    }
+
+    override fun onItemAnimOutEnd(index: Int, view: View?) {
+        UtilKLogWrapper.d(TAG, "onItemAnimOutEnd: index $index")
+    }
+
+    override fun onItemAnimInEnd(index: Int, view: View?) {
+        UtilKLogWrapper.d(TAG, "onItemAnimInEnd: index $index")
+        if (index == childCount - 1 && _viewQueue.isNotEmpty()) {//最后一个显示了
+            view?.applyAnimateTranslationYToTopHide(_animDuration.toLong(), -(height / 2f + view.height), onStart = null) {
+                removeAllViews()
+            }
+            for (i in _viewQueue.indices) {
+                addView(_viewQueue.poll(), childCount, UtilKFrameLayout_LayoutParamsGet.get_MATCH_WRAP().apply { gravity = CGravity.CENTER })
+            }
+        }
+    }
 
     override fun initAttrs(attrs: AttributeSet?) {
         attrs ?: return
@@ -108,16 +159,14 @@ class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: Attr
     }
 
     override fun onDataChanged() {
-        if (!_animRunning) {
+        if (childCount == 0) {
+            addDatas()
+        } else if (_viewQueue.isEmpty()) {
             resetDatas()
-        } else {
-            _layoutKMarqueeAnimListener = object : ILayoutKMarqueeAnimListener {
-                override fun onItemsAnimEnd() {
-                    _layoutKMarqueeAnimListener = null
-                    resetDatas()
-                }
-            }
-        }
+        } /*else {
+            _viewQueue.clear()
+            resetDatas()
+        }*/
     }
 
     override fun onVisibilityChanged(changedView: View, visibility: Int) {
@@ -139,20 +188,46 @@ class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: Attr
         stopFlipping()
     }
 
-    override fun onItemAnimIn(index: Int) {
-        _animRunning = true
-        UtilKLogWrapper.d(TAG, "onItemAnimIn: index $index")
-        _layoutKMarqueeAnimListener?.onItemAnimIn(index)
-    }
-
-    override fun onItemAnimOut(index: Int) {
-        UtilKLogWrapper.d(TAG, "onItemAnimOut: index $index")
-        _layoutKMarqueeAnimListener?.onItemAnimOut(index)
-    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////
 
     private fun resetDatas() {
+        _marqueeAdapter ?: return
+        val marqueeAdapter = _marqueeAdapter!!
+        var currentIndex = 0
+        // 计算数据展示完毕需要几页，根据总条目%每页条目计算得出
+        val loopCount: Int = if (marqueeAdapter.getItemCount() % _itemCountPerLine == 0) marqueeAdapter.getItemCount() / _itemCountPerLine else marqueeAdapter.getItemCount() / _itemCountPerLine + 1
+        // 遍历动态添加每页的View
+        for (i in 0 until loopCount) {
+            if (_itemCountPerLine <= 1) {
+                val view: View = marqueeAdapter.onCreateView(this)
+                if (currentIndex < marqueeAdapter.getItemCount()) { // 绑定View
+                    marqueeAdapter.onBindView(view, currentIndex)
+                }
+                currentIndex += 1
+                _viewQueue.add(view)
+            } else {
+                val parentView = LinearLayout(context).apply {
+                    orientation = LinearLayout.VERTICAL
+                    gravity = Gravity.CENTER
+                }
+                // 每页显示多少条，就遍历添加几个子View
+                for (j in 0 until _itemCountPerLine) {
+                    currentIndex = getRealPosition(j, currentIndex)
+                    if (currentIndex in 0 until marqueeAdapter.getItemCount()) {
+                        val view: View = marqueeAdapter.onCreateView(this)
+                        parentView.addView(view)
+                        if (currentIndex < marqueeAdapter.getItemCount()) {
+                            marqueeAdapter.onBindView(view, currentIndex)
+                        }
+                    }
+                }
+                _viewQueue.add(parentView)
+            }
+        }
+    }
+
+    private fun addDatas() {
         _marqueeAdapter ?: return
         val marqueeAdapter = _marqueeAdapter!!
         removeAllViews()
@@ -167,12 +242,11 @@ class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: Attr
                     marqueeAdapter.onBindView(view, currentIndex)
                 }
                 currentIndex += 1
-                addView(view)
+                addView(view, childCount, UtilKFrameLayout_LayoutParamsGet.get_MATCH_WRAP().apply { gravity = CGravity.CENTER })
             } else {
                 val parentView = LinearLayout(context).apply {
                     orientation = LinearLayout.VERTICAL
                     gravity = Gravity.CENTER
-                    removeAllViews()
                 }
                 // 每页显示多少条，就遍历添加几个子View
                 for (j in 0 until _itemCountPerLine) {
@@ -185,7 +259,7 @@ class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: Attr
                         }
                     }
                 }
-                addView(parentView)
+                addView(parentView, childCount, UtilKFrameLayout_LayoutParamsGet.get_MATCH_WRAP().apply { gravity = CGravity.CENTER })
             }
         }
     }

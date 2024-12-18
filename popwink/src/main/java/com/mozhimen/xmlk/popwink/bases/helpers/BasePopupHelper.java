@@ -38,11 +38,11 @@ import androidx.fragment.app.Fragment;
 import com.mozhimen.kotlin.elemk.android.view.cons.CWinMgr;
 import com.mozhimen.blurk.mos.BlurKConfig;
 import com.mozhimen.stackk.callback.StackKCb;
-import com.mozhimen.kotlin.utilk.android.animation.UtilKAnimator;
+import com.mozhimen.kotlin.utilk.android.animation.UtilKAnimatorWrapper;
 import com.mozhimen.kotlin.utilk.android.content.UtilKResources;
 import com.mozhimen.kotlin.utilk.android.os.UtilKBuildVersion;
 import com.mozhimen.kotlin.utilk.wrapper.UtilKAnim;
-import com.mozhimen.kotlin.utilk.android.view.UtilKAnimation;
+import com.mozhimen.kotlin.utilk.android.view.UtilKAnimationWrapper;
 import com.mozhimen.kotlin.utilk.android.view.UtilKContentView;
 import com.mozhimen.kotlin.utilk.android.view.UtilKInputMethodManagerWrapper;
 import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen;
@@ -351,7 +351,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         if (mShowAnimation == null) {
             mShowAnimation = mPopupWindow.onCreateShowAnimation(width, height);
             if (mShowAnimation != null) {
-                showDuration = UtilKAnimation.getDuration(mShowAnimation);
+                showDuration = UtilKAnimationWrapper.gainDuration(mShowAnimation);
                 setToBlur(mBlurOption);
             }
         }
@@ -362,7 +362,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         if (mShowAnimator == null) {
             mShowAnimator = mPopupWindow.onCreateShowAnimator(width, height);
             if (mShowAnimator != null) {
-                showDuration = UtilKAnimator.getDuration(mShowAnimator);
+                showDuration = UtilKAnimatorWrapper.gainDuration(mShowAnimator);
                 setToBlur(mBlurOption);
             }
         }
@@ -373,7 +373,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         if (mDismissAnimation == null) {
             mDismissAnimation = mPopupWindow.onCreateDismissAnimation(width, height);
             if (mDismissAnimation != null) {
-                dismissDuration = UtilKAnimation.getDuration(mDismissAnimation);
+                dismissDuration = UtilKAnimationWrapper.gainDuration(mDismissAnimation);
                 setToBlur(mBlurOption);
             }
         }
@@ -384,7 +384,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
         if (mDismissAnimator == null) {
             mDismissAnimator = mPopupWindow.onCreateDismissAnimator(width, height);
             if (mDismissAnimator != null) {
-                dismissDuration = UtilKAnimator.getDuration(mDismissAnimator);
+                dismissDuration = UtilKAnimatorWrapper.gainDuration(mDismissAnimator);
                 setToBlur(mBlurOption);
             }
         }
@@ -415,7 +415,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
             mShowAnimation.cancel();
         }
         mShowAnimation = showAnimation;
-        showDuration = UtilKAnimation.getDuration(mShowAnimation);
+        showDuration = UtilKAnimationWrapper.gainDuration(mShowAnimation);
         setToBlur(mBlurOption);
     }
 
@@ -428,7 +428,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
             mShowAnimator.cancel();
         }
         mShowAnimator = showAnimator;
-        showDuration = UtilKAnimator.getDuration(mShowAnimator);
+        showDuration = UtilKAnimatorWrapper.gainDuration(mShowAnimator);
         setToBlur(mBlurOption);
     }
 
@@ -438,7 +438,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
             mDismissAnimation.cancel();
         }
         mDismissAnimation = dismissAnimation;
-        dismissDuration = UtilKAnimation.getDuration(mDismissAnimation);
+        dismissDuration = UtilKAnimationWrapper.gainDuration(mDismissAnimation);
         setToBlur(mBlurOption);
     }
 
@@ -448,7 +448,7 @@ public final class BasePopupHelper implements Function2<Rect, Boolean, Unit>, IC
             mDismissAnimator.cancel();
         }
         mDismissAnimator = dismissAnimator;
-        dismissDuration = UtilKAnimator.getDuration(mDismissAnimator);
+        dismissDuration = UtilKAnimatorWrapper.gainDuration(mDismissAnimator);
         setToBlur(mBlurOption);
     }
 
