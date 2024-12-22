@@ -1,9 +1,12 @@
 package androidx.recyclerview.widget
 
+import android.animation.ValueAnimator
 import android.content.Context
+import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.OnScrollListener
 import androidx.recyclerview.widget.RecyclerView.Orientation
+import com.mozhimen.kotlin.elemk.android.provider.cons.CSettings
 import com.mozhimen.xmlk.recyclerk.R
 import java.lang.ref.WeakReference
 
@@ -15,7 +18,9 @@ import java.lang.ref.WeakReference
  * @Version 1.0
  */
 class AutoLooperLinearLayoutManager : LooperLinearLayoutManager {
-    private val _pixelDistance = 3 //每40毫秒移动的像素值
+    private val _pixelSpeed = 0.1f
+    private val _multiple = 2.5f
+    private val _pixelDistance = 1 //每40毫秒移动的像素值
     private var _recyclerViewRef: WeakReference<RecyclerView>? = null
     private var _isLooping = false
 
@@ -53,17 +58,24 @@ class AutoLooperLinearLayoutManager : LooperLinearLayoutManager {
         }
     }
 
+//    private var _printDelay = System.currentTimeMillis()
+
     private var _autoLooperRunnable: Runnable = object : Runnable {
         override fun run() {
             _recyclerViewRef?.get()?.let {
+                val delay = ValueAnimator.getFrameDelay() * _multiple
+//                if (System.currentTimeMillis() - _printDelay >= 1000) {
+//                    _printDelay = System.currentTimeMillis()
+//                    Log.d(TAG, "run: speed $_pixelSpeed distance ${delay * _pixelSpeed}")
+//                }
                 if (orientation == RecyclerView.HORIZONTAL) {
-                    it.scrollBy(_pixelDistance, 0)
+                    it.scrollBy((delay * _pixelSpeed).toInt(), 0)
                 } else {
-                    it.scrollBy(0, _pixelDistance)
+                    it.scrollBy(0, (delay * _pixelSpeed).toInt())
                 }
                 val tag: Any? = it.getTag(R.id.recyclerk_auto_looper_runnable) as? Runnable?
                 if (tag != null && tag == this) {
-                    _recyclerViewRef?.get()?.postDelayed(this, 33)
+                    _recyclerViewRef?.get()?.postDelayed(this, delay.toLong())
                 }
             }
         }
