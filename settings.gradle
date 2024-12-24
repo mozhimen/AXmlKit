@@ -124,3 +124,4 @@ project(':AStackKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AStackKit")
 include ':AStackKit:stackk_callback'
 include ':AStackKit:stackk_basic'
 
+include ':popwink_test'

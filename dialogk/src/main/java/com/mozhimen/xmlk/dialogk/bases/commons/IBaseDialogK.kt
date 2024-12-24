@@ -27,6 +27,33 @@ interface IBaseDialogK<I : IDialogKClickListener> : IUtilK {
     @ADialogMode
     fun getDialogMode(): Int
 
+    /**
+     * 初始化window宽度
+     * 默认屏幕宽度左右间距25dp
+     * (getCurrentScreenWidth() * 0.8f).roundToInt()
+     * @return
+     */
+    fun getDialogWindowWidth(): Int
+
+    /**
+     * 初始化window高度
+     * 默认wrap_content
+     * @return
+     */
+    fun getDialogWindowHeight(): Int
+
+    /**
+     * 初始化window的gravity
+     * @return 默认返回 Gravity.CENTER [Gravity]
+     */
+    fun getDialogWindowGravity(): Int
+
+    /**
+     * 窗口动画
+     */
+    @StyleRes
+    fun getDialogWindowAnimations(): Int?
+
     //////////////////////////////////////////////////////////////////////////////
 
     fun setDialogClickListener(listener: I): IBaseDialogK<*>
@@ -84,34 +111,6 @@ interface IBaseDialogK<I : IDialogKClickListener> : IUtilK {
      * @param view View
      */
     fun onViewCreated(view: View)
-
-    //////////////////////////////////////////////////////////////////////////////
-    //callback
-    //////////////////////////////////////////////////////////////////////////////
-
-    /**
-     * 初始化window宽度
-     * 默认屏幕宽度左右间距25dp
-     * (getCurrentScreenWidth() * 0.8f).roundToInt()
-     * @return
-     */
-    fun onInitWindowWidth(): Int
-
-    /**
-     * 初始化window高度
-     * 默认wrap_content
-     * @return
-     */
-    fun onInitWindowHeight(): Int
-
-    /**
-     * 初始化window的gravity
-     * @return 默认返回 Gravity.CENTER [Gravity]
-     */
-    fun onInitWindowGravity(): Int
-
-    @StyleRes
-    fun onInitWindowAnimations(): Int?
 
     /**
      * 销毁View

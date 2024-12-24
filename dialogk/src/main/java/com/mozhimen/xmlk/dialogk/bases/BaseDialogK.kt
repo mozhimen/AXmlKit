@@ -14,7 +14,6 @@ import com.mozhimen.kotlin.elemk.android.cons.CPermission
 import com.mozhimen.kotlin.utilk.android.app.isFinishingOrDestroyed
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.util.e
-import com.mozhimen.kotlin.utilk.java.lang.UtilKThread
 import com.mozhimen.kotlin.utilk.java.lang.UtilKThreadWrapper
 import com.mozhimen.xmlk.dialogk.bases.annors.ADialogMode
 import com.mozhimen.xmlk.dialogk.bases.commons.IBaseDialogK
@@ -172,10 +171,10 @@ abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(
         setContentView(_dialogView!!)
         if (window != null && !_isHasSetWindowAttr) {
             val layoutParams = window!!.attributes
-            layoutParams.width = onInitWindowWidth()
-            layoutParams.height = onInitWindowHeight()
-            layoutParams.gravity = onInitWindowGravity()
-            onInitWindowAnimations()?.let { window!!.setWindowAnimations(it) }
+            layoutParams.width = getDialogWindowWidth()
+            layoutParams.height = getDialogWindowHeight()
+            layoutParams.gravity = getDialogWindowGravity()
+            getDialogWindowAnimations()?.let { window!!.setWindowAnimations(it) }
             window!!.attributes = layoutParams
             _isHasSetWindowAttr = true
         }
@@ -190,17 +189,17 @@ abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(
     //callback
     //////////////////////////////////////////////////////////////////////////////
 
-    override fun onInitWindowWidth(): Int =
+    override fun getDialogWindowWidth(): Int =
         ViewGroup.LayoutParams.WRAP_CONTENT
 
-    override fun onInitWindowHeight(): Int =
+    override fun getDialogWindowHeight(): Int =
         ViewGroup.LayoutParams.WRAP_CONTENT
 
-    override fun onInitWindowGravity(): Int =
+    override fun getDialogWindowGravity(): Int =
         Gravity.CENTER
 
     @StyleRes
-    override fun onInitWindowAnimations(): Int? =
+    override fun getDialogWindowAnimations(): Int? =
         null
 
     override fun onDestroyView() {}
