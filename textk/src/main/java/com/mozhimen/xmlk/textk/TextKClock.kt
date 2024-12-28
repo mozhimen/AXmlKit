@@ -35,9 +35,9 @@ class TextKClock @JvmOverloads constructor(context: Context, attrs: AttributeSet
 
     private fun getTimeFormat(index: Int = 0): String {
         return when (index) {
-            0 -> CDateFormat.Format.yyyy_MM_dd_HH_mm_ss
-            1 -> CDateFormat.Format.yyyy_MM_dd_HH_mm
-            2 -> CDateFormat.Format.yyyy_MM_dd
+            0 -> CDateFormat.Format.`yyyy-MM-dd_HH_mm_ss`
+            1 -> CDateFormat.Format.`yyyy-MM-dd_HH_mm`
+            2 -> CDateFormat.Format.`yyyy-MM-dd`
             3 -> CDateFormat.Format.HH_mm_ss
             4 -> CDateFormat.Format.HH_mm
             5 -> CDateFormat.Format.mm_ss
@@ -47,7 +47,7 @@ class TextKClock @JvmOverloads constructor(context: Context, attrs: AttributeSet
             9 -> CDateFormat.Format.HH
             10 -> CDateFormat.Format.mm
             11 -> CDateFormat.Format.ss
-            else -> CDateFormat.Format.yyyy_MM_dd_HH_mm_ss
+            else -> CDateFormat.Format.`yyyy-MM-dd_HH_mm_ss`
         }
     }
 }

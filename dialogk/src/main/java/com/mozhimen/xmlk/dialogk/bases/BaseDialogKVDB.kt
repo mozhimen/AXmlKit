@@ -16,7 +16,7 @@ import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVDBClickListener
  * @Date 2023/6/2 17:12
  * @Version 1.0
  */
-abstract class BaseDialogKVDB<VDB : ViewDataBinding, T : IDialogKVDBClickListener<VDB>>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogK<T>(context, intResTheme) {
+abstract class BaseDialogKVDB<VDB : ViewDataBinding, T : IDialogKVDBClickListener<VDB>> constructor(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogK<T>(context, intResTheme) {
 
     private var _vdb: VDB? = null
     protected val vdb get() = _vdb!!

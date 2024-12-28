@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="StyleK_Progress_Horizontal.Custom.Indeterminate">
+    <style name="StyleK_ProgressBar_Horizontal.Custom.Indeterminate">
         <item name="android:indeterminate">true</item>
         <item name="android:indeterminateTint">@color/cok_blue_0177fd</item>
     </style>
