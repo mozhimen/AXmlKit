@@ -32,6 +32,12 @@
     <!--下划线控件-->
     <declare-styleable name="TextKUnderLine">
         <!--下划线是否出现-->
-        <attr name="textKUnderLine_underline" format="boolean" />
+        <attr name="textKUnderLine_enabled" format="boolean" />
+    </declare-styleable>
+
+    <!--下划线控件-->
+    <declare-styleable name="TextKStrikethrough">
+        <!--下划线是否出现-->
+        <attr name="textKStrikethrough_enabled" format="boolean" />
     </declare-styleable>
 </resources>
