@@ -1,6 +1,7 @@
 package com.mozhimen.xmlk.textk
 
 import android.content.Context
+import android.graphics.Paint
 import android.text.TextPaint
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
