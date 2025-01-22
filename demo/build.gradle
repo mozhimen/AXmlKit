@@ -37,12 +37,12 @@ android {
 }
 
 dependencies {
-    implementation project(':SwiftKit:bindk')
-    implementation project(':SwiftKit:xmlk')
+    implementation project(':ASwiftKit:bindk')
+    implementation project(':ASwiftKit:xmlk')
     implementation project(':layoutk_blur')
     implementation project(':recyclerk')
     implementation project(':vhk')
-    implementation project(':AAdaptKit:adaptk_systembar')
+    implementation project(':AAdaptKit:systembar')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

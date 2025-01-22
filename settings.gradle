@@ -74,54 +74,78 @@ include ':layoutk_magnet'
 include ':basic'
 include ':layoutk_marquee'
 include ':layoutk_marquee_test'
-//SwiftKit
-include ':SwiftKit'
-project(':SwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\SwiftKit")
-include ':SwiftKit:basick'
-include ':SwiftKit:xmlk'
-include ':SwiftKit:blurk'
-include ':SwiftKit:bindk'
+include ':popwink_test'
+include ':imagek_shimmer'
+include ':fontk'
+//ALibKit_Google
+include ':ALibKit_Google'
+project(':ALibKit_Google').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Google")
+include ':ALibKit_Google:material'
+//ALibKit_Jetpack
+include ':ALibKit_Jetpack'
+project(':ALibKit_Jetpack').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetpack")
+include ':ALibKit_Jetpack:preference'
+include ':ALibKit_Jetpack:core_splashscreen'
+include ':ALibKit_Jetpack:databinding'
+include ':ALibKit_Jetpack:core'
+include ':ALibKit_Jetpack:annotation'
+//ALibKit_Airbnb
+include ':ALibKit_Airbnb'
+project(':ALibKit_Airbnb').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Airbnb")
+include ':ALibKit_Airbnb:lottie'
+//ALibKit_Jetbrains
+include ':ALibKit_Jetbrains'
+project(':ALibKit_Jetbrains').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Jetbrains")
+include ':ALibKit_Jetbrains:kotlin_stdlib'
+include ':ALibKit_Jetbrains:kotlinx_coroutines'
+//KUtilKit
+include ':KUtilKit'
+project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
+include ':KUtilKit:android'
+include ':KUtilKit:kotlin'
+//ASwiftKit
+include ':ASwiftKit'
+project(':ASwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ASwiftKit")
+include ':ASwiftKit:basick'
+include ':ASwiftKit:xmlk'
+include ':ASwiftKit:blurk'
+include ':ASwiftKit:bindk'
 //AImageKit
 include ':AImageKit'
 project(':AImageKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AImageKit")
-include ':AImageKit:imagek_glide'
-include ':AImageKit:imagek_glide_blur'
+include ':AImageKit:glide'
+include ':AImageKit:glide:blur'
 //AAdaptKit
 include ':AAdaptKit'
 project(':AAdaptKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AAdaptKit")
-include ':AAdaptKit:adaptk_systembar'
+include ':AAdaptKit:systembar'
 //AAnimKit
 include ':AAnimKit'
 project(':AAnimKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AAnimKit")
 include ':AAnimKit:animk'
-include ':AAnimKit:animk_lottie'
-include ':AAnimKit:animk_builder'
+include ':AAnimKit:builder'
 //ACacheKit
 include ':ACacheKit'
 project(':ACacheKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ACacheKit")
-include ':ACacheKit:cachek_sharedpreferences'
-include ':ACacheKit:cachek_basic'
+include ':ACacheKit:sharedpreferences'
+include ':ACacheKit:basic'
 //ACacheKit
 include ':ACryptoKit'
 project(':ACryptoKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ACryptoKit")
-include ':ACryptoKit:cryptok_basic'
+include ':ACryptoKit:basic'
 //APostKit
 include ':APostKit'
 project(':APostKit').projectDir = new File("D:\\WorkSpace\\GitHub\\APostKit")
-include ':APostKit:postk_livedata'
-//KUtilKit
-include ':KUtilKit'
-project(':KUtilKit').projectDir = new File("D:\\WorkSpace\\GitHub\\KUtilKit")
-include ':KUtilKit:utilk_android'
-include ':KUtilKit:utilk_kotlin'
+include ':APostKit:livedata'
+include ':APostKit:basic'
 //ATaskKit
 include ':ATaskKit'
 project(':ATaskKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ATaskKit")
-include ':ATaskKit:taskk_executor'
+include ':ATaskKit:executor'
 //AStackKit
 include ':AStackKit'
 project(':AStackKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AStackKit")
-include ':AStackKit:stackk_callback'
-include ':AStackKit:stackk_basic'
+include ':AStackKit:callback'
+include ':AStackKit:basic'
 
-include ':popwink_test'
+

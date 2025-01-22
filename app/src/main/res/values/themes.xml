@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="XmlKStyle_Btn" parent="StyleK_MaterialBtn">
+    <style name="XmlKStyle_Btn">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginHorizontal" tools:targetApi="o">20dp</item>
     </style>
@@ -35,5 +35,29 @@
 
     <style name="LeleTxt_style.Detail_Content" parent="StyleK_Txt.Font_Sans_Serif.Gravity_Center.Style_Norm.Color_Gray_999.Size_013.Width_Wrap.Height_Wrap">
         <item name="android:gravity">start</item>
+    </style>
+
+    <style name="DialogK_Style_Title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginVertical" tools:targetApi="o">14dp</item>
+        <item name="android:textColor">@color/cok_blue_0876e4</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DialogK_Style_BtnCancel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">5dp</item>
+        <!--        <item name="android:backgroundTint">@color/cok_blue_e8f3ff</item>-->
+        <item name="android:textColor">@color/cok_blue_0876e4</item>
+        <item name="android:textSize">16sp</item>
+        <item name="cornerRadius">4dp</item>
+    </style>
+
+    <style name="DialogK_Style_BtnSure" parent="DialogK_Style_BtnCancel">
+        <!--        <item name="android:backgroundTint">@color/cok_blue_287ff1</item>-->
+        <item name="android:textColor">@color/cok_blue_e8f3ff</item>
     </style>
 </resources>

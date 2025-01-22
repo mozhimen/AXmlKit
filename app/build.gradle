@@ -41,14 +41,14 @@ android {
 }
 
 dependencies {
-    implementation project(':SwiftKit:bindk')
-    implementation project(':SwiftKit:xmlk')
-    implementation project(':AImageKit:imagek_glide_blur')
-    implementation project(':AImageKit:imagek_glide')
+    implementation project(':ASwiftKit:bindk')
+    implementation project(':ASwiftKit:xmlk')
+    implementation project(':AImageKit:glide:blur')
+    implementation project(':AImageKit:glide')
     implementation project(':AAnimKit:animk')
-    implementation project(':AAnimKit:animk_builder')
-    implementation project(':AAnimKit:animk_builder')
-    implementation project(':ACacheKit:cachek_sharedpreferences')
+    implementation project(':AAnimKit:builder')
+    implementation project(':AAnimKit:builder')
+    implementation project(':ACacheKit:sharedpreferences')
     implementation project(':adapterk')
     implementation project(':bark')
     implementation project(':bark_rating')
@@ -91,6 +91,7 @@ dependencies {
     implementation project(':viewk')
     implementation project(':viewk_wheel')
     implementation project(':textk_expand')
+    implementation project(':imagek_shimmer')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

@@ -12,13 +12,13 @@ android {
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+//        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -32,12 +32,12 @@ android {
 
 dependencies {
 
-    implementation project(':AImageKit:imagek_glide_blur')
-    implementation project(':SwiftKit:basick')
-    implementation project(':SwiftKit:blurk')
-    implementation project(':SwiftKit:xmlk')
-    implementation project(':AAnimKit:animk_builder')
-    implementation project(':ATaskKit:taskk_executor')
+    implementation project(':AImageKit:glide:blur')
+    implementation project(':ASwiftKit:basick')
+    implementation project(':ASwiftKit:blurk')
+    implementation project(':ASwiftKit:xmlk')
+    implementation project(':AAnimKit:builder')
+    implementation project(':ATaskKit:executor')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

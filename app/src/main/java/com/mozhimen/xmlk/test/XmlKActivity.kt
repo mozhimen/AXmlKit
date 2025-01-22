@@ -9,7 +9,6 @@ import com.mozhimen.xmlk.test.dialogk.DialogKActivity
 import com.mozhimen.xmlk.test.drawablek.DrawableKActivity
 import com.mozhimen.xmlk.test.imagek.ImageKActivity
 import com.mozhimen.xmlk.test.layoutk.LayoutKActivity
-import com.mozhimen.xmlk.test.popwink.PopwinKActivity
 import com.mozhimen.xmlk.test.recyclerk.RecyclerKActivity
 import com.mozhimen.xmlk.test.textk.TextKActivity
 import com.mozhimen.xmlk.test.toastk.ToastKActivity
@@ -50,10 +49,6 @@ class XmlKActivity : BaseActivityVDB<ActivityXmlkBinding>() {
 
     fun goNotifyK(view: View) {
         startContext<NotifyKActivity>()
-    }
-
-    fun goPopwinK(view: View) {
-        startContext<PopwinKActivity>()
     }
 
     fun goRecyclerK(view: View) {

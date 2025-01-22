@@ -12,13 +12,13 @@ android {
         multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+//        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     compileOptions {
@@ -31,12 +31,12 @@ android {
 }
 
 dependencies {
-    if (rootProject.name == "SwiftKit") {
+    if (rootProject.name == "ASwiftKit") {
         implementation project(':basick')
         implementation project(':xmlk')
     } else {
-        implementation project(':SwiftKit:basick')
-        implementation project(':SwiftKit:xmlk')
+        implementation project(':ASwiftKit:basick')
+        implementation project(':ASwiftKit:xmlk')
     }
     implementation project(project.path.replace(project.name, '') +':vhk')
 

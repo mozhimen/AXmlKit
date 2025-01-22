@@ -102,20 +102,20 @@ class LayoutKMarqueeText @JvmOverloads constructor(context: Context, attrs: Attr
     //////////////////////////////////////////////////////////////////////////////////////////////
 
     override fun onItemAnimOutStart(index: Int, view: View?) {
-        UtilKLogWrapper.d(TAG, "onItemAnimOutStart: ------------------------>")
-        UtilKLogWrapper.d(TAG, "onItemAnimOutStart: index $index")
+//        UtilKLogWrapper.d(TAG, "onItemAnimOutStart: ------------------------>")
+//        UtilKLogWrapper.d(TAG, "onItemAnimOutStart: index $index")
     }
 
     override fun onItemAnimInStart(index: Int, view: View?) {
-        UtilKLogWrapper.d(TAG, "onItemAnimInStart: index $index")
+//        UtilKLogWrapper.d(TAG, "onItemAnimInStart: index $index")
     }
 
     override fun onItemAnimOutEnd(index: Int, view: View?) {
-        UtilKLogWrapper.d(TAG, "onItemAnimOutEnd: index $index")
+//        UtilKLogWrapper.d(TAG, "onItemAnimOutEnd: index $index")
     }
 
     override fun onItemAnimInEnd(index: Int, view: View?) {
-        UtilKLogWrapper.d(TAG, "onItemAnimInEnd: index $index")
+//        UtilKLogWrapper.d(TAG, "onItemAnimInEnd: index $index")
         if (index == childCount - 1 && _viewQueue.isNotEmpty()) {//最后一个显示了
             view?.applyAnimateTranslationYToTopHide(_animDuration.toLong(), -(height / 2f + view.height), onStart = null) {
                 removeAllViews()

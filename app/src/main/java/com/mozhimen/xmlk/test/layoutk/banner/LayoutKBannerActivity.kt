@@ -17,15 +17,16 @@ import com.mozhimen.xmlk.test.databinding.ActivityLayoutkBannerBinding
 class LayoutKBannerActivity : BaseActivityVDB<ActivityLayoutkBannerBinding>() {
 
     private var _autoPlay = false
+    private var _isLoop = false
     private lateinit var _indicator: IBannerIndicator<*>
 
     private var _urls = arrayOf(
         "https://images.pexels.com/photos/2709388/pexels-photo-2709388.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        "https://images.pexels.com/photos/8721987/pexels-photo-8721987.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        "https://images.pexels.com/photos/6679876/pexels-photo-6679876.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        "https://images.pexels.com/photos/7078587/pexels-photo-7078587.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        "https://images.pexels.com/photos/6948010/pexels-photo-6948010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-        "https://images.pexels.com/photos/7078486/pexels-photo-7078486.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+//        "https://images.pexels.com/photos/8721987/pexels-photo-8721987.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+//        "https://images.pexels.com/photos/6679876/pexels-photo-6679876.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+//        "https://images.pexels.com/photos/7078587/pexels-photo-7078587.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+//        "https://images.pexels.com/photos/6948010/pexels-photo-6948010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+//        "https://images.pexels.com/photos/7078486/pexels-photo-7078486.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     )
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -37,17 +38,22 @@ class LayoutKBannerActivity : BaseActivityVDB<ActivityLayoutkBannerBinding>() {
             moList.add(mo)
         }
         _indicator = PointIndicator(this)
-        initBanner(_indicator, moList, _autoPlay)
+        initBanner(_indicator, moList, _autoPlay, _isLoop,0)
         vdb.layoutkBannerSwitch.isChecked = _autoPlay
         vdb.layoutkBannerSwitch.setOnCheckedChangeListener { _, isChecked ->
             _autoPlay = isChecked
-            initBanner(_indicator, moList, _autoPlay)
+            initBanner(_indicator, moList, _autoPlay, _isLoop, 0)
+        }
+        vdb.layoutkBannerSwitchLoop.isChecked = _isLoop
+        vdb.layoutkBannerSwitchLoop.setOnCheckedChangeListener { _, isChecked ->
+            _isLoop = isChecked
+            initBanner(_indicator, moList, _autoPlay, _isLoop, 0)
         }
         vdb.layoutkBannerIndicator.setOnClickListener {
             if (_indicator is PointIndicator) {
-                initBanner(NumberIndicator(this), moList, _autoPlay)
+                initBanner(NumberIndicator(this).also { _indicator = it }, moList, _autoPlay, _isLoop, 0)
             } else {
-                initBanner(_indicator, moList, _autoPlay)
+                initBanner(PointIndicator(this).also { _indicator = it }, moList, _autoPlay, _isLoop, 0)
             }
         }
         vdb.layoutkBannerPre.setOnClickListener {
@@ -58,15 +64,15 @@ class LayoutKBannerActivity : BaseActivityVDB<ActivityLayoutkBannerBinding>() {
         }
         vdb.layoutkBannerAdd.setOnClickListener {
             moList.removeAt(moList.size - 1)
-            initBanner(_indicator, moList, _autoPlay)
+            initBanner(_indicator, moList, _autoPlay, _isLoop, 0)
         }
         vdb.layoutkBannerDelete.setOnClickListener {
             moList.add(MyBannerMo().apply { name = "...";url = "https://images.pexels.com/photos/6679876/pexels-photo-6679876.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" })
-            initBanner(_indicator, moList, _autoPlay)
+            initBanner(_indicator, moList, _autoPlay, _isLoop, 0)
         }
     }
 
-    private fun initBanner(indicator: IBannerIndicator<*>, moList: List<BaseBannerItem>, autoPlay: Boolean, currentPos: Int = 0) {
+    private fun initBanner(indicator: IBannerIndicator<*>, moList: List<BaseBannerItem>, autoPlay: Boolean, isLoop: Boolean, currentPos: Int/* = 0*/) {
         vdb.layoutkBannerContainer.apply {
             setBannerIndicator(indicator)
             setAutoPlay(autoPlay)
@@ -74,7 +80,7 @@ class LayoutKBannerActivity : BaseActivityVDB<ActivityLayoutkBannerBinding>() {
             setScrollDuration(3000)
             setBannerData(R.layout.item_layoutk_banner, moList)
             setCurrentPosition(currentPos, false)
-            setLoop(false)
+            setLoop(isLoop)
             setBannerBindListener(object : IBannerBindListener {
                 override fun onBannerBind(viewHolder: BannerViewHolder, item: BaseBannerItem, position: Int) {
                     val model = item as MyBannerMo

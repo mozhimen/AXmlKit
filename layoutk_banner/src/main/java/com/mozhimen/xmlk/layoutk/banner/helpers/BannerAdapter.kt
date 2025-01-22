@@ -70,7 +70,14 @@ class BannerAdapter(private var _context: Context) : PagerAdapter(), IBannerAdap
      * @return Int
      */
     override fun getCount(): Int =
-        if (_autoPlay) Int.MAX_VALUE else (if (_loop) Int.MAX_VALUE else getRealCount())
+        if (getRealCount() <= 1) {
+            getRealCount()
+        } else if (_autoPlay) {
+            Int.MAX_VALUE
+        } else if (_loop)
+            Int.MAX_VALUE
+        else
+            getRealCount()
 
     /**
      * 类型匹配

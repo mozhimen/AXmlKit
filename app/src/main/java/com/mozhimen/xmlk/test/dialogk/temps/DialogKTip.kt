@@ -64,7 +64,7 @@ class DialogKTip(context: Context, private val _txt: String, private var _onSure
         setTxt(_txt)
     }
 
-    override fun onInitWindowWidth(): Int {
+    override fun getDialogWindowWidth(): Int {
         return (UtilKScreen.getWidth_ofDisplayMetrics_ofSys() * 0.25f).roundToInt()
     }
 }

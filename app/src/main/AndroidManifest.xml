@@ -14,11 +14,11 @@
         <activity
             android:name=".XmlKActivity"
             android:exported="true">
- <!--           <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--           <intent-filter>
+                           <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+                           <category android:name="android.intent.category.LAUNCHER" />
+                       </intent-filter>-->
         </activity>
         <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
         <!-- toastk -->
@@ -72,13 +72,18 @@
             android:exported="false" />
         <activity
             android:name=".imagek.ImageKPhotoActivity"
-            android:exported="false" /> <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
-        <!-- layoutk -->
-           <activity
-               android:name=".layoutk.LayoutKConstraintActivity"
-               android:exported="true" >
+            android:exported="false" />
+        <activity
+            android:name=".imagek.ImageKShimmerActivity"
+            android:exported="true">
 
-           </activity>
+        </activity> <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+        <!-- layoutk -->
+        <activity
+            android:name=".layoutk.LayoutKConstraintActivity"
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".layoutk.LayoutKLoadingActivity"
             android:exported="false" />
@@ -111,7 +116,13 @@
             android:exported="false" />
         <activity
             android:name=".layoutk.banner.LayoutKBannerActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".layoutk.loadrefresh.LayoutKLoadRefreshActivity"
             android:exported="false" />
@@ -157,11 +168,7 @@
         <activity
             android:name=".notifyk.NotifyKActivity"
             android:exported="false" />
-        <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
-        <!-- popwink -->
-        <activity
-            android:name=".popwink.PopwinKActivity"
-            android:exported="false" /> <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+ <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
         <!-- recyclerk -->
         <activity
             android:name=".recyclerk.RecyclerKActivity"
@@ -178,12 +185,8 @@
         <!-- textk -->
         <activity
             android:name=".textk.TextKActivity"
-            android:exported="true" >
-               <intent-filter>
-                      <action android:name="android.intent.action.MAIN" />
+            android:exported="true">
 
-                      <category android:name="android.intent.category.LAUNCHER" />
-               </intent-filter>
         </activity>
         <activity
             android:name=".textk.TextKEditActivity"
@@ -197,7 +200,7 @@
             android:exported="false" />
         <activity
             android:name=".viewk.ViewKViewsActivity"
-            android:exported="true" >
+            android:exported="true">
 
         </activity>
         <activity
