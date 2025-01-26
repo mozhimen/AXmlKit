@@ -23,7 +23,7 @@ import com.mozhimen.xmlk.layoutk.banner.temps.PointIndicator
  * @Version 1.0
  */
 class LayoutKBannerDelegate(
-    private val _context: Context, private val _layoutKBanner: LayoutKBanner
+    private val _context: Context, private val _layoutKBanner: LayoutKBanner,
 ) : IBanner, OnPageChangeListener {
 
     private var _adapter: BannerAdapter? = null
@@ -176,6 +176,7 @@ class LayoutKBannerDelegate(
         //清除缓存view
         _layoutKBanner.removeAllViews()
         _layoutKBanner.addView(_viewPager, layoutParams)
-        _layoutKBanner.addView(_indicator!!.get(), layoutParams)
+        if (_bannerItems!!.size > 1)
+            _layoutKBanner.addView(_indicator!!.get(), layoutParams)
     }
 }
