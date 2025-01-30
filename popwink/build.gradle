@@ -41,7 +41,7 @@ dependencies {
     implementation project(':AAnimKit:builder')
     implementation project(':APostKit:livedata')
     implementation project(':AStackKit:callback')
-    implementation project(project.path.replace(project.name, '') +':imagek_blur')
+    implementation project(project.path.replace(project.name, '') +':imagek:blur')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

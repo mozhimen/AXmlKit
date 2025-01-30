@@ -5,13 +5,13 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.xmlk.demo'
+    namespace 'com.mozhimen.layoutk.marquee.test'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.mozhimen.xmlk.demo"
+        applicationId "com.mozhimen.layoutk.marquee.test"
         minSdk 21
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -31,20 +31,16 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
+    buildFeatures{
         dataBinding true
     }
 }
 
 dependencies {
     implementation project(':ASwiftKit:bindk')
-    implementation project(':ASwiftKit:xmlk')
-    implementation project(':layoutk:blur')
-    implementation project(':recyclerk')
-    implementation project(':vhk')
-    implementation project(':AAdaptKit:systembar')
+    implementation project(':layoutk:marquee')
 
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }

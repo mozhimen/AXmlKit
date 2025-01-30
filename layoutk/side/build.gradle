@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.xmlk.bark'
+    namespace 'com.mozhimen.xmlk.layoutk.side'
     compileSdk 34
 
     defaultConfig {
@@ -34,7 +34,10 @@ dependencies {
 
     implementation project(':ASwiftKit:basick')
     implementation project(':ASwiftKit:xmlk')
-    implementation project(project.path.replace(project.name, '') +':drawablek:progress')
+    implementation project(':AImageKit:glide')
+    implementation project(':layoutk:empty')
+    implementation project(':layoutk:refresh')
+    implementation project(':vhk')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.xmlk.bark'
+    namespace 'com.mozhimen.xmlk.brvah'
     compileSdk 34
 
     defaultConfig {
@@ -31,10 +31,7 @@ android {
 }
 
 dependencies {
-
-    implementation project(':ASwiftKit:basick')
-    implementation project(':ASwiftKit:xmlk')
-    implementation project(project.path.replace(project.name, '') +':drawablek:progress')
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
