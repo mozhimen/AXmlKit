@@ -34,7 +34,11 @@ dependencies {
 
     implementation project(':ASwiftKit:basick')
     implementation project(':ASwiftKit:xmlk')
-    implementation project(/*project.path.replace(project.name, '') +*/':pagerk')
+    if (rootProject.name=="AXmlKit"){
+        implementation project(/*project.path.replace(project.name, '') +*/':pagerk')
+    }else{
+        implementation project(/*project.path.replace(project.name, '') +*/':AXmlKit:pagerk')
+    }
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

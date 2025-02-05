@@ -31,7 +31,11 @@ android {
 }
 
 dependencies {
-    api project(/*project.path.replace(project.name, '') +*/ ':basic')
+    if (rootProject.name=="AXmlKit"){
+        api project(/*project.path.replace(project.name, '') +*/ ':basic')
+    }else{
+        api project(/*project.path.replace(project.name, '') +*/ ':AXmlKit:basic')
+    }
     implementation project(':ASwiftKit:basick')
 
     testImplementation 'junit:junit:4.13.2'

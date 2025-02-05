@@ -33,7 +33,11 @@ android {
 dependencies {
 
     implementation project(':ASwiftKit:basick')
-    implementation project(/*project.path.replace(project.name, '') +*/':drawablek')
+    if (rootProject.name=="AXmlKit"){
+        implementation project(/*project.path.replace(project.name, '') +*/':drawablek')
+    }else{
+        implementation project(/*project.path.replace(project.name, '') +*/':AXmlKit:drawablek')
+    }
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

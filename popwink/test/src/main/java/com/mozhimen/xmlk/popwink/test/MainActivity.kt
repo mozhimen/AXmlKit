@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.popwink.test
 
 import android.os.Bundle
 import android.view.View
-import com.mozhimen.bindk.bases.viewbinding.activity.BaseActivityVB
+import com.mozhimen.uik.databinding.bases.viewbinding.activity.BaseActivityVB
 import com.mozhimen.xmlk.popwink.builder.PopwinK
 import com.mozhimen.xmlk.popwink.test.databinding.ActivityMainBinding
 

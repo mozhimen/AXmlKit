@@ -30,8 +30,13 @@ android {
 }
 
 dependencies {
-    implementation project(/*project.path.replace(project.name, '') +*/ ':drawablek')
-    api project(/*project.path.replace(project.name, '') +*/ ':basic')
+    if (rootProject.name=="AXmlKit"){
+        implementation project(/*project.path.replace(project.name, '') +*/ ':drawablek')
+        api project(/*project.path.replace(project.name, '') +*/ ':basic')
+    }else{
+        implementation project(/*project.path.replace(project.name, '') +*/ ':AXmlKit:drawablek')
+        api project(/*project.path.replace(project.name, '') +*/ ':AXmlKit:basic')
+    }
     implementation project(':KUtilKit:android')
 
     testImplementation 'junit:junit:4.13.2'
