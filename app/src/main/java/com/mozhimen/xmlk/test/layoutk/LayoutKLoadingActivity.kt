@@ -1,6 +1,6 @@
 package com.mozhimen.xmlk.test.layoutk
 
-import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
+import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkLoadingBinding
 
 /**

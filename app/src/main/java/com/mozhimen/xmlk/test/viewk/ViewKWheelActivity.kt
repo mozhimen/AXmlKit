@@ -3,7 +3,7 @@ package com.mozhimen.xmlk.test.viewk
 import android.os.Bundle
 import android.util.Log
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
-import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
+import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.xmlk.viewk.wheel.temps.ArrayWheelAdapter
 import com.mozhimen.xmlk.test.databinding.ActivityViewkWheelBinding
 

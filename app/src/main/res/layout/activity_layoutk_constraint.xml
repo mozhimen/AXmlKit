@@ -29,7 +29,7 @@
                     app:barrierDirection="end"-->
             <TextView
                 android:id="@+id/item_download_txt_description"
-                style="@style/LeleTxt_style.Detail_Content"
+                style="@style/LeleTxt_style.Content"
                 android:layout_width="0dp"
                 android:gravity="start|center_vertical"
                 android:maxLines="1"
@@ -42,7 +42,7 @@
 
             <TextView
                 android:id="@+id/item_download_txt_category"
-                style="@style/LeleTxt_style.Detail_Content"
+                style="@style/LeleTxt_style.Content"
                 android:gravity="start|center_vertical"
                 android:maxLines="1"
                 android:singleLine="true"
@@ -55,7 +55,7 @@
 
             <TextView
                 android:id="@+id/item_download_txt_label"
-                style="@style/LeleTxt_style.Detail_Content"
+                style="@style/LeleTxt_style.Content"
                 android:layout_height="@dimen/dp_022"
                 android:gravity="start|center_vertical"
                 android:maxLines="1"

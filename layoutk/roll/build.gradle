@@ -35,8 +35,12 @@ dependencies {
     implementation project(':ASwiftKit:basick')
 	implementation project(':ASwiftKit:xmlk')
 	implementation project(':AAnimKit:builder')
-    implementation project(/*project.path.replace(project.name, '') +*/':interpolatork')
-    
+    if (rootProject.name=="AXmlKit"){
+        implementation project(':interpolatork')
+    }else {
+        implementation project(/*project.path.replace(project.name, '') +*/':AXmlKit:interpolatork')
+    }
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

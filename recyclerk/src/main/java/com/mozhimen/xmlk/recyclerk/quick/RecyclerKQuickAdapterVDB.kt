@@ -26,7 +26,7 @@ open class RecyclerKQuickAdapterVDB<DATA, VDB : ViewDataBinding>(
     private var _datas: MutableList<DATA>,
     private val _defaultLayout: Int,
     private val _brId: Int,
-    private val _listener: IRecyclerKAdapterVDBListener<DATA, VDB>? = null /* = (BindKViewHolder<ViewDataBinding>, T, Int) -> Unit */
+    private val _listener: IRecyclerKAdapterVDBListener<DATA, VDB>? = null /* = (VHK<ViewDataBinding>, T, Int) -> Unit */
 ) : RecyclerView.Adapter<VHKRecyclerVDB<VDB>>(), IRecyclerKAdapterVDB<DATA, VDB>, IUtilK {
 
     private var _selectItemPosition = -1

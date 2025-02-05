@@ -31,8 +31,8 @@ android {
 }
 
 dependencies {
-    implementation project(':ASwiftKit:bindk')
     implementation project(':ASwiftKit:xmlk')
+    implementation project(':KUtilKit:android')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

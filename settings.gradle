@@ -108,7 +108,7 @@ project(':ASwiftKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ASwiftKit")
 include ':ASwiftKit:basick'
 include ':ASwiftKit:xmlk'
 include ':ASwiftKit:blurk'
-include ':ASwiftKit:bindk'
+include ':ASwiftKit:uik:databinding'
 //AImageKit
 include ':AImageKit'
 project(':AImageKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AImageKit")
@@ -149,3 +149,4 @@ include ':AStackKit:basic'
 
 
 include ':brvah'
+include ':dialogk:databinding'

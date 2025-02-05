@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.layoutk.tab
 
 import android.view.View
-import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
+import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.content.startContext
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkTabBinding
 

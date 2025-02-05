@@ -3,7 +3,7 @@ package com.mozhimen.xmlk.test.layoutk.banner
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
+import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.imagek.glide.loadImage_ofGlide
 import com.mozhimen.xmlk.layoutk.banner.bases.BaseBannerItem
 import com.mozhimen.xmlk.layoutk.banner.commons.IBannerBindListener

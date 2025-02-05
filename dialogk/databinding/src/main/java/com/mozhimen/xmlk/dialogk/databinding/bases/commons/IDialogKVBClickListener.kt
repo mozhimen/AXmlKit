@@ -1,9 +1,8 @@
-package com.mozhimen.xmlk.dialogk.bases.commons
+package com.mozhimen.xmlk.dialogk.databinding.bases.commons
 
-import androidx.databinding.ViewDataBinding
 import androidx.viewbinding.ViewBinding
-import com.mozhimen.xmlk.dialogk.bases.BaseDialogKVB
-import com.mozhimen.xmlk.dialogk.bases.BaseDialogKVDB
+import com.mozhimen.xmlk.dialogk.databinding.bases.BaseDialogKVB
+import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKClickListener
 
 /**
  * @ClassName IDialogKClickListener

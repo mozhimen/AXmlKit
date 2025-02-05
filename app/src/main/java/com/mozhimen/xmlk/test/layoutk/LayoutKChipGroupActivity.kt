@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.test.layoutk
 
 import android.os.Bundle
-import com.mozhimen.bindk.bases.viewdatabinding.activity.BaseActivityVDB
+import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.kotlin.elemk.mos.MKey
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkChipGroupBinding
@@ -15,7 +15,7 @@ import com.mozhimen.xmlk.test.databinding.ActivityLayoutkChipGroupBinding
  */
 class LayoutKChipGroupActivity : BaseActivityVDB<ActivityLayoutkChipGroupBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
-        vdb.layoutkChipGroup.bindKeys(
+        vdb.layoutkChipGroup.uik.databindingeys(
             arrayListOf(
                 MKey("0", "赛博朋克2077"),
                 MKey("1", "老头环"),
