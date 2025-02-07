@@ -21,23 +21,35 @@ dependencyResolutionManagement {
 rootProject.name = "AXmlKit"
 include ':app'
 include ':demo'
+include ':basic'
+
 include ':adapterk'
+
 include ':bark'
 include ':bark:app'
 include ':bark:rating'
 include ':bark:title'
-include ':basic'
+
 include ':btnk'
 include ':btnk:icon'
 include ':btnk:pwd'
+
 include ':dialogk'
 include ':dialogk:cupertino'
+include ':dialogk:databinding'
+
 include ':drawablek'
 include ':drawablek:progress'
+include ':drawablek:arrow'
+
 include ':imagek'
 include ':imagek:blur'
 include ':imagek:shimmer'
+include ':imagek:mask'
+include ':imagek:photo'
+
 include ':interpolatork'
+
 include ':layoutk'
 include ':layoutk:banner'
 include ':layoutk:blur'
@@ -56,26 +68,45 @@ include ':layoutk:side'
 include ':layoutk:slider'
 include ':layoutk:spinner'
 include ':layoutk:tab'
+include ':layoutk:form'
+include ':layoutk:grid'
+include ':layoutk:edit'
+include ':layoutk:navbar'
+include ':layoutk:dsl'
+
 include ':pagerk'
 include ':popwink'
 include ':popwink:bubble'
 include ':popwink:test'
+
 include ':recyclerk'
 include ':recyclerk:linear'
 include ':recyclerk:load'
 include ':recyclerk:snap'
 include ':recyclerk:snap:test'
+include ':recyclerk:item'
+include ':recyclerk:quick'
+include ':recyclerk:list'
+
 include ':textk'
 include ':textk:bubble'
 include ':textk:edit'
 include ':textk:edit_bar'
 include ':textk:expand'
 include ':textk:progress'
+
 include ':toastk'
+
 include ':vhk'
+
 include ':viewk'
 include ':viewk:blur'
 include ':viewk:wheel'
+include ':viewk:effect'
+include ':viewk:draw'
+include ':viewk:progress'
+include ':viewk:region'
+include ':viewk:scan'
 //ALibKit_Google
 include ':ALibKit_Google'
 project(':ALibKit_Google').projectDir = new File("D:\\WorkSpace\\GitHub\\ALibKit_Google")
@@ -148,5 +179,5 @@ include ':AStackKit:callback'
 include ':AStackKit:basic'
 
 
-include ':brvah'
-include ':dialogk:databinding'
+include ':layoutk:guide'
+include ':layoutk:guide:test'

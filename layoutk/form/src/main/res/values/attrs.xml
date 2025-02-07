@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LayoutKFormText">
+        <attr name="layoutKFormText_isRequired" format="boolean" />
+        <attr name="layoutKFormText_requiredIconPos" format="enum">
+            <enum name="top" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+        <attr name="layoutKFormText_label" format="string|reference" />
+        <attr name="layoutKFormText_labelTextSize" format="dimension|reference" />
+        <attr name="layoutKFormText_labelColor" format="color|reference" />
+        <attr name="layoutKFormText_labelMarginLeft" format="dimension|reference" />
+        <attr name="layoutKFormText_labelMarginRight" format="dimension|reference" />
+        <attr name="layoutKFormText_labelWidth" format="dimension|reference" />
+        <attr name="layoutKFormText_textColor" format="color|reference" />
+        <attr name="layoutKFormText_textHint" format="string|reference" />
+        <attr name="layoutKFormText_textSize" format="dimension|reference" />
+        <attr name="layoutKFormText_borderBackground" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="LayoutKFormEdit">
+        <attr name="layoutKFormEdit_isRequired" format="boolean" />
+        <attr name="layoutKFormEdit_requiredIconPos" format="enum">
+            <enum name="top" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+        <attr name="layoutKFormEdit_label" format="string|reference" />
+        <attr name="layoutKFormEdit_labelTextSize" format="dimension|reference" />
+        <attr name="layoutKFormEdit_labelColor" format="color|reference" />
+        <attr name="layoutKFormEdit_labelMarginLeft" format="dimension|reference" />
+        <attr name="layoutKFormEdit_labelMarginRight" format="dimension|reference" />
+        <attr name="layoutKFormEdit_labelWidth" format="dimension|reference" />
+        <attr name="layoutKFormEdit_editHint" format="string|reference" />
+        <attr name="layoutKFormEdit_editType" format="enum">
+            <enum name="text" value="0" />
+            <enum name="number" value="1" />
+            <enum name="textPassword" value="2" />
+            <enum name="numberPassword" value="3" />
+        </attr>
+        <attr name="layoutKFormEdit_editColor" format="color|reference" />
+        <attr name="layoutKFormEdit_editSize" format="dimension|reference" />
+        <attr name="layoutKFormEdit_borderBackground" format="reference" />
+        <attr name="layoutKFormEdit_borderBackgroundHasFocus" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="LayoutKFormSpinner">
+        <attr name="layoutKFormSpinner_isRequired" format="boolean" />
+        <attr name="layoutKFormSpinner_requiredIconPos" format="enum">
+            <enum name="top" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+        <attr name="layoutKFormSpinner_label" format="string|reference" />
+        <attr name="layoutKFormSpinner_labelTextSize" format="dimension|reference" />
+        <attr name="layoutKFormSpinner_labelColor" format="color|reference" />
+        <attr name="layoutKFormSpinner_labelMarginLeft" format="dimension|reference" />
+        <attr name="layoutKFormSpinner_labelMarginRight" format="dimension|reference" />
+        <attr name="layoutKFormSpinner_labelWidth" format="dimension|reference" />
+        <!--StringArray 字符串数组-->
+        <attr name="layoutKFormSpinner_spinnerEntries" format="reference" />
+        <!--layout item布局-->
+        <attr name="layoutKFormSpinner_spinnerItemLayout" format="reference" />
+        <attr name="layoutKFormSpinner_borderBackground" format="reference" />
+    </declare-styleable>
+</resources>

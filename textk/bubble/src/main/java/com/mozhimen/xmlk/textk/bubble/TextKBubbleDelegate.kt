@@ -5,13 +5,11 @@ import android.graphics.Color
 import android.graphics.Point
 import android.graphics.Rect
 import android.util.AttributeSet
-import android.util.Log
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.View
 import com.mozhimen.kotlin.elemk.android.os.cons.CVersCode
 import com.mozhimen.kotlin.utilk.android.os.UtilKBuildVersion
 import com.mozhimen.kotlin.utilk.android.util.dp2px
-import com.mozhimen.kotlin.utilk.android.view.UtilKView
 import com.mozhimen.kotlin.utilk.android.view.UtilKViewWrapper
 import com.mozhimen.kotlin.utilk.android.view.applyBackground
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
@@ -44,7 +42,7 @@ class TextKBubbleDelegate(private val _context: Context) : ITextKBubble, ILayout
     private val _location = IntArray(2)    // 方便计算用的中间值对象，避免重复创建
     private val _rectTo = Rect()
     private val _rectSelf = Rect()
-    private val _bubbleDrawable by lazy_ofNone { DrawableKArrow() }
+    private val _bubbleDrawable by lazy_ofNone { com.mozhimen.xmlk.drawablek.arrow.DrawableKArrow() }
     private var _paddingLeftOffset = 0
     private var _paddingTopOffset = 0
     private var _paddingRightOffset = 0

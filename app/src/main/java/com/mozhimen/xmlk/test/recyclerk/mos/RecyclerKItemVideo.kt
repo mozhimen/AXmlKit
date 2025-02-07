@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.test.recyclerk.mos
 
 import android.widget.ImageView
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
-import com.mozhimen.xmlk.vhk.VHKRecycler
+import com.mozhimen.xmlk.vhk.VHKLifecycle2
 import com.mozhimen.xmlk.test.R
 
 /**
@@ -12,8 +12,8 @@ import com.mozhimen.xmlk.test.R
  * @Version 1.0
  */
 class RecyclerKItemVideo(private var _spanCount: Int) :
-    RecyclerKItem<VHKRecycler>() {
-    override fun onBindItem(holder: VHKRecycler, position: Int) {
+    RecyclerKItem<VHKLifecycle2>() {
+    override fun onBindItem(holder: VHKLifecycle2, position: Int) {
         super.onBindItem(holder, position)
         holder.findViewById<ImageView>(R.id.datak_item_video_img)?.setImageResource(R.drawable.datak_item_video)
     }

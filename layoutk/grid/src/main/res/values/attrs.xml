@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LayoutKGridFill">
+        <attr name="layoutKGridFill_gridRowCount" format="integer" />
+        <attr name="layoutKGridFill_gridColumnCount" format="integer" />
+        <attr name="layoutKGridFill_gridColor" format="color|reference" />
+        <attr name="layoutKGridFill_cellDefaultColor" format="color|reference" />
+        <attr name="layoutKGridFill_cellHoverColor" format="color|reference" />
+        <attr name="layoutKGridFill_cellSelectColor" format="color|reference" />
+        <attr name="layoutKGridFill_lineColor" format="color|reference" />
+        <attr name="layoutKGridFill_innerLineWidth" format="dimension|reference" />
+        <attr name="layoutKGridFill_outerLineWidth" format="dimension|reference" />
+    </declare-styleable>
+</resources>

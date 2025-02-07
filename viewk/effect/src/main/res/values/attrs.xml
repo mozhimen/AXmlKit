@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ViewKArcRotate">
+        <!-- 圆弧的开始渐变色-->
+        <attr name="viewKArcRotate_arcStartColor" format="color|reference" />
+        <!-- 圆弧的结束渐变色-->
+        <attr name="viewKArcRotate_arcEndColor" format="color|reference" />
+        <!-- 圆弧的线宽-->
+        <attr name="viewKArcRotate_arcWidth" format="dimension|reference" />
+        <!-- 圆弧个数 1-11-->
+        <attr name="viewKArcRotate_arcNum" format="integer" />
+        <!-- 圆弧之间的间隔 , 默认30°, 0-360-->
+        <attr name="viewKArcRotate_angleInterval" format="integer" />
+        <!-- 圆弧步长-->
+        <attr name="viewKArcRotate_angleStep" format="integer" />
+        <!-- 圆弧走一轮所需的时间-->
+        <attr name="viewKArcRotate_animTime" format="integer" />
+    </declare-styleable>
+
+    <!--viewk-->
+    <declare-styleable name="ViewKCircleSpread">
+        <!--中心圆颜色-->
+        <attr name="viewKCircleSpread_centerColor" format="reference|color" />
+        <!--中心圆图片-->
+        <attr name="viewKCircleSpread_centerDrawable" format="reference" />
+        <!--中心圆半径-->
+        <attr name="viewKCircleSpread_centerRadius" format="dimension|reference" />
+        <!--扩散圆颜色-->
+        <attr name="viewKCircleSpread_spreadColor" format="reference|color" />
+        <!--扩散圆最大数-->
+        <attr name="viewKCircleSpread_spreadCount" format="integer" />
+        <!--扩散圆波浪叠层效果还是边缘波纹效果-->
+        <attr name="viewKCircleSpread_spreadIsRipple" format="boolean" />
+        <!--扩散间距-->
+        <attr name="viewKCircleSpread_circlesDistance" format="dimension|reference" />
+        <!--扩散时间1-1000ms之间-->
+        <attr name="viewKCircleSpread_animTime" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewKRadarRipple">
+        <!-- 扫描雷达背景颜色-->
+        <attr name="viewKRadarRipple_bgColor" format="color|reference" />
+        <!-- 扫描雷达颜色-->
+        <attr name="viewKRadarRipple_radarColor" format="reference|color" />
+        <!-- 扫描雷达线颜色-->
+        <attr name="viewKRadarRipple_lineColor" format="reference|color" />
+        <!-- 扫描雷达线的Alpha-->
+        <attr name="viewKRadarRipple_lineAlpha" format="integer" />
+        <!-- 扫描雷达线宽-->
+        <attr name="viewKRadarRipple_lineWidth" format="dimension|reference" />
+        <!-- 扫描雷达线数-->
+        <attr name="viewKRadarRipple_lineCount" format="integer" />
+        <!-- 扫描雷达扫描角度步长(1-360)-->
+        <attr name="viewKRadarRipple_angleStep" format="integer" />
+        <!-- 扫描雷达扫描一圈的时间ms-->
+        <attr name="viewKRadarRipple_animTime" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewKRadarWave">
+        <!-- 扫描雷达颜色-->
+        <attr name="viewKRadarWave_radarColor" format="reference|color" />
+        <!-- 扫描雷达波浪颜色-->
+        <attr name="viewKRadarWave_waveColor" format="reference|color" />
+        <!-- 扫描雷达波浪层级渐变反转-->
+        <attr name="viewKRadarWave_isWaveOverTurn" format="boolean" />
+        <!-- 扫描雷达波浪层数-->
+        <attr name="viewKRadarWave_waveCount" format="integer" />
+        <!-- 扫描雷达扫描角度步长(1-360)-->
+        <attr name="viewKRadarWave_angleStep" format="integer" />
+        <!-- 扫描雷达扫描一圈的时间ms-->
+        <attr name="viewKRadarWave_animTime" format="integer" />
+    </declare-styleable>
+</resources>

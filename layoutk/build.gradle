@@ -34,13 +34,15 @@ dependencies {
 
     if (rootProject.name == "ASwiftKit") {
         implementation project(':basick')
-    } else {
-        implementation project(':ASwiftKit:basick')
-    }
-    if (rootProject.name == "ASwiftKit") {
         implementation project(':xmlk')
     } else {
+        implementation project(':ASwiftKit:basick')
         implementation project(':ASwiftKit:xmlk')
+    }
+    if (rootProject.name == "AXmlKit") {
+        implementation project(':basic')
+    } else {
+        implementation project(':AXmlKit:basic')
     }
 
     testImplementation 'junit:junit:4.13.2'

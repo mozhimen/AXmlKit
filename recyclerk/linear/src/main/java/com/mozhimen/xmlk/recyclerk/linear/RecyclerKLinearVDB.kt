@@ -13,7 +13,7 @@ import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapter
 import com.mozhimen.xmlk.recyclerk.linear.commons.IRecyclerKLinear
 import com.mozhimen.xmlk.recyclerk.linear.databinding.RecyclerkLinearItemBinding
-import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
+import com.mozhimen.xmlk.vhk.VHKRecycler2VDB
 
 /**
  * @ClassName ViewKRecyclerLinear
@@ -74,9 +74,9 @@ class RecyclerKLinearVDB @JvmOverloads constructor(context: Context, attrs: Attr
     private inner class RecyclerKLinearItem(
         private val _data: MKey,
         private val _listener: IRecyclerKLinearListener?
-    ) : RecyclerKItem<VHKRecyclerVDB<RecyclerkLinearItemBinding>>() {
+    ) : RecyclerKItem<VHKRecycler2VDB<RecyclerkLinearItemBinding>>() {
 
-        override fun onBindItem(holder: VHKRecyclerVDB<RecyclerkLinearItemBinding>, position: Int) {
+        override fun onBindItem(holder: VHKRecycler2VDB<RecyclerkLinearItemBinding>, position: Int) {
             super.onBindItem(holder, position)
             holder.vdb.layoutkRecyclerLinearItemTxt.text = _data.name
             holder.itemView.setOnClickListener {
@@ -88,8 +88,8 @@ class RecyclerKLinearVDB @JvmOverloads constructor(context: Context, attrs: Attr
             return R.layout.recyclerk_linear_item
         }
 
-        override fun onCreateViewHolder(parent: ViewGroup): VHKRecyclerVDB<RecyclerkLinearItemBinding> {
-            return VHKRecyclerVDB(LayoutInflater.from(parent.context).inflate(getItemLayoutId(), parent, false))
+        override fun onCreateViewHolder(parent: ViewGroup): VHKRecycler2VDB<RecyclerkLinearItemBinding> {
+            return VHKRecycler2VDB(LayoutInflater.from(parent.context).inflate(getItemLayoutId(), parent, false))
         }
     }
 }

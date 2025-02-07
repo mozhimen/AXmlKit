@@ -10,7 +10,7 @@ import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.kotlin.utilk.android.widget.applyTypeface
 import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
-import com.mozhimen.xmlk.vhk.VHKRecycler
+import com.mozhimen.xmlk.vhk.VHKLifecycle2
 import com.mozhimen.xmlk.test.R
 
 /**
@@ -20,10 +20,10 @@ import com.mozhimen.xmlk.test.R
  * @Date 2022/4/25 0:31
  * @Version 1.0
  */
-class RecyclerKItemLoadMore(private val index: Int?=null) : RecyclerKItem<VHKRecycler>() {
+class RecyclerKItemLoadMore(private val index: Int?=null) : RecyclerKItem<VHKLifecycle2>() {
     private var parentWidth: Int = 0
 
-    override fun onBindItem(holder: VHKRecycler, position: Int) {
+    override fun onBindItem(holder: VHKLifecycle2, position: Int) {
         super.onBindItem(holder, position)
         index?.let {
             val frameLayout = holder.itemView as FrameLayout
@@ -48,7 +48,7 @@ class RecyclerKItemLoadMore(private val index: Int?=null) : RecyclerKItem<VHKRec
         return frameLayout
     }
 
-    override fun onViewAttachedToWindow(holder: VHKRecycler) {
+    override fun onViewAttachedToWindow(holder: VHKLifecycle2) {
         //提前给imageview 预设一个高度值  等于parent的宽度
         parentWidth = (holder.itemView.parent as ViewGroup).measuredWidth
         val params = holder.itemView.layoutParams

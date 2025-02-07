@@ -3,7 +3,7 @@ package com.mozhimen.xmlk.test.recyclerk.mos
 import android.view.View
 import android.widget.ImageView
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
-import com.mozhimen.xmlk.vhk.VHKRecycler
+import com.mozhimen.xmlk.vhk.VHKLifecycle2
 import com.mozhimen.xmlk.test.R
 
 /**
@@ -20,7 +20,7 @@ class RecyclerKItemGrid : RecyclerKItem<RecyclerKItemGrid.MyVHKRecycler>() {
 
     override fun getItemLayoutId() = R.layout.item_recyclerk_grid
 
-    class MyVHKRecycler(view: View) : VHKRecycler(view) {
+    class MyVHKRecycler(view: View) : VHKLifecycle2(view) {
         val imageView: ImageView = view.findViewById(R.id.datak_item_grid_img)
     }
 

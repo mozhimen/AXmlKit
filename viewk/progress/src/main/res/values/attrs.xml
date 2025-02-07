@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ViewKProgressWave">
+        <attr name="viewKProgressWave_style" format="enum">
+            <enum name="color" value="0" />
+            <enum name="icon" value="1" />
+        </attr>
+        <attr name="viewKProgressWave_bgColor" format="color" />
+        <attr name="viewKProgressWave_waveHeight" format="dimension" />
+        <attr name="viewKProgressWave_max" format="integer" />
+        <attr name="viewKProgressWave_progress" format="integer" />
+        <attr name="viewKProgressWave_src" format="reference" />
+        <attr name="viewKProgressWave_waveCount" format="enum">
+            <enum name="one" value="1" />
+            <enum name="two" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ViewKProgressWaveIcon">
+        <attr name="viewKProgressWaveIcon_waveHeight" format="dimension" />
+        <attr name="viewKProgressWaveIcon_max" format="integer" />
+        <attr name="viewKProgressWaveIcon_progress" format="integer" />
+        <attr name="viewKProgressWaveIcon_src" format="reference" />
+        <attr name="viewKProgressWaveIcon_waveCount" format="enum">
+            <enum name="one" value="1" />
+            <enum name="two" value="2" />
+        </attr>
+        <attr name="viewKProgressWaveIcon_textEnabled" format="boolean" />
+        <attr name="viewKProgressWaveIcon_textSize" format="dimension" />
+        <attr name="viewKProgressWaveIcon_textColor" format="color" />
+        <attr name="viewKProgressWaveIcon_textColor2" format="color" />
+        <attr name="viewKProgressWaveIcon_textStrokeWidth" format="dimension" />
+        <attr name="viewKProgressWaveIcon_strokeEnabled" format="boolean" />
+        <attr name="viewKProgressWaveIcon_strokeWidth" format="dimension" />
+        <attr name="viewKProgressWaveIcon_strokeColor" format="color" />
+        <attr name="viewKProgressWaveIcon_isBgRounded" format="boolean" />
+        <attr name="viewKProgressWaveIcon_roundedCornerRadius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewKProgressAnim">
+        <!-- 通用属性适合所有形状的进度条 -->
+        <attr format="color" name="progress_color"/>
+        <attr format="color" name="progress_color_background"/>
+        <attr format="integer" name="progress_value"/>
+        <attr format="integer" name="progress_value_max"/>
+        <attr format="integer" name="progress_animate_duration"/>
+        <attr format="integer" name="progress_type"/>
+        <attr format="string" name="progress_text"/>
+        <attr format="dimension" name="progress_text_size"/>
+        <attr format="color" name="progress_text_color"/>
+        <attr format="boolean" name="progress_text_visible"/>
+        <attr format="dimension" name="progress_paint_bg_width"/>
+        <attr format="dimension" name="progress_paint_value_width"/>
+        <attr format="boolean" name="progress_start_animate"/>
+
+        <!-- 圆形进度条专有属性 -->
+        <attr format="integer" name="progress_circle_sweep_angle"/>
+
+        <!-- 矩形 或者 圆角矩形 进度条专有属性 -->
+        <attr format="integer" name="progress_rect_text_align"/>
+        <attr format="dimension" name="progress_rect_radius"/>
+
+    </declare-styleable>
+</resources>

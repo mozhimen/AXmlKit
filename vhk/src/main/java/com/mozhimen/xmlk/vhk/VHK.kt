@@ -54,7 +54,7 @@ class VHK private constructor(context: Context, parent: ViewGroup, layoutId: Int
         private set
 
     @OptIn(OApiInit_ByLazy::class)
-    private val _viewProxy by lazy_ofNone { ViewProxy<VHKRecycler>(WeakReference(this.itemView)) }
+    private val _viewProxy by lazy_ofNone { ViewProxy<VHKLifecycle2>(WeakReference(this.itemView)) }
 
     @OptIn(OApiInit_ByLazy::class)
     val viewProxy get() = _viewProxy

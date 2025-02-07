@@ -1,6 +1,5 @@
 package com.mozhimen.xmlk.test.recyclerk.mos
 
-import android.util.Log
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import com.mozhimen.xmlk.layoutk.banner.commons.IBannerBindListener
 import com.mozhimen.xmlk.layoutk.banner.temps.PointIndicator
 import com.mozhimen.xmlk.layoutk.banner.helpers.BannerViewHolder
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
-import com.mozhimen.xmlk.vhk.VHKRecyclerVDB
+import com.mozhimen.xmlk.vhk.VHKRecycler2VDB
 import com.mozhimen.xmlk.test.R
 import com.mozhimen.xmlk.test.databinding.ItemRecyclerkBannerBinding
 
@@ -23,7 +22,7 @@ import com.mozhimen.xmlk.test.databinding.ItemRecyclerkBannerBinding
  * @Author Kolin Zhao
  * @Version 1.0
  */
-class RecyclerKItemBanner : RecyclerKItem<VHKRecyclerVDB<ItemRecyclerkBannerBinding>>() {
+class RecyclerKItemBanner : RecyclerKItem<VHKRecycler2VDB<ItemRecyclerkBannerBinding>>() {
     private val RECYCLERK_ITEM_BANNER_SP_NAME = "recyclerk_item_banner_sp_name"
     private var _index = 0
     private var _urls = arrayOf(
@@ -37,7 +36,7 @@ class RecyclerKItemBanner : RecyclerKItem<VHKRecyclerVDB<ItemRecyclerkBannerBind
 
     inner class BannerItem : BaseBannerItem()
 
-    override fun onBindItem(holder: VHKRecyclerVDB<ItemRecyclerkBannerBinding>, position: Int) {
+    override fun onBindItem(holder: VHKRecycler2VDB<ItemRecyclerkBannerBinding>, position: Int) {
         super.onBindItem(holder, position)
         val context = holder.itemView.context ?: return
         val moList: MutableList<BaseBannerItem> = ArrayList()
@@ -68,17 +67,17 @@ class RecyclerKItemBanner : RecyclerKItem<VHKRecyclerVDB<ItemRecyclerkBannerBind
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup): VHKRecyclerVDB<ItemRecyclerkBannerBinding> {
-        return VHKRecyclerVDB(LayoutInflater.from(parent.context).inflate(getItemLayoutId(), parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup): VHKRecycler2VDB<ItemRecyclerkBannerBinding> {
+        return VHKRecycler2VDB(LayoutInflater.from(parent.context).inflate(getItemLayoutId(), parent, false))
     }
 
     override fun getItemLayoutId() = R.layout.item_recyclerk_banner
 
-    override fun onViewDetachedFromWindow(holder: VHKRecyclerVDB<ItemRecyclerkBannerBinding>) {
+    override fun onViewDetachedFromWindow(holder: VHKRecycler2VDB<ItemRecyclerkBannerBinding>) {
         CacheKSP.instance.with(RECYCLERK_ITEM_BANNER_SP_NAME).putInt("bannerIndex", _index)
     }
 
-    override fun onViewAttachedToWindow(holder: VHKRecyclerVDB<ItemRecyclerkBannerBinding>) {
+    override fun onViewAttachedToWindow(holder: VHKRecycler2VDB<ItemRecyclerkBannerBinding>) {
         val index = CacheKSP.instance.with(RECYCLERK_ITEM_BANNER_SP_NAME).getInt("bannerIndex")
         UtilKLogWrapper.d(TAG, "onViewAttachedToWindow currentIndex $index")
         holder.vdb.itemRecyclerkBanner.setCurrentPosition(index, false)

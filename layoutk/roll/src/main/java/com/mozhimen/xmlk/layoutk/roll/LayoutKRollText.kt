@@ -13,7 +13,7 @@ import android.widget.TextView
 import com.mozhimen.animk.builder.commons.IAnimatorUpdateListener
 import com.mozhimen.animk.builder.impls.AnimatorFloatType
 import com.mozhimen.kotlin.lintk.annors.Sp
-import com.mozhimen.kotlin.utilk.android.animation.cancel_removeAllListeners
+import com.mozhimen.kotlin.utilk.android.animation.cancel_removeAll_AllUpdateListeners
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.widget.applyTypeface
 //import com.mozhimen.xmlk.interpolatork.InterpolatorKSpring
@@ -113,7 +113,7 @@ open class LayoutKRollText @JvmOverloads constructor(context: Context, attrs: At
     }
 
     override fun onDetachedFromWindow() {
-        _rollAnimator?.cancel_removeAllListeners()
+        _rollAnimator?.cancel_removeAll_AllUpdateListeners()
         if (_rollAnimator?.isRunning == true)
             _rollAnimator!!.cancel()
         _rollAnimator = null

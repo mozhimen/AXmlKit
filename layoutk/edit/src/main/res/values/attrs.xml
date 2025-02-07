@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LayoutKEditItem">
+        <attr name="layoutKEditItem_hint" format="string|reference" />
+        <attr name="layoutKEditItem_title" format="string|reference" />
+        <attr name="layoutKEditItem_inputType" format="enum">
+            <enum name="text" value="0" />
+            <enum name="password" value="1" />
+            <enum name="number" value="2" />
+        </attr>
+        <attr name="layoutKEditItem_titleAppearance" format="reference" />
+        <attr name="layoutKEditItem_inputAppearance" format="reference" />
+        <attr name="layoutKEditItem_topLineAppearance" format="reference" />
+        <attr name="layoutKEditItem_bottomLineAppearance" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="LayoutKEditItem_TitleAppearance">
+        <attr name="titleAppearance_titleColor" format="reference|color" />
+        <attr name="titleAppearance_titleSize" format="dimension|reference" />
+        <attr name="titleAppearance_leftPadding" format="dimension|reference" />
+        <attr name="titleAppearance_minWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="LayoutKEditItem_EditAppearance">
+        <attr name="inputAppearance_hintColor" format="reference|color" />
+        <attr name="inputAppearance_inputColor" format="color|reference" />
+        <attr name="inputAppearance_textSize" format="dimension|reference" />
+        <attr name="inputAppearance_maxEditLength" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="LayoutKEditItem_LineAppearance">
+        <attr name="lineAppearance_color" format="reference|color" />
+        <attr name="lineAppearance_height" format="dimension|reference" />
+        <attr name="lineAppearance_leftMargin" format="dimension|reference" />
+        <attr name="lineAppearance_rightMargin" format="dimension|reference" />
+    </declare-styleable>
+</resources>

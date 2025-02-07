@@ -8,7 +8,7 @@ import android.view.View
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
 import com.mozhimen.xmlk.commons.ILayoutK
-import com.mozhimen.xmlk.recyclerk.RecyclerKLinearNested
+import com.mozhimen.xmlk.recyclerk.RecyclerKLifecycleNested
 
 /**
  * @ClassName RecyclerKSnap
@@ -26,7 +26,7 @@ class RecyclerKSnap @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : RecyclerKLinearNested(context, attrs, defStyleAttr), ILayoutK {
+) : RecyclerKLifecycleNested(context, attrs, defStyleAttr), ILayoutK {
 
     private lateinit var _gravityLinearSnapHelper: RecyclerKSnapHelperGravity
     private var _snapGravity: Int = 0

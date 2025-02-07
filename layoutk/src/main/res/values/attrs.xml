@@ -61,40 +61,9 @@
         <attr name="layoutKVideo_volume" format="integer" />
     </declare-styleable>
 
-    <declare-styleable name="LayoutKEditItem">
-        <attr name="layoutKEditItem_hint" format="string|reference" />
-        <attr name="layoutKEditItem_title" format="string|reference" />
-        <attr name="layoutKEditItem_inputType" format="enum">
-            <enum name="text" value="0" />
-            <enum name="password" value="1" />
-            <enum name="number" value="2" />
-        </attr>
-        <attr name="layoutKEditItem_titleAppearance" format="reference" />
-        <attr name="layoutKEditItem_inputAppearance" format="reference" />
-        <attr name="layoutKEditItem_topLineAppearance" format="reference" />
-        <attr name="layoutKEditItem_bottomLineAppearance" format="reference" />
-    </declare-styleable>
 
-    <declare-styleable name="LayoutKEditItem_TitleAppearance">
-        <attr name="titleAppearance_titleColor" format="reference|color" />
-        <attr name="titleAppearance_titleSize" format="dimension|reference" />
-        <attr name="titleAppearance_leftPadding" format="dimension|reference" />
-        <attr name="titleAppearance_minWidth" format="dimension" />
-    </declare-styleable>
 
-    <declare-styleable name="LayoutKEditItem_EditAppearance">
-        <attr name="inputAppearance_hintColor" format="reference|color" />
-        <attr name="inputAppearance_inputColor" format="color|reference" />
-        <attr name="inputAppearance_textSize" format="dimension|reference" />
-        <attr name="inputAppearance_maxEditLength" format="integer" />
-    </declare-styleable>
 
-    <declare-styleable name="LayoutKEditItem_LineAppearance">
-        <attr name="lineAppearance_color" format="reference|color" />
-        <attr name="lineAppearance_height" format="dimension|reference" />
-        <attr name="lineAppearance_leftMargin" format="dimension|reference" />
-        <attr name="lineAppearance_rightMargin" format="dimension|reference" />
-    </declare-styleable>
 
     <declare-styleable name="LayoutKSquare">
         <attr name="layoutKSquare_measureMode" format="enum">
@@ -103,5 +72,30 @@
             <enum name="measureWidth" value="2" />
             <enum name="measureHeight" value="3" />
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="LayoutKTimeLine">
+        <!--时间轴偏移值-->
+        <attr name="layoutKTimeLine_lineMarginOffset" format="dimension|reference" />
+        <!--时间轴动态调整值-->
+        <attr name="layoutKTimeLine_lineDynamicOffset" format="dimension|reference" />
+        <!--线宽-->
+        <attr name="layoutKTimeLine_lineWidth" format="dimension|reference" />
+        <!--线的颜色-->
+        <attr name="layoutKTimeLine_lineColor" format="color|reference" />
+        <!--时间轴的gravity-->
+        <attr name="layoutKTimeLine_lineGravity">
+            <enum name="center" value="0" />
+            <enum name="left" value="2" />
+            <enum name="top" value="1" />
+            <enum name="right" value="4" />
+            <enum name="bottom" value="3" />
+        </attr>
+        <!--点的大小-->
+        <attr name="layoutKTimeLine_pointSize" format="dimension|reference" />
+        <!--点的颜色-->
+        <attr name="layoutKTimeLine_pointColor" format="color|reference" />
+        <!--图标-->
+        <attr name="layoutKTimeLine_pointIconSrc" format="reference" />
     </declare-styleable>
 </resources>

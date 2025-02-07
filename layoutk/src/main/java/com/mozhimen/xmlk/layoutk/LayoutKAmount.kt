@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.core.view.setPadding
 import com.mozhimen.kotlin.elemk.commons.IA_Listener
+import com.mozhimen.kotlin.elemk.commons.I_AListener
 import com.mozhimen.kotlin.utilk.kotlin.ranges.constraint
 import com.mozhimen.xmlk.bases.BaseLayoutKLinear
 import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
@@ -26,13 +27,13 @@ import com.mozhimen.xmlk.commons.IAttrsParser2
  * @Version 1.0
  */
 
-typealias ILayoutKAmountListener = IA_Listener<Int>//(amount: Int) -> Unit
+//typealias ILayoutKAmountListener = IA_Listener<Int>//(amount: Int) -> Unit
 
 class LayoutKAmount @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKLinear(context, attrs, defStyleAttr) {
 
     //region # private variate
     private val _attrs by lazy_ofNone { LayoutKAmountParser.parseAttrs(context, attrs, defStyleAttr) }
-    private var _layoutKAmountListener: ILayoutKAmountListener? = null
+    private var _layoutKAmountListener: IA_Listener<Int>? = null
 
     private var _btnIncrease: Button? = null
         get() {
@@ -81,8 +82,8 @@ class LayoutKAmount @JvmOverloads constructor(context: Context, attrs: Attribute
         initView()
     }
 
-    fun setOnAmountChangedListener(layoutKAmountListener: ILayoutKAmountListener) {
-        this._layoutKAmountListener = layoutKAmountListener
+    fun setOnAmountChangedListener(listener: IA_Listener<Int>) {
+        _layoutKAmountListener = listener
     }
 
     override fun initFlag() {

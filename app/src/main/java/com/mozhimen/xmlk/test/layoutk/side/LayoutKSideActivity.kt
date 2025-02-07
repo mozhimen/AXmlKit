@@ -5,7 +5,7 @@ import android.widget.Toast
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.lintk.optins.permission.OPermission_INTERNET
 import com.mozhimen.kotlin.utilk.android.widget.showToast
-import com.mozhimen.xmlk.vhk.VHKRecycler
+import com.mozhimen.xmlk.vhk.VHKLifecycle2
 import com.mozhimen.xmlk.layoutk.side.list.ILayoutKSideListListener
 import com.mozhimen.xmlk.layoutk.side.list.mos.*
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkSideListBinding
@@ -211,7 +211,7 @@ class LayoutKSideActivity : BaseActivityVDB<ActivityLayoutkSideListBinding>() {
             )
         )
         vdb.layoutkSideList.bindData(mo, spanCount = 3, listener = object : ILayoutKSideListListener {
-            override fun invoke(holder: VHKRecycler, contentMo: MSideSubContent?) {
+            override fun invoke(holder: VHKLifecycle2, contentMo: MSideSubContent?) {
                 "$contentMo".showToast(Toast.LENGTH_LONG)
             }
         })
