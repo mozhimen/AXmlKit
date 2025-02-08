@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.kotlin.utilk.commons.IUtilK
 import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDB
 import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDBListener
-import com.mozhimen.xmlk.vhk.VHKRecycler2VDB
+import com.mozhimen.xmlk.vhk.VHKLifecycle2VDB
 
 /**
  * @ClassName RecyclerKQuickAdapterVDB
@@ -27,7 +27,7 @@ open class RecyclerKQuickAdapterVDB<DATA, VDB : ViewDataBinding>(
     private val _defaultLayout: Int,
     private val _brId: Int,
     private val _listener: IRecyclerKAdapterVDBListener<DATA, VDB>? = null /* = (VHK<ViewDataBinding>, T, Int) -> Unit */
-) : RecyclerView.Adapter<VHKRecycler2VDB<VDB>>(), IRecyclerKAdapterVDB<DATA, VDB>, IUtilK {
+) : RecyclerView.Adapter<VHKLifecycle2VDB<VDB>>(), IRecyclerKAdapterVDB<DATA, VDB>, IUtilK {
 
     private var _selectItemPosition = -1
 
@@ -108,19 +108,19 @@ open class RecyclerKQuickAdapterVDB<DATA, VDB : ViewDataBinding>(
 
     ////////////////////////////////////////////////////////////////////////////
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHKRecycler2VDB<VDB> {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VHKLifecycle2VDB<VDB> {
         val binding = DataBindingUtil.inflate<VDB>(
             LayoutInflater.from(parent.context),
             viewType,
             parent,
             false
         )
-        return VHKRecycler2VDB(binding)
+        return VHKLifecycle2VDB(binding)
     }
 
     override fun getItemCount() = if (_datas.isEmpty()) 0 else _datas.size
 
-    override fun onBindViewHolder(holder: VHKRecycler2VDB<VDB>, position: Int) {
+    override fun onBindViewHolder(holder: VHKLifecycle2VDB<VDB>, position: Int) {
         holder.vdb.setVariable(_brId, _datas[position])
         _listener?.invoke(holder, _datas[position], position, _selectItemPosition)
         holder.vdb.executePendingBindings()

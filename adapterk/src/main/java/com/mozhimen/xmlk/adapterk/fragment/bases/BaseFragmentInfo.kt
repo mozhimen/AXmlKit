@@ -25,6 +25,4 @@ open class BaseFragmentInfo {
     override fun toString(): String {
         return "BaseFragmentInfo(fragmentId='$fragmentId', fragmentTitle='$fragmentTitle')"
     }
-
-
 }

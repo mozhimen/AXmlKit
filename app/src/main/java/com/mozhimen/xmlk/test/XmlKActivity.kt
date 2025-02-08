@@ -3,7 +3,6 @@ package com.mozhimen.xmlk.test
 import android.view.View
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.content.startContext
-import com.mozhimen.xmlk.test.adapterk.AdapterKActivity
 import com.mozhimen.xmlk.test.btnk.BtnKActivity
 import com.mozhimen.xmlk.test.dialogk.DialogKActivity
 import com.mozhimen.xmlk.test.drawablek.DrawableKActivity
@@ -18,10 +17,6 @@ import com.mozhimen.xmlk.test.databinding.ActivityXmlkBinding
 import com.mozhimen.xmlk.test.notifyk.NotifyKActivity
 
 class XmlKActivity : BaseActivityVDB<ActivityXmlkBinding>() {
-
-    fun goAdapterK(view: View) {
-        startContext<AdapterKActivity>()
-    }
 
     fun goBarK(view: View) {
         startContext<BarKActivity>()
@@ -66,5 +61,4 @@ class XmlKActivity : BaseActivityVDB<ActivityXmlkBinding>() {
     fun goViewK(view: View) {
         startContext<ViewKActivity>()
     }
-
 }

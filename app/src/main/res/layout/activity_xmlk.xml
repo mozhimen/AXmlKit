@@ -15,12 +15,6 @@
 
             <com.google.android.material.button.MaterialButton
                 style="@style/XmlKStyle_Btn"
-                android:onClick="goAdapterK"
-                android:text="goAdapterK"
-                tools:ignore="HardcodedText,UsingOnClickInXml" />
-
-            <com.google.android.material.button.MaterialButton
-                style="@style/XmlKStyle_Btn"
                 android:onClick="goBarK"
                 android:text="goBarK"
                 tools:ignore="HardcodedText,UsingOnClickInXml" />

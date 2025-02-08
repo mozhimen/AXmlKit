@@ -1,13 +1,13 @@
-package com.mozhimen.xmlk.test.adapterk
+package com.mozhimen.xmlk.test.recyclerk
 
 import android.os.Bundle
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
-import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
-import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapterStuffed
+import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapter
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItem
-import com.mozhimen.xmlk.test.databinding.ActivityAdapterkRecyclerStuffedBinding
+import com.mozhimen.xmlk.test.databinding.ActivityRecyclerkItemAdapterBinding
 import com.mozhimen.xmlk.test.recyclerk.mos.*
 
 /**
@@ -16,17 +16,18 @@ import com.mozhimen.xmlk.test.recyclerk.mos.*
  * @Author Kolin Zhao
  * @Version 1.0
  */
-class AdapterKRecyclerStuffedActivity : BaseActivityVDB<ActivityAdapterkRecyclerStuffedBinding>() {
+class RecyclerKItemAdapterActivity : BaseActivityVDB<ActivityRecyclerkItemAdapterBinding>() {
 
-    private val _adapterKRecyclerStuffed by lazy_ofNone { RecyclerKItemAdapterStuffed() }
+    private lateinit var _adapterKRecycler: RecyclerKItemAdapter
     override fun initView(savedInstanceState: Bundle?) {
         initAdapter()
     }
 
     private fun initAdapter() {
-        vdb.adapterkRecyclerStuffed.apply {
-            layoutManager = GridLayoutManager(this@AdapterKRecyclerStuffedActivity, 2)
-            adapter = _adapterKRecyclerStuffed
+        _adapterKRecycler = RecyclerKItemAdapter()
+        vdb.adapterkRecycler.apply {
+            layoutManager = GridLayoutManager(this@RecyclerKItemAdapterActivity, 2)
+            adapter = _adapterKRecycler
         }
 
         val dataSets = ArrayList<RecyclerKItem<out RecyclerView.ViewHolder>>()
@@ -47,6 +48,7 @@ class AdapterKRecyclerStuffedActivity : BaseActivityVDB<ActivityAdapterkRecycler
                 dataSets.add(RecyclerKItemImage(1))
             }
         }
-        _adapterKRecyclerStuffed.addItems(dataSets, true)
+        UtilKLogWrapper.d(TAG, "initAdapter: dataSets = $dataSets")
+        _adapterKRecycler.addItems(dataSets, true)
     }
 }

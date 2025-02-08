@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.test.adapterk
+package com.mozhimen.xmlk.test.recyclerk
 
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
@@ -22,12 +22,12 @@ import kotlinx.coroutines.withContext
  * @Date 2023/8/30 23:29
  * @Version 1.0
  */
-class AdapterKRecyclerVBActivity : BaseActivityVDB<ActivityAdapterkRecyclerVbBinding>() {
+class RecyclerKItemAdapterVDBActivity : BaseActivityVDB<ActivityAdapterkRecyclerVbBinding>() {
 
-    private lateinit var _adapterRecyclerVb: RecyclerKItemAdapterVDB<MKey, ItemAdapterkRecyclerVbBinding>
+    private lateinit var _recyclerKItemAdapterVdb: RecyclerKItemAdapterVDB<MKey, ItemAdapterkRecyclerVbBinding>
 
     override fun initView(savedInstanceState: Bundle?) {
-        _adapterRecyclerVb = RecyclerKItemAdapterVDB<MKey, ItemAdapterkRecyclerVbBinding>(
+        _recyclerKItemAdapterVdb = RecyclerKItemAdapterVDB<MKey, ItemAdapterkRecyclerVbBinding>(
             mutableListOf(),
             R.layout.item_adapterk_recycler_vb,
             BR.item_adapterk_recycler_vb
@@ -37,8 +37,8 @@ class AdapterKRecyclerVBActivity : BaseActivityVDB<ActivityAdapterkRecyclerVbBin
             }
         }
         vdb.adapterkRecyclerVbRv.apply {
-            layoutManager = LinearLayoutManager(this@AdapterKRecyclerVBActivity)
-            adapter = _adapterRecyclerVb
+            layoutManager = LinearLayoutManager(this@RecyclerKItemAdapterVDBActivity)
+            adapter = _recyclerKItemAdapterVdb
         }
 
         lifecycleScope.launch(Dispatchers.IO) {
@@ -55,7 +55,7 @@ class AdapterKRecyclerVBActivity : BaseActivityVDB<ActivityAdapterkRecyclerVbBin
                     MKey("8", "xxx")
                 )
             withContext(Dispatchers.Main) {
-                _adapterRecyclerVb.addDatas(datas, true)
+                _recyclerKItemAdapterVdb.addDatas(datas, true)
             }
         }
     }

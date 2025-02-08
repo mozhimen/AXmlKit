@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.adapterk.bases
+package com.mozhimen.xmlk.adapterk.list
 
 import android.view.View
 import android.view.ViewGroup
@@ -22,7 +22,7 @@ import com.mozhimen.xmlk.vhk.VHK
  * @Version 1.0
  */
 @OApiCall_Recycle
-abstract class BaseAdapterK<T>(
+abstract class AdapterKList<T>(
     private val _datas: MutableList<T>,
     @LayoutRes private val _layoutId: Int
 ) : BaseAdapter(), LifecycleOwner {
@@ -32,6 +32,8 @@ abstract class BaseAdapterK<T>(
         get() = _lifecycleRegistry ?: LifecycleRegistry(this).also {
             _lifecycleRegistry = it
         }
+
+    //////////////////////////////////////////////////////////////////////////
 
     override val lifecycle: Lifecycle
         get() = lifecycleRegistry

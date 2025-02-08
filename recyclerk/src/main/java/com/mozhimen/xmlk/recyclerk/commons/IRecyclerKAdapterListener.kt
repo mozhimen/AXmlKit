@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.recyclerk.list.commons
+package com.mozhimen.xmlk.recyclerk.commons
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView.Adapter

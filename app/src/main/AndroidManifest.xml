@@ -26,23 +26,6 @@
             android:name=".toastk.ToastKActivity"
             android:exported="false" />
         <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
-        <!-- adapterk -->
-        <activity
-            android:name=".adapterk.AdapterKActivity"
-            android:exported="false" />
-        <activity
-            android:name=".adapterk.AdapterKRecyclerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".adapterk.AdapterKRecyclerStuffedActivity"
-            android:exported="false" />
-        <activity
-            android:name=".adapterk.AdapterKRecyclerVB2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".adapterk.AdapterKRecyclerVBActivity"
-            android:exported="false" />
-        <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
         <!-- bark -->
         <activity
             android:name=".bark.BarKActivity"
@@ -181,6 +164,18 @@
             android:exported="false" />
  <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
         <!-- recyclerk -->
+        <activity
+            android:name=".recyclerk.RecyclerKItemAdapterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recyclerk.RecyclerKItemAdapterStuffedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recyclerk.RecyclerKQuickAdapterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recyclerk.RecyclerKItemAdapterVDBActivity"
+            android:exported="false" />
         <activity
             android:name=".recyclerk.RecyclerKActivity"
             android:exported="false" />

@@ -14,7 +14,7 @@ import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDBListener
  * @Version 1.0
  */
 
-//typealias IAdapterKRecyclerStuffedVB2Listener<DATA, VB> = (holder: VHKRecyclerVB<VB>, itemData: DATA, position: Int, currentSelectPos: Int) -> Unit
+//typealias IAdapterKRecyclerStuffedVB2Listener<DATA, VB> = (holder: VHKLifecycle2VDB<VB>, itemData: DATA, position: Int, currentSelectPos: Int) -> Unit
 
 @Suppress(CSuppress.UNCHECKED_CAST)
 class RecyclerKItemAdapterStuffedVDB<DATA, VDB : ViewDataBinding>(

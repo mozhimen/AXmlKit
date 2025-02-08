@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * @ClassName RecyclerKCatchLinearLayoutManager
+ * @ClassName RecyclerKLayoutManagerLinearCatch
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0

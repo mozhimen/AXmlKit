@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.test.adapterk
+package com.mozhimen.xmlk.test.recyclerk
 
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
@@ -7,7 +7,7 @@ import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityV
 import com.mozhimen.kotlin.elemk.mos.MKey
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.recyclerk.quick.RecyclerKQuickAdapterVDB
-import com.mozhimen.xmlk.vhk.VHKRecycler2VDB
+import com.mozhimen.xmlk.vhk.VHKLifecycle2VDB
 import com.mozhimen.xmlk.test.R
 import com.mozhimen.xmlk.test.BR
 import com.mozhimen.xmlk.test.databinding.ActivityAdapterkRecyclerVb2Binding
@@ -23,23 +23,23 @@ import kotlinx.coroutines.withContext
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0
  */
-class AdapterKRecyclerVB2Activity : BaseActivityVDB<ActivityAdapterkRecyclerVb2Binding>() {
+class RecyclerKQuickAdapterActivity : BaseActivityVDB<ActivityAdapterkRecyclerVb2Binding>() {
     private val _datas = mutableListOf<MKey>()
-    private lateinit var _adapterRecyclerVb2: RecyclerKQuickAdapterVDB<MKey, ItemAdapterkRecyclerVb2Binding>
+    private lateinit var _recyclerKQuickAdapter: RecyclerKQuickAdapterVDB<MKey, ItemAdapterkRecyclerVb2Binding>
 
     override fun initView(savedInstanceState: Bundle?) {
-        _adapterRecyclerVb2 = RecyclerKQuickAdapterVDB(
+        _recyclerKQuickAdapter = RecyclerKQuickAdapterVDB(
             _datas,
             R.layout.item_adapterk_recycler_vb2,
             BR.item_adapterk_recycler_vb2
-        ) { holder: VHKRecycler2VDB<ItemAdapterkRecyclerVb2Binding>, data: MKey, position: Int, _: Int ->
+        ) { holder: VHKLifecycle2VDB<ItemAdapterkRecyclerVb2Binding>, data: MKey, position: Int, _: Int ->
             holder.vdb.itemAdapterkRecyclerVb2Name.setOnClickListener {
                 "${position}: data:${data}".showToast()
             }
         }
         vdb.adapterkRecyclerVb2Recycler.apply {
-            layoutManager = LinearLayoutManager(this@AdapterKRecyclerVB2Activity)
-            adapter = _adapterRecyclerVb2
+            layoutManager = LinearLayoutManager(this@RecyclerKQuickAdapterActivity)
+            adapter = _recyclerKQuickAdapter
         }
 
         lifecycleScope.launch(Dispatchers.IO) {
@@ -57,7 +57,7 @@ class AdapterKRecyclerVB2Activity : BaseActivityVDB<ActivityAdapterkRecyclerVb2B
                 )
             )
             withContext(Dispatchers.Main) {
-                _adapterRecyclerVb2.addDatas(_datas,true)
+                _recyclerKQuickAdapter.addDatas(_datas,true)
             }
         }
     }

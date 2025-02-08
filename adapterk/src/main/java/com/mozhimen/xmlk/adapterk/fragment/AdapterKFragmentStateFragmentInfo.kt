@@ -45,5 +45,4 @@ class AdapterKFragmentStateFragmentInfo : FragmentStateAdapter {
     fun getFragmentInfos(): List<BaseFragmentInfo> {
         return _fragmentInfos
     }
-
 }

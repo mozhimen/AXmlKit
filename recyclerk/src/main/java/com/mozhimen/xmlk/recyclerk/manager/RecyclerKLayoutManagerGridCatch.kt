@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
 
 /**
- * @ClassName RecyclerKCatchGridLayoutManager
+ * @ClassName RecyclerKLayoutManagerGridCatch
  * @Description TODO
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0

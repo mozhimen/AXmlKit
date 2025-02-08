@@ -1,6 +1,6 @@
 package com.mozhimen.xmlk.recyclerk.commons
 
-import com.mozhimen.xmlk.vhk.VHKRecycler2VDB
+import com.mozhimen.xmlk.vhk.VHKLifecycle2VDB
 
 /**
  * @ClassName IAdapterKRecyclerVBListener
@@ -8,5 +8,5 @@ import com.mozhimen.xmlk.vhk.VHKRecycler2VDB
  * @Author Mozhimen / Kolin Zhao
  * @Version 1.0
  */
-typealias IRecyclerKAdapterVDBListener<DATA, VDB> = (holder: VHKRecycler2VDB<VDB>, data: DATA, position: Int, currentSelectPosition: Int) -> Unit
-typealias IRecyclerKAdapterStuffedVDBListener<DATA, VDB> = (holder: VHKRecycler2VDB<VDB>, data: DATA, position: Int, currentSelectPosition: Int) -> Unit
+typealias IRecyclerKAdapterVDBListener<DATA, VDB> = (holder: VHKLifecycle2VDB<VDB>, data: DATA, position: Int, currentSelectPosition: Int) -> Unit
+typealias IRecyclerKAdapterStuffedVDBListener<DATA, VDB> = (holder: VHKLifecycle2VDB<VDB>, data: DATA, position: Int, currentSelectPosition: Int) -> Unit

@@ -9,13 +9,13 @@ import androidx.databinding.ViewDataBinding
 import com.mozhimen.kotlin.utilk.commons.IUtilK
 
 /**
- * @ClassName VHKRecyclerVB2
+ * @ClassName VHKLifecycle2VDB
  * @Description TODO
  * @Author Mozhimen / Kolin Zhao
  * @Date 2023/8/31 19:28
  * @Version 1.0
  */
-open class VHKRecycler2VDB<VDB : ViewDataBinding> : VHKLifecycle2, IUtilK {
+open class VHKLifecycle2VDB<VDB : ViewDataBinding> : VHKLifecycle2, IUtilK {
     private var _vdb: VDB
     val vdb get() = _vdb
 

@@ -11,10 +11,10 @@ import com.mozhimen.xmlk.drawablek.arrow.cons.EArrowPosPolicy
 import com.mozhimen.xmlk.test.databinding.ActivityDrawablekArrowBinding
 
 class DrawableKArrowActivity : BaseActivityVDB<ActivityDrawablekArrowBinding>() {
-    private var drawableKArrow: com.mozhimen.xmlk.drawablek.arrow.DrawableKArrow? = null
+    private var drawableKArrow: DrawableKArrow? = null
         get() {
             if (field != null) return field
-            val drawableKArrow = com.mozhimen.xmlk.drawablek.arrow.DrawableKArrow()
+            val drawableKArrow = DrawableKArrow()
             drawableKArrow.apply {
                 resetRect(vdb.drawablekArrow1.width, vdb.drawablekArrow1.height)
 

@@ -85,7 +85,7 @@ class RecyclerKItemAdapterVDB<DATA, VDB : ViewDataBinding>(
         _selectItemPosition = position
         refreshItems(true)
 //        val item = getData(_selectItemPosition) as RecyclerKItemVB<DATA, VB>
-//        listener.invoke(item.vh as VHKRecyclerVB<VB>, item.data, _selectItemPosition, _selectItemPosition)
+//        listener.invoke(item.vh as VHKLifecycle2VDB<VB>, item.data, _selectItemPosition, _selectItemPosition)
     }
 
     override fun getCurrentSelectPosition(): Int =

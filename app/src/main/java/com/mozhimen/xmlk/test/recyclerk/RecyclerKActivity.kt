@@ -25,4 +25,20 @@ class RecyclerKActivity : BaseActivityVDB<ActivityRecyclerkBinding>() {
     fun goRecyclerKLoop(view: View) {
         startContext<RecyclerKLoopActivity>()
     }
+
+    fun goAdapterKRecycler(view: View) {
+        startContext<RecyclerKItemAdapterActivity>()
+    }
+
+    fun goAdapterKRecyclerStuffed(view: View) {
+        startContext<RecyclerKItemAdapterStuffedActivity>()
+    }
+
+    fun goAdapterKRecyclerVb2(view: View) {
+        startContext<RecyclerKQuickAdapterActivity>()
+    }
+
+    fun goAdapterKRecyclerVb(view: View) {
+        startContext<RecyclerKItemAdapterVDBActivity>()
+    }
 }

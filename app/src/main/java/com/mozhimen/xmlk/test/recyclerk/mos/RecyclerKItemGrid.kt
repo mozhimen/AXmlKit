@@ -12,15 +12,15 @@ import com.mozhimen.xmlk.test.R
  * @Author Kolin Zhao
  * @Version 1.0
  */
-class RecyclerKItemGrid : RecyclerKItem<RecyclerKItemGrid.MyVHKRecycler>() {
-    override fun onBindItem(holder: MyVHKRecycler, position: Int) {
+class RecyclerKItemGrid : RecyclerKItem<RecyclerKItemGrid.MyVHKLifecycle2>() {
+    override fun onBindItem(holder: MyVHKLifecycle2, position: Int) {
         super.onBindItem(holder, position)
         holder.imageView.setImageResource(R.drawable.datak_item_grid)
     }
 
     override fun getItemLayoutId() = R.layout.item_recyclerk_grid
 
-    class MyVHKRecycler(view: View) : VHKLifecycle2(view) {
+    class MyVHKLifecycle2(view: View) : VHKLifecycle2(view) {
         val imageView: ImageView = view.findViewById(R.id.datak_item_grid_img)
     }
 

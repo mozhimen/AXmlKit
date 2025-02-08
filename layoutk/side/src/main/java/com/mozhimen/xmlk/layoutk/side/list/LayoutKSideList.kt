@@ -28,7 +28,7 @@ import com.mozhimen.xmlk.layoutk.side.list.helpers.SideAttrsParser
 import com.mozhimen.xmlk.layoutk.side.list.temps.SideSubItemDecoration
 import com.mozhimen.xmlk.layoutk.side.list.mos.*
 
-typealias ILayoutKSideListListener = IAB_Listener<VHKLifecycle2, MSideSubContent?>//(viewHolder: VHKRecycler, content: MSideSubContent?) -> Unit
+typealias ILayoutKSideListListener = IAB_Listener<VHKLifecycle2, MSideSubContent?>//(viewHolder: VHKLifecycle2, content: MSideSubContent?) -> Unit
 
 /**
  * @ClassName LayoutKSideList
