@@ -35,7 +35,7 @@ dependencies {
     implementation project(':ASwiftKit:basick')
     implementation project(':ASwiftKit:xmlk')
     implementation project(':AAnimKit:animk')
-    implementation project(':drawablek')
+    implementation project(':drawablek:arrow')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

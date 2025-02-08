@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--layoutk_navbar-->
+    <attr name="LayoutKNavBar_StyleK_LayoutKNavBar" format="reference" />
+    <declare-styleable name="LayoutKNavBar">
+        <attr name="layoutKNavBar_title" format="string|reference" />
+        <attr name="layoutKNavBar_title_textColor" format="color|reference" />
+        <attr name="layoutKNavBar_title_textSize" format="dimension|reference" />
+
+        <attr name="layoutKNavBar_subTitle" format="string|reference" />
+        <attr name="layoutKNavBar_subTitle_textSize" format="dimension|reference" />
+        <attr name="layoutKNavBar_subTitle_textColor" format="color|reference" />
+        <attr name="layoutKNavBar_subTitle_marginTop" format="dimension|reference" />
+
+        <attr name="layoutKNavBar_lineColor" format="color|reference" />
+        <attr name="layoutKNavBar_lineWidth" format="dimension|reference" />
+    </declare-styleable>
+</resources>

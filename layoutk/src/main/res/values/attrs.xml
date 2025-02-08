@@ -9,21 +9,7 @@
         <attr name="layoutKLoading_loadSize" format="dimension|reference" />
     </declare-styleable>
 
-    <!--layoutk_navbar-->
-    <attr name="LayoutKNavBar_StyleK_LayoutKNavBar" format="reference" />
-    <declare-styleable name="LayoutKNavBar">
-        <attr name="layoutKNavBar_title" format="string|reference" />
-        <attr name="layoutKNavBar_title_textColor" format="color|reference" />
-        <attr name="layoutKNavBar_title_textSize" format="dimension|reference" />
 
-        <attr name="layoutKNavBar_subTitle" format="string|reference" />
-        <attr name="layoutKNavBar_subTitle_textSize" format="dimension|reference" />
-        <attr name="layoutKNavBar_subTitle_textColor" format="color|reference" />
-        <attr name="layoutKNavBar_subTitle_marginTop" format="dimension|reference" />
-
-        <attr name="layoutKNavBar_lineColor" format="color|reference" />
-        <attr name="layoutKNavBar_lineWidth" format="dimension|reference" />
-    </declare-styleable>
 
 
 
@@ -60,9 +46,6 @@
         <!--音量0-10-->
         <attr name="layoutKVideo_volume" format="integer" />
     </declare-styleable>
-
-
-
 
 
     <declare-styleable name="LayoutKSquare">

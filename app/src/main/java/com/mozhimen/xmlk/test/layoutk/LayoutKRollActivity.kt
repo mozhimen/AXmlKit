@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.lintk.annors.ADigitPlace
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.taskk.temps.TaskKPoll
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
@@ -15,7 +16,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class LayoutKRollActivity : BaseActivityVDB<ActivityLayoutkRollBinding>() {
-    @OptIn(OApiCall_BindLifecycle::class, OApiInit_ByLazy::class)
+    @OptIn(OApiCall_BindLifecycle::class, OApiInit_ByLazy::class, OApiCall_BindViewLifecycle::class)
     private val _taskKPoll by lazy_ofNone { TaskKPoll().apply { bindLifecycle(this@LayoutKRollActivity) } }
     private val list = "我喜欢唱跳RAP篮球!"
 

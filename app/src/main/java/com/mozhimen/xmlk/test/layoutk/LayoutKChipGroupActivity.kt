@@ -15,7 +15,7 @@ import com.mozhimen.xmlk.test.databinding.ActivityLayoutkChipGroupBinding
  */
 class LayoutKChipGroupActivity : BaseActivityVDB<ActivityLayoutkChipGroupBinding>() {
     override fun initView(savedInstanceState: Bundle?) {
-        vdb.layoutkChipGroup.uik.databindingeys(
+        vdb.layoutkChipGroup.bindKeys(
             arrayListOf(
                 MKey("0", "赛博朋克2077"),
                 MKey("1", "老头环"),

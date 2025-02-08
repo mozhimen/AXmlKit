@@ -9,9 +9,8 @@ import com.mozhimen.kotlin.utilk.android.content.UtilKTheme
 import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.kotlin.utilk.android.util.sp2px
 import com.mozhimen.xmlk.commons.IAttrsParser2
-import com.mozhimen.xmlk.layoutk.R
 import com.mozhimen.xmlk.layoutk.navbar.mos.MNavBarAttrs
-
+import com.mozhimen.xmlk.layoutk.navbar.R
 /**
  * @ClassName AttrsParser
  * @Description TODO

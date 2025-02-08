@@ -172,6 +172,7 @@ include ':APostKit:basic'
 include ':ATaskKit'
 project(':ATaskKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ATaskKit")
 include ':ATaskKit:executor'
+include ':ATaskKit:taskk'
 //AStackKit
 include ':AStackKit'
 project(':AStackKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AStackKit")

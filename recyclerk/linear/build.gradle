@@ -39,7 +39,7 @@ dependencies {
     implementation project(':ASwiftKit:basick')
     implementation project(':ASwiftKit:xmlk')
     implementation project(':adapterk')
-    implementation project(':recyclerk')
+    implementation project(':recyclerk:item')
     implementation project(':vhk')
 
     testImplementation 'junit:junit:4.13.2'

@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.View
 import com.mozhimen.kotlin.utilk.android.widget.applyValueIfNotEmpty
 import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen
-import com.mozhimen.xmlk.dialogk.bases.BaseDialogKVDB
-import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKVDBClickListener
+import com.mozhimen.xmlk.dialogk.databinding.bases.BaseDialogKVDB
+import com.mozhimen.xmlk.dialogk.databinding.bases.commons.IDialogKVDBClickListener
 import com.mozhimen.xmlk.test.databinding.DialogkTipBinding
 import kotlin.math.roundToInt
 

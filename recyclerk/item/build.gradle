@@ -40,10 +40,10 @@ dependencies {
     }
     if (rootProject.name == "AXmlKit") {
         implementation project(/*project.path.replace(project.name, '') +*/ ':vhk')
-        implementation project(/*project.path.replace(project.name, '') +*/ ':recyclerk')
+        api project(/*project.path.replace(project.name, '') +*/ ':recyclerk')
     } else {
         implementation project(/*project.path.replace(project.name, '') +*/ ':AXmlKit:vhk')
-        implementation project(/*project.path.replace(project.name, '') +*/ ':AXmlKit:recyclerk')
+        api project(/*project.path.replace(project.name, '') +*/ ':AXmlKit:recyclerk')
     }
 
     testImplementation 'junit:junit:4.13.2'

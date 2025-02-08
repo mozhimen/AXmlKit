@@ -35,7 +35,7 @@ dependencies {
     implementation project(':ASwiftKit:basick')
     implementation project(':ASwiftKit:xmlk')
     implementation project(':recyclerk:load')
-    implementation project(':recyclerk')
+    implementation project(':recyclerk:item')
     implementation project(':layoutk:refresh')
     implementation project(':adapterk')
     implementation project(':layoutk')

@@ -35,7 +35,7 @@ dependencies {
     implementation project(':ASwiftKit:basick')
     implementation project(':ASwiftKit:xmlk')
     implementation project(':AAnimKit:animk')
-    implementation project(':drawablek')
+    implementation project(':drawablek:arrow')
     implementation project(':textk:bubble')
 
     testImplementation 'junit:junit:4.13.2'
