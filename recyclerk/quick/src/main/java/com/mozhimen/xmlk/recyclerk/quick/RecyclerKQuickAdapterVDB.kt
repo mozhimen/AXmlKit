@@ -9,7 +9,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.kotlin.utilk.commons.IUtilK
 import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDB
-import com.mozhimen.xmlk.recyclerk.quick.commons.IRecyclerKAdapterVDBListener
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDBListener
 import com.mozhimen.xmlk.vhk.VHKRecycler2VDB
 
 /**

@@ -4,7 +4,7 @@ import androidx.databinding.ViewDataBinding
 import com.mozhimen.kotlin.utilk.kotlin.collections.joinT2list
 import com.mozhimen.kotlin.utilk.kotlin.collections.joinT2listIgnoreNull
 import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDB
-import com.mozhimen.xmlk.recyclerk.quick.commons.IRecyclerKAdapterVDBListener
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDBListener
 
 /**
  * @ClassName AdapterKRecyclerVB2
@@ -21,7 +21,7 @@ class RecyclerKItemAdapterVDB<DATA, VDB : ViewDataBinding>(
     private val _datas: List<DATA>,
     private val _defaultLayoutId: Int,
     private val _brId: Int,
-    private val _listener: com.mozhimen.xmlk.recyclerk.quick.commons.IRecyclerKAdapterVDBListener<DATA, VDB>? = null
+    private val _listener: IRecyclerKAdapterVDBListener<DATA, VDB>? = null
 ) : RecyclerKItemAdapter(), IRecyclerKAdapterVDB<DATA, VDB> {
 
     private var _selectItemPosition = -1

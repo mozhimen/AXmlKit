@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--layoutk_NavBar-->
+    <style name="StyleK_LayoutKNavBar">
+        <item name="layoutKNavBar_title_textSize">17sp</item>
+        <item name="layoutKNavBar_title_textColor">@android:color/black</item>
+
+        <item name="layoutKNavBar_subTitle_textSize">14sp</item>
+        <item name="layoutKNavBar_subTitle_textColor">@color/cok_gray_d2d4d7</item>
+        <item name="layoutKNavBar_subTitle_marginTop">1dp</item>
+
+        <item name="layoutKNavBar_lineColor">@color/cok_gray_eeeeee</item>
+        <item name="layoutKNavBar_lineWidth">0dp</item>
+    </style>
+</resources>

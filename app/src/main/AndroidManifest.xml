@@ -80,6 +80,15 @@
         </activity> <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
         <!-- layoutk -->
         <activity
+            android:name=".layoutk.LayoutKGridFillActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layoutk.LayoutKGridFillMoveActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layoutk.LayoutKTimeLineActivity"
+            android:exported="false" />
+        <activity
             android:name=".layoutk.LayoutKConstraintActivity"
             android:exported="true">
 
@@ -95,7 +104,13 @@
             android:exported="false" />
         <activity
             android:name=".layoutk.LayoutKSpinnerActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".layoutk.LayoutKActivity"
             android:exported="false" />
@@ -117,11 +132,7 @@
         <activity
             android:name=".layoutk.banner.LayoutKBannerActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".layoutk.loadrefresh.LayoutKLoadRefreshActivity"
@@ -205,6 +216,12 @@
         </activity>
         <activity
             android:name=".viewk.ViewKWheelActivity"
+            android:exported="false" />
+        <activity
+            android:name=".viewk.ViewKStepsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".viewk.ViewKViews2Activity"
             android:exported="false" />
     </application>
 

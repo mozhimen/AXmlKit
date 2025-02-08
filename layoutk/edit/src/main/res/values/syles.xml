@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="StyleK_LayoutKEditItem_TitleAppearance">
+        <item name="titleAppearance_titleColor">@android:color/black</item>
+        <item name="titleAppearance_titleSize">16sp</item>
+        <item name="titleAppearance_leftPadding">2dp</item>
+        <item name="titleAppearance_minWidth">100dp</item>
+    </style>
+
+    <style name="StyleK_LayoutKEditItem_EditAppearance">
+        <item name="inputAppearance_hintColor">@color/cok_blue_e8f3ff</item>
+        <item name="inputAppearance_inputColor">@color/cok_blue_287ff1</item>
+        <item name="inputAppearance_textSize">15sp</item>
+    </style>
+
+    <style name="StyleK_LayoutKEditItem_LineAppearance">
+        <item name="lineAppearance_color">@color/cok_blue_0876e4</item>
+        <item name="lineAppearance_height">1.5dp</item>
+        <item name="lineAppearance_leftMargin">0dp</item>
+        <item name="lineAppearance_rightMargin">0dp</item>
+    </style>
+</resources>

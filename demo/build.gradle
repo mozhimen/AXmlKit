@@ -40,7 +40,7 @@ dependencies {
     implementation project(':ASwiftKit:uik:databinding')
     implementation project(':ASwiftKit:xmlk')
     implementation project(':layoutk:blur')
-    implementation project(':recyclerk')
+    implementation project(':recyclerk:quick')
     implementation project(':vhk')
     implementation project(':AAdaptKit:systembar')
 

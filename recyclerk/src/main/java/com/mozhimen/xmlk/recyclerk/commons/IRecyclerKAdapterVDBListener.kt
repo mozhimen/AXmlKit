@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.recyclerk.quick.commons
+package com.mozhimen.xmlk.recyclerk.commons
 
 import com.mozhimen.xmlk.vhk.VHKRecycler2VDB
 

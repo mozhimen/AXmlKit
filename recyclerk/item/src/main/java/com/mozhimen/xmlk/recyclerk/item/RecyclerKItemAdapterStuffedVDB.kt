@@ -5,7 +5,7 @@ import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
 import com.mozhimen.kotlin.utilk.kotlin.collections.joinT2list
 import com.mozhimen.kotlin.utilk.kotlin.collections.joinT2listIgnoreNull
 import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDB
-import com.mozhimen.xmlk.recyclerk.quick.commons.IRecyclerKAdapterVDBListener
+import com.mozhimen.xmlk.recyclerk.commons.IRecyclerKAdapterVDBListener
 
 /**
  * @ClassName AdapterKRecyclerStuffedVB2
@@ -23,7 +23,7 @@ class RecyclerKItemAdapterStuffedVDB<DATA, VDB : ViewDataBinding>(
     private var _brId: Int,
     private var _headerLayoutId: Int? = null,
     private var _footerLayoutId: Int? = null,
-    private var _listener: com.mozhimen.xmlk.recyclerk.quick.commons.IRecyclerKAdapterVDBListener<DATA, VDB>? = null
+    private var _listener: IRecyclerKAdapterVDBListener<DATA, VDB>? = null
 ) : RecyclerKItemAdapterStuffed(), IRecyclerKAdapterVDB<DATA, VDB> {
     private var _selectItemPosition = -1
 

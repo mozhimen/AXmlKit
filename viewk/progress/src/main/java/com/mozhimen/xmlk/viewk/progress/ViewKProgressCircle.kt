@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
+import androidx.annotation.IntRange
 import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.kotlin.utilk.kotlin.ranges.constraint
 import com.mozhimen.xmlk.basic.bases.BaseViewK
