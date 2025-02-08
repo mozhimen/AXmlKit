@@ -154,21 +154,21 @@ class GuideProcess private constructor(
      */
     class Builder {
 
-        private var guideSteps: Array<GuideStep>? = null
-        private var duration: Long = TimeUnit.SECONDS.toMillis(1)
-        private var interpolator: TimeInterpolator = DecelerateInterpolator(2f)
+        private var _guideSteps: Array<GuideStep>? = null
+        private var _duration: Long = TimeUnit.SECONDS.toMillis(1)
+        private var _interpolator: TimeInterpolator = DecelerateInterpolator(2f)
 
         @ColorInt
-        private var backgroundColor: Int = DEFAULT_OVERLAY_COLOR
-        private var container: ViewGroup? = null
-        private var listener: IOnProcessEventListener? = null
+        private var _backgroundColor: Int = DEFAULT_OVERLAY_COLOR
+        private var _container: ViewGroup? = null
+        private var _iOnProcessEventListener: IOnProcessEventListener? = null
 
         /**
          * Sets [GuideStep]s to show on [GuideProcess].
          */
         fun setSteps(vararg guideSteps: GuideStep): Builder = apply {
             require(guideSteps.isNotEmpty()) { "targets should not be empty. " }
-            this.guideSteps = arrayOf(*guideSteps)
+            this._guideSteps = arrayOf(*guideSteps)
         }
 
         /**
@@ -176,64 +176,64 @@ class GuideProcess private constructor(
          */
         fun setSteps(guideSteps: List<GuideStep>): Builder = apply {
             require(guideSteps.isNotEmpty()) { "targets should not be empty. " }
-            this.guideSteps = guideSteps.toTypedArray()
+            this._guideSteps = guideSteps.toTypedArray()
         }
 
         /**
          * Sets [duration] to start/finish [GuideProcess].
          */
         fun setDuration(duration: Long): Builder = apply {
-            this.duration = duration
+            this._duration = duration
         }
 
         /**
-         * Sets [backgroundColor] resource on [GuideProcess].
+         * Sets [_backgroundColor] resource on [GuideProcess].
          */
         fun setBackgroundColorRes(@ColorRes backgroundColorRes: Int, context: Context): Builder = apply {
-            this.backgroundColor = ContextCompat.getColor(context, backgroundColorRes)
+            this._backgroundColor = ContextCompat.getColor(context, backgroundColorRes)
         }
 
         /**
          * Sets [backgroundColor] on [GuideProcess].
          */
         fun setBackgroundColor(@ColorInt backgroundColor: Int): Builder = apply {
-            this.backgroundColor = backgroundColor
+            this._backgroundColor = backgroundColor
         }
 
         /**
          * Sets [interpolator] to start/finish [GuideProcess].
          */
         fun setTimeInterpolator(interpolator: TimeInterpolator): Builder = apply {
-            this.interpolator = interpolator
+            this._interpolator = interpolator
         }
 
         /**
          * Sets [container] to hold [LayoutKGuide]. DecoderView will be used if not specified.
          */
         fun setContainer(container: ViewGroup) = apply {
-            this.container = container
+            this._container = container
         }
 
         /**
          * Sets [IOnProcessEventListener] to notify the state of [GuideProcess].
          */
         fun setOnProcessEventListener(listener: IOnProcessEventListener): Builder = apply {
-            this.listener = listener
+            this._iOnProcessEventListener = listener
         }
 
         fun build(activity: Activity): GuideProcess {
             val spotlight = LayoutKGuide(activity, null, 0).apply {
-                setOverlayBackgroundColor(backgroundColor)
+                setOverlayBackgroundColor(_backgroundColor)
             }
-            val targets = requireNotNull(guideSteps) { "targets should not be null. " }
-            val container = container ?: activity.window.decorView as ViewGroup
+            val targets = requireNotNull(_guideSteps) { "targets should not be null. " }
+            val container = _container ?: activity.window.decorView as ViewGroup
             return GuideProcess(
                 _layoutKGuide = spotlight,
                 _guideSteps = targets,
-                _duration = duration,
-                _timeInterpolator = interpolator,
+                _duration = _duration,
+                _timeInterpolator = _interpolator,
                 _container = container,
-                _iOnProcessEventListener = listener
+                _iOnProcessEventListener = _iOnProcessEventListener
             )
         }
     }
