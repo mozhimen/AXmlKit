@@ -1,7 +1,9 @@
 package com.mozhimen.xmlk.layoutk.guide
 
 import android.graphics.PointF
+import android.util.Log
 import android.view.View
+import com.mozhimen.kotlin.utilk.commons.IUtilK
 import com.mozhimen.xmlk.layoutk.guide.commons.Effect
 import com.mozhimen.xmlk.layoutk.guide.commons.IOnStepEventListener
 import com.mozhimen.xmlk.layoutk.guide.commons.Shape
@@ -17,13 +19,13 @@ class GuideStep(
     val effect: Effect,
     val overlay: View?,
     val iOnStepEventListener: IOnStepEventListener?,
-) {
+) : IUtilK {
 
     /**
      * [Builder] to build a [GuideStep].
      * All parameters should be set in this [Builder].
      */
-    class Builder {
+    class Builder : IUtilK {
 
         private var _anchor: PointF = PointF(0f, 0f)
         private var _shape: Shape = ShapeCircle(100f)
@@ -41,6 +43,7 @@ class GuideStep(
             view.getLocationInWindow(location)
             val x = location[0] + view.width / 2f
             val y = location[1] + view.height / 2f
+            Log.d(TAG, "setAnchor: x $x, y $y")
             setAnchor(x, y)
         }
 

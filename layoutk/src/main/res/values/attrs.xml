@@ -9,10 +9,6 @@
         <attr name="layoutKLoading_loadSize" format="dimension|reference" />
     </declare-styleable>
 
-
-
-
-
     <declare-styleable name="LayoutKAmount">
         <attr name="layoutKAmount_minVal" format="integer" />
         <attr name="layoutKAmount_maxVal" format="integer" />
@@ -47,7 +43,6 @@
         <attr name="layoutKVideo_volume" format="integer" />
     </declare-styleable>
 
-
     <declare-styleable name="LayoutKSquare">
         <attr name="layoutKSquare_measureMode" format="enum">
             <enum name="measureMin" value="0" />
@@ -80,5 +75,12 @@
         <attr name="layoutKTimeLine_pointColor" format="color|reference" />
         <!--图标-->
         <attr name="layoutKTimeLine_pointIconSrc" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="LayoutKUnTouchConstraint">
+        <attr name="layoutKUnTouchConstraint_mode">
+            <enum name="all" value="0" />
+            <enum name="child_can_touch" value="1" />
+        </attr>
     </declare-styleable>
 </resources>
