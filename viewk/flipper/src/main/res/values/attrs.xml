@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ViewKFlipper">
+        <attr name="viewKFlipper_interval" format="integer"/>
+        <attr name="viewKFlipper_animDuration" format="integer"/>
+        <attr name="viewKFlipper_itemCountPerLine" format="integer"/>
+    </declare-styleable>
+</resources>

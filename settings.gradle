@@ -182,3 +182,6 @@ include ':AStackKit:basic'
 
 include ':layoutk:guide'
 include ':layoutk:guide:test'
+include ':viewk:flipper'
+include ':textk:switcher'
+include ':textk:test'

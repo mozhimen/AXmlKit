@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TextKSwitcher">
+        <!--字体大小-->
+        <attr name="textKSwitcher_textSize" format="dimension" />
+        <!--字体颜色-->
+        <attr name="textKSwitcher_textColor" format="reference|color" />
+        <!--最多显示的行数-->
+        <attr name="textKSwitcher_maxLines" format="integer" min="0" />
+        <!--字体超出后的效果-->
+        <attr name="textKSwitcher_ellipsize">
+            <enum name="none" value="0" />
+            <enum name="start" value="1" />
+            <enum name="middle" value="2" />
+            <enum name="end" value="3" />
+            <enum name="marquee" value="4" />
+        </attr>
+        <!--文字样式-->
+        <attr name="textKSwitcher_textStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+        </attr>
+        <!--动画的方向-->
+        <attr name="textKSwitcher_animDirection">
+            <enum name="bottom2top" value="0"/>
+            <enum name="top2bottom" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>

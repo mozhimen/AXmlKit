@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TextKSwitcherActivity">
+
+    <com.mozhimen.xmlk.textk.switcher.TextKSwitcher
+        android:id="@+id/textk_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:textKSwitcher_animDirection="bottom2top"
+        app:textKSwitcher_ellipsize="end"
+        app:textKSwitcher_maxLines="1"
+        app:textKSwitcher_textColor="@color/black"
+        app:textKSwitcher_textSize="20sp"
+        app:textKSwitcher_textStyle="bold" />
+</FrameLayout>
