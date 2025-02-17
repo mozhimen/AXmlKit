@@ -16,10 +16,10 @@ import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnDestroy
 import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnStart
 import com.mozhimen.kotlin.utilk.commons.IUtilK
-import com.mozhimen.xmlk.recyclerk.list.commons.IOnItemChildClickListener
-import com.mozhimen.xmlk.recyclerk.list.commons.IOnItemChildLongClickListener
-import com.mozhimen.xmlk.recyclerk.list.commons.IOnItemClickListener
-import com.mozhimen.xmlk.recyclerk.list.commons.IOnItemLongClickListener
+import com.mozhimen.xmlk.recyclerk.commons.IOnItemChildClickListener
+import com.mozhimen.xmlk.recyclerk.commons.IOnItemChildLongClickListener
+import com.mozhimen.xmlk.recyclerk.commons.IOnItemClickListener
+import com.mozhimen.xmlk.recyclerk.commons.IOnItemLongClickListener
 import com.mozhimen.xmlk.vhk.VHKLifecycle
 
 /**

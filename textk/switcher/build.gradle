@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.xmlk.recyclerk.list'
+    namespace 'com.mozhimen.xmlk.textk.switcher'
     compileSdk 34
 
     defaultConfig {
         minSdk 19
-        multiDexEnabled true
+        multiDexEnabled  true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 //        consumerProguardFiles "consumer-rules.pro"
@@ -31,20 +31,13 @@ android {
 }
 
 dependencies {
-    if (rootProject.name == "ASwiftKit") {
-        implementation project(':basick')
-        implementation project(':xmlk')
-    } else {
-        implementation project(':ASwiftKit:basick')
-        implementation project(':ASwiftKit:xmlk')
-    }
     if (rootProject.name=="AXmlKit"){
-        implementation project(/*project.path.replace(project.name, '') +*/':vhk')
-        implementation project(/*project.path.replace(project.name, '') +*/':recyclerk')
+        api project(/*project.path.replace(project.name, '') +*/ ':basic')
     }else{
-        implementation project(/*project.path.replace(project.name, '') +*/':AXmlKit:vhk')
-        implementation project(/*project.path.replace(project.name, '') +*/':AXmlKit:recyclerk')
+        api project(/*project.path.replace(project.name, '') +*/ ':AXmlKit:basic')
     }
+    implementation project(':ASwiftKit:basick')
+    implementation project(':ATaskKit:taskk')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
