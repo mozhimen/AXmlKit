@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.StyleRes
 import androidx.viewbinding.ViewBinding
-import com.mozhimen.uik.databinding.utils.UtilKViewBinding
+import com.mozhimen.uik.databinding.utils.ViewBindingUtil
 import com.mozhimen.xmlk.R
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogK
 import com.mozhimen.xmlk.dialogk.databinding.bases.commons.IDialogKVBClickListener
@@ -25,7 +25,7 @@ abstract class BaseDialogKVB<VB : ViewBinding, T : IDialogKVBClickListener<VB>>(
     //////////////////////////////////////////////////////////////////////////////
 
     override fun onCreateView(inflater: LayoutInflater): View? {
-        _vb = UtilKViewBinding.get_ofClass<VB>(this::class.java, inflater/*, 0*/)
+        _vb = ViewBindingUtil.get_ofClass<VB>(this::class.java, inflater/*, 0*/)
         return vb.root
     }
 }

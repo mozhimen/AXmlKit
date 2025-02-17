@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.StyleRes
 import androidx.databinding.ViewDataBinding
-import com.mozhimen.uik.databinding.utils.UtilKViewDataBinding
+import com.mozhimen.uik.databinding.utils.ViewDataBindingUtil
 import com.mozhimen.xmlk.R
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogK
 import com.mozhimen.xmlk.dialogk.databinding.bases.commons.IDialogKVDBClickListener
@@ -25,7 +25,7 @@ abstract class BaseDialogKVDB<VDB : ViewDataBinding, T : IDialogKVDBClickListene
     //////////////////////////////////////////////////////////////////////////////
 
     override fun onCreateView(inflater: LayoutInflater): View? {
-        _vdb = UtilKViewDataBinding.get_ofClass<VDB>(this::class.java, inflater/*, 0*/).apply {
+        _vdb = ViewDataBindingUtil.get_ofClass<VDB>(this::class.java, inflater/*, 0*/).apply {
             lifecycleOwner = this@BaseDialogKVDB
         }
         return vdb.root
