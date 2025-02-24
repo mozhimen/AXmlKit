@@ -1,16 +1,19 @@
-package com.mozhimen.xmlk.dialogk.bases
+package com.mozhimen.xmlk.dialogk.bottomsheet.bases
 
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
-import android.view.*
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.RequiresPermission
 import androidx.annotation.StyleRes
-import androidx.appcompat.app.AppCompatDialog
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.mozhimen.kotlin.elemk.android.cons.CPermission
 import com.mozhimen.kotlin.elemk.android.view.cons.CWinMgr
 import com.mozhimen.kotlin.lintk.optins.permission.OPermission_SYSTEM_ALERT_WINDOW
-import com.mozhimen.kotlin.elemk.android.cons.CPermission
 import com.mozhimen.kotlin.utilk.android.app.isFinishingOrDestroyed
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.util.e
@@ -22,47 +25,31 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 /**
- * @ClassName BaseDialogK
- * @Date 2022/11/24 22:31
+ * @ClassName BaseDialogKBottomSheet
+ * @Description TODO
+ * @Author mozhimen
+ * @Date 2025/2/24
  * @Version 1.0
  */
-abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(context: Context, @StyleRes intResTheme: Int = com.mozhimen.xmlk.R.style.ThemeK_Dialog_Blur) :
-    AppCompatDialog(context, intResTheme),
+abstract class BaseDialogKBottomSheet<I : IDialogKClickListener> @JvmOverloads constructor(context: Context, @StyleRes intResTheme: Int = 0) :
+    BottomSheetDialog(context, intResTheme),
     IBaseDialogK<I> {
 
-//    private var _isHasSetWindowAttr = false
-//    private var _dialogMode = ADialogMode.BOTH
     private var _dialogView: View? = null
     private var _dialogClickListener: I? = null
+
 
     override fun getDialogClickListener(): I? =
         _dialogClickListener
 
-//    @ADialogMode
-//    override fun getDialogMode(): Int =
-//        _dialogMode
-
     //////////////////////////////////////////////////////////////////////////////
 
-    override fun setDialogClickListener(listener: I): BaseDialogK<*> {
+    override fun setDialogClickListener(listener: I): BaseDialogKBottomSheet<*> {
         this._dialogClickListener = listener
         return this
     }
 
-//    override fun setDialogMode(@ADialogMode mode: Int): BaseDialogK<*> {
-//        return setDialogMode(mode, true)
-//    }
-
-//    override fun setDialogMode(@ADialogMode mode: Int, callModeChange: Boolean): BaseDialogK<*> {
-//        val hasChange = this._dialogMode != mode
-//        this._dialogMode = mode
-//        if (hasChange && callModeChange) {
-//            onInitMode(mode)
-//        }
-//        return this
-//    }
-
-    override fun setDialogCancelable(flag: Boolean): BaseDialogK<*> {
+    override fun setDialogCancelable(flag: Boolean): BaseDialogKBottomSheet<*> {
         setCancelable(flag)
         return this
     }

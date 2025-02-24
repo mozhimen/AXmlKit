@@ -58,19 +58,19 @@ interface IBaseDialogK<I : IDialogKClickListener> : IUtilK {
 
     fun setDialogClickListener(listener: I): IBaseDialogK<*>
 
-    /**
-     * 设置dialog的模式, 设置后会回调到[.onInitMode]
-     * @param mode
-     */
-    fun setDialogMode(@ADialogMode mode: Int): IBaseDialogK<*>
+//    /**
+//     * 设置dialog的模式, 设置后会回调到[.onInitMode]
+//     * @param mode
+//     */
+//    fun setDialogMode(@ADialogMode mode: Int): IBaseDialogK<*>
 
-    /**
-     * 设置dialog的模式
-     * 设置后会回调到[.onInitMode]
-     * @param mode
-     * @param callModeChange false 禁止回调[.onInitMode]
-     */
-    fun setDialogMode(@ADialogMode mode: Int, callModeChange: Boolean): IBaseDialogK<*>
+//    /**
+//     * 设置dialog的模式
+//     * 设置后会回调到[.onInitMode]
+//     * @param mode
+//     * @param callModeChange false 禁止回调[.onInitMode]
+//     */
+//    fun setDialogMode(@ADialogMode mode: Int, callModeChange: Boolean): IBaseDialogK<*>
 
     /**
      * 设置可取消
