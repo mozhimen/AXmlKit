@@ -40,10 +40,10 @@ dependencies {
     }
     if (rootProject.name == "AXmlKit") {
         implementation project(':vhk')
-        implementation project(':recyclerk')
+        api project(':recyclerk')
     } else {
         implementation project(':AXmlKit:vhk')
-        implementation project(':AXmlKit:recyclerk')
+        api project(':AXmlKit:recyclerk')
     }
 
     testImplementation 'junit:junit:4.13.2'
