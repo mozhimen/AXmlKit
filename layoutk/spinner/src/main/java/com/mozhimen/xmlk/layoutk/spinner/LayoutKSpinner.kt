@@ -13,24 +13,29 @@ import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
  * @Date 2023/2/6 15:56
  * @Version 1.0
  */
-class LayoutKSpinner<T> @JvmOverloads constructor(
+class LayoutKSpinner @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.R.attr.spinnerStyle, popupTheme: Theme? = null
 ) : androidx.appcompat.widget.AppCompatSpinner(context, attrs, defStyleAttr, MODE_DROPDOWN, popupTheme) {
 
     private var _spinnerItemLayout = R.layout.layoutk_spinner_item
-    private var _items = arrayListOf<T>()
-    private var _arrayAdapter: ArrayAdapter<T>? = null
+    private var _items = arrayListOf<String>()
+    private var _arrayAdapter: ArrayAdapter<String>? = null
+
+    /////////////////////////////////////////////////////////////////
 
     init {
         dropDownWidth = LayoutParams.MATCH_PARENT
     }
 
-    fun setLayout(layoutId: Int): LayoutKSpinner<T> {
+    /////////////////////////////////////////////////////////////////
+
+
+    fun setLayout(layoutId: Int): LayoutKSpinner {
         _arrayAdapter = ArrayAdapter(context, layoutId.also { _spinnerItemLayout = it }, _items).also { this.adapter = it }
         return this
     }
 
-    fun setEntries(list: List<T>): LayoutKSpinner<T> {
+    fun setEntries(list: List<String>): LayoutKSpinner {
         _items.clear()
         _items.addAll(list)
         if (_arrayAdapter != null) {
@@ -45,7 +50,7 @@ class LayoutKSpinner<T> @JvmOverloads constructor(
         return this
     }
 
-    fun setSelectItem(obj: T) {
+    fun setSelectItem(obj: String) {
         setSelectItem(_items.indexOf(obj))
     }
 
@@ -56,7 +61,7 @@ class LayoutKSpinner<T> @JvmOverloads constructor(
     }
 
     @Suppress(CSuppress.UNCHECKED_CAST)
-    fun getSelectItem(): T? {
-        return if (_items.isNotEmpty()) this.selectedItem as? T? else null
+    fun getSelectItem(): String? {
+        return if (_items.isNotEmpty()) this.selectedItem as? String? else null
     }
 }
