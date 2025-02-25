@@ -20,12 +20,12 @@ import com.mozhimen.xmlk.dialogk.bases.annors.ADialogMode
 interface IBaseDialogK<I : IDialogKClickListener> : IUtilK {
     fun getDialogClickListener(): I?
 
-    /**
-     * 弹框模式
-     * @return Int
-     */
-    @ADialogMode
-    fun getDialogMode(): Int
+//    /**
+//     * 弹框模式
+//     * @return Int
+//     */
+//    @ADialogMode
+//    fun getDialogMode(): Int
 
     /**
      * 初始化window宽度
@@ -117,9 +117,9 @@ interface IBaseDialogK<I : IDialogKClickListener> : IUtilK {
      */
     fun onDestroyView()
 
-    /**
-     * 初始化Mode
-     * @param mode Int
-     */
-    fun onInitMode(@ADialogMode mode: Int) {}
+//    /**
+//     * 初始化Mode
+//     * @param mode Int
+//     */
+//    fun onInitMode(@ADialogMode mode: Int) {}
 }
