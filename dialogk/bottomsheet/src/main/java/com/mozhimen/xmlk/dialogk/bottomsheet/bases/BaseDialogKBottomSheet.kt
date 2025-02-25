@@ -176,13 +176,13 @@ abstract class BaseDialogKBottomSheet<I : IDialogKClickListener> @JvmOverloads c
     //////////////////////////////////////////////////////////////////////////////
 
     override fun getDialogWindowWidth(): Int =
-        ViewGroup.LayoutParams.WRAP_CONTENT
+        ViewGroup.LayoutParams.MATCH_PARENT
 
     override fun getDialogWindowHeight(): Int =
-        ViewGroup.LayoutParams.WRAP_CONTENT
+        ViewGroup.LayoutParams.MATCH_PARENT
 
     override fun getDialogWindowGravity(): Int =
-        Gravity.CENTER
+        Gravity.BOTTOM
 
     @StyleRes
     override fun getDialogWindowAnimations(): Int? =
