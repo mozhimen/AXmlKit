@@ -8,7 +8,6 @@ import androidx.annotation.StyleRes
 import com.mozhimen.kotlin.lintk.optins.permission.OPermission_SYSTEM_ALERT_WINDOW
 import com.mozhimen.kotlin.elemk.android.cons.CPermission
 import com.mozhimen.kotlin.utilk.commons.IUtilK
-import com.mozhimen.xmlk.dialogk.bases.annors.ADialogMode
 
 /**
  * @ClassName IBaseDialogK
@@ -17,8 +16,8 @@ import com.mozhimen.xmlk.dialogk.bases.annors.ADialogMode
  * @Date 2023/6/2 15:38
  * @Version 1.0
  */
-interface IBaseDialogK<I : IDialogKClickListener> : IUtilK {
-    fun getDialogClickListener(): I?
+interface IBaseDialogK : IUtilK {
+    fun getDialogClickListener(): IDialogKClickListener?
 
 //    /**
 //     * 弹框模式
@@ -56,7 +55,7 @@ interface IBaseDialogK<I : IDialogKClickListener> : IUtilK {
 
     //////////////////////////////////////////////////////////////////////////////
 
-    fun setDialogClickListener(listener: I): IBaseDialogK<*>
+    fun setDialogClickListener(listener: IDialogKClickListener): IBaseDialogK
 
 //    /**
 //     * 设置dialog的模式, 设置后会回调到[.onInitMode]
@@ -77,7 +76,7 @@ interface IBaseDialogK<I : IDialogKClickListener> : IUtilK {
      * @param flag Boolean
      * @return BaseDialogK<*>
      */
-    fun setDialogCancelable(flag: Boolean): IBaseDialogK<*>
+    fun setDialogCancelable(flag: Boolean): IBaseDialogK
 
     /**
      * 延迟显示

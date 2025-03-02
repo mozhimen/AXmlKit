@@ -1,5 +1,6 @@
 package com.mozhimen.xmlk.dialogk.bases.commons
 
+import android.app.Dialog
 import android.view.View
 import com.mozhimen.xmlk.dialogk.bases.BaseDialogK
 
@@ -15,11 +16,11 @@ interface IDialogKClickListener {
      * 点击确定
      * @param view View?
      */
-    fun <I : IDialogKClickListener> onClickPositive(view: View?, dialogK: BaseDialogK<I>) {}
+    fun onClickPositive(view: View?, dialog: Dialog) {}
 
     /**
      * 点击取消
      * @param view View?
      */
-    fun <I : IDialogKClickListener> onClickNegative(view: View?, dialogK: BaseDialogK<I>) {}
+    fun onClickNegative(view: View?, dialog: Dialog) {}
 }

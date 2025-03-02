@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.dialogk.databinding.bases
+package com.mozhimen.xmlk.dialogk.bottomsheet.databinding.bases
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,8 +6,7 @@ import android.view.View
 import androidx.annotation.StyleRes
 import androidx.databinding.ViewDataBinding
 import com.mozhimen.uik.databinding.utils.ViewDataBindingUtil
-import com.mozhimen.xmlk.R
-import com.mozhimen.xmlk.dialogk.bases.BaseDialogK
+import com.mozhimen.xmlk.dialogk.bottomsheet.bases.BaseDialogKBottomSheet
 
 /**
  * @ClassName BaseDialogKVB
@@ -16,7 +15,7 @@ import com.mozhimen.xmlk.dialogk.bases.BaseDialogK
  * @Date 2023/6/2 17:12
  * @Version 1.0
  */
-abstract class BaseDialogKVDB<VDB : ViewDataBinding> constructor(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogK(context, intResTheme) {
+abstract class BaseDialogKBottomSheetVDB<VDB : ViewDataBinding> constructor(context: Context, @StyleRes intResTheme: Int =  com.mozhimen.xmlk.R.style.ThemeK_Design_Light_BottomSheetDialog_Transparent) : BaseDialogKBottomSheet(context, intResTheme) {
 
     private var _vdb: VDB? = null
     protected val vdb get() = _vdb!!
@@ -25,7 +24,7 @@ abstract class BaseDialogKVDB<VDB : ViewDataBinding> constructor(context: Contex
 
     override fun onCreateView(inflater: LayoutInflater): View? {
         _vdb = ViewDataBindingUtil.get_ofClass<VDB>(this::class.java, inflater/*, 0*/).apply {
-            lifecycleOwner = this@BaseDialogKVDB
+            lifecycleOwner = this@BaseDialogKBottomSheetVDB
         }
         return vdb.root
     }

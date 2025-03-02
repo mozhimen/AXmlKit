@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.dialogk.databinding.bases
+package com.mozhimen.xmlk.dialogk.bottomsheet.databinding.bases
 
 import android.content.Context
 import androidx.annotation.StyleRes
@@ -8,7 +8,6 @@ import com.mozhimen.kotlin.elemk.androidx.lifecycle.commons.IDefaultLifecycleObs
 import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.basick.utils.runOnMainThread
-import com.mozhimen.xmlk.R
 
 /**
  * @ClassName BaseLifecycleDialogKVB
@@ -19,12 +18,12 @@ import com.mozhimen.xmlk.R
  */
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-abstract class BaseLifecycleDialogKVB<VB : ViewBinding>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogKVB<VB>(context, intResTheme), IDefaultLifecycleObserver {
+abstract class BaseLifecycleDialogKBottomSheetVB<VB : ViewBinding>(context: Context, @StyleRes intResTheme: Int =  com.mozhimen.xmlk.R.style.ThemeK_Design_Light_BottomSheetDialog_Transparent) : BaseDialogKBottomSheetVB<VB>(context, intResTheme), IDefaultLifecycleObserver {
 
     override fun bindLifecycle(owner: LifecycleOwner) {
         owner.runOnMainThread {
-            owner.lifecycle.removeObserver(this@BaseLifecycleDialogKVB)
-            owner.lifecycle.addObserver(this@BaseLifecycleDialogKVB)
+            owner.lifecycle.removeObserver(this@BaseLifecycleDialogKBottomSheetVB)
+            owner.lifecycle.addObserver(this@BaseLifecycleDialogKBottomSheetVB)
         }
     }
 

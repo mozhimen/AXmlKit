@@ -26,43 +26,24 @@ import kotlinx.coroutines.launch
  * @Date 2022/11/24 22:31
  * @Version 1.0
  */
-abstract class BaseDialogK<I : IDialogKClickListener> @JvmOverloads constructor(context: Context, @StyleRes intResTheme: Int = com.mozhimen.xmlk.R.style.ThemeK_Dialog_Blur) :
+abstract class BaseDialogK @JvmOverloads constructor(context: Context, @StyleRes intResTheme: Int = com.mozhimen.xmlk.R.style.ThemeK_Dialog_Blur) :
     AppCompatDialog(context, intResTheme),
-    IBaseDialogK<I> {
+    IBaseDialogK {
 
-//    private var _isHasSetWindowAttr = false
-//    private var _dialogMode = ADialogMode.BOTH
     private var _dialogView: View? = null
-    private var _dialogClickListener: I? = null
+    private var _dialogClickListener: IDialogKClickListener? = null
 
-    override fun getDialogClickListener(): I? =
+    override fun getDialogClickListener(): IDialogKClickListener? =
         _dialogClickListener
-
-//    @ADialogMode
-//    override fun getDialogMode(): Int =
-//        _dialogMode
 
     //////////////////////////////////////////////////////////////////////////////
 
-    override fun setDialogClickListener(listener: I): BaseDialogK<*> {
+    override fun setDialogClickListener(listener: IDialogKClickListener): BaseDialogK {
         this._dialogClickListener = listener
         return this
     }
 
-//    override fun setDialogMode(@ADialogMode mode: Int): BaseDialogK<*> {
-//        return setDialogMode(mode, true)
-//    }
-
-//    override fun setDialogMode(@ADialogMode mode: Int, callModeChange: Boolean): BaseDialogK<*> {
-//        val hasChange = this._dialogMode != mode
-//        this._dialogMode = mode
-//        if (hasChange && callModeChange) {
-//            onInitMode(mode)
-//        }
-//        return this
-//    }
-
-    override fun setDialogCancelable(flag: Boolean): BaseDialogK<*> {
+    override fun setDialogCancelable(flag: Boolean): BaseDialogK {
         setCancelable(flag)
         return this
     }

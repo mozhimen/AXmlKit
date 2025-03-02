@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresPermission
 import androidx.annotation.StyleRes
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.mozhimen.kotlin.elemk.android.cons.CPermission
 import com.mozhimen.kotlin.elemk.android.view.cons.CWinMgr
@@ -31,26 +32,36 @@ import kotlinx.coroutines.launch
  * @Date 2025/2/24
  * @Version 1.0
  */
-abstract class BaseDialogKBottomSheet<I : IDialogKClickListener> @JvmOverloads constructor(context: Context, @StyleRes intResTheme: Int = 0) :
+abstract class BaseDialogKBottomSheet @JvmOverloads constructor(context: Context, @StyleRes intResTheme: Int = com.mozhimen.xmlk.R.style.ThemeK_Design_Light_BottomSheetDialog_Transparent) :
     BottomSheetDialog(context, intResTheme),
-    IBaseDialogK<I> {
+    IBaseDialogK {
 
     private var _dialogView: View? = null
-    private var _dialogClickListener: I? = null
+    private var _dialogClickListener: IDialogKClickListener? = null
 
 
-    override fun getDialogClickListener(): I? =
+    override fun getDialogClickListener(): IDialogKClickListener? =
         _dialogClickListener
 
     //////////////////////////////////////////////////////////////////////////////
 
-    override fun setDialogClickListener(listener: I): BaseDialogKBottomSheet<*> {
+    override fun setDialogClickListener(listener: IDialogKClickListener): BaseDialogKBottomSheet {
         this._dialogClickListener = listener
         return this
     }
 
-    override fun setDialogCancelable(flag: Boolean): BaseDialogKBottomSheet<*> {
+    override fun setDialogCancelable(flag: Boolean): BaseDialogKBottomSheet {
         setCancelable(flag)
+        return this
+    }
+
+    fun setBehaviorIsDraggable(isDraggable: Boolean): BaseDialogKBottomSheet {
+        behavior.isDraggable = isDraggable
+        return this
+    }
+
+    fun setBehaviourState_STATE_EXPANDED(): BaseDialogKBottomSheet {
+        behavior.state = BottomSheetBehavior.STATE_EXPANDED
         return this
     }
 
@@ -153,16 +164,14 @@ abstract class BaseDialogKBottomSheet<I : IDialogKClickListener> @JvmOverloads c
         }
         if (_dialogView == null) return
         onViewCreated(_dialogView!!)
-//        onInitMode(_dialogMode)
         setContentView(_dialogView!!)
-        if (window != null /*&& !_isHasSetWindowAttr*/) {
+        if (window != null) {
             val layoutParams = window!!.attributes
             layoutParams.width = getDialogWindowWidth()
             layoutParams.height = getDialogWindowHeight()
             layoutParams.gravity = getDialogWindowGravity()
             getDialogWindowAnimations()?.let { window!!.setWindowAnimations(it) }
             window!!.attributes = layoutParams
-//            _isHasSetWindowAttr = true
         }
     }
 
@@ -179,7 +188,7 @@ abstract class BaseDialogKBottomSheet<I : IDialogKClickListener> @JvmOverloads c
         ViewGroup.LayoutParams.MATCH_PARENT
 
     override fun getDialogWindowHeight(): Int =
-        ViewGroup.LayoutParams.MATCH_PARENT
+        ViewGroup.LayoutParams.WRAP_CONTENT
 
     override fun getDialogWindowGravity(): Int =
         Gravity.BOTTOM

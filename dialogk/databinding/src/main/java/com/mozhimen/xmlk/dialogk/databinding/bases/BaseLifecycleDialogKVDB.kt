@@ -9,7 +9,6 @@ import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.basick.utils.runOnMainThread
 import com.mozhimen.xmlk.R
-import com.mozhimen.xmlk.dialogk.databinding.bases.commons.IDialogKVDBClickListener
 
 /**
  * @ClassName BaseLifecycleDialogKVB
@@ -20,7 +19,7 @@ import com.mozhimen.xmlk.dialogk.databinding.bases.commons.IDialogKVDBClickListe
  */
 @OApiCall_BindLifecycle
 @OApiInit_ByLazy
-abstract class BaseLifecycleDialogKVDB<VDB : ViewDataBinding, T : IDialogKVDBClickListener<VDB>>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogKVDB<VDB, T>(context, intResTheme), IDefaultLifecycleObserver {
+abstract class BaseLifecycleDialogKVDB<VDB : ViewDataBinding>(context: Context, @StyleRes intResTheme: Int = R.style.ThemeK_Dialog_Blur) : BaseDialogKVDB<VDB>(context, intResTheme), IDefaultLifecycleObserver {
 
     override fun bindLifecycle(owner: LifecycleOwner) {
         owner.runOnMainThread {
