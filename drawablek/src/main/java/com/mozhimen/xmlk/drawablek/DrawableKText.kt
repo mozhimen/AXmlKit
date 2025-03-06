@@ -8,6 +8,9 @@ import android.graphics.Rect
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.text.TextPaint
+import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
+import com.mozhimen.kotlin.utilk.kotlin.UtilKIntColor
+import com.mozhimen.kotlin.utilk.kotlin.UtilKStringWrapper
 
 /**
  * @ClassName DrawableKText
@@ -19,6 +22,11 @@ import android.text.TextPaint
 class DrawableKText(private val text: String, private val color: Int) : Drawable() {
     companion object {
         private const val DEFAULT_COLOR = Color.WHITE
+
+        @JvmStatic
+        fun getRandomColor(str: String): DrawableKText =
+            DrawableKText(UtilKStringWrapper.getAbbreviatedName(str).also { UtilKLogWrapper.d("DrawableKText>>>>>", "getRandomColor: $it") }, UtilKIntColor.get_ofRandom(str))
+
     }
 
     private val mTextBounds = Rect()
