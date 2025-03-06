@@ -7,7 +7,6 @@ import com.mozhimen.animk.builder.impls.AnimatorTranslationXYType
 import com.mozhimen.basick.utils.runOnBackThread
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
-import com.mozhimen.kotlin.utilk.android.view.UtilKStatusBar
 import com.mozhimen.kotlin.utilk.android.view.getLocation
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.kotlin.utilk.kotlin.intResDrawable2bitmapAny
