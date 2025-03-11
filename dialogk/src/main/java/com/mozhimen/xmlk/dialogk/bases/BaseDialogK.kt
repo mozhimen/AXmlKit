@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.*
+import androidx.activity.ComponentDialog
 import androidx.annotation.RequiresPermission
 import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatDialog
@@ -27,7 +28,7 @@ import kotlinx.coroutines.launch
  * @Version 1.0
  */
 abstract class BaseDialogK @JvmOverloads constructor(context: Context, @StyleRes intResTheme: Int = com.mozhimen.xmlk.R.style.ThemeK_Dialog_Blur) :
-    AppCompatDialog(context, intResTheme),
+    ComponentDialog(context, intResTheme),
     IBaseDialogK {
 
     private var _dialogView: View? = null
