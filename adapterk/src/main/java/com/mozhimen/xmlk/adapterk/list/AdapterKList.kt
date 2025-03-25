@@ -23,7 +23,7 @@ import com.mozhimen.xmlk.vhk.VHK
  */
 @OApiCall_Recycle
 abstract class AdapterKList<T>(
-    private val _datas: MutableList<T>,
+    protected val _datas: MutableList<T>,
     @LayoutRes private val _layoutId: Int
 ) : BaseAdapter(), LifecycleOwner {
 
