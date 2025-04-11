@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LayoutKCardRatio">
+        <attr name="layoutKCardRatio_ratioMode" format="enum">
+            <enum name="ratio_none" value="0" />
+            <enum name="ratio_1_1" value="1" />
+            <enum name="ratio_3_4" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="LayoutKMaterialCardRatio">
+        <attr name="layoutKMaterialCardRatio_ratioMode" format="enum">
+            <enum name="ratio_none" value="0" />
+            <enum name="ratio_1_1" value="1" />
+            <enum name="ratio_3_4" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

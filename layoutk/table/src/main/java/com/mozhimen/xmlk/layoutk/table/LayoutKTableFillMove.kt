@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.layoutk.grid
+package com.mozhimen.xmlk.layoutk.table
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -32,7 +32,7 @@ import com.mozhimen.xmlk.layoutk.untouch.LayoutKUnTouchGrid
  * @Date 2023/1/28 22:22
  * @Version 1.0
  */
-class LayoutKGridFillMove @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+class LayoutKTableFillMove @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
     BaseLayoutKFrame(context, attrs, defStyleAttr) {
 
     //region # variate

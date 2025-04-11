@@ -6,7 +6,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.kotlin.elemk.androidx.lifecycle.LifecycleOwnerProxy
+import com.mozhimen.kotlin.elemk.androidx.lifecycle.impls.LifecycleOwnerProxy
 import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
 import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnCreate
 import com.mozhimen.kotlin.utilk.androidx.lifecycle.handleLifecycleEventOnDestroy

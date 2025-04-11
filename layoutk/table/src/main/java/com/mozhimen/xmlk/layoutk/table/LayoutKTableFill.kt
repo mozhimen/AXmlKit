@@ -1,4 +1,4 @@
-package com.mozhimen.xmlk.layoutk.grid
+package com.mozhimen.xmlk.layoutk.table
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -13,9 +13,9 @@ import android.widget.GridLayout
 import com.mozhimen.animk.builder.AnimKBuilder
 import com.mozhimen.animk.builder.impls.AnimatorBackgroundColorType
 import com.mozhimen.kotlin.elemk.mos.MArea
-import com.mozhimen.kotlin.elemk.mos.MAreaF
+import com.mozhimen.kotlin.elemk.mos.MAreaF2
 import com.mozhimen.kotlin.utilk.android.util.dp2px
-import com.mozhimen.kotlin.utilk.android.view.UtilKMotionEvent
+import com.mozhimen.kotlin.utilk.kotlin.math.UtilKMathArea
 import com.mozhimen.kotlin.utilk.kotlin.ranges.constraint
 import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.basic.bases.BaseLayoutKFrame
@@ -28,7 +28,7 @@ import com.mozhimen.xmlk.basic.bases.BaseLayoutKFrame
  * @Date 2023/1/29 16:45
  * @Version 1.0
  */
-class LayoutKGridFill @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+class LayoutKTableFill @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
     BaseLayoutKFrame(context, attrs, defStyleAttr) {
 
     private var _gridRowCount = 10 //行数量
@@ -71,7 +71,7 @@ class LayoutKGridFill @JvmOverloads constructor(context: Context, attrs: Attribu
     private lateinit var _cells: Array<Array<View>>    //二维格子
     private val _areaCell by lazy { MArea((width - paddingLeft - paddingRight) / _gridColumnCount, (height - paddingTop - paddingBottom) / _gridRowCount) }
     private val _areaGrid by lazy {
-        MAreaF(
+        MAreaF2(
             (_areaCell.width * _gridColumnCount).toFloat(), (_areaCell.height * _gridRowCount).toFloat(),
             paddingLeft.toFloat() + (this.width.toFloat() - (_areaCell.width * _gridColumnCount).toFloat()) / 2f, paddingTop.toFloat() + (this.height.toFloat() - (_areaCell.height * _gridRowCount).toFloat()) / 2f
         )
@@ -164,7 +164,7 @@ class LayoutKGridFill @JvmOverloads constructor(context: Context, attrs: Attribu
         val y = event.y
         when (event.action) {
             MotionEvent.ACTION_MOVE -> {
-                if (UtilKMotionEvent.isTapInArea(x, y, _areaGrid.left, _areaGrid.top, _areaGrid.right, _areaGrid.bottom)) {
+                if (UtilKMathArea.isInside_android(x, y, _areaGrid.left, _areaGrid.top, _areaGrid.right, _areaGrid.bottom)) {
                     startGestureMoveAnim(x, y)
                 }
             }

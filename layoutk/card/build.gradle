@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.xmlk.layoutk.grid'
+    namespace 'com.mozhimen.xmlk.layoutk.card'
     compileSdk 34
 
     defaultConfig {
@@ -31,17 +31,18 @@ android {
 }
 
 dependencies {
-    if (rootProject.name=="AXmlKit"){
-        api project(':basic')
-        implementation project(':adapterk')
-        implementation project(':vhk')
-    }else {
-        api project(':AXmlKit:basic')
-        implementation project(':AXmlKit:adapterk')
-        implementation project(':AXmlKit:vhk')
+    if (rootProject.name == "ASwiftKit") {
+        implementation project(':basick')
+        implementation project(':xmlk')
+    } else {
+        implementation project(':ASwiftKit:basick')
+        implementation project(':ASwiftKit:xmlk')
     }
-    implementation project(':KUtilKit:android')
-
+    if (rootProject.name == "AXmlKit") {
+        implementation project(':basic')
+    } else {
+        implementation project(':AXmlKit:basic')
+    }
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'

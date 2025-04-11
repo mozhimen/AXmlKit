@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.mozhimen.xmlk.layoutk.grid'
+    namespace 'com.mozhimen.xmlk.layoutk.table'
     compileSdk 34
 
     defaultConfig {
@@ -31,16 +31,9 @@ android {
 }
 
 dependencies {
-    if (rootProject.name=="AXmlKit"){
-        api project(':basic')
-        implementation project(':adapterk')
-        implementation project(':vhk')
-    }else {
-        api project(':AXmlKit:basic')
-        implementation project(':AXmlKit:adapterk')
-        implementation project(':AXmlKit:vhk')
-    }
+    implementation project(':AAnimKit:builder')
     implementation project(':KUtilKit:android')
+    implementation project(':basic')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
