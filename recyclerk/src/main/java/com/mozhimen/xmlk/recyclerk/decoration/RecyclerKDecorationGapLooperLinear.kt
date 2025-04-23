@@ -28,53 +28,52 @@ class RecyclerKDecorationGapLooperLinear : RecyclerKDecorationGapLinear {
 
     ////////////////////////////////////////////////////////////////
 
-    private fun equilibriumAssignment_ofLooperLinearLayoutManager(recyclerView: RecyclerView, itemView: View, outRect: Rect, gapOuter: Int, gapInner: Int = gapOuter / 2, gapOther: Int = gapOuter) {
-        val itemCount = recyclerView.gainItemCount()// item 的个数
-        val itemPosition = recyclerView.getChildAdapterPosition(itemView)// 当前 item 的 position
+    private fun equilibriumAssignment_ofLooperLinearLayoutManager(recyclerView: RecyclerView, itemView: View, outRect: Rect, gapOuter: Int, gapInner: Int = gapOuter / 2, gapOpposite: Int = gapOuter) {
+        val itemPosition = recyclerView.getChildAdapterPosition(itemView).takeIf { it != RecyclerView.NO_POSITION } ?: return
+        val itemCount = recyclerView.gainItemCount().coerceAtLeast(0)// item 的个数
+        if (itemCount == 0) return
         val layoutManager = requireLayoutManager_ofLooperLinear(recyclerView) ?: return
-        val orientation = layoutManager.orientation// 获取 LinearLayoutManager 的布局方向
-        for (index in 0..itemCount) {// 遍历所有 item
-            when (itemPosition) {
-                0 -> {// 第一行/列
-                    if (orientation == RecyclerView.VERTICAL) {// 第一行/列 && VERTICAL 布局方式 -> 对item的底部特殊处理
-                        outRect.top = gapOuter
-                        outRect.bottom = gapInner
-                        outRect.left = gapOther
-                        outRect.right = gapOther
-                    } else {// 第一行/列 && HORIZONTAL 布局方式 -> 对item的右边特殊处理
-                        outRect.top = gapOther
-                        outRect.bottom = gapOther
-                        outRect.left = gapOuter
-                        outRect.right = gapInner
-                    }
+        val isVertical = layoutManager.orientation == RecyclerView.VERTICAL
+        when (itemPosition) {
+            0 -> {// 第一行/列
+                if (isVertical) {// 第一行/列 && VERTICAL 布局方式 -> 对item的底部特殊处理
+                    outRect.left = gapOpposite
+                    outRect.top = gapOuter
+                    outRect.right = gapOpposite
+                    outRect.bottom = gapInner
+                } else {// 第一行/列 && HORIZONTAL 布局方式 -> 对item的右边特殊处理
+                    outRect.left = gapOuter
+                    outRect.top = gapOpposite
+                    outRect.right = gapInner
+                    outRect.bottom = gapOpposite
                 }
+            }
 
-                itemCount - 1 -> {// 最后一行/列
-                    if (orientation == RecyclerView.VERTICAL) {// 最后一行/列 && VERTICAL 布局方式 -> 对item的顶部特殊处理
-                        outRect.top = gapInner
-                        outRect.bottom = gapOuter
-                        outRect.left = gapOther
-                        outRect.right = gapOther
-                    } else {// 最后一行/列 && HORIZONTAL 布局方式 -> 对item的左边特殊处理
-                        outRect.top = gapOther
-                        outRect.bottom = gapOther
-                        outRect.left = gapInner
-                        outRect.right = gapOuter
-                    }
+            itemCount - 1 -> {// 最后一行/列
+                if (isVertical) {// 最后一行/列 && VERTICAL 布局方式 -> 对item的顶部特殊处理
+                    outRect.left = gapOpposite
+                    outRect.top = gapInner
+                    outRect.right = gapOpposite
+                    outRect.bottom = gapOuter
+                } else {// 最后一行/列 && HORIZONTAL 布局方式 -> 对item的左边特殊处理
+                    outRect.left = gapInner
+                    outRect.top = gapOpposite
+                    outRect.right = gapOuter
+                    outRect.bottom = gapOpposite
                 }
+            }
 
-                else -> {// 中间的行/列
-                    if (orientation == RecyclerView.VERTICAL) {// 中间的行/列 && VERTICAL 布局方式 -> 对item的顶部和底部特殊处理
-                        outRect.top = gapInner
-                        outRect.bottom = gapInner
-                        outRect.left = gapOther
-                        outRect.right = gapOther
-                    } else {// 中间的行/列 && HORIZONTAL 布局方式 -> 对item的左边和右边特殊处理
-                        outRect.top = gapOther
-                        outRect.bottom = gapOther
-                        outRect.left = gapInner
-                        outRect.right = gapInner
-                    }
+            else -> {// 中间的行/列
+                if (isVertical) {// 中间的行/列 && VERTICAL 布局方式 -> 对item的顶部和底部特殊处理
+                    outRect.left = gapOpposite
+                    outRect.top = gapInner
+                    outRect.right = gapOpposite
+                    outRect.bottom = gapInner
+                } else {// 中间的行/列 && HORIZONTAL 布局方式 -> 对item的左边和右边特殊处理
+                    outRect.left = gapInner
+                    outRect.top = gapOpposite
+                    outRect.right = gapInner
+                    outRect.bottom = gapOpposite
                 }
             }
         }

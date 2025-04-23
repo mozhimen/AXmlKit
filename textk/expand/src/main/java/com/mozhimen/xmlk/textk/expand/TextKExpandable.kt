@@ -11,6 +11,7 @@ import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
 import com.mozhimen.animk.builder.utils.AnimKTypeUtil
 import com.mozhimen.kotlin.elemk.commons.IA_Listener
+import com.mozhimen.kotlin.utilk.android.view.applyLayoutParamsHeight
 import com.mozhimen.kotlin.utilk.android.widget.UtilKTextViewWrapper
 import com.mozhimen.xmlk.commons.IXmlK
 
@@ -31,7 +32,7 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
             this.post {
                 if (this.isAttachedToWindow) {
                     setLastIndexForLimit(value, width, _maxLines)
-                    isSelected = false
+                    setExpandState(false)
                 }
             }
             field = value
@@ -60,14 +61,21 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+    fun isExpand(): Boolean =
+        this.isSelected
+
+    fun setExpandState(isExpand: Boolean) {
+        this.isSelected = isExpand
+    }
+
     //折叠文本
     fun foldText() {
-        if (!this.isSelected) return
+        if (!isExpand()) return
         this.performClick()
     }
 
     fun expandText() {
-        if (this.isSelected) return
+        if (isExpand()) return
         this.performClick()
     }
 
@@ -102,21 +110,33 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
         if (staticLayout.lineCount > maxLine) {//判断content是行数是否超过最大限制行数3行
             _strExpand = content
             _strExpandHeight = staticLayout.lineCount * this.lineHeight
-            val position = staticLayout.getLineStart(maxLine) - 4//获取到第三行最后一个文字的下标-4是为了加...
-            val strFold = content.substring(0, position) + "..."//定义收起后的文本内容
-            _strFold = strFold
-            _strFoldHeight = maxLine * this.lineHeight
-            UtilKLogWrapper.d(TAG, "setLastIndexForLimit: _strExpandHeight $_strExpandHeight _strFoldHeight $_strFoldHeight ")
-            UtilKLogWrapper.d(
-                TAG,
-                "setLastIndexForLimit: _strExpandHeight ${UtilKTextViewWrapper.getLineHeight(this, staticLayout.lineCount)} _strFoldHeight ${UtilKTextViewWrapper.getLineHeight(this, maxLine)} "
-            )
+            //
+            if (maxLine > 0) {
+                val position = staticLayout.getLineStart(maxLine) - 4//获取到第三行最后一个文字的下标-4是为了加...
+                val strFold = content.substring(0, position) + "..."//定义收起后的文本内容
+                _strFold = strFold
+                _strFoldHeight = maxLine * this.lineHeight
+                UtilKLogWrapper.d(TAG, "setLastIndexForLimit: _strExpandHeight $_strExpandHeight _strFoldHeight $_strFoldHeight ")
+                UtilKLogWrapper.d(
+                    TAG,
+                    "setLastIndexForLimit: _strExpandHeight ${UtilKTextViewWrapper.getLineHeight(this, staticLayout.lineCount)} _strFoldHeight ${UtilKTextViewWrapper.getLineHeight(this, maxLine)} "
+                )
 
-            ///////////////////////////////////////////////////////////////////////////
+                ///////////////////////////////////////////////////////////////////////////
 
-            text = strFold//设置收起后的文本内容
+                text = strFold//设置收起后的文本内容
+            } else {
+                _strFold = ""
+                _strFoldHeight = 0
+                applyLayoutParamsHeight(_strFoldHeight)
+
+                ///////////////////////////////////////////////////////////////////////////
+
+                text = ""//设置收起后的文本内容
+            }
             setOnClickListener(this)
-            isSelected = true//将textview设成选中状态 true用来表示文本未展示完全的状态,false表示完全展示状态，用于点击时的判断
+            setExpandState(false)
+//            isSelected = true
             _textKIsExpandableListener?.invoke(true)
         } else {
             text = content//没有超过 直接设置文本
@@ -131,21 +151,26 @@ class TextKExpandable @JvmOverloads constructor(context: Context, attrs: Attribu
      */
     override fun onClick(v: View) {
         this.isSelected = !this.isSelected
-        if (this.isSelected) {
+        if (isExpand()) {
             text = _strExpand
             AnimKTypeUtil.get_ofHeight(this, _strFoldHeight, _strExpandHeight).build().start()
         } else {
             AnimKTypeUtil.get_ofHeight(this, _strExpandHeight, _strFoldHeight).addAnimatorListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator, isReverse: Boolean) {
                     text = _strFold
-                    UtilKLogWrapper.d(TAG, "onClick !isSelected height onAnimationEnd2 ${this@TextKExpandable.height}")
+                    if (_maxLines<=0){
+                        applyLayoutParamsHeight(_strFoldHeight)
+                    }
                 }
 
                 override fun onAnimationCancel(animation: Animator) {
                     text = _strFold
+                    if (_maxLines<=0){
+                        applyLayoutParamsHeight(_strFoldHeight)
+                    }
                 }
             }).build().start()
         }
-        _textKExpandListener?.invoke(this.isSelected)
+        _textKExpandListener?.invoke(isExpand())
     }
 }
