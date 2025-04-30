@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace 'com.mozhimen.xmlk.demo'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.mozhimen.xmlk.demo"

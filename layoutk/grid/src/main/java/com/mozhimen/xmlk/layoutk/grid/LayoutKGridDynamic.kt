@@ -30,7 +30,6 @@ class LayoutKGridDynamic @JvmOverloads constructor(context: Context, attrs: Attr
     @OptIn(OApiCall_Recycle::class)
     private var _adapter: DynamicGridLayoutAdapter<*>? = null
     private var _space = 0f
-    private var _onItemClickListener: OnItemClickListener? = null
 
     ///////////////////////////////////////////////////////////////////////////////
 
@@ -107,6 +106,8 @@ class LayoutKGridDynamic @JvmOverloads constructor(context: Context, attrs: Attr
             addView(view, lp)
         }
     }
+
+    ///////////////////////////////////////////////////////////////////////////////
 
     @OApiCall_Recycle
     abstract class DynamicGridLayoutAdapter<T>(datas: MutableList<T>, @LayoutRes layoutId: Int) : AdapterKList<T>(datas, layoutId)

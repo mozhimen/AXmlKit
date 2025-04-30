@@ -22,12 +22,14 @@ class LayoutKMaterialCardRatio @JvmOverloads constructor(
         const val RATIO_NONE = 0
         const val RATIO_1_1 = 1
         const val RATIO_3_4 = 2
+        const val RATIO_9_16 = 3
     }
 
     private var _ratioMode = RATIO_NONE
     private val _aspectRatio: Float
         get() = (when (_ratioMode) {
             RATIO_3_4 -> 4f / 3f
+            RATIO_9_16 -> 16f / 9f
             else -> 1f
         })
 
