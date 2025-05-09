@@ -19,6 +19,7 @@ class LayoutKMaterialCardRatio @JvmOverloads constructor(
 ) : MaterialCardView(context, attrs, defStyleAttr), ILayoutK {
 
     companion object {
+        const val RATIO_CUSTOM = -1
         const val RATIO_NONE = 0
         const val RATIO_1_1 = 1
         const val RATIO_3_4 = 2
@@ -26,11 +27,13 @@ class LayoutKMaterialCardRatio @JvmOverloads constructor(
     }
 
     private var _ratioMode = RATIO_NONE
+    private var _ratioCustom = 1f
     private val _aspectRatio: Float
         get() = (when (_ratioMode) {
             RATIO_3_4 -> 4f / 3f
             RATIO_9_16 -> 16f / 9f
-            else -> 1f
+            RATIO_1_1 -> 1f
+            else -> _ratioCustom
         })
 
     /////////////////////////////////////////////////////////////////
@@ -45,6 +48,7 @@ class LayoutKMaterialCardRatio @JvmOverloads constructor(
         attrs?.let {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LayoutKMaterialCardRatio)
             _ratioMode = typedArray.getInt(R.styleable.LayoutKMaterialCardRatio_layoutKMaterialCardRatio_ratioMode, _ratioMode)
+            _ratioCustom = typedArray.getFloat(R.styleable.LayoutKMaterialCardRatio_layoutKMaterialCardRatio_ratioCustom, _ratioCustom)
             typedArray.recycle()
         }
     }
