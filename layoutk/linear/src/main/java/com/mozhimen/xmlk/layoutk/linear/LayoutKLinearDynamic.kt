@@ -9,6 +9,7 @@ import com.mozhimen.kotlin.lintk.optins.OApiCall_Recycle
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.xmlk.adapterk.list.AdapterKList
 import com.mozhimen.xmlk.basic.commons.ILayoutK
+import androidx.core.content.withStyledAttributes
 
 /**
  * @ClassName LayoutKLinear
@@ -34,9 +35,9 @@ class LayoutKLinearDynamic @JvmOverloads constructor(context: Context, attrs: At
 
     override fun initAttrs(attrs: AttributeSet?) {
         attrs?.let {
-            val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LayoutKLinearDynamic)
-            _space = typedArray.getDimension(R.styleable.LayoutKLinearDynamic_layoutKLinearDynamic_spacing, _space)
-            typedArray.recycle()
+            context.withStyledAttributes(attrs, R.styleable.LayoutKLinearDynamic) {
+                _space = getDimension(R.styleable.LayoutKLinearDynamic_layoutKLinearDynamic_spacing, _space)
+            }
         }
     }
 
@@ -69,5 +70,5 @@ class LayoutKLinearDynamic @JvmOverloads constructor(context: Context, attrs: At
     ///////////////////////////////////////////////////////////////////////////////
 
     @OApiCall_Recycle
-    abstract class DynamicLinearLayoutAdapter<T>(datas: MutableList<T>, @LayoutRes layoutId: Int) : AdapterKList<T>(datas, layoutId)
+    abstract class DynamicLinearLayoutAdapter<T> constructor(datas: MutableList<T>, @LayoutRes layoutId: Int) : AdapterKList<T>(datas, layoutId)
 }

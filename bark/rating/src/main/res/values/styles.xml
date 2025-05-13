@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="StyleK_BarKRating">
+        <item name="android:numStars">5</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">12dp</item>
+        <item name="android:stepSize">1</item>
+        <item name="barKRating_starColor">@android:color/black</item>
+    </style>
+
+    <style name="StyleK_BarKRating.Show">
+        <item name="android:isIndicator">true</item>
+    </style>
+
+    <style name="StyleK_BarKRating.Edit">
+        <item name="android:layout_height">25dp</item>
+    </style>
+
+</resources>
