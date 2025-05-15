@@ -32,6 +32,7 @@ android {
 
 dependencies {
     implementation project(':KUtilKit:android')
+    implementation project(':ASerialKit:html:spanned')
     if (rootProject.name == "AXmlKit") {
         implementation project(':textk')
     } else {

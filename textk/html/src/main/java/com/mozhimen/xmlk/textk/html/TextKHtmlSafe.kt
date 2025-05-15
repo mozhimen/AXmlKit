@@ -18,6 +18,7 @@ import com.mozhimen.serialk.html.spanned.commons.ITagAOnClickListener
 import com.mozhimen.serialk.html.spanned.commons.ITagClickListenerProvider
 import com.mozhimen.serialk.html.spanned.impls.ClickableSpanTable
 import com.mozhimen.serialk.html.spanned.impls.ReplacementSpanDrawTableLink
+import com.mozhimen.xmlk.textk.TextKJellyBeanSpanFix
 import java.io.InputStream
 
 /**
@@ -27,7 +28,7 @@ import java.io.InputStream
  * @Date 2025/5/13
  * @Version 1.0
  */
-class TextKHtml @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : androidx.appcompat.widget.AppCompatTextView(context, attrs, defStyleAttr), IUtilK {
+class TextKHtmlSafe @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : TextKJellyBeanSpanFix(context, attrs, defStyleAttr), IUtilK {
     var blockQuoteBackgroundColor: Int = Color.WHITE
     var blockQuoteStripColor: Int = Color.BLACK
     var blockQuoteStripWidth: Float = 10f
@@ -78,7 +79,7 @@ class TextKHtml @JvmOverloads constructor(context: Context, attrs: AttributeSet?
      * HtmlLocalImageGetter and HtmlRemoteImageGetter
      */
     fun setHtml(html: String, imageGetter: Html.ImageGetter?) {
-        val styledText:Spanned = UtilHtmlSpanned.strHtml2spanned(
+        val styledText = UtilHtmlSpanned.strHtml2spanned(
             html, imageGetter, clickableTableSpan, drawTableLinkSpan,
             object :ITagClickListenerProvider{
                 override fun provideTagClickListener(): ITagAOnClickListener? {
@@ -126,24 +127,5 @@ class TextKHtml @JvmOverloads constructor(context: Context, attrs: AttributeSet?
      */
     fun setListIndentPx(px: Float) {
         this.indent = px
-    }
-
-    ///////////////////////////////////////////////////////////////////////////
-
-    private fun replaceQuoteSpans(spanned: Spanned) {
-        val spannable = spanned as Spannable
-        val quoteSpans = spannable.getSpans(0, spannable.length - 1, QuoteSpan::class.java)
-        for (quoteSpan in quoteSpans) {
-            val start = spannable.getSpanStart(quoteSpan)
-            val end = spannable.getSpanEnd(quoteSpan)
-            val flags = spannable.getSpanFlags(quoteSpan)
-            spannable.removeSpan(quoteSpan)
-            spannable.setSpan(
-                DesignQuoteSpan(blockQuoteBackgroundColor, blockQuoteStripColor, blockQuoteStripWidth, blockQuoteGap),
-                start,
-                end,
-                flags
-            )
-        }
     }
 }
