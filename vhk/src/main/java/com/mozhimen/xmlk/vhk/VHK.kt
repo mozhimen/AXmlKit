@@ -47,6 +47,9 @@ class VHK private constructor(context: Context, parent: ViewGroup, layoutId: Int
     }
         private set
 
+    val context: Context
+        get() = itemView.context
+
     /**
      * 获取条目位置//游标
      */
@@ -69,8 +72,8 @@ class VHK private constructor(context: Context, parent: ViewGroup, layoutId: Int
 
     @Suppress(CSuppress.UNCHECKED_CAST)
     fun <V : View> findViewByIdOrNull(@IdRes intResId: Int): V? {
-        var view = _viewCaches.get(intResId)?: return itemView.findViewById<V>(intResId)?.also {
-            _viewCaches.put(intResId,it)
+        var view = _viewCaches.get(intResId) ?: return itemView.findViewById<V>(intResId)?.also {
+            _viewCaches.put(intResId, it)
         }
         return view as? V?
     }
