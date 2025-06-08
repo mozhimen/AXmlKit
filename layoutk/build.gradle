@@ -33,9 +33,11 @@ android {
 dependencies {
 
     if (rootProject.name == "ASwiftKit") {
+        implementation project(':uik')
         implementation project(':basick')
         implementation project(':xmlk')
     } else {
+        implementation project(':ASwiftKit:uik')
         implementation project(':ASwiftKit:basick')
         implementation project(':ASwiftKit:xmlk')
     }
