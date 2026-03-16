@@ -12,7 +12,7 @@ import androidx.fragment.app.FragmentActivity
 import com.mozhimen.kotlin.utilk.android.content.startContext
 import com.mozhimen.kotlin.utilk.android.view.applyRequestFocus
 import com.mozhimen.kotlin.utilk.android.widget.value
-import com.mozhimen.kotlin.utilk.kotlin.ifNotEmpty
+import com.mozhimen.kotlin.utilk.kotlin.ifNotNullOrEmptyOr
 import com.mozhimen.xmlk.textk.edit.bar.bases.BaseEditBarHolder
 import com.mozhimen.xmlk.textk.edit.bar.commons.ITextKEditBarListener
 import com.mozhimen.xmlk.textk.edit.bar.cons.CTextKEditBar
@@ -123,9 +123,9 @@ class TextKEditBarActivity : FragmentActivity(), View.OnClickListener {
         _editBarHolder?.editId?.let {
             _edit = findViewById(it)
         }
-        _editBarHolder?.placeholder?.ifNotEmpty {
+        _editBarHolder?.placeholder?.ifNotNullOrEmptyOr(onOf = {
             _edit?.setText(it)
-        }
+        })
         _viewCancel?.setOnClickListener(this)
         _viewSubmit?.setOnClickListener(this)
         _edit?.post {

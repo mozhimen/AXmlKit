@@ -27,7 +27,7 @@ import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.kotlin.utilk.android.util.dp2pxI
 import com.mozhimen.kotlin.utilk.android.util.sp2px
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
-import com.mozhimen.kotlin.utilk.kotlin.ifNotEmpty
+import com.mozhimen.kotlin.utilk.kotlin.ifNotNullOrEmptyOr
 import com.mozhimen.kotlin.utilk.kotlin.intResDrawable2bitmapAny
 import com.mozhimen.kotlin.utilk.kotlin.strColor2intColor
 import com.mozhimen.xmlk.basic.bases.BaseViewK
@@ -307,7 +307,7 @@ class ViewKProgressWaveIcon @JvmOverloads constructor(context: Context, attrs: A
     }
 
     fun setText(text: String) {
-        text.ifNotEmpty { _text = text }
+        text.ifNotNullOrEmptyOr(onIf = { _text = text })
     }
 
     fun setTextSize(@Px textSize: Float) {
