@@ -123,7 +123,7 @@ class TextKEditBarActivity : FragmentActivity(), View.OnClickListener {
         _editBarHolder?.editId?.let {
             _edit = findViewById(it)
         }
-        _editBarHolder?.placeholder?.ifNotNullOrEmptyOr(onOf = {
+        _editBarHolder?.placeholder?.ifNotNullOrEmptyOr(onIf = {
             _edit?.setText(it)
         })
         _viewCancel?.setOnClickListener(this)
