@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import androidx.annotation.Px
-import com.mozhimen.kotlin.lintk.optins.permission.OPermission_INTERNET
+import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_INTERNET
 import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen
 import com.mozhimen.xmlk.layoutk.tab.commons.ILayoutKTab
@@ -22,7 +22,7 @@ import kotlin.math.abs
  * @Date 2022/4/15 23:36
  * @Version 1.0
  */
-@OPermission_INTERNET
+@OUsesPermission_INTERNET
 class LayoutKTabTop @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : HorizontalScrollView(context, attrs, defStyleAttr),
     ILayoutKTab<TabTopItem, MTabTop> {
 

@@ -5,8 +5,8 @@ import androidx.recyclerview.widget.AutoLooperLinearLayoutManager
 import androidx.recyclerview.widget.LooperLinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapterVDB

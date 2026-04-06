@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.RequiresPermission
 import androidx.annotation.StyleRes
-import com.mozhimen.kotlin.lintk.optins.permission.OPermission_SYSTEM_ALERT_WINDOW
+import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_SYSTEM_ALERT_WINDOW
 import com.mozhimen.kotlin.elemk.android.cons.CPermission
 import com.mozhimen.kotlin.utilk.commons.IUtilK
 
@@ -91,7 +91,7 @@ interface IBaseDialogK : IUtilK {
      * <h3>uses-permission Android:name="android.permission.SYSTEM_ALERT_WINDOW"
     </h3> */
     @RequiresPermission(CPermission.SYSTEM_ALERT_WINDOW)
-    @OPermission_SYSTEM_ALERT_WINDOW
+    @OUsesPermission_SYSTEM_ALERT_WINDOW
     fun showInSystemWindow()
 
     //////////////////////////////////////////////////////////////////////////////

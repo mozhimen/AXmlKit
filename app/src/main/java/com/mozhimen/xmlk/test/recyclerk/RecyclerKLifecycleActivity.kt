@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.elemk.mos.MKey
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.recyclerk.item.RecyclerKItemAdapterVDB
 import com.mozhimen.xmlk.test.R

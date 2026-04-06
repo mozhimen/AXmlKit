@@ -2,7 +2,7 @@ package com.mozhimen.xmlk.test.layoutk.tab
 
 import android.os.Bundle
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
-import com.mozhimen.kotlin.lintk.optins.permission.OPermission_INTERNET
+import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_INTERNET
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.kotlin.utilk.wrapper.UtilKRes
 import com.mozhimen.xmlk.layoutk.tab.commons.ITabSelectedListener
@@ -16,7 +16,7 @@ import com.mozhimen.xmlk.test.databinding.ActivityLayoutkTabTopLayoutBinding
  * @Author Kolin Zhao
  * @Version 1.0
  */
-@OptIn(OPermission_INTERNET::class)
+@OptIn(OUsesPermission_INTERNET::class)
 class LayoutKTabTopLayoutActivity : BaseActivityVDB<ActivityLayoutkTabTopLayoutBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {

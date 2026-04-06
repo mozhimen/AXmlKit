@@ -5,7 +5,7 @@ import androidx.core.os.postDelayed
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.basick.helpers.WakeBefPauseLifecycleHandler
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.kotlin.utilk.android.os.UtilKHandler
 import com.mozhimen.xmlk.layoutk.loadrefresh.commons.LoadRefreshLoadCallback
 import com.mozhimen.xmlk.layoutk.loadrefresh.commons.LoadRefreshRefreshCallback

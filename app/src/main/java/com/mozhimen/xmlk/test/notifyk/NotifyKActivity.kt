@@ -7,7 +7,7 @@ import android.view.View
 import androidx.core.app.NotificationCompat
 import com.mozhimen.kotlin.elemk.android.app.cons.CNotificationManager
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
-import com.mozhimen.kotlin.lintk.optins.permission.OPermission_POST_NOTIFICATIONS
+import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_POST_NOTIFICATIONS
 import com.mozhimen.kotlin.utilk.android.app.UtilKNotificationManager
 import com.mozhimen.kotlin.utilk.android.content.UtilKApplicationInfo
 import com.mozhimen.kotlin.utilk.android.os.UtilKBuildVersion
@@ -22,12 +22,12 @@ import com.mozhimen.xmlk.test.databinding.ActivityNotifykBinding
  */
 class NotifyKActivity : BaseActivityVDB<ActivityNotifykBinding>() {
     @SuppressLint("NewApi")
-    @OptIn(OPermission_POST_NOTIFICATIONS::class)
+    @OptIn(OUsesPermission_POST_NOTIFICATIONS::class)
     fun showNotification(view: View) {
         showNotification(this, NAME.hashCode(), "1", "2", "3", "4")
     }
 
-    @OPermission_POST_NOTIFICATIONS
+    @OUsesPermission_POST_NOTIFICATIONS
     fun showNotification(
         context: Context,
         id: Int,

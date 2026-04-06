@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.mozhimen.kotlin.elemk.commons.IAB_Listener
-import com.mozhimen.kotlin.lintk.optins.permission.OPermission_INTERNET
+import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_INTERNET
 import com.mozhimen.kotlin.utilk.android.widget.applyTypeface
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.imagek.glide.loadImageComplex_ofGlide
@@ -36,7 +36,7 @@ typealias ILayoutKSideListListener = IAB_Listener<VHKLifecycle2, MSideSubContent
  * @Author Kolin Zhao / Mozhimen
  * @Version 1.0
  */
-@OPermission_INTERNET
+@OUsesPermission_INTERNET
 class LayoutKSideList @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : BaseLayoutKLinear(context, attrs, defStyleAttr) {
 
     private val _menuView by lazy_ofNone { RecyclerView(context) }

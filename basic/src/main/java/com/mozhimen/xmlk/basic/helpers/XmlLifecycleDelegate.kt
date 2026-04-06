@@ -1,7 +1,7 @@
 package com.mozhimen.xmlk.basic.helpers
 
 import com.mozhimen.kotlin.elemk.androidx.lifecycle.impls.LifecycleOwnerProxy
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 
 /**
  * @ClassName XmlLifecycleDelegate

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.annotation.IdRes
 import com.mozhimen.kotlin.elemk.android.view.impls.ViewProxy
 import com.mozhimen.kotlin.elemk.kotlin.cons.CSuppress
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import java.lang.ref.WeakReference
 

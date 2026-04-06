@@ -9,8 +9,8 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mozhimen.xmlk.recyclerk.snap.test.model.SnapList
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
 import com.mozhimen.xmlk.recyclerk.decoration.RecyclerKDecorationLinearEdge
 import com.mozhimen.xmlk.recyclerk.snap.RecyclerKSnap
 import com.mozhimen.xmlk.recyclerk.snap.RecyclerKSnapHelperGravity

@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.mozhimen.imagek.glide.loadImage_ofGlide
-import com.mozhimen.kotlin.lintk.optins.permission.OPermission_INTERNET
+import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_INTERNET
 import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.bases.BaseLayoutKRelative
 import com.mozhimen.kotlin.utilk.android.view.applyLayoutParams
@@ -26,7 +26,7 @@ import com.mozhimen.xmlk.layoutk.tab.top.mos.MTabTop
  * @Date 2022/4/15 22:23
  * @Version 1.0
  */
-@OPermission_INTERNET
+@OUsesPermission_INTERNET
 class TabTopItem @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : BaseLayoutKRelative(context, attrs, defStyleAttr), ITabItem<MTabTop> {

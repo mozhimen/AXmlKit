@@ -5,9 +5,9 @@ import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.lifecycle.LifecycleOwner
 import com.mozhimen.basick.bases.BaseWakeBefDestroyLifecycleObserver
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiInit_ByLazy
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
 import com.mozhimen.xmlk.viewk.flipper.ViewKFlipper
 
 /**

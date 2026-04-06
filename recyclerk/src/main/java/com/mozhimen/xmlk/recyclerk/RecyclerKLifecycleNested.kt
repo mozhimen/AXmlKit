@@ -4,8 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
 import com.mozhimen.kotlin.elemk.android.view.cons.CMotionEvent
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.view.requestAllowInterceptTouchEvent
 import com.mozhimen.kotlin.utilk.androidx.recyclerview.UtilKRecyclerViewWrapper

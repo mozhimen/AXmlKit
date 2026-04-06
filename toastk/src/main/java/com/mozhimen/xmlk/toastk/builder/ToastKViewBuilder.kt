@@ -8,7 +8,7 @@ import com.mozhimen.kotlin.elemk.android.view.annors.AGravity
 import com.mozhimen.kotlin.elemk.android.view.cons.CGravity
 import com.mozhimen.kotlin.elemk.android.widget.annors.AToastDuration
 import com.mozhimen.kotlin.elemk.android.widget.cons.CToast
-import com.mozhimen.kotlin.lintk.optins.OApiDeprecated_Official_AfterV_30_11_R
+import com.mozhimen.kotlin.lintk.optins.api.OApiDeprecated_Official_AfterV_30_11_R
 import com.mozhimen.kotlin.utilk.bases.BaseUtilK
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
 import com.mozhimen.xmlk.toastk.R

@@ -3,14 +3,14 @@ package com.mozhimen.xmlk.test.layoutk.side
 import android.os.Bundle
 import android.widget.Toast
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
-import com.mozhimen.kotlin.lintk.optins.permission.OPermission_INTERNET
+import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_INTERNET
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.xmlk.vhk.VHKLifecycle2
 import com.mozhimen.xmlk.layoutk.side.list.ILayoutKSideListListener
 import com.mozhimen.xmlk.layoutk.side.list.mos.*
 import com.mozhimen.xmlk.test.databinding.ActivityLayoutkSideListBinding
 
-@OptIn(OPermission_INTERNET::class)
+@OptIn(OUsesPermission_INTERNET::class)
 class LayoutKSideActivity : BaseActivityVDB<ActivityLayoutkSideListBinding>() {
 
     override fun initView(savedInstanceState: Bundle?) {

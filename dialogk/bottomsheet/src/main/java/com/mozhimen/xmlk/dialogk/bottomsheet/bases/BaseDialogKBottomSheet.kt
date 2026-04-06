@@ -14,7 +14,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.mozhimen.kotlin.elemk.android.cons.CPermission
 import com.mozhimen.kotlin.elemk.android.view.cons.CWinMgr
-import com.mozhimen.kotlin.lintk.optins.permission.OPermission_SYSTEM_ALERT_WINDOW
+import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_SYSTEM_ALERT_WINDOW
 import com.mozhimen.kotlin.utilk.android.app.isFinishingOrDestroyed
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.util.e
@@ -117,7 +117,7 @@ abstract class BaseDialogKBottomSheet @JvmOverloads constructor(context: Context
     }
 
     @RequiresPermission(CPermission.SYSTEM_ALERT_WINDOW)
-    @OPermission_SYSTEM_ALERT_WINDOW
+    @OUsesPermission_SYSTEM_ALERT_WINDOW
     override fun showInSystemWindow() {
         try {
             val window = window ?: return

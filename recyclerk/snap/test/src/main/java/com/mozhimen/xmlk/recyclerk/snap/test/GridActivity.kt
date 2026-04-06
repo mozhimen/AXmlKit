@@ -3,8 +3,8 @@ package com.mozhimen.xmlk.recyclerk.snap.test
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
 import com.mozhimen.uik.databinding.bases.viewbinding.activity.BaseActivityVB
 import com.mozhimen.xmlk.recyclerk.snap.test.adapter.AppAdapter
 import com.mozhimen.xmlk.recyclerk.snap.test.databinding.ActivityGridBinding

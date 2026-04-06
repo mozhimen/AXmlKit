@@ -5,8 +5,8 @@ import android.content.res.TypedArray
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindLifecycle
-import com.mozhimen.kotlin.lintk.optins.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
 import com.mozhimen.xmlk.commons.ILayoutK
 import com.mozhimen.xmlk.recyclerk.RecyclerKLifecycleNested
 
