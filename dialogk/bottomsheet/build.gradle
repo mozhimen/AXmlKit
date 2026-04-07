@@ -37,7 +37,7 @@ dependencies {
     }else {
         api project(':AXmlKit:dialogk')
     }
-    implementation project(':KUtilKit:android')
+    implementation 'com.github.mozhimen.KUtilKit:android:0.0.2'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'

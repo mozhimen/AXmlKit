@@ -31,7 +31,7 @@ android {
 }
 
 dependencies {
-    implementation project(':KUtilKit:android')
+    implementation 'com.github.mozhimen.KUtilKit:android:0.0.2'
     implementation project(':ASwiftKit:xmlk')
 
     testImplementation 'junit:junit:4.13.2'
