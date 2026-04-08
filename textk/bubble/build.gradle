@@ -32,9 +32,9 @@ android {
 
 dependencies {
 
-    implementation project(':ASwiftKit:basick')
-    implementation project(':ASwiftKit:xmlk')
-    implementation project(':AAnimKit:animk')
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
+    implementation 'com.github.mozhimen.AAnimKit:animk:0.0.1'
     implementation project(':drawablek:arrow')
 
     testImplementation 'junit:junit:4.13.2'

@@ -31,9 +31,9 @@ android {
 }
 
 dependencies {
-    implementation project(':AAnimKit:builder')
-    implementation 'com.github.mozhimen.KUtilKit:android:0.0.3'
     implementation project(':basic')
+    implementation 'com.github.mozhimen.AAnimKit:builder:0.0.1'
+    implementation 'com.github.mozhimen.KUtilKit:android:0.0.3'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'

@@ -41,15 +41,14 @@ android {
 }
 
 dependencies {
-    implementation project(':ASwiftKit:uik:databinding')
-    implementation project(':ASwiftKit:xmlk')
+    implementation 'com.github.mozhimen.ASwiftKit:uik-databinding:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
+    implementation 'com.github.mozhimen.ATaskKit:taskk:0.0.1'
+    implementation 'com.github.mozhimen.AAnimKit:animk:0.0.1'
+    implementation 'com.github.mozhimen.AAnimKit:builder:0.0.1'
+    implementation 'com.github.mozhimen.ACacheKit:sharedpreferences:0.0.1'
     implementation project(':AImageKit:glide:blur')
     implementation project(':AImageKit:glide')
-    implementation project(':AAnimKit:animk')
-    implementation project(':AAnimKit:builder')
-    implementation project(':AAnimKit:builder')
-    implementation project(':ACacheKit:sharedpreferences')
-    implementation project(':ATaskKit:taskk')
     implementation project(':adapterk')
     implementation project(':bark')
     implementation project(':bark:rating')

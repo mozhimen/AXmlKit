@@ -31,12 +31,11 @@ android {
 }
 
 dependencies {
-
-    implementation project(':ASwiftKit:basick')
-    implementation project(':ASwiftKit:xmlk')
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
+    implementation 'com.github.mozhimen.AAnimKit:builder:0.0.1'
     implementation project(':recyclerk:load')
     implementation project(':ALibKit_Airbnb:lottie')
-    implementation project(':AAnimKit:builder')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

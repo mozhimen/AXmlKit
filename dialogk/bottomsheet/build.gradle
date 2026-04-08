@@ -31,12 +31,12 @@ android {
 }
 
 dependencies {
-    implementation project(':ASwiftKit:xmlk')
     if (rootProject.name=="AXmlKit"){
         api project(':dialogk')
     }else {
         api project(':AXmlKit:dialogk')
     }
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
     implementation 'com.github.mozhimen.KUtilKit:android:0.0.3'
 
     testImplementation 'junit:junit:4.13.2'

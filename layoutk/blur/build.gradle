@@ -35,12 +35,12 @@ dependencies {
     if (rootProject.name == "ASwiftKit") {
         implementation project(':basick')
     } else {
-        implementation project(':ASwiftKit:basick')
+        implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
     }
     if (rootProject.name == "ASwiftKit") {
         implementation project(':xmlk')
     } else {
-        implementation project(':ASwiftKit:xmlk')
+        implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
     }
     if (rootProject.name == "ASwiftKit") {
         implementation project(':blurk')

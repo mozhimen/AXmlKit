@@ -31,13 +31,8 @@ android {
 }
 
 dependencies {
-    if (rootProject.name == "ASwiftKit") {
-        implementation project(':basick')
-        implementation project(':xmlk')
-    } else {
-        implementation project(':ASwiftKit:basick')
-        implementation project(':ASwiftKit:xmlk')
-    }
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
     if (rootProject.name == "AXmlKit") {
         implementation project(':vhk')
         api project(':recyclerk')

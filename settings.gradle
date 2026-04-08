@@ -1,6 +1,10 @@
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+        maven { url "https://jitpack.io" }
         maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
@@ -11,10 +15,7 @@ dependencyResolutionManagement {
         maven { url 'https://gitee.com/liuchaoya/libcommon/raw/master/repository/' }
         maven { url "https://repo.eclipse.org/content/repositories/paho-snapshots/" }
         maven { url 'https://developer.huawei.com/repo/' }
-        maven { url "https://jitpack.io" }
         maven { url 'https://www.jitpack.io' }
-        mavenCentral()
-        google()
     }
 }
 
@@ -149,39 +150,6 @@ include ':AImageKit:glide:blur'
 include ':AAdaptKit'
 project(':AAdaptKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AAdaptKit")
 include ':AAdaptKit:systembar'
-//AAnimKit
-include ':AAnimKit'
-project(':AAnimKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AAnimKit")
-include ':AAnimKit:animk'
-include ':AAnimKit:builder'
-//ACacheKit
-include ':ACacheKit'
-project(':ACacheKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ACacheKit")
-include ':ACacheKit:sharedpreferences'
-include ':ACacheKit:basic'
-//ACacheKit
-include ':ACryptoKit'
-project(':ACryptoKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ACryptoKit")
-include ':ACryptoKit:basic'
-//APostKit
-include ':APostKit'
-project(':APostKit').projectDir = new File("D:\\WorkSpace\\GitHub\\APostKit")
-include ':APostKit:livedata'
-include ':APostKit:basic'
-//ATaskKit
-include ':ATaskKit'
-project(':ATaskKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ATaskKit")
-include ':ATaskKit:executor'
-include ':ATaskKit:taskk'
-//AStackKit
-include ':AStackKit'
-project(':AStackKit').projectDir = new File("D:\\WorkSpace\\GitHub\\AStackKit")
-include ':AStackKit:callback'
-include ':AStackKit:basic'
-//ASerialKit
-include ':ASerialKit'
-project(':ASerialKit').projectDir = new File("D:\\WorkSpace\\GitHub\\ASerialKit")
-include ':ASerialKit:html:spanned'
 
 
 include ':layoutk:guide'

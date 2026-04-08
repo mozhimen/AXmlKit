@@ -32,9 +32,9 @@ android {
 
 dependencies {
 
-    implementation project(':ASwiftKit:basick')
-	implementation project(':ASwiftKit:xmlk')
-	implementation project(':AAnimKit:builder')
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
+	implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
+    implementation 'com.github.mozhimen.AAnimKit:builder:0.0.1'
     if (rootProject.name=="AXmlKit"){
         implementation project(':interpolatork')
     }else {

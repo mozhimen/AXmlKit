@@ -32,8 +32,8 @@ android {
 
 dependencies {
 
-    implementation project(':ASwiftKit:basick')
-    implementation project(':ASwiftKit:xmlk')
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
     implementation project(':textk')
 
     testImplementation 'junit:junit:4.13.2'

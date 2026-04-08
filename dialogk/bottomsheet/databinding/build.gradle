@@ -31,13 +31,13 @@ android {
 }
 
 dependencies {
-    implementation project(':ASwiftKit:xmlk')
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
     if (rootProject.name=="AXmlKit"){
         api project(':dialogk:bottomsheet')
     }else {
         api project(':AXmlKit:dialogk:bottomsheet')
     }
-    implementation project(':ASwiftKit:uik:databinding')
+    implementation 'com.github.mozhimen.ASwiftKit:uik-databinding:2.0.3'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'

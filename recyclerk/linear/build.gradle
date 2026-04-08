@@ -36,8 +36,8 @@ android {
 
 dependencies {
 
-    implementation project(':ASwiftKit:basick')
-    implementation project(':ASwiftKit:xmlk')
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
     implementation project(':adapterk')
     implementation project(':recyclerk:item')
     implementation project(':vhk')

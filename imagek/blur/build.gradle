@@ -31,13 +31,12 @@ android {
 }
 
 dependencies {
-
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:blurk:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
+    implementation 'com.github.mozhimen.ATaskKit:executor:0.0.1'
+    implementation 'com.github.mozhimen.AAnimKit:builder:0.0.1'
     implementation project(':AImageKit:glide:blur')
-    implementation project(':ASwiftKit:basick')
-    implementation project(':ASwiftKit:blurk')
-    implementation project(':ASwiftKit:xmlk')
-    implementation project(':AAnimKit:builder')
-    implementation project(':ATaskKit:executor')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

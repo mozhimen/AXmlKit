@@ -36,8 +36,8 @@ dependencies {
     }else{
         api project(/*project.path.replace(project.name, '') +*/ ':AXmlKit:basic')
     }
-    implementation project(':ASwiftKit:basick')
-    implementation project(':ATaskKit:taskk')
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
+    implementation 'com.github.mozhimen.ATaskKit:taskk:0.0.1'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
