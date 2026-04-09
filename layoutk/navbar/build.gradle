@@ -31,15 +31,9 @@ android {
 }
 
 dependencies {
-    if (rootProject.name == "ASwiftKit") {
-        implementation project(':basick')
-        implementation project(':xmlk')
-        implementation project(':uik')
-    } else {
-        implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
-        implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
-        implementation project(':ASwiftKit:uik')
-    }
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:uik:2.0.3'
     if (rootProject.name == "AXmlKit") {
         implementation project(':basic')
     } else {

@@ -31,9 +31,9 @@ android {
 }
 
 dependencies {
-    implementation project(':ASwiftKit:blurk')
-    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
     implementation project(/*project.path.replace(project.name, '')+*/':viewk:blur')
+    implementation 'com.github.mozhimen.ASwiftKit:blurk:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

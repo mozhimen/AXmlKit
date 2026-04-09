@@ -39,10 +39,11 @@ android {
 dependencies {
     implementation 'com.github.mozhimen.ASwiftKit:uik-databinding:2.0.3'
     implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
+    implementation 'com.github.mozhimen.AAdaptKit:systembar:0.0.3'
+
     implementation project(':layoutk:blur')
     implementation project(':recyclerk:quick')
     implementation project(':vhk')
-    implementation project(':AAdaptKit:systembar')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

@@ -31,22 +31,9 @@ android {
 }
 
 dependencies {
-
-    if (rootProject.name == "ASwiftKit") {
-        implementation project(':basick')
-    } else {
-        implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
-    }
-    if (rootProject.name == "ASwiftKit") {
-        implementation project(':xmlk')
-    } else {
-        implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
-    }
-    if (rootProject.name == "ASwiftKit") {
-        implementation project(':blurk')
-    } else {
-        implementation project(':ASwiftKit:blurk')
-    }
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
+    implementation 'com.github.mozhimen.ASwiftKit:blurk:2.0.3'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
