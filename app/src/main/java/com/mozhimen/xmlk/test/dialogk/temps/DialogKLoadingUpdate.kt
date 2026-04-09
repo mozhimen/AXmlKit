@@ -24,7 +24,7 @@ class DialogKLoadingUpdate @JvmOverloads internal constructor(
     context: Context,
     private val _desc: String? = null,
     private val _descUpdate: String? = null
-) : BaseDialogK<IDialogKClickListener>(context) {
+) : BaseDialogK(context) {
 
     companion object {
         @JvmOverloads

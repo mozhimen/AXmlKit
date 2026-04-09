@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.mozhimen.xmlk.layoutk.grid.LayoutKGridFillMove
+        <com.mozhimen.xmlk.layoutk.table.LayoutKTableFillMove
             android:layout_width="400dp"
             android:layout_height="600dp"
             app:layout_constraintBottom_toBottomOf="parent"

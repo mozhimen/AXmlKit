@@ -19,7 +19,7 @@ import com.mozhimen.xmlk.test.R
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0
  */
-class DialogKLoadingAnim @JvmOverloads internal constructor(context: Context, private var _desc: String? = null) : BaseDialogK<IDialogKClickListener>(context) {
+class DialogKLoadingAnim @JvmOverloads internal constructor(context: Context, private var _desc: String? = null) : BaseDialogK(context) {
     private var _imgProgress: ImageView? = null
     private var _txtDesc: TextView? = null
     private val _rotateAnimation by lazy_ofNone { AnimationRotationRecyclerType().setDuration(1000).build() }

@@ -38,10 +38,10 @@ class RecyclerKItemLoadMore(private val index: Int?=null) : RecyclerKItem<VHKLif
             FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
         val textView = TextView(parent.context)
         textView.textSize = 18f
-        textView.setTextColor(UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_e8f3ff))
+        textView.setTextColor(UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_e8f3ff))
         textView.applyTypeface(Typeface.BOLD)
         textView.gravity = Gravity.CENTER
-        textView.setBackgroundColor(UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_4785ef))
+        textView.setBackgroundColor(UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_4785ef))
         frameLayout.addView(textView, textLP)
         frameLayout.setBackgroundColor(UtilKRes.gainColor(R.color.white))
         frameLayout.setPadding(0, 0, 0, 10f.dp2px().toInt())

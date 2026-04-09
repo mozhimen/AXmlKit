@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LayoutKTableFill">
+        <attr name="layoutKTableFill_gridRowCount" format="integer" />
+        <attr name="layoutKTableFill_gridColumnCount" format="integer" />
+        <attr name="layoutKTableFill_gridColor" format="color|reference" />
+        <attr name="layoutKTableFill_cellDefaultColor" format="color|reference" />
+        <attr name="layoutKTableFill_cellHoverColor" format="color|reference" />
+        <attr name="layoutKTableFill_cellSelectColor" format="color|reference" />
+        <attr name="layoutKTableFill_lineColor" format="color|reference" />
+        <attr name="layoutKTableFill_innerLineWidth" format="dimension|reference" />
+        <attr name="layoutKTableFill_outerLineWidth" format="dimension|reference" />
+    </declare-styleable>
+</resources>

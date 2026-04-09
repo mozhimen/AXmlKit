@@ -18,7 +18,7 @@ class LayoutKTabTopActivity : BaseActivityVDB<ActivityLayoutkTabTopBinding>() {
         MTabTop(
             "home",
             UtilKRes.gainColor(R.color.white),
-            UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_e8f3ff)
+            UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_e8f3ff)
         )
     }
 
@@ -27,7 +27,7 @@ class LayoutKTabTopActivity : BaseActivityVDB<ActivityLayoutkTabTopBinding>() {
             "more",
             R.drawable.layoutk_tab_bottom_layout_fire,
             R.drawable.layoutk_tab_bottom_layout_fire,
-            UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_4785ef)
+            UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_4785ef)
         )
     }
 
@@ -37,7 +37,7 @@ class LayoutKTabTopActivity : BaseActivityVDB<ActivityLayoutkTabTopBinding>() {
             R.drawable.layoutk_tab_bottom_layout_fire,
             R.drawable.layoutk_tab_bottom_layout_fire,
             UtilKRes.gainColor(R.color.white),
-            UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_e8f3ff)
+            UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_e8f3ff)
         )
     }
 

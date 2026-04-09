@@ -31,7 +31,6 @@ android {
 }
 
 dependencies {
-
     implementation 'com.github.mozhimen.KUtilKit:android:0.0.3'
 
     testImplementation 'junit:junit:4.13.2'

@@ -31,14 +31,9 @@ android {
 }
 
 dependencies {
-
-    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
-    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.3'
-    if (rootProject.name=="AXmlKit"){
-        implementation project(/*project.path.replace(project.name, '') +*/':drawablek:progress')
-    }else{
-        implementation project(/*project.path.replace(project.name, '') +*/':AXmlKit:drawablek:progress')
-    }
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.4'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.4'
+    implementation project(/*project.path.replace(project.name, '') +*/ ':drawablek-progress')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

@@ -9,6 +9,8 @@ import com.google.android.material.button.MaterialButton
 import com.mozhimen.kotlin.elemk.commons.IExt_Listener
 import com.mozhimen.kotlin.elemk.commons.I_Listener
 import com.mozhimen.kotlin.utilk.android.content.UtilKContext
+import com.mozhimen.kotlin.utilk.android.content.UtilKContextGet
+import com.mozhimen.kotlin.utilk.android.content.UtilKContextWrapper
 import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.xmlk.test.R
 
@@ -62,7 +64,7 @@ class DialogKQues @JvmOverloads constructor(context: Context, themeId: Int = 0) 
         }
 
         fun create(onSureClick: I_Listener? = null, onCancelClick: I_Listener? = null): DialogKQues {
-            val layoutInflater = UtilKContext.getLayoutInflater(_context)
+            val layoutInflater = UtilKContextGet.getSystemService_LAYOUT_INFLATER(_context)
             val dialogKQues = DialogKQues(_context, styleId)
             val view = layoutInflater.inflate(layoutId, null)
             dialogKQues.addContentView(

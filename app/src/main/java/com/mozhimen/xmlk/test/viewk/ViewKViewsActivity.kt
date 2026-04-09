@@ -10,6 +10,7 @@ import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import com.mozhimen.kotlin.utilk.android.view.getLocation
 import com.mozhimen.kotlin.utilk.android.widget.showToast
 import com.mozhimen.kotlin.utilk.kotlin.intResDrawable2bitmapAny
+import com.mozhimen.kotlin.utilk.wrapper.UtilKStatusBar
 import com.mozhimen.xmlk.test.databinding.ActivityViewkViewsBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -52,7 +53,7 @@ class ViewKViewsActivity : BaseActivityVDB<ActivityViewkViewsBinding>() {
             }
         }
 
-        UtilKLogWrapper.d(TAG, "initView: ${UtilKStatusBar.getHeight()} ${UtilKStatusBar.getHeight(this)} ${UtilKStatusBar.getHeight(true)}")
+        UtilKLogWrapper.d(TAG, "initView: ${UtilKStatusBar.getHeight_resources()} ${UtilKStatusBar.getHeight_runtime(this)} ${UtilKStatusBar.getHeight_resources_check(true)}")
         vdb.viewkImg.setOnClickListener {
             var xy = vdb.viewkImg.getLocation()
             UtilKLogWrapper.d(TAG, "initView: x ${vdb.viewkImg.x} y ${vdb.viewkImg.y} xy ${xy.first} ${xy.second}")

@@ -21,7 +21,7 @@ import com.mozhimen.xmlk.test.R
  * @Version 1.0
  */
 class DialogKLoadingAnimDrawable internal constructor(context: Context, private val _descStr: String?, private val _actionStr: String?, private val _listener: View.OnClickListener?) :
-    BaseDialogK<IDialogKClickListener>(context, com.mozhimen.xmlk.R.style.ThemeK_Dialog_Translucent) {
+    BaseDialogK(context, com.mozhimen.xmlk.R.style.ThemeK_Dialog_Translucent) {
 
     companion object {
         @JvmOverloads

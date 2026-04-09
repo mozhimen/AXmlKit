@@ -25,12 +25,12 @@ class ViewKSteps @JvmOverloads constructor(
     BaseViewK(context, attrs, defStyleAttr) {
 
     //region # variate
-    private var _doneLineColor = UtilKRes.gainColor(context, R.color.blue_normal)
-    private var _undoLineColor = UtilKRes.gainColor(context, R.color.blue_light)
-    private var _doneNumberColor = UtilKRes.gainColor(context, android.R.color.white)
-    private var _undoNumberColor = UtilKRes.gainColor(context, android.R.color.white)
-    private var _undoTitleColor = UtilKRes.gainColor(context, android.R.color.black)
-    private var _doneTitleColor = UtilKRes.gainColor(context, R.color.blue_light)
+    private var _doneLineColor = UtilKRes.gainColor( R.color.blue_normal,context)
+    private var _undoLineColor = UtilKRes.gainColor( R.color.blue_light,context)
+    private var _doneNumberColor = UtilKRes.gainColor( android.R.color.white,context)
+    private var _undoNumberColor = UtilKRes.gainColor( android.R.color.white,context)
+    private var _undoTitleColor = UtilKRes.gainColor( android.R.color.black,context)
+    private var _doneTitleColor = UtilKRes.gainColor( R.color.blue_light,context)
 
     private var _margin = 20f.dp2px()
     private var _titleMarginTop = 10f.dp2px()

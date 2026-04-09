@@ -31,13 +31,8 @@ android {
 }
 
 dependencies {
-
-    if (rootProject.name == "ASwiftKit") {
-        implementation project(':basick')
-    } else {
-        implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.3'
-    }
-    implementation project(project.path.replace(project.name, '') +':vhk')
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.4'
+    implementation project(project.path.replace(project.name, '') + ':vhk')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

@@ -1,5 +1,6 @@
 package com.mozhimen.xmlk.test.dialogk.temps
 
+import android.app.Dialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,7 @@ import kotlin.math.roundToInt
 
 typealias IDialogKTipListener = I_Listener
 
-class DialogKTip(context: Context, private val _txt: String, private var _onSure: IDialogKTipListener) : BaseDialogK<IDialogKClickListener>(context) {
+class DialogKTip(context: Context, private val _txt: String, private var _onSure: IDialogKTipListener) : BaseDialogK(context) {
 
     companion object {
         @JvmStatic
@@ -31,12 +32,12 @@ class DialogKTip(context: Context, private val _txt: String, private var _onSure
     init {
         setDialogCancelable(true)
         setDialogClickListener(object : IDialogKClickListener {
-            override fun <I : IDialogKClickListener> onClickPositive(view: View?, dialogK: BaseDialogK<I>) {
+            override fun onClickPositive(view: View?, dialog: Dialog) {
                 _onSure.invoke()
                 this@DialogKTip.dismiss()
             }
 
-            override fun <I : IDialogKClickListener> onClickNegative(view: View?, dialogK: BaseDialogK<I>) {
+            override fun onClickNegative(view: View?, dialog: Dialog) {
                 this@DialogKTip.dismiss()
             }
         })

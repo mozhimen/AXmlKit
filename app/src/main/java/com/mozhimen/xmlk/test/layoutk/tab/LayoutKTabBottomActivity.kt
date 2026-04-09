@@ -45,7 +45,7 @@ class LayoutKTabBottomActivity : BaseActivityVDB<ActivityLayoutkTabBottomBinding
             R.drawable.layoutk_tab_bottom_layout_fire,
             R.drawable.layoutk_tab_bottom_layout_fire,
             UtilKRes.gainColor(android.R.color.black),
-            UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_287ff1)
+            UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_287ff1)
         )
     }
 }

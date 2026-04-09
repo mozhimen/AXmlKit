@@ -10,7 +10,7 @@ import com.mozhimen.xmlk.recyclerk.quick.RecyclerKQuickAdapterVDB
 import com.mozhimen.xmlk.vhk.VHKLifecycle2VDB
 import com.mozhimen.xmlk.test.R
 import com.mozhimen.xmlk.test.BR
-import com.mozhimen.xmlk.test.databinding.ActivityAdapterkRecyclerVb2Binding
+import com.mozhimen.xmlk.test.databinding.ActivityAdapterkRecyclerVbBinding
 import com.mozhimen.xmlk.test.databinding.ItemAdapterkRecyclerVb2Binding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,7 +23,7 @@ import kotlinx.coroutines.withContext
  * @Author Mozhimen & Kolin Zhao
  * @Version 1.0
  */
-class RecyclerKQuickAdapterActivity : BaseActivityVDB<ActivityAdapterkRecyclerVb2Binding>() {
+class RecyclerKQuickAdapterActivity : BaseActivityVDB<ActivityAdapterkRecyclerVbBinding>() {
     private val _datas = mutableListOf<MKey>()
     private lateinit var _recyclerKQuickAdapter: RecyclerKQuickAdapterVDB<MKey, ItemAdapterkRecyclerVb2Binding>
 
@@ -37,7 +37,7 @@ class RecyclerKQuickAdapterActivity : BaseActivityVDB<ActivityAdapterkRecyclerVb
                 "${position}: data:${data}".showToast()
             }
         }
-        vdb.adapterkRecyclerVb2Recycler.apply {
+        vdb.adapterkRecyclerVbRv.apply {
             layoutManager = LinearLayoutManager(this@RecyclerKQuickAdapterActivity)
             adapter = _recyclerKQuickAdapter
         }

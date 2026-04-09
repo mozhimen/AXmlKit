@@ -36,7 +36,7 @@ class LayoutKTabBottomFragmentActivity : BaseActivityVDB<ActivityLayoutkTabBotto
             getString(R.string.icon_home),
             getString(R.string.icon_home),
             UtilKRes.gainColor(R.color.black),
-            UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_4785ef),
+            UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_4785ef),
         )
         val moreInfo = MTabBottom(
             "更多",
@@ -49,7 +49,7 @@ class LayoutKTabBottomFragmentActivity : BaseActivityVDB<ActivityLayoutkTabBotto
             getString(R.string.icon_mine),
             getString(R.string.icon_mine),
             UtilKRes.gainColor(R.color.black),
-            UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_4785ef),
+            UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_4785ef),
         )
         homeInfo.fragment = HomeFragment::class.java
         moreInfo.fragment = MoreFragment::class.java

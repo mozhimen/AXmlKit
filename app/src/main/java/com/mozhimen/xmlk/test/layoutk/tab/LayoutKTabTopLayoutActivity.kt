@@ -28,7 +28,7 @@ class LayoutKTabTopLayoutActivity : BaseActivityVDB<ActivityLayoutkTabTopLayoutB
             "推荐",
             R.drawable.layoutk_tab_bottom_layout_fire,
             R.drawable.layoutk_tab_bottom_layout_fire,
-            UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_4785ef)
+            UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_4785ef)
         )
     }
 
@@ -37,8 +37,8 @@ class LayoutKTabTopLayoutActivity : BaseActivityVDB<ActivityLayoutkTabTopLayoutB
             "推荐1",
             R.drawable.layoutk_tab_bottom_layout_fire,
             R.drawable.layoutk_tab_bottom_layout_fire,
-            UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_4785ef),
-            UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_287ff1)
+            UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_4785ef),
+            UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_287ff1)
         )
     }
 
@@ -48,8 +48,8 @@ class LayoutKTabTopLayoutActivity : BaseActivityVDB<ActivityLayoutkTabTopLayoutB
 
     private fun initTabTopLayout() {
         val infoList = ArrayList<MTabTop>()
-        val colorDefault = UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_4785ef)
-        val colorSelected = UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_287ff1)
+        val colorDefault = UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_4785ef)
+        val colorSelected = UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_287ff1)
         infoList.apply {
             add(_tabTop1)
             add(_tabTop2)
@@ -62,6 +62,6 @@ class LayoutKTabTopLayoutActivity : BaseActivityVDB<ActivityLayoutkTabTopLayoutB
             }
         })
         vdb.layoutkTabTopLayout.defaultSelected(infoList[0])
-        vdb.layoutkTabTopLayout.setTabTopBackground(UtilKRes.gainColor(com.mozhimen.xmlk.R.color.cok_blue_e8f3ff))
+        vdb.layoutkTabTopLayout.setTabTopBackground(UtilKRes.gainColor(com.mozhimen.uik.R.color.cok_blue_e8f3ff))
     }
 }
