@@ -26,8 +26,11 @@ buildscript {
 
 subprojects {
     apply plugin: 'maven-publish'
+    def versionToPublished = '0.0.3'
+    def groupIdToPublished = 'com.github.mozhimen.AXmlKit'
 
     afterEvaluate { project ->
+
         if (project.plugins.hasPlugin('java-library')) {
             publishing {
                 publications {
@@ -35,23 +38,118 @@ subprojects {
                         from components.java
                         groupId = 'com.github.mozhimen'
                         artifactId = project.name
-                        version = '0.0.2'
+                        version = versionToPublished
+
+                        pom.withXml {
+                            def dependenciesNode = asNode().appendNode("dependencies")
+
+                            // 在执行时获取依赖，而不是配置时
+                            def apiDeps = project.configurations.api.allDependencies.toList()
+                            def implDeps = project.configurations.implementation.allDependencies.toList()
+
+                            apiDeps.each { dep ->
+                                def depNode = dependenciesNode.appendNode("dependency")
+                                def groupId //= dep instanceof ProjectDependency ? project.rootProject.group.toString() : dep.group
+                                def version
+                                if(dep instanceof ProjectDependency){
+                                    groupId = groupIdToPublished
+                                    version = versionToPublished
+                                }else{
+                                    groupId = dep.group
+                                    version = dep.version
+                                }
+                                depNode.appendNode("groupId",groupId)
+                                depNode.appendNode("artifactId", dep.name)
+                                depNode.appendNode("version",version)
+                                depNode.appendNode("scope", "compile")
+
+                                println "[POM DEBUG] runtime dependency -> groupId: $groupId, artifactId: ${dep.name}, version: $version"
+                            }
+
+                            implDeps.each { dep ->
+                                def depNode = dependenciesNode.appendNode("dependency")
+                                def groupId //= dep instanceof ProjectDependency ? project.rootProject.group.toString() : dep.group
+                                def version
+                                if(dep instanceof ProjectDependency){
+                                    groupId = groupIdToPublished
+                                    version = versionToPublished
+                                }else{
+                                    groupId = dep.group
+                                    version = dep.version
+                                }
+                                depNode.appendNode("groupId",groupId)
+                                depNode.appendNode("artifactId", dep.name)
+                                depNode.appendNode("version",version)
+                                depNode.appendNode("scope", "compile")
+
+                                println "[POM DEBUG] runtime dependency -> groupId: $groupId, artifactId: ${dep.name}, version: $version"
+                            }
+                        }
                     }
                 }
             }
-        } else if (project.plugins.hasPlugin('com.android.library')) {
+        }
+
+        else if (project.plugins.hasPlugin('com.android.library')) {
             project.android.libraryVariants.all { variant ->
                 if (variant.buildType.name == "release") {
                     def releaseAar = project.tasks.named("bundle${variant.name.capitalize()}Aar")
+
                     publishing {
                         publications {
                             create("release", MavenPublication) {
                                 groupId = 'com.github.mozhimen'
                                 artifactId = project.name
-                                version = '0.0.2'
+                                version = versionToPublished
 
                                 artifact(releaseAar) {
                                     builtBy releaseAar
+                                }
+
+                                pom.withXml {
+                                    def dependenciesNode = asNode().appendNode("dependencies")
+
+                                    // 在执行时获取依赖
+                                    def apiDeps = project.configurations.api.allDependencies.toList()
+                                    def implDeps = project.configurations.implementation.allDependencies.toList()
+
+                                    apiDeps.each { dep ->
+                                        def depNode = dependenciesNode.appendNode("dependency")
+                                        def groupId //= dep instanceof ProjectDependency ? project.rootProject.group.toString() : dep.group
+                                        def version
+                                        if(dep instanceof ProjectDependency){
+                                            groupId = groupIdToPublished
+                                            version = versionToPublished
+                                        }else{
+                                            groupId = dep.group
+                                            version = dep.version
+                                        }
+                                        depNode.appendNode("groupId",groupId)
+                                        depNode.appendNode("artifactId", dep.name)
+                                        depNode.appendNode("version",version)
+                                        depNode.appendNode("scope", "compile")
+
+                                        println "[POM DEBUG] runtime dependency -> groupId: $groupId, artifactId: ${dep.name}, version: $version"
+                                    }
+
+                                    implDeps.each { dep ->
+                                        def depNode = dependenciesNode.appendNode("dependency")
+                                        def groupId //= dep instanceof ProjectDependency ? project.rootProject.group.toString() : dep.group
+                                        def version
+                                        if(dep instanceof ProjectDependency){
+                                            groupId = groupIdToPublished
+                                            version = versionToPublished
+                                        }else{
+                                            groupId = dep.group
+                                            version = dep.version
+                                        }
+                                        depNode.appendNode("groupId",groupId)
+                                        depNode.appendNode("artifactId", dep.name)
+                                        depNode.appendNode("version",version)
+                                        depNode.appendNode("scope", "compile")
+
+                                        println "[POM DEBUG] runtime dependency -> groupId: $groupId, artifactId: ${dep.name}, version: $version"
+                                    }
                                 }
                             }
                         }
