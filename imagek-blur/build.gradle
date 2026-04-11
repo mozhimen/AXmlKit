@@ -31,9 +31,9 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.4'
-    implementation 'com.github.mozhimen.ASwiftKit:blurk:2.0.4'
-    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.4'
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.1.6'
+    implementation 'com.github.mozhimen.ASwiftKit:blurk:2.1.6'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.1.6'
     implementation 'com.github.mozhimen.ATaskKit:executor:0.0.1'
     implementation 'com.github.mozhimen.AAnimKit:builder:0.0.1'
     implementation 'com.github.mozhimen.ANetKit:glide-blur:0.0.2'

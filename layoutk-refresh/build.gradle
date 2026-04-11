@@ -32,8 +32,8 @@ android {
 
 dependencies {
     implementation project(':recyclerk-load')
-    implementation 'com.github.mozhimen.ASwiftKit:basick:2.0.4'
-    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.0.4'
+    implementation 'com.github.mozhimen.ASwiftKit:basick:2.1.6'
+    implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.1.6'
     implementation 'com.github.mozhimen.AAnimKit:builder:0.0.1'
     implementation 'com.github.mozhimen.ALibKit_Airbnb:lottie:0.0.1'
 

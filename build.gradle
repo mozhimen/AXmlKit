@@ -26,7 +26,7 @@ buildscript {
 
 subprojects {
     apply plugin: 'maven-publish'
-    def versionToPublished = '0.0.3'
+    def versionToPublished = '0.0.5'
     def groupIdToPublished = 'com.github.mozhimen.AXmlKit'
 
     afterEvaluate { project ->

@@ -5,7 +5,7 @@ Version 2.0.5 **(1021-3-19)**
 ----------------------------
  - Fix onStarted is called twice. ([#120](https://github.com/TakuSemba/Spotlight/issues/120))
 
-Version 2.0.4 **(1021-2-27)**
+Version 2.1.6 **(1021-2-27)**
 ----------------------------
  - Update Kotlin to 1.4.31.
 
