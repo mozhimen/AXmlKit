@@ -37,7 +37,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.mozhimen.ASwiftKit:uik-databinding:2.0.4'
+    implementation 'com.github.mozhimen.ASwiftKit:uik-databinding:2.1.6'
     implementation project(':viewk-flipper')
 
     testImplementation 'junit:junit:4.13.2'
