@@ -31,7 +31,11 @@ android {
 }
 
 dependencies {
-    api project(':dialogk')
+    if (rootProject.name == "AXmlKit"){
+        api project(':dialogk')
+    } else {
+        api project(':AXmlKit:dialogk')
+    }
     implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.1.6'
     implementation 'com.github.mozhimen.ASwiftKit:uik-databinding:2.1.6'
 

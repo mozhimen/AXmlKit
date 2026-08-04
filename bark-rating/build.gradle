@@ -33,7 +33,11 @@ android {
 dependencies {
 
     implementation 'com.github.mozhimen.ASwiftKit:basick:2.1.6'
-    implementation project(/*project.path.replace(project.name, '') +*/ ':drawablek')
+    if (rootProject.name == "AXmlKit"){
+        implementation project(':drawablek')
+    } else {
+        implementation project(':AXmlKit:drawablek')
+    }
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

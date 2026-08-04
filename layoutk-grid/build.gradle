@@ -31,9 +31,15 @@ android {
 }
 
 dependencies {
-    api project(':basic')
-    implementation project(':adapterk')
-    implementation project(':vhk')
+    if (rootProject.name == "AXmlKit"){
+        api project(':basic')
+        implementation project(':adapterk')
+        implementation project(':vhk')
+    } else {
+        api project(':AXmlKit:basic')
+        implementation project(':AXmlKit:adapterk')
+        implementation project(':AXmlKit:vhk')
+    }
     implementation 'com.github.mozhimen.KUtilKit:android:0.0.3'
 
     testImplementation 'junit:junit:4.13.2'

@@ -33,7 +33,11 @@ android {
 dependencies {
     implementation 'com.github.mozhimen.ASwiftKit:basick:2.1.6'
     implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.1.6'
-    implementation project(':basic')
+    if (rootProject.name == "AXmlKit"){
+        implementation project(':basic')
+    } else {
+        implementation project(':AXmlKit:basic')
+    }
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'

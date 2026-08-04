@@ -33,7 +33,11 @@ android {
 dependencies {
     implementation 'com.github.mozhimen.KUtilKit:android:0.0.3'
     implementation 'com.github.mozhimen.ASerialKit:html-spanned:0.0.2'
+    if (rootProject.name == "AXmlKit"){
         implementation project(':textk')
+    } else {
+        implementation project(':AXmlKit:textk')
+    }
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
