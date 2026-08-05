@@ -34,7 +34,7 @@ dependencies {
     implementation 'com.github.mozhimen.ASwiftKit:basick:2.1.6'
     implementation 'com.github.mozhimen.ASwiftKit:xmlk:2.1.6'
     implementation 'com.github.mozhimen.ASwiftKit:uik:2.1.6'
-    implementation 'com.github.mozhimen.ANetKit:glide:0.0.6'
+    implementation 'com.github.mozhimen.ANetKit:glide:0.0.7'
     implementation project(':layoutk-empty')
     implementation project(':layoutk-refresh')
     implementation project(':vhk')

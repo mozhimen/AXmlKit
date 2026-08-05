@@ -47,8 +47,8 @@ dependencies {
     implementation 'com.github.mozhimen.AAnimKit:animk:0.0.1'
     implementation 'com.github.mozhimen.AAnimKit:builder:0.0.1'
     implementation 'com.github.mozhimen.ACacheKit:sharedpreferences:0.0.1'
-    implementation 'com.github.mozhimen.ANetKit:glide:0.0.6'
-    implementation 'com.github.mozhimen.ANetKit:glide-blur:0.0.6'
+    implementation 'com.github.mozhimen.ANetKit:glide:0.0.7'
+    implementation 'com.github.mozhimen.ANetKit:glide-blur:0.0.7'
 
     implementation project(':adapterk')
     implementation project(':bark')

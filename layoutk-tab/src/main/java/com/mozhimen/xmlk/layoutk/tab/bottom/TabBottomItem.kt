@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.mozhimen.imagek.glide.loadImage_ofGlide
+import com.mozhimen.netk.glide.loadImage_ofGlide
 import com.mozhimen.kotlin.utilk.android.util.dp2px
 import com.mozhimen.kotlin.utilk.android.view.applyLayoutParams
 import com.mozhimen.kotlin.utilk.android.widget.applyTypeface_ofAsset

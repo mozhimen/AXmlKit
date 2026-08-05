@@ -20,7 +20,7 @@ import com.mozhimen.kotlin.elemk.commons.IAB_Listener
 import com.mozhimen.kotlin.lintk.optins.manifest.uses_permission.OUsesPermission_INTERNET
 import com.mozhimen.kotlin.utilk.android.widget.applyTypeface
 import com.mozhimen.kotlin.utilk.kotlin.UtilKLazyJVM.lazy_ofNone
-import com.mozhimen.imagek.glide.loadImageComplex_ofGlide
+import com.mozhimen.netk.glide.loadImageComplex_ofGlide
 import com.mozhimen.xmlk.bases.BaseLayoutKLinear
 import com.mozhimen.xmlk.layoutk.side.R
 import com.mozhimen.xmlk.vhk.VHKLifecycle2

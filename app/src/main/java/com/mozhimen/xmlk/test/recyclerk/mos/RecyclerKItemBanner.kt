@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.mozhimen.cachek.sharedpreferences.CacheKSP
-import com.mozhimen.imagek.glide.loadImage_ofGlide
+import com.mozhimen.netk.glide.loadImage_ofGlide
 import com.mozhimen.xmlk.layoutk.banner.IBannerItemChangeListener
 import com.mozhimen.xmlk.layoutk.banner.bases.BaseBannerItem
 import com.mozhimen.xmlk.layoutk.banner.commons.IBannerBindListener
