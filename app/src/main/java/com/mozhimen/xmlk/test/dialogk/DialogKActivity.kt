@@ -1,20 +1,41 @@
 package com.mozhimen.xmlk.test.dialogk
 
+import android.app.Activity
+import android.app.Dialog
+import android.content.Context
 import com.mozhimen.kotlin.utilk.android.util.UtilKLogWrapper
 import android.view.View
+import androidx.annotation.StyleRes
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.doOnAttach
+import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
+import com.mozhimen.basick.impls.proxys.DialogProxy
 import com.mozhimen.uik.databinding.bases.viewdatabinding.activity.BaseActivityVDB
 import com.mozhimen.kotlin.elemk.commons.I_Listener
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiCall_BindViewLifecycle
+import com.mozhimen.kotlin.lintk.optins.api.OApiInit_ByLazy
+import com.mozhimen.kotlin.utilk.android.app.UtilKActivityWrapper
 import com.mozhimen.kotlin.utilk.android.widget.showToast
+import com.mozhimen.kotlin.utilk.kotlin.ifNotNullOrEmptyOr
+import com.mozhimen.kotlin.utilk.wrapper.UtilKScreen
+import com.mozhimen.xmlk.dialogk.bases.commons.IDialogKClickListener
+import com.mozhimen.xmlk.dialogk.databinding.bases.BaseDialogKVDB
 import com.mozhimen.xmlk.test.dialogk.temps.DialogKLoadingAnim
 import com.mozhimen.xmlk.test.dialogk.temps.DialogKLoadingAnimDrawable
 import com.mozhimen.xmlk.test.dialogk.temps.DialogKQues
 import com.mozhimen.xmlk.test.R
 import com.mozhimen.xmlk.test.databinding.ActivityDialogkBinding
+import com.mozhimen.xmlk.test.databinding.LayoutTxtBinding
 import com.mozhimen.xmlk.test.dialogk.temps.DialogKLoadingUpdate
 import com.mozhimen.xmlk.test.dialogk.temps.DialogKTipVDB
 import com.mozhimen.xmlk.test.dialogk.temps.IDialogKTipListener
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class DialogKActivity : BaseActivityVDB<ActivityDialogkBinding>() {
@@ -146,4 +167,121 @@ class DialogKActivity : BaseActivityVDB<ActivityDialogkBinding>() {
             _dialogKTipVDB?.dismiss()
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////
+
+    @OptIn(OApiInit_ByLazy::class, OApiCall_BindLifecycle::class, OApiCall_BindViewLifecycle::class)
+    val dialogTxtProxy: DialogTxtProxy by lazy { DialogTxtProxy() }
+
+    @OptIn(OApiInit_ByLazy::class, OApiCall_BindLifecycle::class, OApiCall_BindViewLifecycle::class)
+    fun goDialogTextEdge(view: View){
+        dialogTxtProxy.showDialogMomently(this,BundleDialogTxt("这是一个研究EdgeToEdge的示例"),1000)
+    }
+
+    data class BundleDialogTxt(
+        val content: String,
+    )
+
+    @OApiInit_ByLazy
+    @OApiCall_BindLifecycle
+    @OApiCall_BindViewLifecycle
+    class DialogTxtProxy : DialogProxy<DialogTxt, BundleDialogTxt>() {
+        override fun showDialog(activity: Activity, params: BundleDialogTxt) {
+            if (_dialog == null)
+                _dialog = DialogTxt(activity, params.content)
+            else {
+                if (_dialog!!.isShowing && UtilKActivityWrapper.getFloatWindowSize(activity) > 2)
+                    _dialog!!.dismiss()
+                _dialog!!.setContent(params.content)
+            }
+            _dialog!!.show()
+        }
+
+        fun showDialogMomently(activity: Activity, params: BundleDialogTxt, delay: Long) {
+            if (activity is LifecycleOwner) {
+                activity.lifecycleScope.launch {
+                    showDialog(activity, params)
+                    delay(delay)
+                    dismissDialog()
+                }
+            }
+        }
+    }
+
+    abstract class BaseMBDialogVDB<VDB : ViewDataBinding>
+    constructor(
+        context: Context,
+        @StyleRes intResTheme: Int = com.mozhimen.xmlk.R.style.ThemeK_Dialog_Blur,
+    ) : BaseDialogKVDB<VDB>(context, intResTheme) {
+        override fun getDialogWindowWidth(): Int {
+            return (UtilKScreen.getWidth_ofDisplayMetrics_ofSys().toFloat() * 8f / 9f).toInt()
+        }
+
+        override fun getDialogWindowAnimations(): Int {
+            return com.mozhimen.animk.R.style.AnimK_Theme_Scale_Center
+        }
+    }
+
+    class DialogTxt constructor(
+        context: Context,
+        private var _content: String,
+    ) :
+        BaseMBDialogVDB<LayoutTxtBinding>(context) {
+
+        ////////////////////////////////////////////////////////////////////////////////
+
+        init {
+            setCancelable(true)
+            setCanceledOnTouchOutside(true)
+            setDialogClickListener(object : IDialogKClickListener {
+                override fun onClickNegative(view: View?, dialog: Dialog) {
+                    this@DialogTxt.dismiss()
+                }
+            })
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////
+
+        override fun onViewCreated(view: View) {
+            val dialogWindow = window ?: return
+            WindowCompat.setDecorFitsSystemWindows(dialogWindow, false)
+
+            val initialPaddingLeft = view.paddingLeft
+            val initialPaddingTop = view.paddingTop
+            val initialPaddingRight = view.paddingRight
+            val initialPaddingBottom = view.paddingBottom
+
+            ViewCompat.setOnApplyWindowInsetsListener(view) { targetView, insets ->
+                val safeInsets = insets.getInsets(
+                    WindowInsetsCompat.Type.systemBars() or
+                            WindowInsetsCompat.Type.displayCutout()
+                )
+
+                targetView.setPadding(
+                    initialPaddingLeft + safeInsets.left,
+                    initialPaddingTop + safeInsets.top,
+                    initialPaddingRight + safeInsets.right,
+                    initialPaddingBottom + safeInsets.bottom
+                )
+
+                insets
+            }
+
+            view.doOnAttach {
+                ViewCompat.requestApplyInsets(it)
+            }
+
+            //
+
+            setContent(_content)
+            vdb.btnClose.setOnClickListener { getDialogClickListener()?.onClickNegative(it, this) }
+        }
+
+        ////////////////////////////////////////////////////////////////////////////////
+
+        fun setContent(content: String) {
+            content.ifNotNullOrEmptyOr(onIf = {
+                vdb.description.setText(it.also { _content = it })
+            })
+        }
+    }
 }

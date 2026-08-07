@@ -14,11 +14,6 @@
         <activity
             android:name=".XmlKActivity"
             android:exported="true">
-            <!--           <intent-filter>
-                           <action android:name="android.intent.action.MAIN" />
-
-                           <category android:name="android.intent.category.LAUNCHER" />
-                       </intent-filter>-->
         </activity>
         <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
         <!-- toastk -->
@@ -38,7 +33,13 @@
         <!-- dialogk -->
         <activity
             android:name=".dialogk.DialogKActivity"
-            android:exported="false" /> <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- ///////////////////////////////////////////////////////////////////////////////////// -->
         <!-- drawablek -->
         <activity
             android:name=".drawablek.DrawableKArrowActivity"
@@ -88,11 +89,7 @@
         <activity
             android:name=".layoutk.LayoutKSpinnerActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".layoutk.LayoutKActivity"
